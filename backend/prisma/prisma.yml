@@ -1,0 +1,12 @@
+endpoint: http://localhost:4466
+datamodel: datamodel.prisma
+databaseType: document
+secret: ${env:MY_SECRET}
+# disableAuth: true
+generate:
+    - generator: javascript-client
+      output: ./generated/prisma-client/
+
+# hooks:
+#   post-deploy:
+#     - prisma1 generate
