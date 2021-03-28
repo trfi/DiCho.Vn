@@ -1,6 +1,22 @@
 type User {
   id: ID! @id
-  name: String!
+  phone: String! @unique
+  email: String
+  emailVerified: Boolean @default(value: false)
+  name: String
+  gender: [Gender]
   password: String!
-  email: String! @unique
+  birthday: DateTime
+  permission: [Permission]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+enum Gender {
+    M
+    F
+    O
+}
+enum Permission {
+    ADMIN
+    USER
 }

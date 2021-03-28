@@ -15,7 +15,6 @@ export const db = new Prisma({
 });
 
 const getCurrentUser = async (request) => {
-    console.log(request.headers);
     if (!request.headers.token) {
         return null;
     }
@@ -31,7 +30,6 @@ const server = new GraphQLServer({
     resolvers,
     context: async ({ request }) => {
         const me = await getCurrentUser(request);
-        console.log(me);
         return {
           me,
           prisma: db,
@@ -39,6 +37,7 @@ const server = new GraphQLServer({
     }
 });
 
-server.start({ port: process.env.PORT }, () => {
-    console.log('App running on http://localhost:4400');
+const port = process.env.PORT
+server.start({ port }, () => {
+    console.log(`App running on http://localhost:${port}`);
 });

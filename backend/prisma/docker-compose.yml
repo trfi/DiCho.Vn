@@ -10,7 +10,7 @@ services:
         managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET}
         port: ${PRISMA_PORT}
         databases:
-          default:
+          chotot:
             connector: ${PRISMA_DB_CONNECTOR}
             uri: ${PRISMA_DB_URI}
   mongo:

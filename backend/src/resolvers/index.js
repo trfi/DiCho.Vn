@@ -37,10 +37,11 @@ export default {
         }
     },
     Mutation: {
-        signUp: async (parent, { email, name, password }, { prisma }) => {
+        signUp: async (parent, req, { prisma }) => {
             try {
-                const hashedPassword = bcrypt.hashSync(password, 12);
-                const user = await prisma.createUser({ email, name, password: hashedPassword });
+                const { phone , password, name } = req
+                const hashedPassword = bcrypt.hashSync(password, 8);
+                const user = await prisma.createUser({ phone, name, password: hashedPassword });
                 const token = jwt.sign({ user }, process.env.JWT_SECRET_KEY, { expiresIn: 36000 });
                 return { token };
             } catch (error) {

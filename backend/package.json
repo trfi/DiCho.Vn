@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node -e js,graphql ./src/index.js"
+    "dev": "nodemon --exec babel-node -e js,graphql ./src/index.js",
+    "test": "nodemon ./test/test2.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.13.12",
     "bcrypt": "^5.0.1",
+    "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "graphql-resolvers": "^0.4.2",
     "graphql-yoga": "^1.18.3",

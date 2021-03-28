@@ -15,5 +15,19 @@ type Query {
 }
 
 type Mutation {
-    signUp(email: String!, name: String!, password: String!): Token
+    signUp(data: signUpInput): Token
+}
+
+input signUpInput {
+    phone: String!
+    email: String
+    name: Stirng
+    gender: [Gender]
+    password: Stirng!
+}
+
+enum Gender {
+    M
+    F
+    O
 }
