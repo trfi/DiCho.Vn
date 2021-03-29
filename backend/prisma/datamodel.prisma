@@ -5,6 +5,7 @@ type User {
   email: String
   emailVerified: Boolean @default(value: false)
   name: String
+  username: String
   gender: [Gender]
   password: String!
   birthday: DateTime
