@@ -22,13 +22,13 @@ export default {
                 return user;
             }
         ),
-        signIn: async (parent, { email, password }, { prisma }) => {
+        signIn: async (parent, { phone, password }, { prisma }) => {
             try {
-                const user = await prisma.user({ email });
+                const user = await prisma.user({ phone });
                 if (!user) {
                     throw new Error('Invalid credentials');
                 }
-                const passwordMatch = crypto.compare(password, user.password, secretKey);
+                const passwordMatch = crypto.compare(password, user.password, process.env.CRYPTO_SECRET_KEY);
                 if (!passwordMatch) {
                     throw new Error('Invalid credentials');
                 }
@@ -40,11 +40,14 @@ export default {
         }
     },
     Mutation: {
-        signUp: async (parent, req, { prisma }) => {
+        signUp: async (parent, args, { prisma }) => {
             try {
-                const { phone , password } = req;
-                const hashedPassword = crypto.encrypt(password, secretKey);
-                const user = await prisma.createUser({ phone, password: hashedPassword });
+                console.log(args);
+                const { password, ...data } = args
+                console.log(data);
+                const hashedPassword = crypto.encrypt(password, process.env.CRYPTO_SECRET_KEY);
+                const user = await prisma.createUser({ ...data, password: hashedPassword });
+                console.log(user);
                 const token = jwt.sign({ user }, process.env.JWT_SECRET_KEY, { expiresIn: 36000 });
                 return { token };
             } catch (error) {

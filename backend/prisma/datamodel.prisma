@@ -10,7 +10,7 @@ type User {
   password: String!
   birthday: DateTime
   address: String
-  permission: [Permission]
+  permission: [Permission] @default(value: 'USER')
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

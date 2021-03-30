@@ -101,21 +101,41 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type Gender = "M" | "F" | "O";
+
+export type Permission = "ADMIN" | "MODERATOR" | "USER";
+
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "phone_ASC"
+  | "phone_DESC"
+  | "phoneVerified_ASC"
+  | "phoneVerified_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "emailVerified_ASC"
+  | "emailVerified_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "username_ASC"
+  | "username_DESC"
   | "password_ASC"
   | "password_DESC"
-  | "email_ASC"
-  | "email_DESC";
+  | "birthday_ASC"
+  | "birthday_DESC"
+  | "address_ASC"
+  | "address_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  email?: Maybe<String>;
+  phone?: Maybe<String>;
 }>;
 
 export interface UserWhereInput {
@@ -133,34 +153,22 @@ export interface UserWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
+  phone?: Maybe<String>;
+  phone_not?: Maybe<String>;
+  phone_in?: Maybe<String[] | String>;
+  phone_not_in?: Maybe<String[] | String>;
+  phone_lt?: Maybe<String>;
+  phone_lte?: Maybe<String>;
+  phone_gt?: Maybe<String>;
+  phone_gte?: Maybe<String>;
+  phone_contains?: Maybe<String>;
+  phone_not_contains?: Maybe<String>;
+  phone_starts_with?: Maybe<String>;
+  phone_not_starts_with?: Maybe<String>;
+  phone_ends_with?: Maybe<String>;
+  phone_not_ends_with?: Maybe<String>;
+  phoneVerified?: Maybe<Boolean>;
+  phoneVerified_not?: Maybe<Boolean>;
   email?: Maybe<String>;
   email_not?: Maybe<String>;
   email_in?: Maybe<String[] | String>;
@@ -175,26 +183,148 @@ export interface UserWhereInput {
   email_not_starts_with?: Maybe<String>;
   email_ends_with?: Maybe<String>;
   email_not_ends_with?: Maybe<String>;
+  emailVerified?: Maybe<Boolean>;
+  emailVerified_not?: Maybe<Boolean>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  username?: Maybe<String>;
+  username_not?: Maybe<String>;
+  username_in?: Maybe<String[] | String>;
+  username_not_in?: Maybe<String[] | String>;
+  username_lt?: Maybe<String>;
+  username_lte?: Maybe<String>;
+  username_gt?: Maybe<String>;
+  username_gte?: Maybe<String>;
+  username_contains?: Maybe<String>;
+  username_not_contains?: Maybe<String>;
+  username_starts_with?: Maybe<String>;
+  username_not_starts_with?: Maybe<String>;
+  username_ends_with?: Maybe<String>;
+  username_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  birthday?: Maybe<DateTimeInput>;
+  birthday_not?: Maybe<DateTimeInput>;
+  birthday_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  birthday_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  birthday_lt?: Maybe<DateTimeInput>;
+  birthday_lte?: Maybe<DateTimeInput>;
+  birthday_gt?: Maybe<DateTimeInput>;
+  birthday_gte?: Maybe<DateTimeInput>;
+  address?: Maybe<String>;
+  address_not?: Maybe<String>;
+  address_in?: Maybe<String[] | String>;
+  address_not_in?: Maybe<String[] | String>;
+  address_lt?: Maybe<String>;
+  address_lte?: Maybe<String>;
+  address_gt?: Maybe<String>;
+  address_gte?: Maybe<String>;
+  address_contains?: Maybe<String>;
+  address_not_contains?: Maybe<String>;
+  address_starts_with?: Maybe<String>;
+  address_not_starts_with?: Maybe<String>;
+  address_ends_with?: Maybe<String>;
+  address_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
-  name: String;
+  phone: String;
+  phoneVerified?: Maybe<Boolean>;
+  email?: Maybe<String>;
+  emailVerified?: Maybe<Boolean>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  gender?: Maybe<UserCreategenderInput>;
   password: String;
-  email: String;
+  birthday?: Maybe<DateTimeInput>;
+  address?: Maybe<String>;
+  permission?: Maybe<UserCreatepermissionInput>;
+}
+
+export interface UserCreategenderInput {
+  set?: Maybe<Gender[] | Gender>;
+}
+
+export interface UserCreatepermissionInput {
+  set?: Maybe<Permission[] | Permission>;
 }
 
 export interface UserUpdateInput {
-  name?: Maybe<String>;
-  password?: Maybe<String>;
+  phone?: Maybe<String>;
+  phoneVerified?: Maybe<Boolean>;
   email?: Maybe<String>;
+  emailVerified?: Maybe<Boolean>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  gender?: Maybe<UserUpdategenderInput>;
+  password?: Maybe<String>;
+  birthday?: Maybe<DateTimeInput>;
+  address?: Maybe<String>;
+  permission?: Maybe<UserUpdatepermissionInput>;
+}
+
+export interface UserUpdategenderInput {
+  set?: Maybe<Gender[] | Gender>;
+}
+
+export interface UserUpdatepermissionInput {
+  set?: Maybe<Permission[] | Permission>;
 }
 
 export interface UserUpdateManyMutationInput {
-  name?: Maybe<String>;
-  password?: Maybe<String>;
+  phone?: Maybe<String>;
+  phoneVerified?: Maybe<Boolean>;
   email?: Maybe<String>;
+  emailVerified?: Maybe<Boolean>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  gender?: Maybe<UserUpdategenderInput>;
+  password?: Maybe<String>;
+  birthday?: Maybe<DateTimeInput>;
+  address?: Maybe<String>;
+  permission?: Maybe<UserUpdatepermissionInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -212,34 +342,74 @@ export interface NodeNode {
 
 export interface User {
   id: ID_Output;
-  name: String;
+  phone: String;
+  phoneVerified?: Boolean;
+  email?: String;
+  emailVerified?: Boolean;
+  name?: String;
+  username?: String;
+  gender: Gender[];
   password: String;
-  email: String;
+  birthday?: DateTimeOutput;
+  address?: String;
+  permission: Permission[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  password: () => Promise<String>;
+  phone: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
   email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  gender: () => Promise<Gender[]>;
+  password: () => Promise<String>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  permission: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserSubscription
   extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
   email: () => Promise<AsyncIterator<String>>;
+  emailVerified: () => Promise<AsyncIterator<Boolean>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  gender: () => Promise<AsyncIterator<Gender[]>>;
+  password: () => Promise<AsyncIterator<String>>;
+  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
+  address: () => Promise<AsyncIterator<String>>;
+  permission: () => Promise<AsyncIterator<Permission[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserNullablePromise
   extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  password: () => Promise<String>;
+  phone: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
   email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  gender: () => Promise<Gender[]>;
+  password: () => Promise<String>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  permission: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserConnection {
@@ -362,27 +532,57 @@ export interface UserSubscriptionPayloadSubscription
 
 export interface UserPreviousValues {
   id: ID_Output;
-  name: String;
+  phone: String;
+  phoneVerified?: Boolean;
+  email?: String;
+  emailVerified?: Boolean;
+  name?: String;
+  username?: String;
+  gender: Gender[];
   password: String;
-  email: String;
+  birthday?: DateTimeOutput;
+  address?: String;
+  permission: Permission[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface UserPreviousValuesPromise
   extends Promise<UserPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  password: () => Promise<String>;
+  phone: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
   email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  gender: () => Promise<Gender[]>;
+  password: () => Promise<String>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  permission: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserPreviousValuesSubscription
   extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
   email: () => Promise<AsyncIterator<String>>;
+  emailVerified: () => Promise<AsyncIterator<Boolean>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  gender: () => Promise<AsyncIterator<Gender[]>>;
+  password: () => Promise<AsyncIterator<String>>;
+  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
+  address: () => Promise<AsyncIterator<String>>;
+  permission: () => Promise<AsyncIterator<Permission[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -397,14 +597,24 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-/*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
 
 export type Long = string;
 
@@ -415,6 +625,14 @@ export type Long = string;
 export const models: Model[] = [
   {
     name: "User",
+    embedded: false
+  },
+  {
+    name: "Gender",
+    embedded: false
+  },
+  {
+    name: "Permission",
     embedded: false
   }
 ];

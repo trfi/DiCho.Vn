@@ -11,6 +11,14 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
+enum Gender {
+  M
+  F
+  O
+}
+
 scalar Long
 
 type Mutation {
@@ -39,6 +47,12 @@ type PageInfo {
   endCursor: String
 }
 
+enum Permission {
+  ADMIN
+  MODERATOR
+  USER
+}
+
 type Query {
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
@@ -52,9 +66,19 @@ type Subscription {
 
 type User {
   id: ID!
-  name: String!
+  phone: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  gender: [Gender!]!
   password: String!
-  email: String!
+  birthday: DateTime
+  address: String
+  permission: [Permission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type UserConnection {
@@ -63,11 +87,27 @@ type UserConnection {
   aggregate: AggregateUser!
 }
 
+input UserCreategenderInput {
+  set: [Gender!]
+}
+
 input UserCreateInput {
   id: ID
-  name: String!
+  phone: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  gender: UserCreategenderInput
   password: String!
-  email: String!
+  birthday: DateTime
+  address: String
+  permission: UserCreatepermissionInput
+}
+
+input UserCreatepermissionInput {
+  set: [Permission!]
 }
 
 type UserEdge {
@@ -78,19 +118,45 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  password_ASC
-  password_DESC
+  phone_ASC
+  phone_DESC
+  phoneVerified_ASC
+  phoneVerified_DESC
   email_ASC
   email_DESC
+  emailVerified_ASC
+  emailVerified_DESC
+  name_ASC
+  name_DESC
+  username_ASC
+  username_DESC
+  password_ASC
+  password_DESC
+  birthday_ASC
+  birthday_DESC
+  address_ASC
+  address_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type UserPreviousValues {
   id: ID!
-  name: String!
+  phone: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  gender: [Gender!]!
   password: String!
-  email: String!
+  birthday: DateTime
+  address: String
+  permission: [Permission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type UserSubscriptionPayload {
@@ -109,16 +175,40 @@ input UserSubscriptionWhereInput {
   AND: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdategenderInput {
+  set: [Gender!]
+}
+
 input UserUpdateInput {
-  name: String
-  password: String
+  phone: String
+  phoneVerified: Boolean
   email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  gender: UserUpdategenderInput
+  password: String
+  birthday: DateTime
+  address: String
+  permission: UserUpdatepermissionInput
 }
 
 input UserUpdateManyMutationInput {
-  name: String
-  password: String
+  phone: String
+  phoneVerified: Boolean
   email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  gender: UserUpdategenderInput
+  password: String
+  birthday: DateTime
+  address: String
+  permission: UserUpdatepermissionInput
+}
+
+input UserUpdatepermissionInput {
+  set: [Permission!]
 }
 
 input UserWhereInput {
@@ -136,34 +226,22 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  password: String
-  password_not: String
-  password_in: [String!]
-  password_not_in: [String!]
-  password_lt: String
-  password_lte: String
-  password_gt: String
-  password_gte: String
-  password_contains: String
-  password_not_contains: String
-  password_starts_with: String
-  password_not_starts_with: String
-  password_ends_with: String
-  password_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  phoneVerified: Boolean
+  phoneVerified_not: Boolean
   email: String
   email_not: String
   email_in: [String!]
@@ -178,12 +256,94 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  emailVerified: Boolean
+  emailVerified_not: Boolean
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  birthday: DateTime
+  birthday_not: DateTime
+  birthday_in: [DateTime!]
+  birthday_not_in: [DateTime!]
+  birthday_lt: DateTime
+  birthday_lte: DateTime
+  birthday_gt: DateTime
+  birthday_gte: DateTime
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UserWhereInput!]
 }
 
 input UserWhereUniqueInput {
   id: ID
-  email: String
+  phone: String
 }
 `
       }

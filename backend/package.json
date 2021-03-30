@@ -4,22 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node -e js,graphql ./src/index.js",
+    "dev": "nodemon --exec ./node_modules/.bin/babel-node -e js,graphql,env ./src/index.js",
     "test": "nodemon ./test/test2.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.13.13",
-    "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.13.12",
     "bcrypt": "^5.0.1",
     "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "graphql-resolvers": "^0.4.2",
-    "graphql-yoga": "^0.0.0",
+    "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.7",
-    "prisma-client-lib": "^0.0.0"
+    "prisma-client-lib": "^1.34.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12"
   }
 }
