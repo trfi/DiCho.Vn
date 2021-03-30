@@ -120,6 +120,8 @@ export type UserOrderByInput =
   | "name_DESC"
   | "username_ASC"
   | "username_DESC"
+  | "gender_ASC"
+  | "gender_DESC"
   | "password_ASC"
   | "password_DESC"
   | "birthday_ASC"
@@ -213,6 +215,10 @@ export interface UserWhereInput {
   username_not_starts_with?: Maybe<String>;
   username_ends_with?: Maybe<String>;
   username_not_ends_with?: Maybe<String>;
+  gender?: Maybe<Gender>;
+  gender_not?: Maybe<Gender>;
+  gender_in?: Maybe<Gender[] | Gender>;
+  gender_not_in?: Maybe<Gender[] | Gender>;
   password?: Maybe<String>;
   password_not?: Maybe<String>;
   password_in?: Maybe<String[] | String>;
@@ -276,15 +282,11 @@ export interface UserCreateInput {
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
-  gender?: Maybe<UserCreategenderInput>;
+  gender?: Maybe<Gender>;
   password: String;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
   permission?: Maybe<UserCreatepermissionInput>;
-}
-
-export interface UserCreategenderInput {
-  set?: Maybe<Gender[] | Gender>;
 }
 
 export interface UserCreatepermissionInput {
@@ -298,15 +300,11 @@ export interface UserUpdateInput {
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
-  gender?: Maybe<UserUpdategenderInput>;
+  gender?: Maybe<Gender>;
   password?: Maybe<String>;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
   permission?: Maybe<UserUpdatepermissionInput>;
-}
-
-export interface UserUpdategenderInput {
-  set?: Maybe<Gender[] | Gender>;
 }
 
 export interface UserUpdatepermissionInput {
@@ -320,7 +318,7 @@ export interface UserUpdateManyMutationInput {
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
-  gender?: Maybe<UserUpdategenderInput>;
+  gender?: Maybe<Gender>;
   password?: Maybe<String>;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
@@ -348,7 +346,7 @@ export interface User {
   emailVerified?: Boolean;
   name?: String;
   username?: String;
-  gender: Gender[];
+  gender?: Gender;
   password: String;
   birthday?: DateTimeOutput;
   address?: String;
@@ -365,7 +363,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   emailVerified: () => Promise<Boolean>;
   name: () => Promise<String>;
   username: () => Promise<String>;
-  gender: () => Promise<Gender[]>;
+  gender: () => Promise<Gender>;
   password: () => Promise<String>;
   birthday: () => Promise<DateTimeOutput>;
   address: () => Promise<String>;
@@ -384,7 +382,7 @@ export interface UserSubscription
   emailVerified: () => Promise<AsyncIterator<Boolean>>;
   name: () => Promise<AsyncIterator<String>>;
   username: () => Promise<AsyncIterator<String>>;
-  gender: () => Promise<AsyncIterator<Gender[]>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
   password: () => Promise<AsyncIterator<String>>;
   birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
   address: () => Promise<AsyncIterator<String>>;
@@ -403,7 +401,7 @@ export interface UserNullablePromise
   emailVerified: () => Promise<Boolean>;
   name: () => Promise<String>;
   username: () => Promise<String>;
-  gender: () => Promise<Gender[]>;
+  gender: () => Promise<Gender>;
   password: () => Promise<String>;
   birthday: () => Promise<DateTimeOutput>;
   address: () => Promise<String>;
@@ -538,7 +536,7 @@ export interface UserPreviousValues {
   emailVerified?: Boolean;
   name?: String;
   username?: String;
-  gender: Gender[];
+  gender?: Gender;
   password: String;
   birthday?: DateTimeOutput;
   address?: String;
@@ -557,7 +555,7 @@ export interface UserPreviousValuesPromise
   emailVerified: () => Promise<Boolean>;
   name: () => Promise<String>;
   username: () => Promise<String>;
-  gender: () => Promise<Gender[]>;
+  gender: () => Promise<Gender>;
   password: () => Promise<String>;
   birthday: () => Promise<DateTimeOutput>;
   address: () => Promise<String>;
@@ -576,7 +574,7 @@ export interface UserPreviousValuesSubscription
   emailVerified: () => Promise<AsyncIterator<Boolean>>;
   name: () => Promise<AsyncIterator<String>>;
   username: () => Promise<AsyncIterator<String>>;
-  gender: () => Promise<AsyncIterator<Gender[]>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
   password: () => Promise<AsyncIterator<String>>;
   birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
   address: () => Promise<AsyncIterator<String>>;

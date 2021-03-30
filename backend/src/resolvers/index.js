@@ -1,9 +1,6 @@
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { combineResolvers, skip } from 'graphql-resolvers';
 const crypto = require('../../libs/crypto')
-
-const secretKey = process.env.CRYPTO_SECRET_KEY
 
 const userIsAuthenticated = (parent, args, { me }) => {
     return me ? skip : new Error('Not authenticated');
@@ -40,10 +37,8 @@ export default {
         }
     },
     Mutation: {
-        signUp: async (parent, args, { prisma }) => {
+        signUp: async (parent, { password, ...data }, { prisma }) => {
             try {
-                console.log(args);
-                const { password, ...data } = args
                 console.log(data);
                 const hashedPassword = crypto.encrypt(password, process.env.CRYPTO_SECRET_KEY);
                 const user = await prisma.createUser({ ...data, password: hashedPassword });

@@ -6,11 +6,11 @@ type User {
   emailVerified: Boolean @default(value: false)
   name: String
   username: String
-  gender: [Gender]
+  gender: Gender
   password: String!
   birthday: DateTime
   address: String
-  permission: [Permission] @default(value: 'USER')
+  permission: [Permission] @default(value: USER)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

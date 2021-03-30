@@ -4,7 +4,7 @@ type User {
     email: String
     name: String
     username: String
-    gender: [Gender]
+    gender: Gender
     birthday: String
     address: String
     permission: [Permission]
@@ -19,16 +19,15 @@ type Query {
     getUser(id: ID!): User!
     me: User!
 }
-
-input SignUpInput {
+input UserCreateInput {
     phone: String!
     password: String!
     email: String
     name: String
-    gender: [Gender]
+    gender: Gender!
 }
 type Mutation {
-    signUp(data: SignUpInput): Token
+    signUp(phone: String!, password: String!, gender: Gender, name: String): Token
 }
 
 enum Gender {

@@ -72,7 +72,7 @@ type User {
   emailVerified: Boolean
   name: String
   username: String
-  gender: [Gender!]!
+  gender: Gender
   password: String!
   birthday: DateTime
   address: String
@@ -87,10 +87,6 @@ type UserConnection {
   aggregate: AggregateUser!
 }
 
-input UserCreategenderInput {
-  set: [Gender!]
-}
-
 input UserCreateInput {
   id: ID
   phone: String!
@@ -99,7 +95,7 @@ input UserCreateInput {
   emailVerified: Boolean
   name: String
   username: String
-  gender: UserCreategenderInput
+  gender: Gender
   password: String!
   birthday: DateTime
   address: String
@@ -130,6 +126,8 @@ enum UserOrderByInput {
   name_DESC
   username_ASC
   username_DESC
+  gender_ASC
+  gender_DESC
   password_ASC
   password_DESC
   birthday_ASC
@@ -150,7 +148,7 @@ type UserPreviousValues {
   emailVerified: Boolean
   name: String
   username: String
-  gender: [Gender!]!
+  gender: Gender
   password: String!
   birthday: DateTime
   address: String
@@ -175,10 +173,6 @@ input UserSubscriptionWhereInput {
   AND: [UserSubscriptionWhereInput!]
 }
 
-input UserUpdategenderInput {
-  set: [Gender!]
-}
-
 input UserUpdateInput {
   phone: String
   phoneVerified: Boolean
@@ -186,7 +180,7 @@ input UserUpdateInput {
   emailVerified: Boolean
   name: String
   username: String
-  gender: UserUpdategenderInput
+  gender: Gender
   password: String
   birthday: DateTime
   address: String
@@ -200,7 +194,7 @@ input UserUpdateManyMutationInput {
   emailVerified: Boolean
   name: String
   username: String
-  gender: UserUpdategenderInput
+  gender: Gender
   password: String
   birthday: DateTime
   address: String
@@ -286,6 +280,10 @@ input UserWhereInput {
   username_not_starts_with: String
   username_ends_with: String
   username_not_ends_with: String
+  gender: Gender
+  gender_not: Gender
+  gender_in: [Gender!]
+  gender_not_in: [Gender!]
   password: String
   password_not: String
   password_in: [String!]
