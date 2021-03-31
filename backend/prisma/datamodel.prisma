@@ -1,26 +1,44 @@
 type User {
-  id: ID! @id
-  phone: String! @unique
-  phoneVerified: Boolean @default(value: false)
-  email: String
-  emailVerified: Boolean @default(value: false)
-  name: String
-  username: String
-  gender: Gender
-  password: String!
-  birthday: DateTime
-  address: String
-  permission: [Permission] @default(value: USER)
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
+    id: ID! @id
+    phone: String! @unique
+    password: String!
+    phoneVerified: Boolean @default(value: false)
+    email: String @unique
+    emailVerified: Boolean
+    name: String
+    username: String
+    avatar: String
+    gender: Gender
+    birthday: DateTime
+    address: String
+    role: Role
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+type Post {
+    id: ID! @id
+    title: String!
+    detailId: Int!
+    images: [String!]
+    thumbnail: String!
+    address: String!
+    category: Int!
+}
+type PostDetail {
+    id: ID! @id
+    images: [String!]
+}
+type Category {
+    id: ID! @id
+    title: String!
+    slug: String!
 }
 enum Gender {
     M
     F
     O
 }
-enum Permission {
+enum Role {
     ADMIN
     MODERATOR
-    USER
 }

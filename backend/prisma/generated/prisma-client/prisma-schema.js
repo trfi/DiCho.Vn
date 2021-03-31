@@ -3,7 +3,11 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregatePost {
+  count: Int!
+}
+
+type AggregateUser {
   count: Int!
 }
 
@@ -22,6 +26,12 @@ enum Gender {
 scalar Long
 
 type Mutation {
+  createPost(data: PostCreateInput!): Post!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -47,36 +57,175 @@ type PageInfo {
   endCursor: String
 }
 
-enum Permission {
-  ADMIN
-  MODERATOR
-  USER
+type Post {
+  id: ID!
+  image: String
+  title: String!
+  address: String!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  id: ID
+  image: String
+  title: String!
+  address: String!
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  image_ASC
+  image_DESC
+  title_ASC
+  title_DESC
+  address_ASC
+  address_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  image: String
+  title: String!
+  address: String!
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+  AND: [PostSubscriptionWhereInput!]
+}
+
+input PostUpdateInput {
+  image: String
+  title: String
+  address: String
+}
+
+input PostUpdateManyMutationInput {
+  image: String
+  title: String
+  address: String
+}
+
+input PostWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  image: String
+  image_not: String
+  image_in: [String!]
+  image_not_in: [String!]
+  image_lt: String
+  image_lte: String
+  image_gt: String
+  image_gte: String
+  image_contains: String
+  image_not_contains: String
+  image_starts_with: String
+  image_not_starts_with: String
+  image_ends_with: String
+  image_not_ends_with: String
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  AND: [PostWhereInput!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
 }
 
 type Query {
+  post(where: PostWhereUniqueInput!): Post
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   node(id: ID!): Node
 }
 
+enum Role {
+  ADMIN
+  MODERATOR
+}
+
 type Subscription {
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
 type User {
   id: ID!
   phone: String!
+  password: String!
   phoneVerified: Boolean
   email: String
   emailVerified: Boolean
   name: String
   username: String
+  avatar: String
   gender: Gender
-  password: String!
   birthday: DateTime
   address: String
-  permission: [Permission!]!
+  role: Role
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -90,20 +239,17 @@ type UserConnection {
 input UserCreateInput {
   id: ID
   phone: String!
+  password: String!
   phoneVerified: Boolean
   email: String
   emailVerified: Boolean
   name: String
   username: String
+  avatar: String
   gender: Gender
-  password: String!
   birthday: DateTime
   address: String
-  permission: UserCreatepermissionInput
-}
-
-input UserCreatepermissionInput {
-  set: [Permission!]
+  role: Role
 }
 
 type UserEdge {
@@ -116,6 +262,8 @@ enum UserOrderByInput {
   id_DESC
   phone_ASC
   phone_DESC
+  password_ASC
+  password_DESC
   phoneVerified_ASC
   phoneVerified_DESC
   email_ASC
@@ -126,14 +274,16 @@ enum UserOrderByInput {
   name_DESC
   username_ASC
   username_DESC
+  avatar_ASC
+  avatar_DESC
   gender_ASC
   gender_DESC
-  password_ASC
-  password_DESC
   birthday_ASC
   birthday_DESC
   address_ASC
   address_DESC
+  role_ASC
+  role_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -143,16 +293,17 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   phone: String!
+  password: String!
   phoneVerified: Boolean
   email: String
   emailVerified: Boolean
   name: String
   username: String
+  avatar: String
   gender: Gender
-  password: String!
   birthday: DateTime
   address: String
-  permission: [Permission!]!
+  role: Role
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -175,34 +326,32 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   phone: String
+  password: String
   phoneVerified: Boolean
   email: String
   emailVerified: Boolean
   name: String
   username: String
+  avatar: String
   gender: Gender
-  password: String
   birthday: DateTime
   address: String
-  permission: UserUpdatepermissionInput
+  role: Role
 }
 
 input UserUpdateManyMutationInput {
   phone: String
+  password: String
   phoneVerified: Boolean
   email: String
   emailVerified: Boolean
   name: String
   username: String
+  avatar: String
   gender: Gender
-  password: String
   birthday: DateTime
   address: String
-  permission: UserUpdatepermissionInput
-}
-
-input UserUpdatepermissionInput {
-  set: [Permission!]
+  role: Role
 }
 
 input UserWhereInput {
@@ -234,6 +383,20 @@ input UserWhereInput {
   phone_not_starts_with: String
   phone_ends_with: String
   phone_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
   phoneVerified: Boolean
   phoneVerified_not: Boolean
   email: String
@@ -280,24 +443,24 @@ input UserWhereInput {
   username_not_starts_with: String
   username_ends_with: String
   username_not_ends_with: String
+  avatar: String
+  avatar_not: String
+  avatar_in: [String!]
+  avatar_not_in: [String!]
+  avatar_lt: String
+  avatar_lte: String
+  avatar_gt: String
+  avatar_gte: String
+  avatar_contains: String
+  avatar_not_contains: String
+  avatar_starts_with: String
+  avatar_not_starts_with: String
+  avatar_ends_with: String
+  avatar_not_ends_with: String
   gender: Gender
   gender_not: Gender
   gender_in: [Gender!]
   gender_not_in: [Gender!]
-  password: String
-  password_not: String
-  password_in: [String!]
-  password_not_in: [String!]
-  password_lt: String
-  password_lte: String
-  password_gt: String
-  password_gte: String
-  password_contains: String
-  password_not_contains: String
-  password_starts_with: String
-  password_not_starts_with: String
-  password_ends_with: String
-  password_not_ends_with: String
   birthday: DateTime
   birthday_not: DateTime
   birthday_in: [DateTime!]
@@ -320,6 +483,10 @@ input UserWhereInput {
   address_not_starts_with: String
   address_ends_with: String
   address_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -342,6 +509,7 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
   phone: String
+  email: String
 }
 `
       }

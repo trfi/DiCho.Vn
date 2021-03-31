@@ -1,0 +1,3630 @@
+{
+  "allCategoryFollowUrl": {
+      "entities": {
+          "mua-ban-bat-dong-san": {
+              "id": "1000",
+              "name": "Bất động sản - Mua bán",
+              "name_url": "mua-ban-bat-dong-san",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-can-ho-chung-cu": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Căn hộ/Chung cư",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "mua-ban-can-ho-chung-cu",
+                          "param_type": "w"
+                      },
+                      "mua-ban-nha-dat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Nhà ở",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "friendly_name": "nha-dat",
+                          "name_url": "mua-ban-nha-dat",
+                          "param_type": "w"
+                      },
+                      "mua-ban-dat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Đất",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "mua-ban-dat",
+                          "param_type": "w"
+                      },
+                      "sang-nhuong-van-phong-mat-bang-kinh-doanh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Văn phòng, Mặt bằng kinh doanh",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "sang-nhuong-van-phong-mat-bang-kinh-doanh",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-can-ho-chung-cu",
+                      "mua-ban-nha-dat",
+                      "mua-ban-dat",
+                      "sang-nhuong-van-phong-mat-bang-kinh-doanh"
+                  ]
+              }
+          },
+          "thue-bat-dong-san": {
+              "id": "1000",
+              "name": "Bất động sản - Thuê",
+              "name_url": "thue-bat-dong-san",
+              "type": "thue-",
+              "param_type": "y",
+              "subCategories": {
+                  "entities": {
+                      "thue-can-ho-chung-cu": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Thuê Căn hộ/Chung cư",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "thue-can-ho-chung-cu",
+                          "param_type": "y"
+                      },
+                      "thue-nha-dat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Thuê Nhà ở",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "friendly_name": "nha-dat",
+                          "name_url": "thue-nha-dat",
+                          "param_type": "y"
+                      },
+                      "thue-dat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Thuê Đất",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "thue-dat",
+                          "param_type": "y"
+                      },
+                      "thue-van-phong-mat-bang-kinh-doanh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Thuê Văn phòng, Mặt bằng kinh doanh",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "thue-van-phong-mat-bang-kinh-doanh",
+                          "param_type": "y"
+                      },
+                      "thue-phong-tro": {
+                          "filter_types": [
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Thuê Phòng trọ",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1050",
+                          "types": [
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "thue-phong-tro",
+                          "param_type": "y"
+                      }
+                  },
+                  "orderList": [
+                      "thue-can-ho-chung-cu",
+                      "thue-nha-dat",
+                      "thue-dat",
+                      "thue-van-phong-mat-bang-kinh-doanh",
+                      "thue-phong-tro"
+                  ]
+              }
+          },
+          "mua-ban-xe": {
+              "id": "2000",
+              "name": "Xe cộ",
+              "name_url": "mua-ban-xe",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-o-to": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Ô tô",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-o-to",
+                          "param_type": "w"
+                      },
+                      "mua-ban-xe-may": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe máy",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-may",
+                          "param_type": "w"
+                      },
+                      "mua-ban-xe-tai-xe-ben": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe tải, xe ben",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-tai-xe-ben",
+                          "param_type": "w"
+                      },
+                      "mua-ban-xe-dien": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe điện",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-dien",
+                          "param_type": "w"
+                      },
+                      "mua-ban-xe-dap": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe đạp",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-dap",
+                          "param_type": "w"
+                      },
+                      "mua-ban-phuong-tien-khac": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phương tiện khác",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phuong-tien-khac",
+                          "param_type": "w"
+                      },
+                      "mua-ban-phu-tung-xe": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ tùng xe",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-tung-xe",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-o-to",
+                      "mua-ban-xe-may",
+                      "mua-ban-xe-tai-xe-ben",
+                      "mua-ban-xe-dien",
+                      "mua-ban-xe-dap",
+                      "mua-ban-phuong-tien-khac",
+                      "mua-ban-phu-tung-xe"
+                  ]
+              }
+          },
+          "mua-ban-do-dien-tu": {
+              "id": "5000",
+              "name": "Đồ điện tử",
+              "name_url": "mua-ban-do-dien-tu",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-dien-thoai": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Điện thoại",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dien-thoai",
+                          "param_type": "w"
+                      },
+                      "mua-ban-may-tinh-bang": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy tính bảng",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-tinh-bang",
+                          "param_type": "w"
+                      },
+                      "mua-ban-laptop": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Laptop",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-laptop",
+                          "param_type": "w"
+                      },
+                      "mua-ban-may-tinh-de-ban": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy tính để bàn",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-tinh-de-ban",
+                          "param_type": "w"
+                      },
+                      "mua-ban-may-anh-may-quay": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy ảnh, Máy quay",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-anh-may-quay",
+                          "param_type": "w"
+                      },
+                      "mua-ban-tivi-am-thanh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tivi, Âm thanh",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tivi-am-thanh",
+                          "param_type": "w"
+                      },
+                      "mua-ban-thiet-bi-deo-thong-minh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị đeo thông minh",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-deo-thong-minh",
+                          "param_type": "w"
+                      },
+                      "mua-ban-phu-kien": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện (Màn hình, Chuột...)",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "phu-kien",
+                          "name_url": "mua-ban-phu-kien",
+                          "param_type": "w"
+                      },
+                      "mua-ban-linh-kien": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Linh kiện (RAM, Card...)",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "linh-kien",
+                          "name_url": "mua-ban-linh-kien",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-dien-thoai",
+                      "mua-ban-may-tinh-bang",
+                      "mua-ban-laptop",
+                      "mua-ban-may-tinh-de-ban",
+                      "mua-ban-may-anh-may-quay",
+                      "mua-ban-tivi-am-thanh",
+                      "mua-ban-thiet-bi-deo-thong-minh",
+                      "mua-ban-phu-kien",
+                      "mua-ban-linh-kien"
+                  ]
+              }
+          },
+          "viec-lam": {
+              "id": "13000",
+              "name": "Việc làm",
+              "name_url": "viec-lam",
+              "param_type": "w",
+              "feature": {
+                  "is_new": true
+              },
+              "subCategories": {
+                  "entities": {
+                      "danh-sach-viec-lam": {
+                          "filter_types": [
+                              {
+                                  "s": "Việc tìm người"
+                              }
+                          ],
+                          "name": "Danh sách việc làm",
+                          "parent": "13000",
+                          "filter": "true",
+                          "id": "13010",
+                          "types": [
+                              {
+                                  "s": "Việc tìm người"
+                              }
+                          ],
+                          "name_url": "danh-sach-viec-lam",
+                          "param_type": "w"
+                      },
+                      "danh-sach-nguoi-tim-viec": {
+                          "filter_types": [
+                              {
+                                  "s": "Người tìm việc"
+                              }
+                          ],
+                          "name": "Danh sách người tìm việc",
+                          "parent": "13000",
+                          "filter": "true",
+                          "id": "13020",
+                          "types": [
+                              {
+                                  "s": "Người tìm việc"
+                              }
+                          ],
+                          "name_url": "danh-sach-nguoi-tim-viec",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "danh-sach-viec-lam",
+                      "danh-sach-nguoi-tim-viec"
+                  ]
+              }
+          },
+          "mua-ban-thu-cung": {
+              "id": "12000",
+              "name": "Thú cưng",
+              "name_url": "mua-ban-thu-cung",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-ga": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Gà",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-ga",
+                          "param_type": "w"
+                      },
+                      "mua-ban-cho": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Chó",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-cho",
+                          "param_type": "w"
+                      },
+                      "mua-ban-chim": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Chim",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-chim",
+                          "param_type": "w"
+                      },
+                      "mua-ban-meo": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Mèo",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-meo",
+                          "param_type": "w"
+                      },
+                      "mua-ban-thu-cung-khac": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thú cưng khác",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thu-cung-khac",
+                          "param_type": "w"
+                      },
+                      "mua-ban-phu-kien-thuc-an-dich-vu": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện, Thức ăn, Dịch vụ",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-kien-thuc-an-dich-vu",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-ga",
+                      "mua-ban-cho",
+                      "mua-ban-chim",
+                      "mua-ban-meo",
+                      "mua-ban-thu-cung-khac",
+                      "mua-ban-phu-kien-thuc-an-dich-vu"
+                  ]
+              }
+          },
+          "mua-ban-do-an-thuc-pham-va-cac-loai-khac": {
+              "id": "7000",
+              "name": "Đồ ăn, thực phẩm và các loại khác",
+              "name_url": "mua-ban-do-an-thuc-pham-va-cac-loai-khac",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "feature": {
+                  "is_new": true
+              },
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-do-an-thuc-pham": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ ăn, thực phẩm và các loại khác",
+                          "parent": "7000",
+                          "filter": "false",
+                          "id": "7010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "do-an-thuc-pham",
+                          "name_url": "mua-ban-do-an-thuc-pham",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-do-an-thuc-pham"
+                  ]
+              }
+          },
+          "mua-ban-tu-lanh-may-lanh-may-giat": {
+              "id": "9000",
+              "name": "Tủ lạnh, máy lạnh, máy giặt",
+              "name_url": "mua-ban-tu-lanh-may-lanh-may-giat",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-tu-lanh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tủ lạnh",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tu-lanh",
+                          "param_type": "w"
+                      },
+                      "mua-ban-may-lanh-dieu-hoa": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy lạnh, điều hoà",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-lanh-dieu-hoa",
+                          "param_type": "w"
+                      },
+                      "mua-ban-may-giat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy giặt",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-giat",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-tu-lanh",
+                      "mua-ban-may-lanh-dieu-hoa",
+                      "mua-ban-may-giat"
+                  ]
+              }
+          },
+          "mua-ban-do-gia-dung-noi-that-cay-canh": {
+              "id": "14000",
+              "name": "Đồ gia dụng, nội thất, cây cảnh",
+              "name_url": "mua-ban-do-gia-dung-noi-that-cay-canh",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-ban-ghe": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Bàn ghế",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-ban-ghe",
+                          "param_type": "w"
+                      },
+                      "mua-ban-tu-ke-gia-dinh": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tủ, kệ gia đình",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tu-ke-gia-dinh",
+                          "param_type": "w"
+                      },
+                      "mua-ban-giuong-chan-ga-goi-nem": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Giường, chăn ga gối nệm",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-giuong-chan-ga-goi-nem",
+                          "param_type": "w"
+                      },
+                      "mua-ban-bep-lo-do-dien-nha-bep": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Bếp, lò, đồ điện nhà bếp",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-bep-lo-do-dien-nha-bep",
+                          "param_type": "w"
+                      },
+                      "mua-ban-dung-cu-nha-bep": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Dụng cụ nhà bếp",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dung-cu-nha-bep",
+                          "param_type": "w"
+                      },
+                      "mua-ban-quat": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Quạt",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-quat",
+                          "param_type": "w"
+                      },
+                      "mua-ban-den": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đèn",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-den",
+                          "param_type": "w"
+                      },
+                      "mua-ban-cay-canh-do-trang-tri": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Cây cảnh, đồ trang trí",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-cay-canh-do-trang-tri",
+                          "param_type": "w"
+                      },
+                      "mua-ban-thiet-bi-ve-sinh-nha-tam": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị vệ sinh, nhà tắm",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-ve-sinh-nha-tam",
+                          "param_type": "w"
+                      },
+                      "mua-ban-noi-that-do-gia-dung-khac": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nội thất, đồ gia dụng khác",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14110",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-noi-that-do-gia-dung-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-ban-ghe",
+                      "mua-ban-tu-ke-gia-dinh",
+                      "mua-ban-giuong-chan-ga-goi-nem",
+                      "mua-ban-bep-lo-do-dien-nha-bep",
+                      "mua-ban-dung-cu-nha-bep",
+                      "mua-ban-quat",
+                      "mua-ban-den",
+                      "mua-ban-cay-canh-do-trang-tri",
+                      "mua-ban-thiet-bi-ve-sinh-nha-tam",
+                      "mua-ban-noi-that-do-gia-dung-khac"
+                  ]
+              }
+          },
+          "mua-ban-do-dung-me-va-be": {
+              "id": "11000",
+              "name": "Mẹ và bé",
+              "name_url": "mua-ban-do-dung-me-va-be",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-do-dung-me-va-be": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Mẹ và bé",
+                          "parent": "11000",
+                          "filter": "true",
+                          "id": "11010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "do-dung-me-va-be",
+                          "name_url": "mua-ban-do-dung-me-va-be",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-do-dung-me-va-be"
+                  ]
+              }
+          },
+          "mua-ban-thoi-trang-do-dung-ca-nhan": {
+              "id": "3000",
+              "name": "Thời trang, Đồ dùng cá nhân",
+              "name_url": "mua-ban-thoi-trang-do-dung-ca-nhan",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-quan-ao": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Quần áo",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-quan-ao",
+                          "param_type": "w"
+                      },
+                      "mua-ban-dong-ho": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồng hồ",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dong-ho",
+                          "param_type": "w"
+                      },
+                      "mua-ban-giay-dep": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Giày dép",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-giay-dep",
+                          "param_type": "w"
+                      },
+                      "mua-ban-tui-xach": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Túi xách",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tui-xach",
+                          "param_type": "w"
+                      },
+                      "mua-ban-nuoc-hoa": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nước hoa",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-nuoc-hoa",
+                          "param_type": "w"
+                      },
+                      "mua-ban-phu-kien-thoi-trang-khac": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện thời trang khác",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-kien-thoi-trang-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-quan-ao",
+                      "mua-ban-dong-ho",
+                      "mua-ban-giay-dep",
+                      "mua-ban-tui-xach",
+                      "mua-ban-nuoc-hoa",
+                      "mua-ban-phu-kien-thoi-trang-khac"
+                  ]
+              }
+          },
+          "mua-ban-giai-tri-the-thao-so-thich": {
+              "id": "4000",
+              "name": "Giải trí, Thể thao, Sở thích",
+              "name_url": "mua-ban-giai-tri-the-thao-so-thich",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-nhac-cu": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nhạc cụ",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-nhac-cu",
+                          "param_type": "w"
+                      },
+                      "mua-ban-sach": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Sách",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-sach",
+                          "param_type": "w"
+                      },
+                      "mua-ban-do-the-thao-da-ngoai": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ thể thao, Dã ngoại",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-the-thao-da-ngoai",
+                          "param_type": "w"
+                      },
+                      "mua-ban-do-suu-tam-do-co": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ sưu tầm, đồ cổ",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-suu-tam-do-co",
+                          "param_type": "w"
+                      },
+                      "mua-ban-thiet-bi-choi-game": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị chơi game",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-choi-game",
+                          "param_type": "w"
+                      },
+                      "mua-ban-so-thich-khac": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Sở thích khác",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-so-thich-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-nhac-cu",
+                      "mua-ban-sach",
+                      "mua-ban-do-the-thao-da-ngoai",
+                      "mua-ban-do-suu-tam-do-co",
+                      "mua-ban-thiet-bi-choi-game",
+                      "mua-ban-so-thich-khac"
+                  ]
+              }
+          },
+          "mua-ban-thiet-bi-van-phong-cong-nong-nghiep": {
+              "id": "8000",
+              "name": "Đồ dùng văn phòng, công nông nghiệp",
+              "name_url": "mua-ban-thiet-bi-van-phong-cong-nong-nghiep",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "mua-ban-do-dung-van-phong": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ dùng văn phòng",
+                          "parent": "8000",
+                          "filter": "false",
+                          "id": "8010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-dung-van-phong",
+                          "param_type": "w"
+                      },
+                      "mua-ban-do-chuyen-dung-giong-nuoi-trong": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ chuyên dụng, Giống nuôi trồng",
+                          "parent": "8000",
+                          "filter": "false",
+                          "id": "8030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-chuyen-dung-giong-nuoi-trong",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "mua-ban-do-dung-van-phong",
+                      "mua-ban-do-chuyen-dung-giong-nuoi-trong"
+                  ]
+              }
+          },
+          "dich-vu-du-lich": {
+              "id": "6000",
+              "name": "Dịch vụ, Du lịch",
+              "name_url": "dich-vu-du-lich",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "dich-vu": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Dịch vụ",
+                          "parent": "6000",
+                          "filter": "false",
+                          "id": "6020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "dich-vu",
+                          "param_type": "w"
+                      },
+                      "du-lich": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Du lịch",
+                          "parent": "6000",
+                          "filter": "false",
+                          "id": "6030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "du-lich",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "dich-vu",
+                      "du-lich"
+                  ]
+              }
+          }
+      },
+      "orderList": [
+          "mua-ban-bat-dong-san",
+          "thue-bat-dong-san",
+          "mua-ban-xe",
+          "mua-ban-do-dien-tu",
+          "viec-lam",
+          "mua-ban-thu-cung",
+          "mua-ban-do-an-thuc-pham-va-cac-loai-khac",
+          "mua-ban-tu-lanh-may-lanh-may-giat",
+          "mua-ban-do-gia-dung-noi-that-cay-canh",
+          "mua-ban-do-dung-me-va-be",
+          "mua-ban-thoi-trang-do-dung-ca-nhan",
+          "mua-ban-giai-tri-the-thao-so-thich",
+          "mua-ban-thiet-bi-van-phong-cong-nong-nghiep",
+          "dich-vu-du-lich"
+      ]
+  },
+  "allCategoryFollowId": {
+      "entities": {
+          "1000": {
+              "id": "1000",
+              "name": "Bất động sản - Mua bán",
+              "name_url": "mua-ban-bat-dong-san",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "1010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Căn hộ/Chung cư",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "mua-ban-can-ho-chung-cu",
+                          "param_type": "w"
+                      },
+                      "1020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Nhà ở",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "friendly_name": "nha-dat",
+                          "name_url": "mua-ban-nha-dat",
+                          "param_type": "w"
+                      },
+                      "1030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Văn phòng, Mặt bằng kinh doanh",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "sang-nhuong-van-phong-mat-bang-kinh-doanh",
+                          "param_type": "w"
+                      },
+                      "1040": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "k": "Bán"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Đất",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "mua-ban-dat",
+                          "param_type": "w"
+                      },
+                      "1050": {
+                          "filter_types": [
+                              {
+                                  "u": "Thuê"
+                              },
+                              {
+                                  "h": "Cho Thuê"
+                              }
+                          ],
+                          "name": "Phòng trọ",
+                          "parent": "1000",
+                          "filter": "true",
+                          "id": "1050",
+                          "types": [
+                              {
+                                  "u": "Cho thuê"
+                              },
+                              {
+                                  "h": "Cần thuê"
+                              }
+                          ],
+                          "name_url": "thue-phong-tro",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "1010",
+                      "1020",
+                      "1040",
+                      "1030"
+                  ]
+              }
+          },
+          "2000": {
+              "id": "2000",
+              "name": "Xe cộ",
+              "name_url": "mua-ban-xe",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "2010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Ô tô",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-o-to",
+                          "param_type": "w"
+                      },
+                      "2020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe máy",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-may",
+                          "param_type": "w"
+                      },
+                      "2030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ tùng xe",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-tung-xe",
+                          "param_type": "w"
+                      },
+                      "2050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe tải, xe ben",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-tai-xe-ben",
+                          "param_type": "w"
+                      },
+                      "2060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe đạp",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-dap",
+                          "param_type": "w"
+                      },
+                      "2080": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phương tiện khác",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phuong-tien-khac",
+                          "param_type": "w"
+                      },
+                      "2090": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Xe điện",
+                          "parent": "2000",
+                          "filter": "true",
+                          "id": "2090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-xe-dien",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "2010",
+                      "2020",
+                      "2050",
+                      "2090",
+                      "2060",
+                      "2080",
+                      "2030"
+                  ]
+              }
+          },
+          "3000": {
+              "id": "3000",
+              "name": "Thời trang, Đồ dùng cá nhân",
+              "name_url": "mua-ban-thoi-trang-do-dung-ca-nhan",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "3030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Quần áo",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-quan-ao",
+                          "param_type": "w"
+                      },
+                      "3050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồng hồ",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dong-ho",
+                          "param_type": "w"
+                      },
+                      "3060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Giày dép",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-giay-dep",
+                          "param_type": "w"
+                      },
+                      "3070": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Túi xách",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tui-xach",
+                          "param_type": "w"
+                      },
+                      "3080": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nước hoa",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-nuoc-hoa",
+                          "param_type": "w"
+                      },
+                      "3090": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện thời trang khác",
+                          "parent": "3000",
+                          "filter": "true",
+                          "id": "3090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-kien-thoi-trang-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "3030",
+                      "3050",
+                      "3060",
+                      "3070",
+                      "3080",
+                      "3090"
+                  ]
+              }
+          },
+          "4000": {
+              "id": "4000",
+              "name": "Giải trí, Thể thao, Sở thích",
+              "name_url": "mua-ban-giai-tri-the-thao-so-thich",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "4010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ sưu tầm, đồ cổ",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-suu-tam-do-co",
+                          "param_type": "w"
+                      },
+                      "4020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ thể thao, Dã ngoại",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-the-thao-da-ngoai",
+                          "param_type": "w"
+                      },
+                      "4040": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nhạc cụ",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-nhac-cu",
+                          "param_type": "w"
+                      },
+                      "4050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị chơi game",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-choi-game",
+                          "param_type": "w"
+                      },
+                      "4060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Sở thích khác",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-so-thich-khac",
+                          "param_type": "w"
+                      },
+                      "4070": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Sách",
+                          "parent": "4000",
+                          "filter": "true",
+                          "id": "4070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-sach",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "4040",
+                      "4070",
+                      "4020",
+                      "4010",
+                      "4050",
+                      "4060"
+                  ]
+              }
+          },
+          "5000": {
+              "id": "5000",
+              "name": "Đồ điện tử",
+              "name_url": "mua-ban-do-dien-tu",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "5010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Điện thoại",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dien-thoai",
+                          "param_type": "w"
+                      },
+                      "5020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tivi, Âm thanh",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tivi-am-thanh",
+                          "param_type": "w"
+                      },
+                      "5030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Laptop",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-laptop",
+                          "param_type": "w"
+                      },
+                      "5040": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy tính bảng",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-tinh-bang",
+                          "param_type": "w"
+                      },
+                      "5050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy ảnh, Máy quay",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-anh-may-quay",
+                          "param_type": "w"
+                      },
+                      "5060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện (Màn hình, Chuột...)",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "phu-kien",
+                          "name_url": "mua-ban-phu-kien",
+                          "param_type": "w"
+                      },
+                      "5070": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy tính để bàn",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-tinh-de-ban",
+                          "param_type": "w"
+                      },
+                      "5080": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Linh kiện (RAM, Card...)",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "linh-kien",
+                          "name_url": "mua-ban-linh-kien",
+                          "param_type": "w"
+                      },
+                      "5090": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị đeo thông minh",
+                          "parent": "5000",
+                          "filter": "true",
+                          "id": "5090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-deo-thong-minh",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "5010",
+                      "5040",
+                      "5030",
+                      "5070",
+                      "5050",
+                      "5020",
+                      "5090",
+                      "5060",
+                      "5080"
+                  ]
+              }
+          },
+          "6000": {
+              "id": "6000",
+              "name": "Dịch vụ, Du lịch",
+              "name_url": "dich-vu-du-lich",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "6020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Dịch vụ",
+                          "parent": "6000",
+                          "filter": "false",
+                          "id": "6020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "dich-vu",
+                          "param_type": "w"
+                      },
+                      "6030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Du lịch",
+                          "parent": "6000",
+                          "filter": "false",
+                          "id": "6030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "du-lich",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "6020",
+                      "6030"
+                  ]
+              }
+          },
+          "7000": {
+              "id": "7000",
+              "name": "Đồ ăn, thực phẩm và các loại khác",
+              "name_url": "mua-ban-do-an-thuc-pham-va-cac-loai-khac",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "feature": {
+                  "is_new": true
+              },
+              "subCategories": {
+                  "entities": {
+                      "7010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ ăn, thực phẩm và các loại khác",
+                          "parent": "7000",
+                          "filter": "false",
+                          "id": "7010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "do-an-thuc-pham",
+                          "name_url": "mua-ban-do-an-thuc-pham",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "7010"
+                  ]
+              }
+          },
+          "8000": {
+              "id": "8000",
+              "name": "Đồ dùng văn phòng, công nông nghiệp",
+              "name_url": "mua-ban-thiet-bi-van-phong-cong-nong-nghiep",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "8010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ dùng văn phòng",
+                          "parent": "8000",
+                          "filter": "false",
+                          "id": "8010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-dung-van-phong",
+                          "param_type": "w"
+                      },
+                      "8030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đồ chuyên dụng, Giống nuôi trồng",
+                          "parent": "8000",
+                          "filter": "false",
+                          "id": "8030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-do-chuyen-dung-giong-nuoi-trong",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "8010",
+                      "8030"
+                  ]
+              }
+          },
+          "9000": {
+              "id": "9000",
+              "name": "Tủ lạnh, máy lạnh, máy giặt",
+              "name_url": "mua-ban-tu-lanh-may-lanh-may-giat",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "9030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tủ lạnh",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tu-lanh",
+                          "param_type": "w"
+                      },
+                      "9060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy lạnh, điều hoà",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-lanh-dieu-hoa",
+                          "param_type": "w"
+                      },
+                      "9070": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Máy giặt",
+                          "parent": "9000",
+                          "filter": "true",
+                          "id": "9070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-may-giat",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "9030",
+                      "9060",
+                      "9070"
+                  ]
+              }
+          },
+          "11000": {
+              "id": "11000",
+              "name": "Mẹ và bé",
+              "name_url": "mua-ban-do-dung-me-va-be",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "11010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Mẹ và bé",
+                          "parent": "11000",
+                          "filter": "true",
+                          "id": "11010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "friendly_name": "do-dung-me-va-be",
+                          "name_url": "mua-ban-do-dung-me-va-be",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "11010"
+                  ]
+              }
+          },
+          "12000": {
+              "id": "12000",
+              "name": "Thú cưng",
+              "name_url": "mua-ban-thu-cung",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "12010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Gà",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-ga",
+                          "param_type": "w"
+                      },
+                      "12020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Chó",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-cho",
+                          "param_type": "w"
+                      },
+                      "12030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Chim",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-chim",
+                          "param_type": "w"
+                      },
+                      "12040": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Phụ kiện, Thức ăn, Dịch vụ",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-phu-kien-thuc-an-dich-vu",
+                          "param_type": "w"
+                      },
+                      "12050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Mèo",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-meo",
+                          "param_type": "w"
+                      },
+                      "12060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thú cưng khác",
+                          "parent": "12000",
+                          "filter": "true",
+                          "id": "12060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thu-cung-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "12010",
+                      "12020",
+                      "12030",
+                      "12050",
+                      "12060",
+                      "12040"
+                  ]
+              }
+          },
+          "13000": {
+              "id": "13000",
+              "name": "Việc làm",
+              "name_url": "viec-lam",
+              "param_type": "w",
+              "feature": {
+                  "is_new": true
+              },
+              "subCategories": {
+                  "entities": {
+                      "13010": {
+                          "filter_types": [
+                              {
+                                  "s": "Việc tìm người"
+                              }
+                          ],
+                          "name": "Danh sách việc làm",
+                          "parent": "13000",
+                          "filter": "true",
+                          "id": "13010",
+                          "types": [
+                              {
+                                  "s": "Việc tìm người"
+                              }
+                          ],
+                          "name_url": "danh-sach-viec-lam",
+                          "param_type": "w"
+                      },
+                      "13020": {
+                          "filter_types": [
+                              {
+                                  "s": "Người tìm việc"
+                              }
+                          ],
+                          "name": "Danh sách người tìm việc",
+                          "parent": "13000",
+                          "filter": "true",
+                          "id": "13020",
+                          "types": [
+                              {
+                                  "s": "Người tìm việc"
+                              }
+                          ],
+                          "name_url": "danh-sach-nguoi-tim-viec",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "13010",
+                      "13020"
+                  ]
+              }
+          },
+          "14000": {
+              "id": "14000",
+              "name": "Đồ gia dụng, nội thất, cây cảnh",
+              "name_url": "mua-ban-do-gia-dung-noi-that-cay-canh",
+              "type": "mua-ban-",
+              "param_type": "w",
+              "subCategories": {
+                  "entities": {
+                      "14010": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Bếp, lò, đồ điện nhà bếp",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14010",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-bep-lo-do-dien-nha-bep",
+                          "param_type": "w"
+                      },
+                      "14020": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Dụng cụ nhà bếp",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14020",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-dung-cu-nha-bep",
+                          "param_type": "w"
+                      },
+                      "14030": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Giường, chăn ga gối nệm",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14030",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-giuong-chan-ga-goi-nem",
+                          "param_type": "w"
+                      },
+                      "14040": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Thiết bị vệ sinh, nhà tắm",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14040",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-thiet-bi-ve-sinh-nha-tam",
+                          "param_type": "w"
+                      },
+                      "14050": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Quạt",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14050",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-quat",
+                          "param_type": "w"
+                      },
+                      "14060": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Đèn",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14060",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-den",
+                          "param_type": "w"
+                      },
+                      "14070": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Bàn ghế",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14070",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-ban-ghe",
+                          "param_type": "w"
+                      },
+                      "14080": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Tủ, kệ gia đình",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14080",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-tu-ke-gia-dinh",
+                          "param_type": "w"
+                      },
+                      "14090": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Cây cảnh, đồ trang trí",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14090",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-cay-canh-do-trang-tri",
+                          "param_type": "w"
+                      },
+                      "14110": {
+                          "filter_types": [
+                              {
+                                  "s": "Mua"
+                              },
+                              {
+                                  "k": "Bán"
+                              }
+                          ],
+                          "name": "Nội thất, đồ gia dụng khác",
+                          "parent": "14000",
+                          "filter": "true",
+                          "id": "14110",
+                          "types": [
+                              {
+                                  "s": "Cần bán"
+                              },
+                              {
+                                  "k": "Cần mua"
+                              }
+                          ],
+                          "name_url": "mua-ban-noi-that-do-gia-dung-khac",
+                          "param_type": "w"
+                      }
+                  },
+                  "orderList": [
+                      "14070",
+                      "14080",
+                      "14030",
+                      "14010",
+                      "14020",
+                      "14050",
+                      "14060",
+                      "14090",
+                      "14040",
+                      "14110"
+                  ]
+              }
+          }
+      },
+      "orderList": [
+          "1000",
+          "2000",
+          "5000",
+          "13000",
+          "12000",
+          "7000",
+          "9000",
+          "14000",
+          "11000",
+          "3000",
+          "4000",
+          "8000",
+          "6000"
+      ]
+  }
+}

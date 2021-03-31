@@ -9,11 +9,15 @@ var models = [
     embedded: false
   },
   {
+    name: "Post",
+    embedded: false
+  },
+  {
     name: "Gender",
     embedded: false
   },
   {
-    name: "Permission",
+    name: "Role",
     embedded: false
   }
 ];

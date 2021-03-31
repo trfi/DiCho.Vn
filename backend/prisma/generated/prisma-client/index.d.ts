@@ -16,6 +16,7 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
+  post: (where?: PostWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -38,6 +39,25 @@ export interface Prisma {
    * Queries
    */
 
+  post: (where: PostWhereUniqueInput) => PostNullablePromise;
+  posts: (args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Post>;
+  postsConnection: (args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => PostConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -63,6 +83,22 @@ export interface Prisma {
    * Mutations
    */
 
+  createPost: (data: PostCreateInput) => PostPromise;
+  updatePost: (args: {
+    data: PostUpdateInput;
+    where: PostWhereUniqueInput;
+  }) => PostPromise;
+  updateManyPosts: (args: {
+    data: PostUpdateManyMutationInput;
+    where?: PostWhereInput;
+  }) => BatchPayloadPromise;
+  upsertPost: (args: {
+    where: PostWhereUniqueInput;
+    create: PostCreateInput;
+    update: PostUpdateInput;
+  }) => PostPromise;
+  deletePost: (where: PostWhereUniqueInput) => PostPromise;
+  deleteManyPosts: (where?: PostWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -88,6 +124,9 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  post: (
+    where?: PostSubscriptionWhereInput
+  ) => PostSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -101,15 +140,27 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type PostOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "image_ASC"
+  | "image_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "address_ASC"
+  | "address_DESC";
+
 export type Gender = "M" | "F" | "O";
 
-export type Permission = "ADMIN" | "MODERATOR" | "USER";
+export type Role = "ADMIN" | "MODERATOR";
 
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "phone_ASC"
   | "phone_DESC"
+  | "password_ASC"
+  | "password_DESC"
   | "phoneVerified_ASC"
   | "phoneVerified_DESC"
   | "email_ASC"
@@ -120,14 +171,16 @@ export type UserOrderByInput =
   | "name_DESC"
   | "username_ASC"
   | "username_DESC"
+  | "avatar_ASC"
+  | "avatar_DESC"
   | "gender_ASC"
   | "gender_DESC"
-  | "password_ASC"
-  | "password_DESC"
   | "birthday_ASC"
   | "birthday_DESC"
   | "address_ASC"
   | "address_DESC"
+  | "role_ASC"
+  | "role_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -135,9 +188,74 @@ export type UserOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
+export type PostWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface PostWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  image?: Maybe<String>;
+  image_not?: Maybe<String>;
+  image_in?: Maybe<String[] | String>;
+  image_not_in?: Maybe<String[] | String>;
+  image_lt?: Maybe<String>;
+  image_lte?: Maybe<String>;
+  image_gt?: Maybe<String>;
+  image_gte?: Maybe<String>;
+  image_contains?: Maybe<String>;
+  image_not_contains?: Maybe<String>;
+  image_starts_with?: Maybe<String>;
+  image_not_starts_with?: Maybe<String>;
+  image_ends_with?: Maybe<String>;
+  image_not_ends_with?: Maybe<String>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  address?: Maybe<String>;
+  address_not?: Maybe<String>;
+  address_in?: Maybe<String[] | String>;
+  address_not_in?: Maybe<String[] | String>;
+  address_lt?: Maybe<String>;
+  address_lte?: Maybe<String>;
+  address_gt?: Maybe<String>;
+  address_gte?: Maybe<String>;
+  address_contains?: Maybe<String>;
+  address_not_contains?: Maybe<String>;
+  address_starts_with?: Maybe<String>;
+  address_not_starts_with?: Maybe<String>;
+  address_ends_with?: Maybe<String>;
+  address_not_ends_with?: Maybe<String>;
+  AND?: Maybe<PostWhereInput[] | PostWhereInput>;
+}
+
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   phone?: Maybe<String>;
+  email?: Maybe<String>;
 }>;
 
 export interface UserWhereInput {
@@ -169,6 +287,20 @@ export interface UserWhereInput {
   phone_not_starts_with?: Maybe<String>;
   phone_ends_with?: Maybe<String>;
   phone_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
   phoneVerified?: Maybe<Boolean>;
   phoneVerified_not?: Maybe<Boolean>;
   email?: Maybe<String>;
@@ -215,24 +347,24 @@ export interface UserWhereInput {
   username_not_starts_with?: Maybe<String>;
   username_ends_with?: Maybe<String>;
   username_not_ends_with?: Maybe<String>;
+  avatar?: Maybe<String>;
+  avatar_not?: Maybe<String>;
+  avatar_in?: Maybe<String[] | String>;
+  avatar_not_in?: Maybe<String[] | String>;
+  avatar_lt?: Maybe<String>;
+  avatar_lte?: Maybe<String>;
+  avatar_gt?: Maybe<String>;
+  avatar_gte?: Maybe<String>;
+  avatar_contains?: Maybe<String>;
+  avatar_not_contains?: Maybe<String>;
+  avatar_starts_with?: Maybe<String>;
+  avatar_not_starts_with?: Maybe<String>;
+  avatar_ends_with?: Maybe<String>;
+  avatar_not_ends_with?: Maybe<String>;
   gender?: Maybe<Gender>;
   gender_not?: Maybe<Gender>;
   gender_in?: Maybe<Gender[] | Gender>;
   gender_not_in?: Maybe<Gender[] | Gender>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
   birthday?: Maybe<DateTimeInput>;
   birthday_not?: Maybe<DateTimeInput>;
   birthday_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -255,6 +387,10 @@ export interface UserWhereInput {
   address_not_starts_with?: Maybe<String>;
   address_ends_with?: Maybe<String>;
   address_not_ends_with?: Maybe<String>;
+  role?: Maybe<Role>;
+  role_not?: Maybe<Role>;
+  role_in?: Maybe<Role[] | Role>;
+  role_not_in?: Maybe<Role[] | Role>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -274,55 +410,78 @@ export interface UserWhereInput {
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
+export interface PostCreateInput {
+  id?: Maybe<ID_Input>;
+  image?: Maybe<String>;
+  title: String;
+  address: String;
+}
+
+export interface PostUpdateInput {
+  image?: Maybe<String>;
+  title?: Maybe<String>;
+  address?: Maybe<String>;
+}
+
+export interface PostUpdateManyMutationInput {
+  image?: Maybe<String>;
+  title?: Maybe<String>;
+  address?: Maybe<String>;
+}
+
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   phone: String;
+  password: String;
   phoneVerified?: Maybe<Boolean>;
   email?: Maybe<String>;
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
+  avatar?: Maybe<String>;
   gender?: Maybe<Gender>;
-  password: String;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
-  permission?: Maybe<UserCreatepermissionInput>;
-}
-
-export interface UserCreatepermissionInput {
-  set?: Maybe<Permission[] | Permission>;
+  role?: Maybe<Role>;
 }
 
 export interface UserUpdateInput {
   phone?: Maybe<String>;
+  password?: Maybe<String>;
   phoneVerified?: Maybe<Boolean>;
   email?: Maybe<String>;
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
+  avatar?: Maybe<String>;
   gender?: Maybe<Gender>;
-  password?: Maybe<String>;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
-  permission?: Maybe<UserUpdatepermissionInput>;
-}
-
-export interface UserUpdatepermissionInput {
-  set?: Maybe<Permission[] | Permission>;
+  role?: Maybe<Role>;
 }
 
 export interface UserUpdateManyMutationInput {
   phone?: Maybe<String>;
+  password?: Maybe<String>;
   phoneVerified?: Maybe<Boolean>;
   email?: Maybe<String>;
   emailVerified?: Maybe<Boolean>;
   name?: Maybe<String>;
   username?: Maybe<String>;
+  avatar?: Maybe<String>;
   gender?: Maybe<Gender>;
-  password?: Maybe<String>;
   birthday?: Maybe<DateTimeInput>;
   address?: Maybe<String>;
-  permission?: Maybe<UserUpdatepermissionInput>;
+  role?: Maybe<Role>;
+}
+
+export interface PostSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<PostWhereInput>;
+  AND?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -338,97 +497,57 @@ export interface NodeNode {
   id: ID_Output;
 }
 
-export interface User {
+export interface Post {
   id: ID_Output;
-  phone: String;
-  phoneVerified?: Boolean;
-  email?: String;
-  emailVerified?: Boolean;
-  name?: String;
-  username?: String;
-  gender?: Gender;
-  password: String;
-  birthday?: DateTimeOutput;
-  address?: String;
-  permission: Permission[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  image?: String;
+  title: String;
+  address: String;
 }
 
-export interface UserPromise extends Promise<User>, Fragmentable {
+export interface PostPromise extends Promise<Post>, Fragmentable {
   id: () => Promise<ID_Output>;
-  phone: () => Promise<String>;
-  phoneVerified: () => Promise<Boolean>;
-  email: () => Promise<String>;
-  emailVerified: () => Promise<Boolean>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
-  gender: () => Promise<Gender>;
-  password: () => Promise<String>;
-  birthday: () => Promise<DateTimeOutput>;
+  image: () => Promise<String>;
+  title: () => Promise<String>;
   address: () => Promise<String>;
-  permission: () => Promise<Permission[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
+export interface PostSubscription
+  extends Promise<AsyncIterator<Post>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  phone: () => Promise<AsyncIterator<String>>;
-  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
-  email: () => Promise<AsyncIterator<String>>;
-  emailVerified: () => Promise<AsyncIterator<Boolean>>;
-  name: () => Promise<AsyncIterator<String>>;
-  username: () => Promise<AsyncIterator<String>>;
-  gender: () => Promise<AsyncIterator<Gender>>;
-  password: () => Promise<AsyncIterator<String>>;
-  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
+  image: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
   address: () => Promise<AsyncIterator<String>>;
-  permission: () => Promise<AsyncIterator<Permission[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface UserNullablePromise
-  extends Promise<User | null>,
+export interface PostNullablePromise
+  extends Promise<Post | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  phone: () => Promise<String>;
-  phoneVerified: () => Promise<Boolean>;
-  email: () => Promise<String>;
-  emailVerified: () => Promise<Boolean>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
-  gender: () => Promise<Gender>;
-  password: () => Promise<String>;
-  birthday: () => Promise<DateTimeOutput>;
+  image: () => Promise<String>;
+  title: () => Promise<String>;
   address: () => Promise<String>;
-  permission: () => Promise<Permission[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface UserConnection {
+export interface PostConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: PostEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface PostConnectionPromise
+  extends Promise<PostConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<PostEdge>>() => T;
+  aggregate: <T = AggregatePostPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface PostConnectionSubscription
+  extends Promise<AsyncIterator<PostConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePostSubscription>() => T;
 }
 
 export interface PageInfo {
@@ -452,6 +571,136 @@ export interface PageInfoSubscription
   hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
   startCursor: () => Promise<AsyncIterator<String>>;
   endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PostEdge {
+  node: Post;
+  cursor: String;
+}
+
+export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
+  node: <T = PostPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PostEdgeSubscription
+  extends Promise<AsyncIterator<PostEdge>>,
+    Fragmentable {
+  node: <T = PostSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregatePost {
+  count: Int;
+}
+
+export interface AggregatePostPromise
+  extends Promise<AggregatePost>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePostSubscription
+  extends Promise<AsyncIterator<AggregatePost>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface User {
+  id: ID_Output;
+  phone: String;
+  password: String;
+  phoneVerified?: Boolean;
+  email?: String;
+  emailVerified?: Boolean;
+  name?: String;
+  username?: String;
+  avatar?: String;
+  gender?: Gender;
+  birthday?: DateTimeOutput;
+  address?: String;
+  role?: Role;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  phone: () => Promise<String>;
+  password: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
+  email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  avatar: () => Promise<String>;
+  gender: () => Promise<Gender>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  role: () => Promise<Role>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
+  email: () => Promise<AsyncIterator<String>>;
+  emailVerified: () => Promise<AsyncIterator<Boolean>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
+  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
+  address: () => Promise<AsyncIterator<String>>;
+  role: () => Promise<AsyncIterator<Role>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  phone: () => Promise<String>;
+  password: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
+  email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  avatar: () => Promise<String>;
+  gender: () => Promise<Gender>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  role: () => Promise<Role>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
 }
 
 export interface UserEdge {
@@ -503,6 +752,56 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>;
 }
 
+export interface PostSubscriptionPayload {
+  mutation: MutationType;
+  node: Post;
+  updatedFields: String[];
+  previousValues: PostPreviousValues;
+}
+
+export interface PostSubscriptionPayloadPromise
+  extends Promise<PostSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PostPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PostPreviousValuesPromise>() => T;
+}
+
+export interface PostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PostSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PostPreviousValuesSubscription>() => T;
+}
+
+export interface PostPreviousValues {
+  id: ID_Output;
+  image?: String;
+  title: String;
+  address: String;
+}
+
+export interface PostPreviousValuesPromise
+  extends Promise<PostPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  image: () => Promise<String>;
+  title: () => Promise<String>;
+  address: () => Promise<String>;
+}
+
+export interface PostPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  image: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  address: () => Promise<AsyncIterator<String>>;
+}
+
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -531,16 +830,17 @@ export interface UserSubscriptionPayloadSubscription
 export interface UserPreviousValues {
   id: ID_Output;
   phone: String;
+  password: String;
   phoneVerified?: Boolean;
   email?: String;
   emailVerified?: Boolean;
   name?: String;
   username?: String;
+  avatar?: String;
   gender?: Gender;
-  password: String;
   birthday?: DateTimeOutput;
   address?: String;
-  permission: Permission[];
+  role?: Role;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -550,16 +850,17 @@ export interface UserPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   phone: () => Promise<String>;
+  password: () => Promise<String>;
   phoneVerified: () => Promise<Boolean>;
   email: () => Promise<String>;
   emailVerified: () => Promise<Boolean>;
   name: () => Promise<String>;
   username: () => Promise<String>;
+  avatar: () => Promise<String>;
   gender: () => Promise<Gender>;
-  password: () => Promise<String>;
   birthday: () => Promise<DateTimeOutput>;
   address: () => Promise<String>;
-  permission: () => Promise<Permission[]>;
+  role: () => Promise<Role>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -569,16 +870,17 @@ export interface UserPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   phone: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
   phoneVerified: () => Promise<AsyncIterator<Boolean>>;
   email: () => Promise<AsyncIterator<String>>;
   emailVerified: () => Promise<AsyncIterator<Boolean>>;
   name: () => Promise<AsyncIterator<String>>;
   username: () => Promise<AsyncIterator<String>>;
+  avatar: () => Promise<AsyncIterator<String>>;
   gender: () => Promise<AsyncIterator<Gender>>;
-  password: () => Promise<AsyncIterator<String>>;
   birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
   address: () => Promise<AsyncIterator<String>>;
-  permission: () => Promise<AsyncIterator<Permission[]>>;
+  role: () => Promise<AsyncIterator<Role>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -595,6 +897,11 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
+
+/*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
@@ -609,11 +916,6 @@ DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
 
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
 export type Long = string;
 
 /**
@@ -626,11 +928,15 @@ export const models: Model[] = [
     embedded: false
   },
   {
+    name: "Post",
+    embedded: false
+  },
+  {
     name: "Gender",
     embedded: false
   },
   {
-    name: "Permission",
+    name: "Role",
     embedded: false
   }
 ];

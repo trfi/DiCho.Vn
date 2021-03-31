@@ -1,13 +1,16 @@
+scalar DateTime
+
 type User {
     id: ID!
     phone: String!
     email: String
     name: String
     username: String
+    avatar: String
     gender: Gender
-    birthday: String
+    birthday: DateTime
     address: String
-    permission: [Permission]
+    role: Role
 }
 
 type Token {
@@ -24,18 +27,17 @@ input UserCreateInput {
     password: String!
     email: String
     name: String
-    gender: Gender!
+    gender: Gender
 }
 type Mutation {
-    signUp(phone: String!, password: String!, gender: Gender, name: String): Token
+    signUp(phone: String!, password: String!, email: String, name: String, gender: Gender, birthday: DateTime): Token
 }
-
 enum Gender {
     M
     F
     O
 }
-enum Permission {
+enum Role {
     ADMIN
     MODERATOR
     USER
