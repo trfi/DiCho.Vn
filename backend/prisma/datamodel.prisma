@@ -12,26 +12,43 @@ type User {
     birthday: DateTime
     address: String
     role: Role
+    posts: [Int]!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
 type Post {
     id: ID! @id
     title: String!
-    detailId: Int!
-    images: [String!]
     thumbnail: String!
     address: String!
     category: Int!
+    params: Params
 }
-type PostDetail {
+type PostDetail @embedded {
     id: ID! @id
     images: [String!]
+    content: String!
+}
+type Params {
+    acreage: Int
 }
 type Category {
-    id: ID! @id
+    id: Int!
     title: String!
     slug: String!
+    subCategory: [SubCategory!]
+}
+type SubCategory @embedded  {
+    id: Int!
+    title: String!
+    slug: String!
+    parent: String!
+}
+enum Types {
+    B
+    S
+    R
+    L
 }
 enum Gender {
     M
