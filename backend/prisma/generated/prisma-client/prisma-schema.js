@@ -3,7 +3,11 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregatePost {
+/* GraphQL */ `type AggregateCategory {
+  count: Int!
+}
+
+type AggregatePost {
   count: Int!
 }
 
@@ -13,6 +17,150 @@ type AggregateUser {
 
 type BatchPayload {
   count: Long!
+}
+
+type Category {
+  id: ID!
+  title: String!
+  slug: String!
+  subCategory: [SubCategory!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CategoryConnection {
+  pageInfo: PageInfo!
+  edges: [CategoryEdge]!
+  aggregate: AggregateCategory!
+}
+
+input CategoryCreateInput {
+  id: ID
+  title: String!
+  slug: String!
+  subCategory: SubCategoryCreateManyInput
+}
+
+type CategoryEdge {
+  node: Category!
+  cursor: String!
+}
+
+enum CategoryOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  slug_ASC
+  slug_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type CategoryPreviousValues {
+  id: ID!
+  title: String!
+  slug: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CategorySubscriptionPayload {
+  mutation: MutationType!
+  node: Category
+  updatedFields: [String!]
+  previousValues: CategoryPreviousValues
+}
+
+input CategorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CategoryWhereInput
+  AND: [CategorySubscriptionWhereInput!]
+}
+
+input CategoryUpdateInput {
+  title: String
+  slug: String
+  subCategory: SubCategoryUpdateManyInput
+}
+
+input CategoryUpdateManyMutationInput {
+  title: String
+  slug: String
+}
+
+input CategoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  subCategory_some: SubCategoryWhereInput
+  subCategory_every: SubCategoryRestrictedWhereInput
+  subCategory_none: SubCategoryRestrictedWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [CategoryWhereInput!]
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
 }
 
 scalar DateTime
@@ -26,6 +174,12 @@ enum Gender {
 scalar Long
 
 type Mutation {
+  createCategory(data: CategoryCreateInput!): Category!
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
+  upsertCategory(where: CategoryWhereUniqueInput!, create: CategoryCreateInput!, update: CategoryUpdateInput!): Category!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
   createPost(data: PostCreateInput!): Post!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
@@ -57,11 +211,56 @@ type PageInfo {
   endCursor: String
 }
 
+type Params {
+  acreage: Int
+}
+
+input ParamsCreateInput {
+  acreage: Int
+}
+
+input ParamsCreateOneInput {
+  create: ParamsCreateInput
+}
+
+input ParamsUpdateDataInput {
+  acreage: Int
+}
+
+input ParamsUpdateOneRequiredInput {
+  create: ParamsCreateInput
+  update: ParamsUpdateDataInput
+  upsert: ParamsUpsertNestedInput
+}
+
+input ParamsUpsertNestedInput {
+  update: ParamsUpdateDataInput!
+  create: ParamsCreateInput!
+}
+
+input ParamsWhereInput {
+  acreage: Int
+  acreage_not: Int
+  acreage_in: [Int!]
+  acreage_not_in: [Int!]
+  acreage_lt: Int
+  acreage_lte: Int
+  acreage_gt: Int
+  acreage_gte: Int
+  AND: [ParamsWhereInput!]
+}
+
 type Post {
   id: ID!
-  image: String
   title: String!
+  thumbnail: String!
   address: String!
+  category: Int!
+  params: Params!
+  postDetail: PostDetail!
+  poster: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostConnection {
@@ -72,9 +271,105 @@ type PostConnection {
 
 input PostCreateInput {
   id: ID
-  image: String
   title: String!
+  thumbnail: String!
   address: String!
+  category: Int!
+  params: ParamsCreateOneInput!
+  postDetail: PostDetailCreateOneInput!
+  poster: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutPosterInput {
+  create: [PostCreateWithoutPosterInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutPosterInput {
+  id: ID
+  title: String!
+  thumbnail: String!
+  address: String!
+  category: Int!
+  params: ParamsCreateOneInput!
+  postDetail: PostDetailCreateOneInput!
+}
+
+type PostDetail {
+  id: ID!
+  images: [String!]!
+  content: String!
+}
+
+input PostDetailCreateimagesInput {
+  set: [String!]
+}
+
+input PostDetailCreateInput {
+  id: ID
+  images: PostDetailCreateimagesInput
+  content: String!
+}
+
+input PostDetailCreateOneInput {
+  create: PostDetailCreateInput
+}
+
+input PostDetailUpdateDataInput {
+  images: PostDetailUpdateimagesInput
+  content: String
+}
+
+input PostDetailUpdateimagesInput {
+  set: [String!]
+}
+
+input PostDetailUpdateOneRequiredInput {
+  create: PostDetailCreateInput
+  update: PostDetailUpdateDataInput
+  upsert: PostDetailUpsertNestedInput
+  connect: PostDetailWhereUniqueInput
+}
+
+input PostDetailUpsertNestedInput {
+  update: PostDetailUpdateDataInput!
+  create: PostDetailCreateInput!
+}
+
+input PostDetailWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  AND: [PostDetailWhereInput!]
+}
+
+input PostDetailWhereUniqueInput {
+  id: ID
 }
 
 type PostEdge {
@@ -85,19 +380,114 @@ type PostEdge {
 enum PostOrderByInput {
   id_ASC
   id_DESC
-  image_ASC
-  image_DESC
   title_ASC
   title_DESC
+  thumbnail_ASC
+  thumbnail_DESC
   address_ASC
   address_DESC
+  category_ASC
+  category_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type PostPreviousValues {
   id: ID!
-  image: String
   title: String!
+  thumbnail: String!
   address: String!
+  category: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  thumbnail: String
+  thumbnail_not: String
+  thumbnail_in: [String!]
+  thumbnail_not_in: [String!]
+  thumbnail_lt: String
+  thumbnail_lte: String
+  thumbnail_gt: String
+  thumbnail_gte: String
+  thumbnail_contains: String
+  thumbnail_not_contains: String
+  thumbnail_starts_with: String
+  thumbnail_not_starts_with: String
+  thumbnail_ends_with: String
+  thumbnail_not_ends_with: String
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  category: Int
+  category_not: Int
+  category_in: [Int!]
+  category_not_in: [Int!]
+  category_lt: Int
+  category_lte: Int
+  category_gt: Int
+  category_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
 }
 
 type PostSubscriptionPayload {
@@ -117,15 +507,64 @@ input PostSubscriptionWhereInput {
 }
 
 input PostUpdateInput {
-  image: String
   title: String
+  thumbnail: String
   address: String
+  category: Int
+  params: ParamsUpdateOneRequiredInput
+  postDetail: PostDetailUpdateOneRequiredInput
+  poster: UserUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateManyDataInput {
+  title: String
+  thumbnail: String
+  address: String
+  category: Int
 }
 
 input PostUpdateManyMutationInput {
-  image: String
   title: String
+  thumbnail: String
   address: String
+  category: Int
+}
+
+input PostUpdateManyWithoutPosterInput {
+  create: [PostCreateWithoutPosterInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutPosterInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutPosterInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateWithoutPosterDataInput {
+  title: String
+  thumbnail: String
+  address: String
+  category: Int
+  params: ParamsUpdateOneRequiredInput
+  postDetail: PostDetailUpdateOneRequiredInput
+}
+
+input PostUpdateWithWhereUniqueWithoutPosterInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutPosterDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutPosterInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutPosterDataInput!
+  create: PostCreateWithoutPosterInput!
 }
 
 input PostWhereInput {
@@ -143,20 +582,6 @@ input PostWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  image: String
-  image_not: String
-  image_in: [String!]
-  image_not_in: [String!]
-  image_lt: String
-  image_lte: String
-  image_gt: String
-  image_gte: String
-  image_contains: String
-  image_not_contains: String
-  image_starts_with: String
-  image_not_starts_with: String
-  image_ends_with: String
-  image_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -171,6 +596,20 @@ input PostWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  thumbnail: String
+  thumbnail_not: String
+  thumbnail_in: [String!]
+  thumbnail_not_in: [String!]
+  thumbnail_lt: String
+  thumbnail_lte: String
+  thumbnail_gt: String
+  thumbnail_gte: String
+  thumbnail_contains: String
+  thumbnail_not_contains: String
+  thumbnail_starts_with: String
+  thumbnail_not_starts_with: String
+  thumbnail_ends_with: String
+  thumbnail_not_ends_with: String
   address: String
   address_not: String
   address_in: [String!]
@@ -185,6 +624,33 @@ input PostWhereInput {
   address_not_starts_with: String
   address_ends_with: String
   address_not_ends_with: String
+  category: Int
+  category_not: Int
+  category_in: [Int!]
+  category_not_in: [Int!]
+  category_lt: Int
+  category_lte: Int
+  category_gt: Int
+  category_gte: Int
+  params: ParamsWhereInput
+  postDetail: PostDetailWhereInput
+  poster: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PostWhereInput!]
 }
 
@@ -193,6 +659,9 @@ input PostWhereUniqueInput {
 }
 
 type Query {
+  category(where: CategoryWhereUniqueInput!): Category
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
+  categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
@@ -207,7 +676,208 @@ enum Role {
   MODERATOR
 }
 
+type SubCategory {
+  id: Int!
+  title: String!
+  slug: String!
+  parent: String!
+}
+
+input SubCategoryCreateInput {
+  id: Int!
+  title: String!
+  slug: String!
+  parent: String!
+}
+
+input SubCategoryCreateManyInput {
+  create: [SubCategoryCreateInput!]
+}
+
+input SubCategoryRestrictedWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  parent: String
+  parent_not: String
+  parent_in: [String!]
+  parent_not_in: [String!]
+  parent_lt: String
+  parent_lte: String
+  parent_gt: String
+  parent_gte: String
+  parent_contains: String
+  parent_not_contains: String
+  parent_starts_with: String
+  parent_not_starts_with: String
+  parent_ends_with: String
+  parent_not_ends_with: String
+  AND: [SubCategoryRestrictedWhereInput!]
+}
+
+input SubCategoryScalarWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  parent: String
+  parent_not: String
+  parent_in: [String!]
+  parent_not_in: [String!]
+  parent_lt: String
+  parent_lte: String
+  parent_gt: String
+  parent_gte: String
+  parent_contains: String
+  parent_not_contains: String
+  parent_starts_with: String
+  parent_not_starts_with: String
+  parent_ends_with: String
+  parent_not_ends_with: String
+  AND: [SubCategoryScalarWhereInput!]
+  OR: [SubCategoryScalarWhereInput!]
+  NOT: [SubCategoryScalarWhereInput!]
+}
+
+input SubCategoryUpdateManyDataInput {
+  id: Int
+  title: String
+  slug: String
+  parent: String
+}
+
+input SubCategoryUpdateManyInput {
+  create: [SubCategoryCreateInput!]
+  deleteMany: [SubCategoryScalarWhereInput!]
+  updateMany: [SubCategoryUpdateManyWithWhereNestedInput!]
+}
+
+input SubCategoryUpdateManyWithWhereNestedInput {
+  where: SubCategoryScalarWhereInput!
+  data: SubCategoryUpdateManyDataInput!
+}
+
+input SubCategoryWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  parent: String
+  parent_not: String
+  parent_in: [String!]
+  parent_not_in: [String!]
+  parent_lt: String
+  parent_lte: String
+  parent_gt: String
+  parent_gte: String
+  parent_contains: String
+  parent_not_contains: String
+  parent_starts_with: String
+  parent_not_starts_with: String
+  parent_ends_with: String
+  parent_not_ends_with: String
+  AND: [SubCategoryWhereInput!]
+}
+
 type Subscription {
+  category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
@@ -226,6 +896,7 @@ type User {
   birthday: DateTime
   address: String
   role: Role
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -237,6 +908,28 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
+  phone: String!
+  password: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+  posts: PostCreateManyWithoutPosterInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPostsInput {
   id: ID
   phone: String!
   password: String!
@@ -337,6 +1030,7 @@ input UserUpdateInput {
   birthday: DateTime
   address: String
   role: Role
+  posts: PostUpdateManyWithoutPosterInput
 }
 
 input UserUpdateManyMutationInput {
@@ -352,6 +1046,33 @@ input UserUpdateManyMutationInput {
   birthday: DateTime
   address: String
   role: Role
+}
+
+input UserUpdateOneRequiredWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  phone: String
+  password: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {
@@ -487,6 +1208,7 @@ input UserWhereInput {
   role_not: Role
   role_in: [Role!]
   role_not_in: [Role!]
+  posts_some: PostWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

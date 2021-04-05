@@ -12,7 +12,7 @@ type User {
     birthday: DateTime
     address: String
     role: Role
-    posts: [Int]!
+    posts: [Post!]! @relation(name: "PostsByUser", link: INLINE, onDelete: SET_NULL)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -22,21 +22,27 @@ type Post {
     thumbnail: String!
     address: String!
     category: Int!
-    params: Params
+    params: Params!
+    postDetail: PostDetail!
+    poster: User! @relation(name: "PostsByUser")
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type PostDetail @embedded {
     id: ID! @id
     images: [String!]
     content: String!
 }
-type Params {
+type Params @embedded {
     acreage: Int
 }
 type Category {
-    id: Int!
+    id: ID! @id
     title: String!
     slug: String!
     subCategory: [SubCategory!]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type SubCategory @embedded  {
     id: Int!

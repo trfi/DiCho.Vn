@@ -13,6 +13,26 @@ var models = [
     embedded: false
   },
   {
+    name: "PostDetail",
+    embedded: true
+  },
+  {
+    name: "Params",
+    embedded: true
+  },
+  {
+    name: "Category",
+    embedded: false
+  },
+  {
+    name: "SubCategory",
+    embedded: true
+  },
+  {
+    name: "Types",
+    embedded: false
+  },
+  {
     name: "Gender",
     embedded: false
   },
