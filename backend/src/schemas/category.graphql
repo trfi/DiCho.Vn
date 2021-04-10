@@ -1,0 +1,7 @@
+type Category {
+    id: ID! @id
+    cateId: Post!
+    title: String!
+    slug: String!
+    path: String
+}

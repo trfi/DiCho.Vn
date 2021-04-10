@@ -12,11 +12,9 @@ type User {
     address: String
     role: Role
 }
-
 type Token {
     token: String!
 }
-
 type Query {
     signIn(phone: String!, password: String!): Token!
     getUser(id: ID!): User!
@@ -30,7 +28,8 @@ input UserCreateInput {
     gender: Gender
 }
 type Mutation {
-    signUp(phone: String!, password: String!, email: String, name: String, gender: Gender, birthday: DateTime): Token
+    signUp(phone: String!, password: String!, email: String, name: String, 
+    username: String, gender: Gender, birthday: DateTime): Token
 }
 enum Gender {
     M

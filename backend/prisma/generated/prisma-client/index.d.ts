@@ -179,18 +179,6 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type CategoryOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
 export type Gender = "M" | "F" | "O";
 
 export type Role = "ADMIN" | "MODERATOR";
@@ -202,14 +190,34 @@ export type PostOrderByInput =
   | "title_DESC"
   | "thumbnail_ASC"
   | "thumbnail_DESC"
-  | "address_ASC"
-  | "address_DESC"
-  | "category_ASC"
-  | "category_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "broker_ASC"
+  | "broker_DESC"
+  | "region_ASC"
+  | "region_DESC"
+  | "area_ASC"
+  | "area_DESC"
+  | "ward_ASC"
+  | "ward_DESC"
+  | "price_ASC"
+  | "price_DESC"
+  | "created_ASC"
+  | "created_DESC"
+  | "updated_ASC"
+  | "updated_DESC";
+
+export type CategoryOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
+  | "path_ASC"
+  | "path_DESC"
+  | "created_ASC"
+  | "created_DESC"
+  | "updated_ASC"
+  | "updated_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -238,193 +246,14 @@ export type UserOrderByInput =
   | "address_DESC"
   | "role_ASC"
   | "role_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "created_ASC"
+  | "created_DESC"
+  | "updated_ASC"
+  | "updated_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type CategoryWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface CategoryWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  subCategory_some?: Maybe<SubCategoryWhereInput>;
-  subCategory_every?: Maybe<SubCategoryRestrictedWhereInput>;
-  subCategory_none?: Maybe<SubCategoryRestrictedWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
-}
-
-export interface SubCategoryWhereInput {
-  id?: Maybe<Int>;
-  id_not?: Maybe<Int>;
-  id_in?: Maybe<Int[] | Int>;
-  id_not_in?: Maybe<Int[] | Int>;
-  id_lt?: Maybe<Int>;
-  id_lte?: Maybe<Int>;
-  id_gt?: Maybe<Int>;
-  id_gte?: Maybe<Int>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  parent?: Maybe<String>;
-  parent_not?: Maybe<String>;
-  parent_in?: Maybe<String[] | String>;
-  parent_not_in?: Maybe<String[] | String>;
-  parent_lt?: Maybe<String>;
-  parent_lte?: Maybe<String>;
-  parent_gt?: Maybe<String>;
-  parent_gte?: Maybe<String>;
-  parent_contains?: Maybe<String>;
-  parent_not_contains?: Maybe<String>;
-  parent_starts_with?: Maybe<String>;
-  parent_not_starts_with?: Maybe<String>;
-  parent_ends_with?: Maybe<String>;
-  parent_not_ends_with?: Maybe<String>;
-  AND?: Maybe<SubCategoryWhereInput[] | SubCategoryWhereInput>;
-}
-
-export interface SubCategoryRestrictedWhereInput {
-  id?: Maybe<Int>;
-  id_not?: Maybe<Int>;
-  id_in?: Maybe<Int[] | Int>;
-  id_not_in?: Maybe<Int[] | Int>;
-  id_lt?: Maybe<Int>;
-  id_lte?: Maybe<Int>;
-  id_gt?: Maybe<Int>;
-  id_gte?: Maybe<Int>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  parent?: Maybe<String>;
-  parent_not?: Maybe<String>;
-  parent_in?: Maybe<String[] | String>;
-  parent_not_in?: Maybe<String[] | String>;
-  parent_lt?: Maybe<String>;
-  parent_lte?: Maybe<String>;
-  parent_gt?: Maybe<String>;
-  parent_gte?: Maybe<String>;
-  parent_contains?: Maybe<String>;
-  parent_not_contains?: Maybe<String>;
-  parent_starts_with?: Maybe<String>;
-  parent_not_starts_with?: Maybe<String>;
-  parent_ends_with?: Maybe<String>;
-  parent_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    SubCategoryRestrictedWhereInput[] | SubCategoryRestrictedWhereInput
-  >;
-}
-
-export type PostWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -471,63 +300,64 @@ export interface PostWhereInput {
   thumbnail_not_starts_with?: Maybe<String>;
   thumbnail_ends_with?: Maybe<String>;
   thumbnail_not_ends_with?: Maybe<String>;
-  address?: Maybe<String>;
-  address_not?: Maybe<String>;
-  address_in?: Maybe<String[] | String>;
-  address_not_in?: Maybe<String[] | String>;
-  address_lt?: Maybe<String>;
-  address_lte?: Maybe<String>;
-  address_gt?: Maybe<String>;
-  address_gte?: Maybe<String>;
-  address_contains?: Maybe<String>;
-  address_not_contains?: Maybe<String>;
-  address_starts_with?: Maybe<String>;
-  address_not_starts_with?: Maybe<String>;
-  address_ends_with?: Maybe<String>;
-  address_not_ends_with?: Maybe<String>;
-  category?: Maybe<Int>;
-  category_not?: Maybe<Int>;
-  category_in?: Maybe<Int[] | Int>;
-  category_not_in?: Maybe<Int[] | Int>;
-  category_lt?: Maybe<Int>;
-  category_lte?: Maybe<Int>;
-  category_gt?: Maybe<Int>;
-  category_gte?: Maybe<Int>;
+  category?: Maybe<CategoryWhereInput>;
+  broker?: Maybe<Boolean>;
+  broker_not?: Maybe<Boolean>;
   params?: Maybe<ParamsWhereInput>;
+  region?: Maybe<Int>;
+  region_not?: Maybe<Int>;
+  region_in?: Maybe<Int[] | Int>;
+  region_not_in?: Maybe<Int[] | Int>;
+  region_lt?: Maybe<Int>;
+  region_lte?: Maybe<Int>;
+  region_gt?: Maybe<Int>;
+  region_gte?: Maybe<Int>;
+  area?: Maybe<Int>;
+  area_not?: Maybe<Int>;
+  area_in?: Maybe<Int[] | Int>;
+  area_not_in?: Maybe<Int[] | Int>;
+  area_lt?: Maybe<Int>;
+  area_lte?: Maybe<Int>;
+  area_gt?: Maybe<Int>;
+  area_gte?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  ward_not?: Maybe<Int>;
+  ward_in?: Maybe<Int[] | Int>;
+  ward_not_in?: Maybe<Int[] | Int>;
+  ward_lt?: Maybe<Int>;
+  ward_lte?: Maybe<Int>;
+  ward_gt?: Maybe<Int>;
+  ward_gte?: Maybe<Int>;
+  price?: Maybe<Int>;
+  price_not?: Maybe<Int>;
+  price_in?: Maybe<Int[] | Int>;
+  price_not_in?: Maybe<Int[] | Int>;
+  price_lt?: Maybe<Int>;
+  price_lte?: Maybe<Int>;
+  price_gt?: Maybe<Int>;
+  price_gte?: Maybe<Int>;
   postDetail?: Maybe<PostDetailWhereInput>;
   poster?: Maybe<UserWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
+  created?: Maybe<DateTimeInput>;
+  created_not?: Maybe<DateTimeInput>;
+  created_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_lt?: Maybe<DateTimeInput>;
+  created_lte?: Maybe<DateTimeInput>;
+  created_gt?: Maybe<DateTimeInput>;
+  created_gte?: Maybe<DateTimeInput>;
+  updated?: Maybe<DateTimeInput>;
+  updated_not?: Maybe<DateTimeInput>;
+  updated_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_lt?: Maybe<DateTimeInput>;
+  updated_lte?: Maybe<DateTimeInput>;
+  updated_gt?: Maybe<DateTimeInput>;
+  updated_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<PostWhereInput[] | PostWhereInput>;
 }
 
-export interface ParamsWhereInput {
-  acreage?: Maybe<Int>;
-  acreage_not?: Maybe<Int>;
-  acreage_in?: Maybe<Int[] | Int>;
-  acreage_not_in?: Maybe<Int[] | Int>;
-  acreage_lt?: Maybe<Int>;
-  acreage_lte?: Maybe<Int>;
-  acreage_gt?: Maybe<Int>;
-  acreage_gte?: Maybe<Int>;
-  AND?: Maybe<ParamsWhereInput[] | ParamsWhereInput>;
-}
-
-export interface PostDetailWhereInput {
+export interface CategoryWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -542,6 +372,89 @@ export interface PostDetailWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  cateId?: Maybe<PostWhereInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  path?: Maybe<String>;
+  path_not?: Maybe<String>;
+  path_in?: Maybe<String[] | String>;
+  path_not_in?: Maybe<String[] | String>;
+  path_lt?: Maybe<String>;
+  path_lte?: Maybe<String>;
+  path_gt?: Maybe<String>;
+  path_gte?: Maybe<String>;
+  path_contains?: Maybe<String>;
+  path_not_contains?: Maybe<String>;
+  path_starts_with?: Maybe<String>;
+  path_not_starts_with?: Maybe<String>;
+  path_ends_with?: Maybe<String>;
+  path_not_ends_with?: Maybe<String>;
+  created?: Maybe<DateTimeInput>;
+  created_not?: Maybe<DateTimeInput>;
+  created_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_lt?: Maybe<DateTimeInput>;
+  created_lte?: Maybe<DateTimeInput>;
+  created_gt?: Maybe<DateTimeInput>;
+  created_gte?: Maybe<DateTimeInput>;
+  updated?: Maybe<DateTimeInput>;
+  updated_not?: Maybe<DateTimeInput>;
+  updated_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_lt?: Maybe<DateTimeInput>;
+  updated_lte?: Maybe<DateTimeInput>;
+  updated_gt?: Maybe<DateTimeInput>;
+  updated_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+}
+
+export interface ParamsWhereInput {
+  acreage?: Maybe<Int>;
+  acreage_not?: Maybe<Int>;
+  acreage_in?: Maybe<Int[] | Int>;
+  acreage_not_in?: Maybe<Int[] | Int>;
+  acreage_lt?: Maybe<Int>;
+  acreage_lte?: Maybe<Int>;
+  acreage_gt?: Maybe<Int>;
+  acreage_gte?: Maybe<Int>;
+  rooms?: Maybe<Int>;
+  rooms_not?: Maybe<Int>;
+  rooms_in?: Maybe<Int[] | Int>;
+  rooms_not_in?: Maybe<Int[] | Int>;
+  rooms_lt?: Maybe<Int>;
+  rooms_lte?: Maybe<Int>;
+  rooms_gt?: Maybe<Int>;
+  rooms_gte?: Maybe<Int>;
+  AND?: Maybe<ParamsWhereInput[] | ParamsWhereInput>;
+}
+
+export interface PostDetailWhereInput {
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -556,6 +469,20 @@ export interface PostDetailWhereInput {
   content_not_starts_with?: Maybe<String>;
   content_ends_with?: Maybe<String>;
   content_not_ends_with?: Maybe<String>;
+  address?: Maybe<String>;
+  address_not?: Maybe<String>;
+  address_in?: Maybe<String[] | String>;
+  address_not_in?: Maybe<String[] | String>;
+  address_lt?: Maybe<String>;
+  address_lte?: Maybe<String>;
+  address_gt?: Maybe<String>;
+  address_gte?: Maybe<String>;
+  address_contains?: Maybe<String>;
+  address_not_contains?: Maybe<String>;
+  address_starts_with?: Maybe<String>;
+  address_not_starts_with?: Maybe<String>;
+  address_ends_with?: Maybe<String>;
+  address_not_ends_with?: Maybe<String>;
   AND?: Maybe<PostDetailWhereInput[] | PostDetailWhereInput>;
 }
 
@@ -693,24 +620,28 @@ export interface UserWhereInput {
   role_in?: Maybe<Role[] | Role>;
   role_not_in?: Maybe<Role[] | Role>;
   posts_some?: Maybe<PostWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
+  created?: Maybe<DateTimeInput>;
+  created_not?: Maybe<DateTimeInput>;
+  created_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_lt?: Maybe<DateTimeInput>;
+  created_lte?: Maybe<DateTimeInput>;
+  created_gt?: Maybe<DateTimeInput>;
+  created_gte?: Maybe<DateTimeInput>;
+  updated?: Maybe<DateTimeInput>;
+  updated_not?: Maybe<DateTimeInput>;
+  updated_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_lt?: Maybe<DateTimeInput>;
+  updated_lte?: Maybe<DateTimeInput>;
+  updated_gt?: Maybe<DateTimeInput>;
+  updated_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
+
+export type PostWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
@@ -720,119 +651,27 @@ export type UserWhereUniqueInput = AtLeastOne<{
 
 export interface CategoryCreateInput {
   id?: Maybe<ID_Input>;
+  cateId: PostCreateOneWithoutCategoryInput;
   title: String;
   slug: String;
-  subCategory?: Maybe<SubCategoryCreateManyInput>;
+  path?: Maybe<String>;
 }
 
-export interface SubCategoryCreateManyInput {
-  create?: Maybe<SubCategoryCreateInput[] | SubCategoryCreateInput>;
+export interface PostCreateOneWithoutCategoryInput {
+  create?: Maybe<PostCreateWithoutCategoryInput>;
+  connect?: Maybe<PostWhereUniqueInput>;
 }
 
-export interface SubCategoryCreateInput {
-  id: Int;
-  title: String;
-  slug: String;
-  parent: String;
-}
-
-export interface CategoryUpdateInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  subCategory?: Maybe<SubCategoryUpdateManyInput>;
-}
-
-export interface SubCategoryUpdateManyInput {
-  create?: Maybe<SubCategoryCreateInput[] | SubCategoryCreateInput>;
-  deleteMany?: Maybe<
-    SubCategoryScalarWhereInput[] | SubCategoryScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | SubCategoryUpdateManyWithWhereNestedInput[]
-    | SubCategoryUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface SubCategoryScalarWhereInput {
-  id?: Maybe<Int>;
-  id_not?: Maybe<Int>;
-  id_in?: Maybe<Int[] | Int>;
-  id_not_in?: Maybe<Int[] | Int>;
-  id_lt?: Maybe<Int>;
-  id_lte?: Maybe<Int>;
-  id_gt?: Maybe<Int>;
-  id_gte?: Maybe<Int>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  parent?: Maybe<String>;
-  parent_not?: Maybe<String>;
-  parent_in?: Maybe<String[] | String>;
-  parent_not_in?: Maybe<String[] | String>;
-  parent_lt?: Maybe<String>;
-  parent_lte?: Maybe<String>;
-  parent_gt?: Maybe<String>;
-  parent_gte?: Maybe<String>;
-  parent_contains?: Maybe<String>;
-  parent_not_contains?: Maybe<String>;
-  parent_starts_with?: Maybe<String>;
-  parent_not_starts_with?: Maybe<String>;
-  parent_ends_with?: Maybe<String>;
-  parent_not_ends_with?: Maybe<String>;
-  AND?: Maybe<SubCategoryScalarWhereInput[] | SubCategoryScalarWhereInput>;
-  OR?: Maybe<SubCategoryScalarWhereInput[] | SubCategoryScalarWhereInput>;
-  NOT?: Maybe<SubCategoryScalarWhereInput[] | SubCategoryScalarWhereInput>;
-}
-
-export interface SubCategoryUpdateManyWithWhereNestedInput {
-  where: SubCategoryScalarWhereInput;
-  data: SubCategoryUpdateManyDataInput;
-}
-
-export interface SubCategoryUpdateManyDataInput {
-  id?: Maybe<Int>;
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  parent?: Maybe<String>;
-}
-
-export interface CategoryUpdateManyMutationInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-}
-
-export interface PostCreateInput {
+export interface PostCreateWithoutCategoryInput {
   id?: Maybe<ID_Input>;
   title: String;
   thumbnail: String;
-  address: String;
-  category: Int;
+  broker?: Maybe<Boolean>;
   params: ParamsCreateOneInput;
+  region: Int;
+  area: Int;
+  ward: Int;
+  price: Int;
   postDetail: PostDetailCreateOneInput;
   poster: UserCreateOneWithoutPostsInput;
 }
@@ -843,6 +682,7 @@ export interface ParamsCreateOneInput {
 
 export interface ParamsCreateInput {
   acreage?: Maybe<Int>;
+  rooms?: Maybe<Int>;
 }
 
 export interface PostDetailCreateOneInput {
@@ -850,9 +690,9 @@ export interface PostDetailCreateOneInput {
 }
 
 export interface PostDetailCreateInput {
-  id?: Maybe<ID_Input>;
   images?: Maybe<PostDetailCreateimagesInput>;
   content: String;
+  address: String;
 }
 
 export interface PostDetailCreateimagesInput {
@@ -880,12 +720,29 @@ export interface UserCreateWithoutPostsInput {
   role?: Maybe<Role>;
 }
 
-export interface PostUpdateInput {
+export interface CategoryUpdateInput {
+  cateId?: Maybe<PostUpdateOneRequiredWithoutCategoryInput>;
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  path?: Maybe<String>;
+}
+
+export interface PostUpdateOneRequiredWithoutCategoryInput {
+  create?: Maybe<PostCreateWithoutCategoryInput>;
+  update?: Maybe<PostUpdateWithoutCategoryDataInput>;
+  upsert?: Maybe<PostUpsertWithoutCategoryInput>;
+  connect?: Maybe<PostWhereUniqueInput>;
+}
+
+export interface PostUpdateWithoutCategoryDataInput {
   title?: Maybe<String>;
   thumbnail?: Maybe<String>;
-  address?: Maybe<String>;
-  category?: Maybe<Int>;
+  broker?: Maybe<Boolean>;
   params?: Maybe<ParamsUpdateOneRequiredInput>;
+  region?: Maybe<Int>;
+  area?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  price?: Maybe<Int>;
   postDetail?: Maybe<PostDetailUpdateOneRequiredInput>;
   poster?: Maybe<UserUpdateOneRequiredWithoutPostsInput>;
 }
@@ -898,6 +755,7 @@ export interface ParamsUpdateOneRequiredInput {
 
 export interface ParamsUpdateDataInput {
   acreage?: Maybe<Int>;
+  rooms?: Maybe<Int>;
 }
 
 export interface ParamsUpsertNestedInput {
@@ -909,12 +767,12 @@ export interface PostDetailUpdateOneRequiredInput {
   create?: Maybe<PostDetailCreateInput>;
   update?: Maybe<PostDetailUpdateDataInput>;
   upsert?: Maybe<PostDetailUpsertNestedInput>;
-  connect?: Maybe<PostDetailWhereUniqueInput>;
 }
 
 export interface PostDetailUpdateDataInput {
   images?: Maybe<PostDetailUpdateimagesInput>;
   content?: Maybe<String>;
+  address?: Maybe<String>;
 }
 
 export interface PostDetailUpdateimagesInput {
@@ -925,10 +783,6 @@ export interface PostDetailUpsertNestedInput {
   update: PostDetailUpdateDataInput;
   create: PostDetailCreateInput;
 }
-
-export type PostDetailWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export interface UserUpdateOneRequiredWithoutPostsInput {
   create?: Maybe<UserCreateWithoutPostsInput>;
@@ -957,11 +811,84 @@ export interface UserUpsertWithoutPostsInput {
   create: UserCreateWithoutPostsInput;
 }
 
+export interface PostUpsertWithoutCategoryInput {
+  update: PostUpdateWithoutCategoryDataInput;
+  create: PostCreateWithoutCategoryInput;
+}
+
+export interface CategoryUpdateManyMutationInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  path?: Maybe<String>;
+}
+
+export interface PostCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  thumbnail: String;
+  category: CategoryCreateOneWithoutCateIdInput;
+  broker?: Maybe<Boolean>;
+  params: ParamsCreateOneInput;
+  region: Int;
+  area: Int;
+  ward: Int;
+  price: Int;
+  postDetail: PostDetailCreateOneInput;
+  poster: UserCreateOneWithoutPostsInput;
+}
+
+export interface CategoryCreateOneWithoutCateIdInput {
+  create?: Maybe<CategoryCreateWithoutCateIdInput>;
+  connect?: Maybe<CategoryWhereUniqueInput>;
+}
+
+export interface CategoryCreateWithoutCateIdInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  slug: String;
+  path?: Maybe<String>;
+}
+
+export interface PostUpdateInput {
+  title?: Maybe<String>;
+  thumbnail?: Maybe<String>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutCateIdInput>;
+  broker?: Maybe<Boolean>;
+  params?: Maybe<ParamsUpdateOneRequiredInput>;
+  region?: Maybe<Int>;
+  area?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  price?: Maybe<Int>;
+  postDetail?: Maybe<PostDetailUpdateOneRequiredInput>;
+  poster?: Maybe<UserUpdateOneRequiredWithoutPostsInput>;
+}
+
+export interface CategoryUpdateOneRequiredWithoutCateIdInput {
+  create?: Maybe<CategoryCreateWithoutCateIdInput>;
+  update?: Maybe<CategoryUpdateWithoutCateIdDataInput>;
+  upsert?: Maybe<CategoryUpsertWithoutCateIdInput>;
+  connect?: Maybe<CategoryWhereUniqueInput>;
+}
+
+export interface CategoryUpdateWithoutCateIdDataInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  path?: Maybe<String>;
+}
+
+export interface CategoryUpsertWithoutCateIdInput {
+  update: CategoryUpdateWithoutCateIdDataInput;
+  create: CategoryCreateWithoutCateIdInput;
+}
+
 export interface PostUpdateManyMutationInput {
   title?: Maybe<String>;
   thumbnail?: Maybe<String>;
-  address?: Maybe<String>;
-  category?: Maybe<Int>;
+  broker?: Maybe<Boolean>;
+  region?: Maybe<Int>;
+  area?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  price?: Maybe<Int>;
 }
 
 export interface UserCreateInput {
@@ -990,9 +917,13 @@ export interface PostCreateWithoutPosterInput {
   id?: Maybe<ID_Input>;
   title: String;
   thumbnail: String;
-  address: String;
-  category: Int;
+  category: CategoryCreateOneWithoutCateIdInput;
+  broker?: Maybe<Boolean>;
   params: ParamsCreateOneInput;
+  region: Int;
+  area: Int;
+  ward: Int;
+  price: Int;
   postDetail: PostDetailCreateOneInput;
 }
 
@@ -1040,9 +971,13 @@ export interface PostUpdateWithWhereUniqueWithoutPosterInput {
 export interface PostUpdateWithoutPosterDataInput {
   title?: Maybe<String>;
   thumbnail?: Maybe<String>;
-  address?: Maybe<String>;
-  category?: Maybe<Int>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutCateIdInput>;
+  broker?: Maybe<Boolean>;
   params?: Maybe<ParamsUpdateOneRequiredInput>;
+  region?: Maybe<Int>;
+  area?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  price?: Maybe<Int>;
   postDetail?: Maybe<PostDetailUpdateOneRequiredInput>;
 }
 
@@ -1095,44 +1030,56 @@ export interface PostScalarWhereInput {
   thumbnail_not_starts_with?: Maybe<String>;
   thumbnail_ends_with?: Maybe<String>;
   thumbnail_not_ends_with?: Maybe<String>;
-  address?: Maybe<String>;
-  address_not?: Maybe<String>;
-  address_in?: Maybe<String[] | String>;
-  address_not_in?: Maybe<String[] | String>;
-  address_lt?: Maybe<String>;
-  address_lte?: Maybe<String>;
-  address_gt?: Maybe<String>;
-  address_gte?: Maybe<String>;
-  address_contains?: Maybe<String>;
-  address_not_contains?: Maybe<String>;
-  address_starts_with?: Maybe<String>;
-  address_not_starts_with?: Maybe<String>;
-  address_ends_with?: Maybe<String>;
-  address_not_ends_with?: Maybe<String>;
-  category?: Maybe<Int>;
-  category_not?: Maybe<Int>;
-  category_in?: Maybe<Int[] | Int>;
-  category_not_in?: Maybe<Int[] | Int>;
-  category_lt?: Maybe<Int>;
-  category_lte?: Maybe<Int>;
-  category_gt?: Maybe<Int>;
-  category_gte?: Maybe<Int>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
+  broker?: Maybe<Boolean>;
+  broker_not?: Maybe<Boolean>;
+  region?: Maybe<Int>;
+  region_not?: Maybe<Int>;
+  region_in?: Maybe<Int[] | Int>;
+  region_not_in?: Maybe<Int[] | Int>;
+  region_lt?: Maybe<Int>;
+  region_lte?: Maybe<Int>;
+  region_gt?: Maybe<Int>;
+  region_gte?: Maybe<Int>;
+  area?: Maybe<Int>;
+  area_not?: Maybe<Int>;
+  area_in?: Maybe<Int[] | Int>;
+  area_not_in?: Maybe<Int[] | Int>;
+  area_lt?: Maybe<Int>;
+  area_lte?: Maybe<Int>;
+  area_gt?: Maybe<Int>;
+  area_gte?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  ward_not?: Maybe<Int>;
+  ward_in?: Maybe<Int[] | Int>;
+  ward_not_in?: Maybe<Int[] | Int>;
+  ward_lt?: Maybe<Int>;
+  ward_lte?: Maybe<Int>;
+  ward_gt?: Maybe<Int>;
+  ward_gte?: Maybe<Int>;
+  price?: Maybe<Int>;
+  price_not?: Maybe<Int>;
+  price_in?: Maybe<Int[] | Int>;
+  price_not_in?: Maybe<Int[] | Int>;
+  price_lt?: Maybe<Int>;
+  price_lte?: Maybe<Int>;
+  price_gt?: Maybe<Int>;
+  price_gte?: Maybe<Int>;
+  created?: Maybe<DateTimeInput>;
+  created_not?: Maybe<DateTimeInput>;
+  created_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  created_lt?: Maybe<DateTimeInput>;
+  created_lte?: Maybe<DateTimeInput>;
+  created_gt?: Maybe<DateTimeInput>;
+  created_gte?: Maybe<DateTimeInput>;
+  updated?: Maybe<DateTimeInput>;
+  updated_not?: Maybe<DateTimeInput>;
+  updated_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updated_lt?: Maybe<DateTimeInput>;
+  updated_lte?: Maybe<DateTimeInput>;
+  updated_gt?: Maybe<DateTimeInput>;
+  updated_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
   OR?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
   NOT?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
@@ -1146,8 +1093,11 @@ export interface PostUpdateManyWithWhereNestedInput {
 export interface PostUpdateManyDataInput {
   title?: Maybe<String>;
   thumbnail?: Maybe<String>;
-  address?: Maybe<String>;
-  category?: Maybe<Int>;
+  broker?: Maybe<Boolean>;
+  region?: Maybe<Int>;
+  area?: Maybe<Int>;
+  ward?: Maybe<Int>;
+  price?: Maybe<Int>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -1202,72 +1152,268 @@ export interface Category {
   id: ID_Output;
   title: String;
   slug: String;
-  subCategory?: <T = FragmentableArray<SubCategory>>() => T;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  path?: String;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
 }
 
 export interface CategoryPromise extends Promise<Category>, Fragmentable {
   id: () => Promise<ID_Output>;
+  cateId: <T = PostPromise>() => T;
   title: () => Promise<String>;
   slug: () => Promise<String>;
-  subCategory: <T = FragmentableArray<SubCategory>>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  path: () => Promise<String>;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
 export interface CategorySubscription
   extends Promise<AsyncIterator<Category>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  cateId: <T = PostSubscription>() => T;
   title: () => Promise<AsyncIterator<String>>;
   slug: () => Promise<AsyncIterator<String>>;
-  subCategory: <T = Promise<AsyncIterator<SubCategorySubscription>>>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  path: () => Promise<AsyncIterator<String>>;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface CategoryNullablePromise
   extends Promise<Category | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  cateId: <T = PostPromise>() => T;
   title: () => Promise<String>;
   slug: () => Promise<String>;
-  subCategory: <T = FragmentableArray<SubCategory>>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  path: () => Promise<String>;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
-export interface SubCategory {
-  id: Int;
+export interface Post {
+  id: ID_Output;
   title: String;
-  slug: String;
-  parent: String;
+  thumbnail: String;
+  broker: Boolean;
+  params: Params;
+  region: Int;
+  area: Int;
+  ward: Int;
+  price: Int;
+  postDetail: PostDetail;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
 }
 
-export interface SubCategoryPromise extends Promise<SubCategory>, Fragmentable {
-  id: () => Promise<Int>;
+export interface PostPromise extends Promise<Post>, Fragmentable {
+  id: () => Promise<ID_Output>;
   title: () => Promise<String>;
-  slug: () => Promise<String>;
-  parent: () => Promise<String>;
+  thumbnail: () => Promise<String>;
+  category: <T = CategoryPromise>() => T;
+  broker: () => Promise<Boolean>;
+  params: <T = ParamsPromise>() => T;
+  region: () => Promise<Int>;
+  area: () => Promise<Int>;
+  ward: () => Promise<Int>;
+  price: () => Promise<Int>;
+  postDetail: <T = PostDetailPromise>() => T;
+  poster: <T = UserPromise>() => T;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
-export interface SubCategorySubscription
-  extends Promise<AsyncIterator<SubCategory>>,
+export interface PostSubscription
+  extends Promise<AsyncIterator<Post>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  parent: () => Promise<AsyncIterator<String>>;
+  thumbnail: () => Promise<AsyncIterator<String>>;
+  category: <T = CategorySubscription>() => T;
+  broker: () => Promise<AsyncIterator<Boolean>>;
+  params: <T = ParamsSubscription>() => T;
+  region: () => Promise<AsyncIterator<Int>>;
+  area: () => Promise<AsyncIterator<Int>>;
+  ward: () => Promise<AsyncIterator<Int>>;
+  price: () => Promise<AsyncIterator<Int>>;
+  postDetail: <T = PostDetailSubscription>() => T;
+  poster: <T = UserSubscription>() => T;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface SubCategoryNullablePromise
-  extends Promise<SubCategory | null>,
+export interface PostNullablePromise
+  extends Promise<Post | null>,
     Fragmentable {
-  id: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
   title: () => Promise<String>;
-  slug: () => Promise<String>;
-  parent: () => Promise<String>;
+  thumbnail: () => Promise<String>;
+  category: <T = CategoryPromise>() => T;
+  broker: () => Promise<Boolean>;
+  params: <T = ParamsPromise>() => T;
+  region: () => Promise<Int>;
+  area: () => Promise<Int>;
+  ward: () => Promise<Int>;
+  price: () => Promise<Int>;
+  postDetail: <T = PostDetailPromise>() => T;
+  poster: <T = UserPromise>() => T;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
+}
+
+export interface Params {
+  acreage?: Int;
+  rooms?: Int;
+}
+
+export interface ParamsPromise extends Promise<Params>, Fragmentable {
+  acreage: () => Promise<Int>;
+  rooms: () => Promise<Int>;
+}
+
+export interface ParamsSubscription
+  extends Promise<AsyncIterator<Params>>,
+    Fragmentable {
+  acreage: () => Promise<AsyncIterator<Int>>;
+  rooms: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ParamsNullablePromise
+  extends Promise<Params | null>,
+    Fragmentable {
+  acreage: () => Promise<Int>;
+  rooms: () => Promise<Int>;
+}
+
+export interface PostDetail {
+  images: String[];
+  content: String;
+  address: String;
+}
+
+export interface PostDetailPromise extends Promise<PostDetail>, Fragmentable {
+  images: () => Promise<String[]>;
+  content: () => Promise<String>;
+  address: () => Promise<String>;
+}
+
+export interface PostDetailSubscription
+  extends Promise<AsyncIterator<PostDetail>>,
+    Fragmentable {
+  images: () => Promise<AsyncIterator<String[]>>;
+  content: () => Promise<AsyncIterator<String>>;
+  address: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PostDetailNullablePromise
+  extends Promise<PostDetail | null>,
+    Fragmentable {
+  images: () => Promise<String[]>;
+  content: () => Promise<String>;
+  address: () => Promise<String>;
+}
+
+export interface User {
+  id: ID_Output;
+  phone: String;
+  password: String;
+  phoneVerified?: Boolean;
+  email?: String;
+  emailVerified?: Boolean;
+  name?: String;
+  username?: String;
+  avatar?: String;
+  gender?: Gender;
+  birthday?: DateTimeOutput;
+  address?: String;
+  role?: Role;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  phone: () => Promise<String>;
+  password: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
+  email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  avatar: () => Promise<String>;
+  gender: () => Promise<Gender>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  role: () => Promise<Role>;
+  posts: <T = FragmentableArray<Post>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
+  email: () => Promise<AsyncIterator<String>>;
+  emailVerified: () => Promise<AsyncIterator<Boolean>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
+  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
+  address: () => Promise<AsyncIterator<String>>;
+  role: () => Promise<AsyncIterator<Role>>;
+  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  phone: () => Promise<String>;
+  password: () => Promise<String>;
+  phoneVerified: () => Promise<Boolean>;
+  email: () => Promise<String>;
+  emailVerified: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  avatar: () => Promise<String>;
+  gender: () => Promise<Gender>;
+  birthday: () => Promise<DateTimeOutput>;
+  address: () => Promise<String>;
+  role: () => Promise<Role>;
+  posts: <T = FragmentableArray<Post>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
 export interface CategoryConnection {
@@ -1347,212 +1493,6 @@ export interface AggregateCategorySubscription
   extends Promise<AsyncIterator<AggregateCategory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Post {
-  id: ID_Output;
-  title: String;
-  thumbnail: String;
-  address: String;
-  category: Int;
-  params: Params;
-  postDetail: PostDetail;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface PostPromise extends Promise<Post>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  thumbnail: () => Promise<String>;
-  address: () => Promise<String>;
-  category: () => Promise<Int>;
-  params: <T = ParamsPromise>() => T;
-  postDetail: <T = PostDetailPromise>() => T;
-  poster: <T = UserPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface PostSubscription
-  extends Promise<AsyncIterator<Post>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  thumbnail: () => Promise<AsyncIterator<String>>;
-  address: () => Promise<AsyncIterator<String>>;
-  category: () => Promise<AsyncIterator<Int>>;
-  params: <T = ParamsSubscription>() => T;
-  postDetail: <T = PostDetailSubscription>() => T;
-  poster: <T = UserSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface PostNullablePromise
-  extends Promise<Post | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  thumbnail: () => Promise<String>;
-  address: () => Promise<String>;
-  category: () => Promise<Int>;
-  params: <T = ParamsPromise>() => T;
-  postDetail: <T = PostDetailPromise>() => T;
-  poster: <T = UserPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface Params {
-  acreage?: Int;
-}
-
-export interface ParamsPromise extends Promise<Params>, Fragmentable {
-  acreage: () => Promise<Int>;
-}
-
-export interface ParamsSubscription
-  extends Promise<AsyncIterator<Params>>,
-    Fragmentable {
-  acreage: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ParamsNullablePromise
-  extends Promise<Params | null>,
-    Fragmentable {
-  acreage: () => Promise<Int>;
-}
-
-export interface PostDetail {
-  id: ID_Output;
-  images: String[];
-  content: String;
-}
-
-export interface PostDetailPromise extends Promise<PostDetail>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  images: () => Promise<String[]>;
-  content: () => Promise<String>;
-}
-
-export interface PostDetailSubscription
-  extends Promise<AsyncIterator<PostDetail>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  images: () => Promise<AsyncIterator<String[]>>;
-  content: () => Promise<AsyncIterator<String>>;
-}
-
-export interface PostDetailNullablePromise
-  extends Promise<PostDetail | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  images: () => Promise<String[]>;
-  content: () => Promise<String>;
-}
-
-export interface User {
-  id: ID_Output;
-  phone: String;
-  password: String;
-  phoneVerified?: Boolean;
-  email?: String;
-  emailVerified?: Boolean;
-  name?: String;
-  username?: String;
-  avatar?: String;
-  gender?: Gender;
-  birthday?: DateTimeOutput;
-  address?: String;
-  role?: Role;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  phone: () => Promise<String>;
-  password: () => Promise<String>;
-  phoneVerified: () => Promise<Boolean>;
-  email: () => Promise<String>;
-  emailVerified: () => Promise<Boolean>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
-  avatar: () => Promise<String>;
-  gender: () => Promise<Gender>;
-  birthday: () => Promise<DateTimeOutput>;
-  address: () => Promise<String>;
-  role: () => Promise<Role>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  phone: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  phoneVerified: () => Promise<AsyncIterator<Boolean>>;
-  email: () => Promise<AsyncIterator<String>>;
-  emailVerified: () => Promise<AsyncIterator<Boolean>>;
-  name: () => Promise<AsyncIterator<String>>;
-  username: () => Promise<AsyncIterator<String>>;
-  avatar: () => Promise<AsyncIterator<String>>;
-  gender: () => Promise<AsyncIterator<Gender>>;
-  birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
-  address: () => Promise<AsyncIterator<String>>;
-  role: () => Promise<AsyncIterator<Role>>;
-  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  phone: () => Promise<String>;
-  password: () => Promise<String>;
-  phoneVerified: () => Promise<Boolean>;
-  email: () => Promise<String>;
-  emailVerified: () => Promise<Boolean>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
-  avatar: () => Promise<String>;
-  gender: () => Promise<Gender>;
-  birthday: () => Promise<DateTimeOutput>;
-  address: () => Promise<String>;
-  role: () => Promise<Role>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PostConnection {
@@ -1708,8 +1648,9 @@ export interface CategoryPreviousValues {
   id: ID_Output;
   title: String;
   slug: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  path?: String;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
 }
 
 export interface CategoryPreviousValuesPromise
@@ -1718,8 +1659,9 @@ export interface CategoryPreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   slug: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  path: () => Promise<String>;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
 export interface CategoryPreviousValuesSubscription
@@ -1728,8 +1670,9 @@ export interface CategoryPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   slug: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  path: () => Promise<AsyncIterator<String>>;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface PostSubscriptionPayload {
@@ -1761,10 +1704,13 @@ export interface PostPreviousValues {
   id: ID_Output;
   title: String;
   thumbnail: String;
-  address: String;
-  category: Int;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  broker: Boolean;
+  region: Int;
+  area: Int;
+  ward: Int;
+  price: Int;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
 }
 
 export interface PostPreviousValuesPromise
@@ -1773,10 +1719,13 @@ export interface PostPreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   thumbnail: () => Promise<String>;
-  address: () => Promise<String>;
-  category: () => Promise<Int>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  broker: () => Promise<Boolean>;
+  region: () => Promise<Int>;
+  area: () => Promise<Int>;
+  ward: () => Promise<Int>;
+  price: () => Promise<Int>;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
 export interface PostPreviousValuesSubscription
@@ -1785,10 +1734,13 @@ export interface PostPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   thumbnail: () => Promise<AsyncIterator<String>>;
-  address: () => Promise<AsyncIterator<String>>;
-  category: () => Promise<AsyncIterator<Int>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  broker: () => Promise<AsyncIterator<Boolean>>;
+  region: () => Promise<AsyncIterator<Int>>;
+  area: () => Promise<AsyncIterator<Int>>;
+  ward: () => Promise<AsyncIterator<Int>>;
+  price: () => Promise<AsyncIterator<Int>>;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -1830,8 +1782,8 @@ export interface UserPreviousValues {
   birthday?: DateTimeOutput;
   address?: String;
   role?: Role;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  created: DateTimeOutput;
+  updated: DateTimeOutput;
 }
 
 export interface UserPreviousValuesPromise
@@ -1850,8 +1802,8 @@ export interface UserPreviousValuesPromise
   birthday: () => Promise<DateTimeOutput>;
   address: () => Promise<String>;
   role: () => Promise<Role>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  created: () => Promise<DateTimeOutput>;
+  updated: () => Promise<DateTimeOutput>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -1870,8 +1822,8 @@ export interface UserPreviousValuesSubscription
   birthday: () => Promise<AsyncIterator<DateTimeOutput>>;
   address: () => Promise<AsyncIterator<String>>;
   role: () => Promise<AsyncIterator<Role>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  created: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updated: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -1884,6 +1836,11 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
@@ -1899,11 +1856,6 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
 
 export type Long = string;
 
@@ -1931,10 +1883,6 @@ export const models: Model[] = [
   {
     name: "Category",
     embedded: false
-  },
-  {
-    name: "SubCategory",
-    embedded: true
   },
   {
     name: "Types",

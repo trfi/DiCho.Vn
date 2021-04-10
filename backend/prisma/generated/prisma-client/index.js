@@ -25,10 +25,6 @@ var models = [
     embedded: false
   },
   {
-    name: "SubCategory",
-    embedded: true
-  },
-  {
     name: "Types",
     embedded: false
   },

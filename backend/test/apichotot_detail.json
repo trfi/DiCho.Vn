@@ -1,0 +1,119 @@
+{
+  "ad": {
+    "ad_id": 88187568,
+    "list_id": 60666616,
+    "list_time": 1563608219000,
+    "date": "11 giờ trước",
+    "account_id": 13286389,
+    "account_oid": "a5959ea8289f4661c274bb16c3804032",
+    "account_name": "f",
+    "subject": "Nhà 38m² 4 phòng ngủ ngõ 69 Trần Quang Diệu",
+    "body": "- Bán nhà ngõ 75 phố Trần Quang Diệu thông ngõ 180 Nguyễn Lương Bằng\n- nhà cách 40m ra vườn hoa Trần Quang Diệu, ngõ trước nhà rộng gần 4m , mặt ngõ thông\n- diện tích 38m2 xây 3 tầng kiến cố chắc chắn\n- mặt tiền 3,8m vuông vắn\n- SĐCC\n- giá 3,2 tỷ \n- Liên hệ",
+    "area": 75,
+    "area_name": "Quận Đống Đa",
+    "region": 12,
+    "region_name": "Hà Nội",
+    "category": 1020,
+    "category_name": "Nhà ở",
+    "company_ad": true,
+    "phone": "0849036651",
+    "type": "s",
+    "type_name": "Cần bán",
+    "price": 3200000000,
+    "price_string": "3.200.000.000 đ",
+    "reviewer_image": "https://static.chotot.com.vn/thumbs/admin/9999999788.png",
+    "reviewer_nickname": "Huy Nhựt",
+    "images": [
+      "https://static.chotot.com.vn/1/images/3QDrXECN27wCKrjd1UiotxqfrYkQQH7mbcRdPgTTLxHkEb2yyirdUjZvgUoLX38yhBjnF5y.Eq6fhheN8Fs71DxVRBg7PBZVc8R3cVoXZTf8yvMPAdQd",
+      "https://static.chotot.com.vn/1/images/3QDrXECN27wCKrghG6x6aN2kq1bv3LwcTqzYrxcxGSGinEqqh7ghcPAkYmuFi3G2t1Lccd5.8JyHWYBxvkGSCk2pwkgKXxksZmfByaaGz4wrrPjARq8Q",
+      "https://static.chotot.com.vn/1/images/3QDrXECN27wCKrkb9hUUyR6davMHGnAf3mzz2qZKMmwg2fhtBdtLDWdeiudJwP1WKwBfrpf.5qeRuGkeEvHv2b6i81Rnc7zP3jZN96VJuCxGLiaEKTr3"
+    ],
+    "thumbnail_image": "https://static.chotot.com.vn/1/images/3QDrXECN27wCKrjd1UiotxqfvM1ZJTvgvRv3k5Fpk6F3YP4c8ANHNPJVvYaGDJupCN8Ctdd.HXHQ9urCWq7ob6GQzcjy17KDcyaevzcXqeRVkryWVrjv",
+    "address": "ss",
+    "rooms": 4,
+    "size": 38,
+    "owner": false,
+    "avatar": "https://static.chotot.com.vn/imaginary/e34cc443c3eb1cfd041c33e313237d8bc807e832/profile_avatar/ba43ce1a9ec54b97b18e4573d30d09f218af87e6/thumbnail?width=32",
+    "landed_type": 1,
+    "region_v2": 12000,
+    "area_v2": 12075,
+    "ward": 76,
+    "ward_name": "Phường Trung Liệt",
+    "street_number": "LIÊN HỆ : 094.666.1945",
+    "street_id": 0
+  },
+  "parameters": [
+    {
+      "id": "ward",
+      "value": "Phường Trung Liệt",
+      "label": " Phường, thị xã, thị trấn"
+    },
+    {
+      "id": "size",
+      "value": "38 m²",
+      "label": "Diện tích"
+    },
+    {
+      "id": "rooms",
+      "value": "4 phòng",
+      "label": "Số phòng ngủ"
+    },
+    {
+      "id": "landed_type",
+      "value": "Nhà",
+      "label": "Loại hình nhà ở"
+    },
+    {
+      "id": "area",
+      "value": "Quận Đống Đa",
+      "label": "Quận, Huyện"
+    },
+    {
+      "id": "region",
+      "value": "Hà Nội",
+      "label": "Tỉnh, thành phố"
+    },
+    {
+      "id": "address",
+      "value": "LIÊN HỆ : 094.666.1945, ss, Phường Trung Liệt, Quận Đống Đa, Hà Nội",
+      "label": "Địa chỉ"
+    }
+  ],
+  "ad_params": {
+    "address": {
+      "id": "address",
+      "value": "LIÊN HỆ : 094.666.1945, ss, Phường Trung Liệt, Quận Đống Đa, Hà Nội",
+      "label": "Địa chỉ"
+    },
+    "area": {
+      "id": "area",
+      "value": "Quận Đống Đa",
+      "label": "Quận, Huyện"
+    },
+    "landed_type": {
+      "id": "landed_type",
+      "value": "Nhà",
+      "label": "Loại hình nhà ở"
+    },
+    "region": {
+      "id": "region",
+      "value": "Hà Nội",
+      "label": "Tỉnh, thành phố"
+    },
+    "rooms": {
+      "id": "rooms",
+      "value": "4 phòng",
+      "label": "Số phòng ngủ"
+    },
+    "size": {
+      "id": "size",
+      "value": "38 m²",
+      "label": "Diện tích"
+    },
+    "ward": {
+      "id": "ward",
+      "value": "Phường Trung Liệt",
+      "label": " Phường, thị xã, thị trấn"
+    }
+  }
+}

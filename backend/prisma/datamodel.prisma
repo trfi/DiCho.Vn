@@ -13,42 +13,42 @@ type User {
     address: String
     role: Role
     posts: [Post!]! @relation(name: "PostsByUser", link: INLINE, onDelete: SET_NULL)
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
 }
 type Post {
     id: ID! @id
     title: String!
     thumbnail: String!
-    address: String!
-    category: Int!
+    category: Category! @relation(name: "PostsByCategory")
+    broker: Boolean! @default(value: false)
     params: Params!
+    region: Int!
+    area: Int!
+    ward: Int!
+    price: Int!
     postDetail: PostDetail!
-    poster: User! @relation(name: "PostsByUser")
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
+    poster: User! @relation(name: "PostsByUser", onDelete: SET_NULL)
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
 }
 type PostDetail @embedded {
-    id: ID! @id
     images: [String!]
     content: String!
+    address: String!
 }
 type Params @embedded {
     acreage: Int
+    rooms: Int
 }
 type Category {
     id: ID! @id
+    cateId: Post! @relation(name: "PostsByCategory", link: INLINE)
     title: String!
     slug: String!
-    subCategory: [SubCategory!]
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-}
-type SubCategory @embedded  {
-    id: Int!
-    title: String!
-    slug: String!
-    parent: String!
+    path: String
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
 }
 enum Types {
     B

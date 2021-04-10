@@ -1,43 +1,47 @@
-import { GraphQLServer } from 'graphql-yoga';
+import { ApolloServer } from 'apollo-server';
+import { Prisma } from 'prisma-binding';
 import { importSchema } from 'graphql-import';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config.js';
 
-import resolvers from './resolvers';
-import { Prisma } from '../prisma/generated/prisma-client';
+import Query from './resolvers/Query.js'
+import Mutation from './resolvers/Mutation.js'
 
-import 'dotenv/config';
+const typeDefs = importSchema("src/schemas/schema.graphql");
 
-const typeDefs = importSchema('src/schemas/user.graphql');
-
-export const db = new Prisma({
+const db = new Prisma({
+  typeDefs: './prisma/generated/prisma.graphql',
   endpoint: process.env.PRISMA_ENDPOINT || 'http://localhost:4466',
   secret: process.env.PRISMA_SECRET || '',
-});
+  debug: true
+})
 
 const getCurrentUser = async (request) => {
-    if (!request.headers.token) {
-        return null;
-    }
-    const user = await jwt.decode(
-        request.headers.token,
-        process.env.JWT_SECRET_KEY,
-    );
-    return { ...user };
+  console.log(request);
+  if (!request.headers.token) {
+      return null;
+  }
+  const user = await jwt.decode(
+      request.headers.token,
+      process.env.JWT_SECRET_KEY,
+  );
+  return { ...user };
 };
 
-const server = new GraphQLServer({
-    typeDefs,
-    resolvers,
-    context: async ({ request }) => {
-        const me = await getCurrentUser(request);
-        return {
-          me,
-          prisma: db,
-        };
-    }
-});
+const server = new ApolloServer({
+  typeDefs,
+  resolvers: {
+    Mutation,
+    Query
+  },
+  context: async ({ request }) => {
+    return {
+      ...request,
+      db,
+    };
+  }
+})
 
-const port = process.env.PORT
-server.start({ port }, () => {
-    console.log(`App running on http://localhost:${port}`);
-});
+server.listen().then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+})

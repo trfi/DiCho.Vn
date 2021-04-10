@@ -4,18 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "nodemon --exec ./node_modules/.bin/babel-node -e js,graphql,env ./src/index2.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node -e js,graphql,env ./src/index.js",
+    "docker": "docker-compose up -d",
+    "deploy": "prisma1 deploy",
+    "debug": "node ./src/index.js",
     "test": "nodemon ./test/test2.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crypto-js": "^4.0.0",
+    "apollo-server": "^2.22.2",
     "dotenv": "^8.2.0",
+    "graphql": "^0.13.2",
+    "graphql-import": "^1.0.2",
     "graphql-resolvers": "^0.4.2",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.7",
+    "prisma-binding": "^2.3.16",
     "prisma-client-lib": "^1.34.12"
   },
   "devDependencies": {

@@ -2,11 +2,12 @@ endpoint: http://localhost:4466
 datamodel: datamodel.prisma
 databaseType: document
 secret: ${env:MY_SECRET}
-# disableAuth: true
 generate:
     - generator: javascript-client
       output: ./generated/prisma-client/
+    - generator: graphql-schema
+      output: ./generated/prisma.graphql
 
-# hooks:
-#   post-deploy:
-#     - prisma1 generate
+hooks:
+  post-deploy:
+    - prisma1 generate
