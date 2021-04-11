@@ -7,9 +7,9 @@ function getTokenPayload(token) {
 
 function getUserId(req, authToken) {
   if (req) {
-    const authHeader = req.headers.authorization;
+    const authHeader = req.headers.token;
     if (authHeader) {
-      const token = authHeader.replace('Bearer ', '');
+      const token = req.headers.token;
       if (!token) {
         throw new Error('No token found');
       }
@@ -20,7 +20,6 @@ function getUserId(req, authToken) {
     const { userId } = getTokenPayload(authToken);
     return userId;
   }
-
   throw new Error('Not authenticated');
 }
 

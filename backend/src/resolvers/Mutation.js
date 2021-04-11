@@ -55,12 +55,11 @@ async function login(parent, args, context, info) {
   };
 }
 
-async function vote(parent, args, context, info) {
-  const { userId } = context;
-  const vote = await context.prisma.vote.findUnique({
+async function vote(parent, args, { prisma, userId, pubsub }, info) {
+  const vote = await prisma.vote.findUnique({
     where: {
       linkId_userId: {
-        linkId: Number(args.linkId),
+        linkId: args.linkId,
         userId: userId
       }
     }
@@ -72,13 +71,13 @@ async function vote(parent, args, context, info) {
     );
   }
 
-  const newVote = context.prisma.vote.create({
+  const newVote = prisma.vote.create({
     data: {
       user: { connect: { id: userId } },
-      link: { connect: { id: Number(args.linkId) } }
+      link: { connect: { id: args.linkId } }
     }
   });
-  context.pubsub.publish('NEW_VOTE', newVote);
+  pubsub.publish('NEW_VOTE', newVote);
 
   return newVote;
 }
