@@ -1,0 +1,1319 @@
+[
+  {
+    "_id": "5fe7fec849e749721f2fea91",
+    "user_id": "5fe7f4e349e749721f2fe790",
+    "admin_id": null,
+    "room_name": "Kí túc xá/Homestay Nguyễn Cửu Vân, Quận 1",
+    "room_price": 1400000,
+    "currency": "VND",
+    "room_area": 30,
+    "deposit": 1400000,
+    "electric_price": 0,
+    "water_price": 0,
+    "parking_fee": 0,
+    "wifi_cost": 0,
+    "room_location": "HCM",
+    "room_location_district": 760,
+    "exact_room_address": "46 Nguyễn Cửu Vân, Phường Đa Kao, Quận 1, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "streetName": "Nguyễn Cửu Vân",
+      "houseNumber": "46",
+      "district": {
+        "code": 760,
+        "text": "Quận 1",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 760,
+        "code": 26737,
+        "text": "Phường Đa Kao"
+      }
+    },
+    "phone_number": "0939090394",
+    "room_is_shared": true,
+    "number_room": "5",
+    "number_vacancies_available_in_room": "4",
+    "room_gender": "any",
+    "notes": "Nếu bạn đang còn độc thân với lối sống đơn giản, đi làm suốt ngày, tối về chỉ cần một nơi đầy đủ tiện nghi, yên tĩnh để nghỉ ngơi, đủ riêng tư, đủ rộng nhưng không quá ồn ào thì KTX là một lựa chọn hoàn hảo để tiết kiệm chi phí nhưng lại được hưởng đầy đủ các tiện nghi (tiêu chuẩn phòng trọ cao cấp) với chi phí không thể rẻ hơn. \n\nKTX cao cấp ngay chân quận 1, phòng máy lạnh 24/7, dành riêng cho nhân viên văn phòng (chủ yếu là nữ, chỉ một vài bạn nam ở tầng trên cùng). Mọi thứ đã sẵn sàng, cứ xách ba lô đến ở. \n\nGiá yêu thương trọn gói chỉ từ 1.2tr - 1.4tr/người/tháng, bao gồm: \n\n- Grap, gối, nệm cao cấp\n- Giường có rèm chắn riêng tư\n- Tủ đồ cá nhân, có khóa riêng.\n- Bao điện (Free)\n- Bao nước (Free)\n- Bao wifi tốc độ cao (free)\n- Bao máy lạnh (free)\n- Bao bếp gas nấu nướng (free)\n- Bao tủ lạnh để đồ ăn (free)\n- Bao nước lọc uống thả ga (free)\n- Bao máy giặt (free)\n- Camera an ninh 24/7\n- Khoá vân tay vào nhà.\n- Chỗ để xe rộng rãi\n- Có người dọn vệ sinh 2 lần/tuần\n- Giờ giấc tự do, không chung chủ.\n\n* Đặc biệt: Nếu bạn là người yêu thích tiếng anh và mong muốn có cơ hội tiếp xúc trực tiếp với người nước ngoài thì hàng tuần sẽ có giáo viên bản địa đến giúp bạn thực hành giao tiếp. \nKTX còn có một phòng đọc sách và học tập nằm trên tầng thượng tháng mát dành cho tất cả mọi người. \n\n*Địa chỉ 1: 46/5 Nguyễn Cửu Vân (cách cầu Thảo Cầm Viên 800m)\n\n*Địa chỉ 2: 43 Hoa Cúc, phường 7, quận Phú Nhuận (cách Coop Mart Rạch Miễu phan xích long đúng 150m)\n\n* Địa chỉ 3: 282 Bùi Hữu Nghĩa (ngay chợ Bà Chiểu)\n\n\n\n",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039005049_IMG_4639.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039058890_IMG_2241.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039080684_IMG_4582.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039102018_IMG_4779.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039181100_IMG_4780.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1609039205649_IMG_4696.PNG"
+    ],
+    "created_date": 1611882075493,
+    "updated_date": 1617178800306,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": true,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "balcony": true,
+    "is_top_room": true,
+    "room_type": "Dormitory",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": "Enabled",
+    "disabled": false,
+    "room_view": 244,
+    "geocodingApi": {
+      "bounds": {
+        "northeast": {
+          "lat": 10.7959548,
+          "lng": 106.7067791
+        },
+        "southwest": {
+          "lat": 10.7959129,
+          "lng": 106.706728
+        }
+      },
+      "location": {
+        "lat": 10.7959378,
+        "lng": 106.706758
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.7972828302915,
+          "lng": 106.7081025302915
+        },
+        "southwest": {
+          "lat": 10.7945848697085,
+          "lng": 106.7054045697085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.706758,
+        10.7959378
+      ]
+    },
+    "available_status": {
+      "value": 1,
+      "label": "Available"
+    },
+    "available_status_date": "2020-12-27T03:26:00.092Z",
+    "processPending": [
+      {
+        "status": "Enabled",
+        "date": "2020-12-28T02:24:08.949Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2021-01-15T04:34:02.735Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2021-02-01T07:31:25.639Z"
+      }
+    ],
+    "security_id": "6003adc58a578e53609b2144",
+    "is_featured_room": true,
+    "on_top_expiry_time": 1617245465130
+  },
+  {
+    "_id": "5bee7fd45e7cbe5075cfb94e",
+    "geometry": {
+      "location": {
+        "lat": 10.8409598,
+        "lng": 106.71805
+      },
+      "location_type": "RANGE_INTERPOLATED",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8423087802915,
+          "lng": 106.7193989802915
+        },
+        "southwest": {
+          "lat": 10.8396108197085,
+          "lng": 106.7167010197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.7239237,
+        10.8469125
+      ]
+    },
+    "user_id": "5b98ee7f5d548e6dfb4d2dc3",
+    "admin_id": "5b98ee7f5d548e6dfb4d2dc3",
+    "owner_name": "Ohana Ohana",
+    "lead_id": "5bee7e50a161ae36e6606762",
+    "room_name": "Ký túc xá quận Thủ Đức",
+    "room_price": 1500000,
+    "room_area": 30,
+    "vacant_room": true,
+    "stayed_place": 0,
+    "electric_price": null,
+    "water_price": null,
+    "parking_fee": null,
+    "wifi_cost": null,
+    "deposit": 1,
+    "room_location": "HCM",
+    "room_location_district": 762,
+    "room_location_ward": -1,
+    "home_number": "10",
+    "street_name": "Đường sô 4",
+    "exact_room_address": "10 Đường sô 4, Phường Hiệp Bình Phước, Quận Thủ Đức, Hồ Chí Minh",
+    "phone_number": "0963751019",
+    "room_is_shared": true,
+    "number_vacancies_available_in_room": 8,
+    "room_gender": "any",
+    "notes": "TÌM NGƯỜI Ở GHÉP \nKTX khu đô thị VẠN PHÚC ( gần đh LUẬT, HUTECH, NGOẠI THƯƠNG, \nGTVT…)\nKTX trong khu đô thị Vạn Phúc của chúng tôi sẽ đáp ứng được các nhu cầu của bạn.\nTIỆN NGHI:\n- Phòng rộng 40m2\n- Hầm để xe máy siêu rộng, siêu thoáng\n- Tủ quần áo, kệ dép,…..\n- Đường truyền Internet wfi tốc độ cao\n- Giờ giấc tự do, thoải mái\n- Bảo vệ 2 vòng tại cổng vào và ra, bảo vệ đi tuần ( 30p/ lần)\n- Có sân thượng view đẹp, trang bị bàn ghế\ngiá 1tr3-1tr5/tháng/người ( bao gồm điện nước + wifi , không phụ thu thêm phí )\n\nĐịa chỉ : Đường Số 4, Khu Đô Thị Vạn Phúc,p. hiệp bình phước, Quốc Lộ13, thủ đức",
+    "upload_room_images": [
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/2b271aa2-779e-4bb3-b9dc-0a730084fc22-46325561_1975119655915194_6045991570992267264_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/e23ca9fb-bbfe-4e10-80ef-e073b2481ded-46288057_1975119719248521_6531539702569238528_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/400d01de-11d3-4315-823f-eea203a54a4b-46407192_1975119729248520_4310904613965398016_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/3ba92e00-bf59-4b06-af55-d679c440dc92-46400353_1975119739248519_7081665708278415360_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/7cf8fca4-eeb5-47aa-bda9-638ee9703af7-46482005_1975119789248514_8873260854234054656_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/8fa75f52-1d19-40ed-a0a0-f02b931438e9-46445945_1975119549248538_430933731167961088_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/a2ee0a06-9137-497b-b45f-61055cfb096f-46283515_1975119529248540_8693543608499830784_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/b87bb88f-21e5-4ba7-9aa3-3d62d6f67578-46493246_1975119552581871_785623293091643392_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/43c8cb0d-512a-4ec6-b420-cca16fe47850-46317252_1975119639248529_4678269741071073280_n.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/fa7d4c8e-692e-4cc7-bf85-0fcad740b16c/9861462e-15a6-4f32-bb93-2c288d34b671-46458005_1975119645915195_8097466976051396608_n.jpg"
+    ],
+    "created_date": 1542356908551,
+    "updated_date": 1617178200846,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": false,
+    "room_washing_machine": false,
+    "security_guard": false,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": false,
+    "room_window": true,
+    "room_view": 631,
+    "is_top_room": true,
+    "disabled": false,
+    "is_featured_room": true,
+    "room_type": "Dormitory",
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2018-12-16T04:59:11.386Z",
+    "schemaVer": 1,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2018-11-17T03:33:07.873Z"
+      },
+      {
+        "available_status": {
+          "value": 1,
+          "label": "Yes"
+        },
+        "available_status_date": "2018-12-12T07:38:07.207Z"
+      },
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2018-12-16T04:59:11.386Z"
+      }
+    ],
+    "security_id": "5f7e83855604d535c1a35325",
+    "closed_hour": null,
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 762,
+        "text": "Quận Thủ Đức",
+        "cityCode": "HCM"
+      },
+      "streetName": "",
+      "houseNumber": ""
+    },
+    "geocodingApi": {
+      "location": {
+        "lat": 10.8469125,
+        "lng": 106.7239237
+      },
+      "location_type": "RANGE_INTERPOLATED",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8482614802915,
+          "lng": 106.7252726802915
+        },
+        "southwest": {
+          "lat": 10.8455635197085,
+          "lng": 106.7225747197085
+        }
+      }
+    },
+    "loft": false,
+    "note": "undefined",
+    "number_room": null,
+    "opened_hour": null,
+    "pending": false,
+    "water_heater": false,
+    "window": false
+  },
+  {
+    "_id": "605b51e672012f5fea251081",
+    "user_id": "5d51772b1b2b8f7b318e57c9",
+    "admin_id": "",
+    "room_name": " 💯 NHÀ ĐẸP TRUNG TÂM QUẬN 1 💯 ",
+    "room_price": 17000000,
+    "room_area": 60,
+    "deposit": 1,
+    "electric_price": 2800,
+    "water_price": 17000,
+    "parking_fee": null,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 760,
+    "room_location_ward": 26734,
+    "exact_room_address": "124/20 Trần Quang Khải, Phường Tân Định, Quận 1, Hồ Chí Minh.",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 760,
+        "text": "Quận 1",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 760,
+        "code": 26734,
+        "text": "Phường Tân Định"
+      },
+      "streetName": "Trần Quang Khải",
+      "houseNumber": "124/20"
+    },
+    "phone_number": "0903355005",
+    "room_is_shared": false,
+    "number_room": 2,
+    "number_vacancies_available_in_room": 5,
+    "room_gender": "any",
+    "notes": "[NHÀ ĐẸP TRUNG TÂM QUẬN 1]\nCHÍNH CHỦ cho thuê nhà 124/20 Trần Quang Khải, phường Tân Định , Q.1 \n\n💯 Nhà mới xây tinh tươm: 2 phòng ngủ, 2 nhà vệ sinh, bếp, phòng khách, sân vườn bãi xe rộng rãi để đc 5-6 xe.\n🚗 Gần chợ Tân Định chỉ cần 2p đi xe, đầu hẻm là siêu thị lớn của Nhật, gần trường học, bệnh viện quận 1, sát cung đường ăn uống PXL, thuận tiện đi lại các quận Phú Nhuận, Bình Thạnh, Quận 3, Quận 2 … khu dân cư yên tĩnh và dân trí cao.\n📍DT: ngang 4 dài 16.2, hơn 60m2 \n\n👉Hiện trạng nhà trống, có thể dọn vào ở ngay!\n👉Nội thất nhà vệ sinh, bếp cao cấp\n👉Thích hợp cho nhu cầu ở nhóm từ 2 đến 4 bạn sinh viên hoặc nhân viên văn phòng, tiện mở Văn Phòng cty quy mô nhỏ,khách thuê kinh doanh tự do (chủ nhà cực kì thiện chí cho thuê)\n🪙Giá: 17tr/tháng (nguyên căn), điện, nước giá nhà nước cam kết giao nhà không phát sinh bất kì khoản phí nào\nLiên hệ chính chủ: 0903355005 ( Cô Hoà)",
+    "note": "",
+    "upload_room_images": [
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309426.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309429.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597255257.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309420.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309424.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309436.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309439.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309443.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309447.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309450.jpg",
+      "https://bayleaf.s3.ap-southeast-1.amazonaws.com/property-images/1616597309453.jpg"
+    ],
+    "created_date": 1616597478431,
+    "updated_date": 1617177600384,
+    "air_conditioner": false,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": false,
+    "room_washing_machine": false,
+    "security_guard": true,
+    "room_bed": false,
+    "room_tivi": false,
+    "room_pets_allowed": true,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "is_top_room": true,
+    "room_type": "House",
+    "opened_hour": null,
+    "closed_hour": null,
+    "is_featured_room": true,
+    "pending": true,
+    "disabled": false,
+    "room_view": 51,
+    "geocodingApi": {
+      "location": {
+        "lat": 10.791961,
+        "lng": 106.68808
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.7933099802915,
+          "lng": 106.6894289802915
+        },
+        "southwest": {
+          "lat": 10.7906120197085,
+          "lng": 106.6867310197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.68808,
+        10.791961
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2021-03-25T03:54:41.608Z",
+    "security_id": "605b51e672012f5fea251082",
+    "on_top_expiry_time": 1617893501205,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2021-03-25T03:54:41.608Z"
+      }
+    ]
+  },
+  {
+    "_id": "60523a28b3bec45a9772d047",
+    "user_id": "60523902b3bec45a9772cfb2",
+    "admin_id": "",
+    "room_name": "CÓ GÁC - CHDV mới 100%- Thang máy, Máy giặt sấy, Bảo vệ 24/7",
+    "room_price": 2700000,
+    "currency": "VND",
+    "room_area": 20,
+    "deposit": 1,
+    "electric_price": 3500,
+    "water_price": 100000,
+    "parking_fee": 100000,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 764,
+    "exact_room_address": "111 Phạm Văn Chiêu, Phường 14, Quận Gò Vấp, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 764,
+        "text": "Quận Gò Vấp",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 764,
+        "code": 26882,
+        "text": "Phường 14"
+      },
+      "streetName": "Phạm Văn Chiêu",
+      "houseNumber": "111"
+    },
+    "phone_number": "0901663855",
+    "room_is_shared": false,
+    "number_room": 25,
+    "number_vacancies_available_in_room": 3,
+    "room_gender": "any",
+    "notes": "✨ Căn Hộ Dịch Vụ Mới 100% , CÓ THANG MÁY, BẢO VỆ 24/7✨\n🆘 KM MÙA DỊCH CHỈ TỪ 2.700.000 đ / phòng 🆘\n📍 Phạm Văn Chiêu, Gò Vấp 🏡 \n✔️ Phòng mới xây siêu đẹp \n✔ Nội thất cơ bản : máy lạnh, bếp, máy giặt sấy... có thang máy, bảo vệ 24/7\n✔️ Có bancol, cửa sổ, ánh sáng tự nhiên, mát mẻ \n✔️ Phòng rộng 20 - 25m2\n✔️ Giờ giấc tự do, không chung chủ\n✔️ Khu an ninh \n         AN NINH- SẠCH ĐẸP-TIỆN NGHI \n🆘 KM MÙA DỊCH CHỈ TỪ 2.700.000 đ / phòng 🆘\n➖➖➖➖➖➖\n💌 𝑪𝒐𝒏𝒕𝒂𝒄𝒕 : 0901 663 855 ( 𝑪𝒂𝒍𝒍/ 𝒁𝒂𝒍𝒐 )",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042303055_IMG_0079.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324791_IMG_0081.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0087.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0089.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0090.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0088.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0091.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0084.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0086.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0092.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0093.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616042324792_IMG_0085.JPG"
+    ],
+    "created_date": 1616146123608,
+    "updated_date": 1617177600338,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": false,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": false,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": false,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": false,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": false,
+    "loft": true,
+    "balcony": false,
+    "is_top_room": false,
+    "room_type": "NotShared",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 226,
+    "geocodingApi": {
+      "bounds": {
+        "northeast": {
+          "lat": 10.8466645,
+          "lng": 106.6442838
+        },
+        "southwest": {
+          "lat": 10.8465137,
+          "lng": 106.644141
+        }
+      },
+      "location": {
+        "lat": 10.8466039,
+        "lng": 106.6442012
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8479380802915,
+          "lng": 106.6455613802915
+        },
+        "southwest": {
+          "lat": 10.8452401197085,
+          "lng": 106.6428634197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.6442012,
+        10.8466039
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2021-03-18T04:41:29.956Z",
+    "security_id": "6052d758b3bec45a9772ea0c",
+    "is_featured_room": false,
+    "note": "undefined",
+    "room_location_ward": 26882,
+    "on_top_expiry_time": 1617176913938,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2021-03-18T04:41:29.956Z"
+      }
+    ]
+  },
+  {
+    "_id": "6053173ab3bec45a9772fd61",
+    "user_id": "6050412e6635b771e7147a19",
+    "admin_id": "",
+    "room_name": "Phòng cho thuê Nhiêu tứ, Quận Phú Nhuận",
+    "room_price": 6000000,
+    "currency": "VND",
+    "room_area": 20,
+    "deposit": 1,
+    "electric_price": 4000,
+    "water_price": 100000,
+    "parking_fee": null,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 768,
+    "exact_room_address": "21 Nhiêu tứ, Phường 7, Quận Phú Nhuận, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 768,
+        "text": "Quận Phú Nhuận",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 768,
+        "code": 27052,
+        "text": "Phường 7"
+      },
+      "streetName": "Nhiêu tứ",
+      "houseNumber": "21"
+    },
+    "phone_number": "0982371740",
+    "room_is_shared": false,
+    "number_room": 25,
+    "number_vacancies_available_in_room": null,
+    "room_gender": "any",
+    "notes": "#chothue\n#phunhuan\n 🌈Căn Hộ Dịch Vụ Full Nội Thất🌈\n\n🍀Chỉ cần xách vali vào ở ngay🍀\n\n🌴Vị trí: 21 Nhiêu Tứ, p7 , Phú Nhuận 🌴\n\n🍁Tiện ích xung quanh 100m đường Phan Xích Long\nSiêu thị Rạch Miễu\nBánh hoá xanh\nCửa hàng Ministop \nSpa, gym\nBệnh viện Hoàn Mỹ\n\n🌵Tiện ích căn hộ: 👉 Tủ lạnh, quạt trần ,tivi có internet, bếp từ, tủ bếp, tủ quần áo, bàn ghế,tủ giầy dép, giường + nệm, wifi riêng, 🌹 \n🍀 Giờ giấc tự do\n🍀 Có thang máy\n🍀 ra vào bằng vân tay thẻ từ,\n🍀Camera an ninh Giám 24/24 .\n🍀Nhà an ninh, sạch sẽ.\n🍀Free: dọn phòng 1 tuần 1 lần\n🍀Điện : 4k kwp\n🍀Nước : 100k\n🍀Giặt: 100k\n🔥 Còn lại Free hết tất cả🔥\n\nLH: 0982 371 740  để xem phòng miễn phí",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616058094350_FB_IMG_1615515660843.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616058094350_FB_IMG_1615515631699.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616058108367_IMG_20210318_150553.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616058108367_IMG_20210318_150559.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616058108367_IMG_20210318_150626.jpg"
+    ],
+    "created_date": 1616058170919,
+    "updated_date": 1617177000918,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": true,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": true,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": true,
+    "balcony": true,
+    "is_top_room": true,
+    "room_type": "NotShared",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 55,
+    "geocodingApi": {
+      "bounds": {
+        "northeast": {
+          "lat": 10.8012384,
+          "lng": 106.6895769
+        },
+        "southwest": {
+          "lat": 10.8011507,
+          "lng": 106.6894778
+        }
+      },
+      "location": {
+        "lat": 10.8012022,
+        "lng": 106.6895351
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8025435302915,
+          "lng": 106.6908763302915
+        },
+        "southwest": {
+          "lat": 10.7998455697085,
+          "lng": 106.6881783697085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.6895351,
+        10.8012022
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2021-03-23T15:20:41.365Z",
+    "processPending": [
+      {
+        "status": "Enabled",
+        "date": "2021-03-18T12:51:14.551Z"
+      }
+    ],
+    "security_id": "605a0730490a1e07b584d166",
+    "is_featured_room": true,
+    "note": "undefined",
+    "room_location_ward": 27052,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2021-03-23T15:20:41.365Z"
+      }
+    ],
+    "on_top_expiry_time": 1617808845786
+  },
+  {
+    "_id": "605a091c490a1e07b584d2a9",
+    "user_id": "6050412e6635b771e7147a19",
+    "admin_id": "",
+    "room_name": "Kí túc xá/Homestay Dương Quảng Hàm, Quận Gò Vấp",
+    "room_price": 1300000,
+    "currency": "VND",
+    "room_area": 45,
+    "deposit": 1,
+    "electric_price": null,
+    "water_price": null,
+    "parking_fee": 100000,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 764,
+    "exact_room_address": "416/22 Dương Quảng Hàm, Phường 5, Quận Gò Vấp, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 764,
+        "text": "Quận Gò Vấp",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 764,
+        "code": 26887,
+        "text": "Phường 5"
+      },
+      "streetName": "Dương Quảng Hàm",
+      "houseNumber": "416/22"
+    },
+    "phone_number": "0384090215",
+    "room_is_shared": true,
+    "number_room": 7,
+    "number_vacancies_available_in_room": 6,
+    "room_gender": "any",
+    "notes": "☀SÀI GÒN NẮNG NÓNG KIẾM ĐÂU RA PHÒNG TRỌ #CÓ_ĐIỀU_HOÀ ???\n                --------------\n🏃♂️🏃🏼♀️Tới ngay KTX homestay để hưởng không khí điều hoà mát lạnh, không gian rộng thoáng, sạch sẽ như nhà bạn mà chỉ với #1300k một tháng thôi\n\nĐịa chỉ: ngay hẻm toà án, Dương Quảng Hàm, phường 5, GV.\n\nLh 0384 090 215 để dc xem phòng miễn phí nhé\n\n🔸 Điều hòa, nóng lạnh, giường ngủ, bàn học, ga, đệm, tủ quần áo. \n\n🔸 Khu vực bếp, bàn ăn rộng đẹp. Tủ lạnh, bếp hồng ngoại, lò vi sóng, các bạn có thể thoải mái sử dụng.\n\n🔸Có góc học tập/ làm việc riêng tại mỗi phòng, có phòng đọc sách/ tiếp khách cho các cá nhân\n\n🔸 Máy giặt và sân phơi rộng, thoáng có mái che. \n\n🔸 WC khép kín mỗi phòng, thêm 1 WC chung tại tầng 1\n\n🔸 FREE bao mạnh\n\n🔸Giữ xe, an ninh đảm bảo với cổng khóa từ và camera giám sát. \n\n🔸 Có người dọn vệ sinh chung 3 lần mỗi tuần\n\n🔸 Giờ giấc thoải mái, linh động, không sống cùng chủ,…",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616513119219_FB_IMG_1603119328434.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616513119219_FB_IMG_1604983670759.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616513119219_FB_IMG_1604974397652.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616513119219_FB_IMG_1603119332826.jpg"
+    ],
+    "created_date": 1616513308543,
+    "updated_date": 1617177000469,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": true,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "balcony": true,
+    "is_top_room": true,
+    "room_type": "Dormitory",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 55,
+    "geocodingApi": {
+      "location": {
+        "lat": 10.8373811,
+        "lng": 106.6831443
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8387300802915,
+          "lng": 106.6844932802915
+        },
+        "southwest": {
+          "lat": 10.8360321197085,
+          "lng": 106.6817953197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.6831443,
+        10.8373811
+      ]
+    },
+    "available_status": {
+      "value": 1,
+      "label": "Available"
+    },
+    "available_status_date": "2021-03-23T15:28:28.543Z",
+    "security_id": "605a09be490a1e07b584d2fe",
+    "is_featured_room": true,
+    "note": "undefined",
+    "room_location_ward": 26887,
+    "on_top_expiry_time": 1617809490278
+  },
+  {
+    "_id": "5df49abfde7c465251fbf2aa",
+    "user_id": "5bf02d5ed65da70dba03b78e",
+    "admin_id": "",
+    "room_name": "Homestay - Kí túc xá Tô Hiến Thành, Quận 10",
+    "room_price": 1700000,
+    "currency": "VND",
+    "room_area": 30,
+    "deposit": 1,
+    "electric_price": null,
+    "water_price": null,
+    "parking_fee": null,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 771,
+    "exact_room_address": "451/25 Tô Hiến Thành, Phường 14, Quận 10, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 771,
+        "text": "Quận 10",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 771,
+        "code": 27169,
+        "text": "Phường 14"
+      },
+      "streetName": "Tô Hiến Thành",
+      "houseNumber": "451/25"
+    },
+    "phone_number": "0908694921",
+    "room_is_shared": true,
+    "number_room": 5,
+    "number_vacancies_available_in_room": 6,
+    "room_gender": "female",
+    "notes": "🍒CherryHomestay 451/25 Tô Hiến Thành, P14, Q10 còn trống 1 vài slots cho NỮ, có thể dọn vào ở ngay 😉\n\n✌️VỊ TRÍ trung tâm, rất gần ĐH Huflit... đi khắp mọi nơi chỉ 1 nốt 🎶😎\n✌️PHÒNG rộng rãi ,sạch sẽ, cao cấp. Khóa cửa vân tay, khu vực yên tĩnh, an ninh đảm bảo😊\n✌️Full nội thất, tiện ích như ở nhà, Tủ lạnh, Máy giặt, máy nước nóng, bếp từ,...\n✌️FREE Mọi chi phí điện, nước, wifi, chỗ để xe, đồ dùng nấu ăn, dọn vs hàng tuần sạch sẽ, đến cả nước rửa chén & túi đựng rác cũng free nha các bạn😎\n💃 Bạn chỉ việc xách vali đến ở thui 😌\n🤑Giá chỉ 1.7tr/1 người/1 tháng\n📲Comment, inbox hoặc liên hệ mobile/zalo: 0908 694921 để xem nhà🤗\n❌CAM KẾT KHÔNG PHÁT SINH CHI PHÍ\n\n🏡Hệ thống Cherry Homestay \n#CS1: 540/1 CMT8, P11, Q3.\n#CS2: 328 Võ Văn Kiệt, phường Cô Giang, Q1.\n#CS3: 451/25 Tô Hiến Thành, P14, Q10.\n#CS4: 87 Trần Kế Xương, Q.Phú Nhuận\n#CS5: 9 Phạm Phú Thứ, P11, Q.Tân Bình\n\nP/S: Hình thật, thông tin thật, giá trị thật 😆\n\n#cherryhomestayQ10 #homestayQ10 \n#oghepquan10 #giuongtangcaocap\n#homestaysaigon #homestayhcm",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311072962_IMG_6629.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311036931_IMG_6630.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311072962_IMG_6625.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311126730_IMG_6626.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311126731_IMG_6632.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311126731_IMG_6631.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1576311126731_IMG_6624.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1603330606068_IMG_6623.JPG"
+    ],
+    "created_date": 1603330767734,
+    "updated_date": 1617176400699,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": true,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "is_top_room": true,
+    "room_type": "Dormitory",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 480,
+    "geocodingApi": {
+      "location": {
+        "lat": 10.7742298,
+        "lng": 106.662159
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.7755787802915,
+          "lng": 106.6635079802915
+        },
+        "southwest": {
+          "lat": 10.7728808197085,
+          "lng": 106.6608100197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.662159,
+        10.7742298
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2020-06-12T11:02:52.871Z",
+    "processPending": [
+      {
+        "status": "Enabled",
+        "date": "2019-12-14T12:04:52.032Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2020-08-25T09:23:35.737Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2020-10-22T04:35:56.352Z"
+      }
+    ],
+    "security_id": "5ee360b0f8c30848f4c188fd",
+    "is_featured_room": true,
+    "note": "undefined",
+    "room_location_ward": 27169,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2020-06-12T11:02:52.871Z"
+      }
+    ],
+    "on_top_expiry_time": 1618887935604,
+    "booking_fee": 500000,
+    "min_stay_month": 3,
+    "move_in_day_range": 7,
+    "is_reservation_allowed": true,
+    "balcony": false
+  },
+  {
+    "_id": "605869c5490a1e07b5845fb3",
+    "user_id": "5e5d147520c6831f85642aae",
+    "admin_id": null,
+    "room_name": "Phòng cho thuê Bầu Cát 2, Quận Tân Bình",
+    "room_price": 3200000,
+    "currency": "VND",
+    "room_area": 15,
+    "deposit": 3200000,
+    "electric_price": 3500,
+    "water_price": 80000,
+    "parking_fee": 100000,
+    "wifi_cost": 0,
+    "room_location": "HCM",
+    "room_location_district": 766,
+    "exact_room_address": "86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "streetName": "Bầu Cát 2",
+      "houseNumber": "86/8",
+      "district": {
+        "code": 766,
+        "text": "Quận Tân Bình",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 766,
+        "code": 26971,
+        "text": "Phường 12"
+      }
+    },
+    "phone_number": "0906990224",
+    "room_is_shared": false,
+    "number_room": "1",
+    "number_vacancies_available_in_room": "2",
+    "room_gender": "any",
+    "notes": "- Phòng full nội thất như hình. \n- Giờ giấc tự do, an ninh.\n- Khu trung tâm Tân Bình thuận tiện đi các quận Q3, Q10, Q1.\n- Liên hệ: 0906990224 Lợi.\nCảm ơn.",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687009_IMG_6165.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687011_IMG_6163.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687011_IMG_6164.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687011_IMG_6166.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687011_IMG_6167.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687010_IMG_6161.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687010_IMG_6160.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1616406687011_IMG_6162.JPG"
+    ],
+    "created_date": 1616406981640,
+    "updated_date": 1617176400406,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": false,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": true,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "balcony": false,
+    "is_top_room": true,
+    "room_type": "NotShared",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": "Enabled",
+    "disabled": false,
+    "room_view": 78,
+    "geocodingApi": {
+      "location": {
+        "lat": 10.792474,
+        "lng": 106.644961
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.7938229802915,
+          "lng": 106.6463099802915
+        },
+        "southwest": {
+          "lat": 10.7911250197085,
+          "lng": 106.6436120197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.644961,
+        10.792474
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2021-03-27T04:28:39.340Z",
+    "processPending": [
+      {
+        "status": "Enabled",
+        "date": "2021-03-24T10:25:21.895Z"
+      }
+    ],
+    "is_featured_room": true,
+    "on_top_expiry_time": 1618499339130,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2021-03-27T04:28:39.340Z"
+      }
+    ]
+  },
+  {
+    "_id": "5f6b2ef038b65c2aeac026d9",
+    "user_id": "5f40a047726c881678ec3389",
+    "admin_id": "",
+    "room_name": "Miễn phí tiền phòng khi bạn vô trong tháng này ",
+    "room_price": 650000,
+    "currency": "VND",
+    "room_area": 60,
+    "deposit": 500000,
+    "electric_price": null,
+    "water_price": null,
+    "parking_fee": null,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 764,
+    "exact_room_address": "998/8 Quang Trung, Phường 8, Quận Gò Vấp, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 764,
+        "text": "Quận Gò Vấp",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 764,
+        "code": 26898,
+        "text": "Phường 8"
+      },
+      "streetName": "Quang Trung",
+      "houseNumber": "998/8"
+    },
+    "phone_number": "0902557551",
+    "room_is_shared": true,
+    "number_room": 2,
+    "number_vacancies_available_in_room": 10,
+    "room_gender": "female",
+    "notes": "Chào các bạn \nKTX mình đang rộng cửa đón các bạn & đặc biệt FREE tiền trọ trong tháng này nhé! \nChỉ việc xách vali vào ở ko phải mua sắm j hết, bên mình có đầy đủ rồi nè!\n🌈chăn gối, nệm mền thơm tho có sẵn\n🌈máy lạnh, máy giặt được trang bị & bao luôn điện nước\n🌈Wifi, nước uống, dọn phòng hàng tuần\n🌈 Giờ giấc tự do để bạn có thể đi làm thêm\n🌈 Nhà cạnh xe buýt nên đi lại ko ngại\n❌❌Giá 650k thôi nhé! ❌\n\n☎️Chị Vy vui vẻ 0902557551 \n————\nCS1: 998/8 Quang Trung,P8, Gò Vấp \nCS2: 102/51 Lê Văn Thọ P11 Gò vấp \n",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859287617_IMG_3838.HEIC",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333363_IMG_4592.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333363_IMG_4585.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333363_IMG_4581.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333363_IMG_4601.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333363_IMG_4603.JPG",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1600859333362_IMG_4597.JPG"
+    ],
+    "created_date": 1608276689457,
+    "updated_date": 1617175801031,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": false,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": false,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": false,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": false,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "balcony": false,
+    "is_top_room": true,
+    "room_type": "Dormitory",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 224,
+    "geocodingApi": {
+      "location": {
+        "lat": 10.8392607,
+        "lng": 106.6480554
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.8406096802915,
+          "lng": 106.6494043802915
+        },
+        "southwest": {
+          "lat": 10.8379117197085,
+          "lng": 106.6467064197085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.6480554,
+        10.8392607
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2020-11-17T13:27:38.783Z",
+    "security_id": "5f6b301838b65c2aeac02764",
+    "is_featured_room": true,
+    "note": "undefined",
+    "room_location_ward": 26898,
+    "on_top_expiry_time": 1617929886876,
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2020-11-17T13:27:38.783Z"
+      }
+    ]
+  },
+  {
+    "_id": "5db3e99a3e26c432260da08f",
+    "user_id": "5db390413e26c432260d774c",
+    "admin_id": "",
+    "room_name": "Phòng trọ KTX giá rẻ Quận 3 cho SV và nhân viên VP",
+    "room_price": 1700000,
+    "room_area": 100,
+    "deposit": 1700000,
+    "electric_price": null,
+    "water_price": null,
+    "parking_fee": 100000,
+    "wifi_cost": null,
+    "room_location": "HCM",
+    "room_location_district": 770,
+    "exact_room_address": "1 Trần Quốc Thảo , Phường 6, Quận 3, Hồ Chí Minh",
+    "full_address_object": {
+      "city": {
+        "code": "HCM",
+        "text": "Hồ Chí Minh"
+      },
+      "district": {
+        "code": 770,
+        "text": "Quận 3",
+        "cityCode": "HCM"
+      },
+      "ward": {
+        "districtCode": 770,
+        "code": 27139,
+        "text": "Phường 6"
+      },
+      "streetName": "Trần Quốc Thảo ",
+      "houseNumber": "1"
+    },
+    "phone_number": "0909914433",
+    "room_is_shared": true,
+    "number_room": 8,
+    "number_vacancies_available_in_room": 6,
+    "room_gender": "any",
+    "notes": "💥Bạn tìm đâu được phòng trọ ký túc xá giá rẻ ngay trung tâm quận 3 giáp quận 1 đi đâu cũng tiện chỉ có 1,7 tr/tháng?\n\n🌞Địa chỉ: 1 Trần Quốc Thảo, P6, Quận 3\n\n🎍Tiện ích, tiện nghi:\n- Khu vực không bao giờ ngập nước và kẹt xe \n- Ở KTX nhưng không gian rất riêng tư \n- Được trang bị đầy đủ: giường tầng, nệm, ra, máy lạnh 24/24, bàn, ghế, tủ, máy giặt, nồi cơm điện, bếp điện từ, bình siêu tốc, tủ lạnh, tủ giày dép...\n- Có bảo vệ và quản lý 24/24, có người dọn vệ sinh 2 lần/tuần, wifi tốc độ cao, có hệ thống PCCC, được đăng ký tạm trú đúng quy định...\n\n👉 Cực kỳ gần: ĐH Mở, ĐH Sài Gòn, ĐH Kinh Tế, ĐH Kiến Trúc, ĐH Sư Phạm CS2, Cao đẳng GTVT\n💥Liên hệ hotline 24/24 bất kể ngày đêm trời mưa trời nắng: 0909914433 (Thanh Huyền)",
+    "upload_room_images": [
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1572071781042_20191013_180456.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1572865437755_20191027_201019.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1572865437767_20191027_151937.jpg",
+      "https://bayleaf.s3.amazonaws.com/property-images%2F1572865497261_20191013_180029.jpg"
+    ],
+    "created_date": 1613462153185,
+    "updated_date": 1617175800302,
+    "air_conditioner": true,
+    "room_bathroom": true,
+    "parking_situation": true,
+    "room_wifi": true,
+    "curfew_situation": true,
+    "share_home_as_landlord": true,
+    "room_refrigerator": true,
+    "room_washing_machine": true,
+    "security_guard": true,
+    "room_bed": true,
+    "room_tivi": true,
+    "room_pets_allowed": false,
+    "room_closet": true,
+    "room_kitchen": true,
+    "window": true,
+    "water_heater": true,
+    "loft": false,
+    "is_top_room": true,
+    "room_type": "Dormitory",
+    "opened_hour": {},
+    "closed_hour": {},
+    "pending": true,
+    "disabled": false,
+    "room_view": 85,
+    "geocodingApi": {
+      "bounds": {
+        "northeast": {
+          "lat": 10.7782148,
+          "lng": 106.6915584
+        },
+        "southwest": {
+          "lat": 10.7781212,
+          "lng": 106.6914623
+        }
+      },
+      "location": {
+        "lat": 10.7781709,
+        "lng": 106.6915043
+      },
+      "location_type": "ROOFTOP",
+      "viewport": {
+        "northeast": {
+          "lat": 10.7795169802915,
+          "lng": 106.6928593302915
+        },
+        "southwest": {
+          "lat": 10.7768190197085,
+          "lng": 106.6901613697085
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "Point",
+      "coordinates": [
+        106.6915043,
+        10.7781709
+      ]
+    },
+    "available_status": {
+      "value": 2,
+      "label": "Unknown"
+    },
+    "available_status_date": "2019-11-03T14:35:26.400Z",
+    "security_id": "5db5151e0fe97c293e6f20c1",
+    "processPending": [
+      {
+        "status": "Enabled",
+        "date": "2019-10-27T03:55:21.722Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2019-11-04T15:22:00.734Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2019-11-11T00:49:37.238Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2020-05-10T03:14:50.191Z"
+      },
+      {
+        "status": "Enabled",
+        "date": "2021-02-17T06:59:53.365Z"
+      }
+    ],
+    "available_status_logs": [
+      {
+        "available_status": {
+          "value": 2,
+          "label": "Unknown"
+        },
+        "available_status_date": "2019-11-03T14:35:26.400Z"
+      }
+    ],
+    "is_featured_room": true,
+    "note": "undefined",
+    "room_location_ward": 27139,
+    "currency": "VND",
+    "balcony": false,
+    "on_top_expiry_time": 1617717853989
+  }
+]

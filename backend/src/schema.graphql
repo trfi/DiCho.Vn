@@ -4,29 +4,52 @@ type Query {
     filter: String
     skip: Int
     take: Int
-    orderBy: LinkOrderByInput
+    orderBy: PostOrderByInput
   ): Feed!
 }
 
 type Feed {
   id: ID!
-  links: [Link!]!
+  posts: [Post!]!
   count: Int!
 }
 
 type Mutation {
-  post(url: String!, description: String!): Link!
+  post(input: PostInput): Post!
   signup(
-    email: String!
+    phone: String!
+    email: String
     password: String!
     name: String!
   ): AuthPayload
-  login(email: String!, password: String!): AuthPayload
-  vote(linkId: ID!): Vote
+  login(phone: String!, password: String!): AuthPayload
+  category(input: CategoryInput): Category!
+  vote(postId: ID!): Vote
+}
+
+input PostInput {
+  title: String!
+  thumbnail: String!
+  categoryId: String
+  broker: Boolean
+  params: Json!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: Json!
+  postedById: String
+}
+
+input CategoryInput {
+  id: String!
+  title: String!
+  slug: String!
+  path: String
 }
 
 type Subscription {
-  newLink: Link
+  newPost: Post
   newVote: Vote
 }
 
@@ -38,29 +61,48 @@ type AuthPayload {
 type User {
   id: ID!
   name: String!
+  phone: String!
   email: String!
-  links: [Link!]!
+  posts: [Post!]!
 }
 
-type Link {
+type Post {
   id: ID!
-  description: String!
-  url: String!
+  title: String!
+  thumbnail: String!
+  categoryId: String!
+  broker: Boolean
+  params: Json!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: Json!
+  postedById: String!
   postedBy: User
   votes: [Vote!]!
-  createdAt: DateTime!
+  created: DateTime!
+  updated: DateTime!
+}
+
+type Category {
+  id: String!
+  posts: [Post!]!
+  title: String!
+  slug: String!
+  path: String
 }
 
 type Vote {
   id: ID!
-  link: Link!
+  post: Post!
   user: User!
 }
 
-input LinkOrderByInput {
-  description: Sort
-  url: Sort
-  createdAt: Sort
+input PostOrderByInput {
+  title: Sort
+  created: Sort
+  updated: Sort
 }
 
 enum Sort {
@@ -69,3 +111,4 @@ enum Sort {
 }
 
 scalar DateTime
+scalar Json

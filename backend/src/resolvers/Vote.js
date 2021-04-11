@@ -1,7 +1,7 @@
-function link(parent, args, { prisma }) {
+function post(parent, args, { prisma }) {
   return prisma.vote
     .findUnique({ where: { id: parent.id } })
-    .link();
+    .post();
 }
 
 function user(parent, args, { prisma }) {
@@ -11,6 +11,6 @@ function user(parent, args, { prisma }) {
 }
 
 module.exports = {
-  link,
+  post,
   user
 };

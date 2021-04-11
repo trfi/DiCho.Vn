@@ -1,4 +1,4 @@
-async function feed(parent, args, context, info) {
+async function feed(parent, args, { prisma }, info) {
   const where = args.filter
     ? {
         OR: [
@@ -8,18 +8,18 @@ async function feed(parent, args, context, info) {
       }
     : {};
 
-  const links = await context.prisma.link.findMany({
+  const posts = await prisma.post.findMany({
     where,
     skip: args.skip,
     take: args.take,
     orderBy: args.orderBy
   });
 
-  const count = await context.prisma.link.count({ where });
+  const count = await prisma.post.count({ where });
 
   return {
     id: 'main-feed',
-    links,
+    posts,
     count
   };
 }

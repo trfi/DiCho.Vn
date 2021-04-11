@@ -1,29 +1,27 @@
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { APP_SECRET } = require('../utils');
+const { Crypto } = require('../utils')
 
-async function post(parent, args, context, info) {
-  const { userId } = context;
 
-  const newLink = await context.prisma.link.create({
+async function post(parent, { input }, { prisma, pubsub, userId }, info) {
+  const { categoryId, ...filteredInput } = input;
+  const newPost = await prisma.post.create({
     data: {
-      url: args.url,
-      description: args.description,
+      ...filteredInput,
+      category: { connect: { id: categoryId }},
       postedBy: { connect: { id: userId } }
     }
   });
-  context.pubsub.publish('NEW_LINK', newLink);
-
-  return newLink;
+  pubsub.publish('NEW_POST', newPost);
+  return newPost;
 }
 
 async function signup(parent, args, context, info) {
-  const password = await bcrypt.hash(args.password, 10);
+  const password = Crypto.encrypt(args.password);
   const user = await context.prisma.user.create({
     data: { ...args, password }
   });
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: 36000 });
 
   return {
     token,
@@ -31,23 +29,20 @@ async function signup(parent, args, context, info) {
   };
 }
 
-async function login(parent, args, context, info) {
-  const user = await context.prisma.user.findUnique({
-    where: { email: args.email }
+async function login(parent, args, { prisma }, info) {
+  const user = await prisma.user.findUnique({
+    where: { phone: args.phone }
   });
   if (!user) {
     throw new Error('No such user found');
   }
 
-  const valid = await bcrypt.compare(
-    args.password,
-    user.password
-  );
+  const valid = Crypto.compare(args.password, user.password);
   if (!valid) {
     throw new Error('Invalid password');
   }
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: 36000 });
 
   return {
     token,
@@ -55,11 +50,20 @@ async function login(parent, args, context, info) {
   };
 }
 
+async function category(parent, args, { prisma }, _) {
+  const newCategory = await prisma.category.create({
+    data: {
+      ...args.input
+    }
+  });
+  return newCategory;
+}
+
 async function vote(parent, args, { prisma, userId, pubsub }, info) {
   const vote = await prisma.vote.findUnique({
     where: {
-      linkId_userId: {
-        linkId: args.linkId,
+      postId_userId: {
+        postId: args.postId,
         userId: userId
       }
     }
@@ -67,14 +71,14 @@ async function vote(parent, args, { prisma, userId, pubsub }, info) {
 
   if (Boolean(vote)) {
     throw new Error(
-      `Already voted for link: ${args.linkId}`
+      `Already voted for post: ${args.postId}`
     );
   }
 
   const newVote = prisma.vote.create({
     data: {
       user: { connect: { id: userId } },
-      link: { connect: { id: args.linkId } }
+      post: { connect: { id: args.postId } }
     }
   });
   pubsub.publish('NEW_VOTE', newVote);
@@ -82,9 +86,11 @@ async function vote(parent, args, { prisma, userId, pubsub }, info) {
   return newVote;
 }
 
+
 module.exports = {
   post,
   signup,
   login,
+  category,
   vote
 };

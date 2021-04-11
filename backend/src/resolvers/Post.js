@@ -1,11 +1,11 @@
-function postedBy(parent, args, context) {
-  return context.prisma.link
+function postedBy(parent, args, { prisma }) {
+  return prisma.post
     .findUnique({ where: { id: parent.id } })
     .postedBy();
 }
 
-function votes(parent, args, context) {
-  return context.prisma.link
+function votes(parent, args, { prisma }) {
+  return prisma.post
     .findUnique({ where: { id: parent.id } })
     .votes();
 }
