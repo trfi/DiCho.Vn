@@ -1,0 +1,1190 @@
+type AggregateCategory {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Category {
+  id: ID!
+  cateId: Post!
+  title: String!
+  slug: String!
+  path: String
+  created: DateTime!
+  updated: DateTime!
+}
+
+type CategoryConnection {
+  pageInfo: PageInfo!
+  edges: [CategoryEdge]!
+  aggregate: AggregateCategory!
+}
+
+input CategoryCreateInput {
+  id: ID
+  cateId: PostCreateOneWithoutCategoryInput!
+  title: String!
+  slug: String!
+  path: String
+}
+
+input CategoryCreateOneWithoutCateIdInput {
+  create: CategoryCreateWithoutCateIdInput
+  connect: CategoryWhereUniqueInput
+}
+
+input CategoryCreateWithoutCateIdInput {
+  id: ID
+  title: String!
+  slug: String!
+  path: String
+}
+
+type CategoryEdge {
+  node: Category!
+  cursor: String!
+}
+
+enum CategoryOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  slug_ASC
+  slug_DESC
+  path_ASC
+  path_DESC
+  created_ASC
+  created_DESC
+  updated_ASC
+  updated_DESC
+}
+
+type CategoryPreviousValues {
+  id: ID!
+  title: String!
+  slug: String!
+  path: String
+  created: DateTime!
+  updated: DateTime!
+}
+
+type CategorySubscriptionPayload {
+  mutation: MutationType!
+  node: Category
+  updatedFields: [String!]
+  previousValues: CategoryPreviousValues
+}
+
+input CategorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CategoryWhereInput
+  AND: [CategorySubscriptionWhereInput!]
+}
+
+input CategoryUpdateInput {
+  cateId: PostUpdateOneRequiredWithoutCategoryInput
+  title: String
+  slug: String
+  path: String
+}
+
+input CategoryUpdateManyMutationInput {
+  title: String
+  slug: String
+  path: String
+}
+
+input CategoryUpdateOneRequiredWithoutCateIdInput {
+  create: CategoryCreateWithoutCateIdInput
+  update: CategoryUpdateWithoutCateIdDataInput
+  upsert: CategoryUpsertWithoutCateIdInput
+  connect: CategoryWhereUniqueInput
+}
+
+input CategoryUpdateWithoutCateIdDataInput {
+  title: String
+  slug: String
+  path: String
+}
+
+input CategoryUpsertWithoutCateIdInput {
+  update: CategoryUpdateWithoutCateIdDataInput!
+  create: CategoryCreateWithoutCateIdInput!
+}
+
+input CategoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  cateId: PostWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  created: DateTime
+  created_not: DateTime
+  created_in: [DateTime!]
+  created_not_in: [DateTime!]
+  created_lt: DateTime
+  created_lte: DateTime
+  created_gt: DateTime
+  created_gte: DateTime
+  updated: DateTime
+  updated_not: DateTime
+  updated_in: [DateTime!]
+  updated_not_in: [DateTime!]
+  updated_lt: DateTime
+  updated_lte: DateTime
+  updated_gt: DateTime
+  updated_gte: DateTime
+  AND: [CategoryWhereInput!]
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+enum Gender {
+  M
+  F
+  O
+}
+
+scalar Long
+
+type Mutation {
+  createCategory(data: CategoryCreateInput!): Category!
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
+  upsertCategory(where: CategoryWhereUniqueInput!, create: CategoryCreateInput!, update: CategoryUpdateInput!): Category!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
+  createPost(data: PostCreateInput!): Post!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Params {
+  acreage: Int
+  rooms: Int
+}
+
+input ParamsCreateInput {
+  acreage: Int
+  rooms: Int
+}
+
+input ParamsCreateOneInput {
+  create: ParamsCreateInput
+}
+
+input ParamsUpdateDataInput {
+  acreage: Int
+  rooms: Int
+}
+
+input ParamsUpdateOneRequiredInput {
+  create: ParamsCreateInput
+  update: ParamsUpdateDataInput
+  upsert: ParamsUpsertNestedInput
+}
+
+input ParamsUpsertNestedInput {
+  update: ParamsUpdateDataInput!
+  create: ParamsCreateInput!
+}
+
+input ParamsWhereInput {
+  acreage: Int
+  acreage_not: Int
+  acreage_in: [Int!]
+  acreage_not_in: [Int!]
+  acreage_lt: Int
+  acreage_lte: Int
+  acreage_gt: Int
+  acreage_gte: Int
+  rooms: Int
+  rooms_not: Int
+  rooms_in: [Int!]
+  rooms_not_in: [Int!]
+  rooms_lt: Int
+  rooms_lte: Int
+  rooms_gt: Int
+  rooms_gte: Int
+  AND: [ParamsWhereInput!]
+}
+
+type Post {
+  id: ID!
+  title: String!
+  thumbnail: String!
+  category: Category!
+  broker: Boolean!
+  params: Params!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: PostDetail!
+  poster: User!
+  created: DateTime!
+  updated: DateTime!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  id: ID
+  title: String!
+  thumbnail: String!
+  category: CategoryCreateOneWithoutCateIdInput!
+  broker: Boolean
+  params: ParamsCreateOneInput!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: PostDetailCreateOneInput!
+  poster: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutPosterInput {
+  create: [PostCreateWithoutPosterInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateOneWithoutCategoryInput {
+  create: PostCreateWithoutCategoryInput
+  connect: PostWhereUniqueInput
+}
+
+input PostCreateWithoutCategoryInput {
+  id: ID
+  title: String!
+  thumbnail: String!
+  broker: Boolean
+  params: ParamsCreateOneInput!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: PostDetailCreateOneInput!
+  poster: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateWithoutPosterInput {
+  id: ID
+  title: String!
+  thumbnail: String!
+  category: CategoryCreateOneWithoutCateIdInput!
+  broker: Boolean
+  params: ParamsCreateOneInput!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  postDetail: PostDetailCreateOneInput!
+}
+
+type PostDetail {
+  images: [String!]!
+  content: String!
+  address: String!
+}
+
+input PostDetailCreateimagesInput {
+  set: [String!]
+}
+
+input PostDetailCreateInput {
+  images: PostDetailCreateimagesInput
+  content: String!
+  address: String!
+}
+
+input PostDetailCreateOneInput {
+  create: PostDetailCreateInput
+}
+
+input PostDetailUpdateDataInput {
+  images: PostDetailUpdateimagesInput
+  content: String
+  address: String
+}
+
+input PostDetailUpdateimagesInput {
+  set: [String!]
+}
+
+input PostDetailUpdateOneRequiredInput {
+  create: PostDetailCreateInput
+  update: PostDetailUpdateDataInput
+  upsert: PostDetailUpsertNestedInput
+}
+
+input PostDetailUpsertNestedInput {
+  update: PostDetailUpdateDataInput!
+  create: PostDetailCreateInput!
+}
+
+input PostDetailWhereInput {
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  AND: [PostDetailWhereInput!]
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  thumbnail_ASC
+  thumbnail_DESC
+  broker_ASC
+  broker_DESC
+  region_ASC
+  region_DESC
+  area_ASC
+  area_DESC
+  ward_ASC
+  ward_DESC
+  price_ASC
+  price_DESC
+  created_ASC
+  created_DESC
+  updated_ASC
+  updated_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  title: String!
+  thumbnail: String!
+  broker: Boolean!
+  region: Int!
+  area: Int!
+  ward: Int!
+  price: Int!
+  created: DateTime!
+  updated: DateTime!
+}
+
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  thumbnail: String
+  thumbnail_not: String
+  thumbnail_in: [String!]
+  thumbnail_not_in: [String!]
+  thumbnail_lt: String
+  thumbnail_lte: String
+  thumbnail_gt: String
+  thumbnail_gte: String
+  thumbnail_contains: String
+  thumbnail_not_contains: String
+  thumbnail_starts_with: String
+  thumbnail_not_starts_with: String
+  thumbnail_ends_with: String
+  thumbnail_not_ends_with: String
+  broker: Boolean
+  broker_not: Boolean
+  region: Int
+  region_not: Int
+  region_in: [Int!]
+  region_not_in: [Int!]
+  region_lt: Int
+  region_lte: Int
+  region_gt: Int
+  region_gte: Int
+  area: Int
+  area_not: Int
+  area_in: [Int!]
+  area_not_in: [Int!]
+  area_lt: Int
+  area_lte: Int
+  area_gt: Int
+  area_gte: Int
+  ward: Int
+  ward_not: Int
+  ward_in: [Int!]
+  ward_not_in: [Int!]
+  ward_lt: Int
+  ward_lte: Int
+  ward_gt: Int
+  ward_gte: Int
+  price: Int
+  price_not: Int
+  price_in: [Int!]
+  price_not_in: [Int!]
+  price_lt: Int
+  price_lte: Int
+  price_gt: Int
+  price_gte: Int
+  created: DateTime
+  created_not: DateTime
+  created_in: [DateTime!]
+  created_not_in: [DateTime!]
+  created_lt: DateTime
+  created_lte: DateTime
+  created_gt: DateTime
+  created_gte: DateTime
+  updated: DateTime
+  updated_not: DateTime
+  updated_in: [DateTime!]
+  updated_not_in: [DateTime!]
+  updated_lt: DateTime
+  updated_lte: DateTime
+  updated_gt: DateTime
+  updated_gte: DateTime
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+  AND: [PostSubscriptionWhereInput!]
+}
+
+input PostUpdateInput {
+  title: String
+  thumbnail: String
+  category: CategoryUpdateOneRequiredWithoutCateIdInput
+  broker: Boolean
+  params: ParamsUpdateOneRequiredInput
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+  postDetail: PostDetailUpdateOneRequiredInput
+  poster: UserUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateManyDataInput {
+  title: String
+  thumbnail: String
+  broker: Boolean
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+}
+
+input PostUpdateManyMutationInput {
+  title: String
+  thumbnail: String
+  broker: Boolean
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+}
+
+input PostUpdateManyWithoutPosterInput {
+  create: [PostCreateWithoutPosterInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutPosterInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutPosterInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateOneRequiredWithoutCategoryInput {
+  create: PostCreateWithoutCategoryInput
+  update: PostUpdateWithoutCategoryDataInput
+  upsert: PostUpsertWithoutCategoryInput
+  connect: PostWhereUniqueInput
+}
+
+input PostUpdateWithoutCategoryDataInput {
+  title: String
+  thumbnail: String
+  broker: Boolean
+  params: ParamsUpdateOneRequiredInput
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+  postDetail: PostDetailUpdateOneRequiredInput
+  poster: UserUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateWithoutPosterDataInput {
+  title: String
+  thumbnail: String
+  category: CategoryUpdateOneRequiredWithoutCateIdInput
+  broker: Boolean
+  params: ParamsUpdateOneRequiredInput
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+  postDetail: PostDetailUpdateOneRequiredInput
+}
+
+input PostUpdateWithWhereUniqueWithoutPosterInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutPosterDataInput!
+}
+
+input PostUpsertWithoutCategoryInput {
+  update: PostUpdateWithoutCategoryDataInput!
+  create: PostCreateWithoutCategoryInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutPosterInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutPosterDataInput!
+  create: PostCreateWithoutPosterInput!
+}
+
+input PostWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  thumbnail: String
+  thumbnail_not: String
+  thumbnail_in: [String!]
+  thumbnail_not_in: [String!]
+  thumbnail_lt: String
+  thumbnail_lte: String
+  thumbnail_gt: String
+  thumbnail_gte: String
+  thumbnail_contains: String
+  thumbnail_not_contains: String
+  thumbnail_starts_with: String
+  thumbnail_not_starts_with: String
+  thumbnail_ends_with: String
+  thumbnail_not_ends_with: String
+  category: CategoryWhereInput
+  broker: Boolean
+  broker_not: Boolean
+  params: ParamsWhereInput
+  region: Int
+  region_not: Int
+  region_in: [Int!]
+  region_not_in: [Int!]
+  region_lt: Int
+  region_lte: Int
+  region_gt: Int
+  region_gte: Int
+  area: Int
+  area_not: Int
+  area_in: [Int!]
+  area_not_in: [Int!]
+  area_lt: Int
+  area_lte: Int
+  area_gt: Int
+  area_gte: Int
+  ward: Int
+  ward_not: Int
+  ward_in: [Int!]
+  ward_not_in: [Int!]
+  ward_lt: Int
+  ward_lte: Int
+  ward_gt: Int
+  ward_gte: Int
+  price: Int
+  price_not: Int
+  price_in: [Int!]
+  price_not_in: [Int!]
+  price_lt: Int
+  price_lte: Int
+  price_gt: Int
+  price_gte: Int
+  postDetail: PostDetailWhereInput
+  poster: UserWhereInput
+  created: DateTime
+  created_not: DateTime
+  created_in: [DateTime!]
+  created_not_in: [DateTime!]
+  created_lt: DateTime
+  created_lte: DateTime
+  created_gt: DateTime
+  created_gte: DateTime
+  updated: DateTime
+  updated_not: DateTime
+  updated_in: [DateTime!]
+  updated_not_in: [DateTime!]
+  updated_lt: DateTime
+  updated_lte: DateTime
+  updated_gt: DateTime
+  updated_gte: DateTime
+  AND: [PostWhereInput!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  category(where: CategoryWhereUniqueInput!): Category
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
+  categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
+  post(where: PostWhereUniqueInput!): Post
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+enum Role {
+  ADMIN
+  MODERATOR
+}
+
+type Subscription {
+  category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  phone: String!
+  password: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  created: DateTime!
+  updated: DateTime!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  phone: String!
+  password: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+  posts: PostCreateManyWithoutPosterInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPostsInput {
+  id: ID
+  phone: String!
+  password: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  phone_ASC
+  phone_DESC
+  password_ASC
+  password_DESC
+  phoneVerified_ASC
+  phoneVerified_DESC
+  email_ASC
+  email_DESC
+  emailVerified_ASC
+  emailVerified_DESC
+  name_ASC
+  name_DESC
+  username_ASC
+  username_DESC
+  avatar_ASC
+  avatar_DESC
+  gender_ASC
+  gender_DESC
+  birthday_ASC
+  birthday_DESC
+  address_ASC
+  address_DESC
+  role_ASC
+  role_DESC
+  created_ASC
+  created_DESC
+  updated_ASC
+  updated_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  phone: String!
+  password: String!
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+  created: DateTime!
+  updated: DateTime!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  phone: String
+  password: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+  posts: PostUpdateManyWithoutPosterInput
+}
+
+input UserUpdateManyMutationInput {
+  phone: String
+  password: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+}
+
+input UserUpdateOneRequiredWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  phone: String
+  password: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  name: String
+  username: String
+  avatar: String
+  gender: Gender
+  birthday: DateTime
+  address: String
+  role: Role
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  phoneVerified: Boolean
+  phoneVerified_not: Boolean
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  emailVerified: Boolean
+  emailVerified_not: Boolean
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  avatar: String
+  avatar_not: String
+  avatar_in: [String!]
+  avatar_not_in: [String!]
+  avatar_lt: String
+  avatar_lte: String
+  avatar_gt: String
+  avatar_gte: String
+  avatar_contains: String
+  avatar_not_contains: String
+  avatar_starts_with: String
+  avatar_not_starts_with: String
+  avatar_ends_with: String
+  avatar_not_ends_with: String
+  gender: Gender
+  gender_not: Gender
+  gender_in: [Gender!]
+  gender_not_in: [Gender!]
+  birthday: DateTime
+  birthday_not: DateTime
+  birthday_in: [DateTime!]
+  birthday_not_in: [DateTime!]
+  birthday_lt: DateTime
+  birthday_lte: DateTime
+  birthday_gt: DateTime
+  birthday_gte: DateTime
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
+  posts_some: PostWhereInput
+  created: DateTime
+  created_not: DateTime
+  created_in: [DateTime!]
+  created_not_in: [DateTime!]
+  created_lt: DateTime
+  created_lte: DateTime
+  created_gt: DateTime
+  created_gte: DateTime
+  updated: DateTime
+  updated_not: DateTime
+  updated_in: [DateTime!]
+  updated_not_in: [DateTime!]
+  updated_lt: DateTime
+  updated_lte: DateTime
+  updated_gt: DateTime
+  updated_gte: DateTime
+  AND: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  phone: String
+  email: String
+}
