@@ -2,12 +2,12 @@ const jwt = require('jsonwebtoken');
 const { Crypto } = require('../utils')
 
 
-async function post(parent, { input }, { prisma, pubsub, userId }, info) {
+async function post(parent, { input }, { prisma, pubsub, userId }, _) {
   const { categoryId, ...filteredInput } = input;
   const newPost = await prisma.post.create({
     data: {
       ...filteredInput,
-      category: { connect: { id: categoryId }},
+      categoryId,
       postedBy: { connect: { id: userId } }
     }
   });
@@ -15,7 +15,7 @@ async function post(parent, { input }, { prisma, pubsub, userId }, info) {
   return newPost;
 }
 
-async function signup(parent, args, context, info) {
+async function signup(parent, args, context, _) {
   const password = Crypto.encrypt(args.password);
   const user = await context.prisma.user.create({
     data: { ...args, password }
@@ -29,7 +29,7 @@ async function signup(parent, args, context, info) {
   };
 }
 
-async function login(parent, args, { prisma }, info) {
+async function login(parent, args, { prisma }, _) {
   const user = await prisma.user.findUnique({
     where: { phone: args.phone }
   });
@@ -50,16 +50,18 @@ async function login(parent, args, { prisma }, info) {
   };
 }
 
-async function category(parent, args, { prisma }, _) {
+async function category(parent, { input }, { prisma }, _) {
+  if (typeof(input.children) == String) input.children = JSON.parse(input.children)
+  console.log(input);
   const newCategory = await prisma.category.create({
     data: {
-      ...args.input
+      ...input
     }
   });
   return newCategory;
 }
 
-async function vote(parent, args, { prisma, userId, pubsub }, info) {
+async function vote(parent, args, { prisma, userId, pubsub }, _) {
   const vote = await prisma.vote.findUnique({
     where: {
       postId_userId: {

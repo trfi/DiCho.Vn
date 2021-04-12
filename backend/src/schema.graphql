@@ -45,6 +45,8 @@ input CategoryInput {
   id: String!
   title: String!
   slug: String!
+  parent: String
+  children: String
   path: String
 }
 
@@ -91,6 +93,8 @@ type Category {
   title: String!
   slug: String!
   path: String
+  parent: String
+  children: Json
 }
 
 type Vote {

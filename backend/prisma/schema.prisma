@@ -64,6 +64,8 @@ model Category {
   title   String
   slug    String
   path    String?
+  parent  String?
+  children Json?
   created DateTime   @default(now())
   updated DateTime    @updatedAt
 }

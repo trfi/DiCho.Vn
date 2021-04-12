@@ -2,8 +2,8 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const algorithm = 'aes-256-ctr';
 const iv = crypto.randomBytes(16);
+const JWT_SECRET = process.env.JWT_SECRET;
 
-console.log(process.env.JWT_SECRET);
 
 function getTokenPayload(token) {
   return jwt.verify(token, process.env.JWT_SECRET);
