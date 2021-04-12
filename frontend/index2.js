@@ -1,5 +1,5 @@
 const { GraphQLClient, gql } = require('graphql-request')
-const chotot_cate = require("E:/T/DiCho/dev/backend/test/chotot_categories_id.json").entities
+const chotot_cate = require("D:/T/DiCho/prisma2/backend/test/chotot_categories_id.json").entities
 
 
 const endpoint = 'http://localhost:4000'
@@ -73,16 +73,20 @@ const data = {
   slug: "ban-can-ho-chung-cu",
   parent: "01"
 }
-
+let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 cateParsed = parseCate()
-let i = 0
-for (cate of cateParsed) {
-  // console.log(cate);
-  setTimeout(() => {  
+
+async function main() {
+  let i = 1
+  for (cate of cateParsed) {
+    // console.log(cate);  
     console.log(i);
     console.log(cate.id);
-    // addCate(cate).catch((error) => console.error(error))
-  }, 1000);
-  i++
-  if (i==10) break;
+    addCate(cate).catch((error) => console.error(error))
+    await sleep(1000);
+    i++
+    if (i>1) break;
+  }
 }
+
+main()
