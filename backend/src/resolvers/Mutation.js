@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { Crypto } = require('../utils')
+const { UserInputError } = require('apollo-server');
 
 
 async function post(parent, { input }, { prisma, pubsub, userId }, _) {
@@ -7,7 +8,7 @@ async function post(parent, { input }, { prisma, pubsub, userId }, _) {
   const newPost = await prisma.post.create({
     data: {
       ...filteredInput,
-      categoryId,
+      category : { connect: { id: categoryId } },
       postedBy: { connect: { id: userId } }
     }
   });
@@ -51,7 +52,7 @@ async function login(parent, args, { prisma }, _) {
 }
 
 async function category(parent, { input }, { prisma }, _) {
-  if (typeof(input.children) == String) input.children = JSON.parse(input.children)
+  if (input.children && typeof(input.children) == String) input.children = JSON.parse(input.children)
   console.log(input);
   const newCategory = await prisma.category.create({
     data: {
