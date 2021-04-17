@@ -1,28 +1,31 @@
 const { GraphQLClient, gql } = require('graphql-request')
-const chotot_cate = require("D:/T/DiCho/prisma2/backend/test/chotot_categories_id.json").entities
+const chotot_cate = require("E:/T/DiCho/backend/test/chotot_categories_id.json").entities
 
 
 const endpoint = 'http://localhost:4000'
 
 const graphQLClient = new GraphQLClient(endpoint, {
   headers: {
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJja25lZWhlbDgwMDAwbjRreGJscjE4bWRiIiwiaWF0IjoxNjE4MjIwMTI5LCJleHAiOjE2MTgyNTYxMjl9.fn74nnEjcDBZb89s_CY5dOIi1jHuHZP9b4gDscxHLyc',
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJja25lZWhlbDgwMDAwbjRreGJscjE4bWRiIiwiaWF0IjoxNjE4MjgxMTc0LCJleHAiOjE2MTgzMTcxNzR9.SZWIvEUAbqkDGzLKM-glDIzb07dVzwxw3HmHxnClWpw',
   },
 })
 
 const mutation = gql`
-mutation Category($id: String!, $title: String!, $slug: String!, $parent: String, $children: String) {
-  category(input: { id: $id, title: $title, slug: $slug, parent: $parent, children: $children }) {
+mutation Category($id: String!, $title: String!, $slug: String!, $parent: String, $children: String, $type: String) {
+  category(input: { id: $id, title: $title, slug: $slug, parent: $parent, children: $children, type: $type }) {
     id
     title
   }
 }
 `
 
-
 async function addCate(variable) {
   const data = await graphQLClient.request(mutation, variable)
   console.log(JSON.stringify(data, undefined, 2))
+}
+
+function strSplitRight(str) {
+  str.split('').reverse().join('').match(/.{1,3}/g).map(x => x.split('').reverse().join('')).reverse()
 }
 
 function parseCate() {
@@ -32,7 +35,7 @@ function parseCate() {
     const sub = parentValue.subCategories.entities
     
     cateParent = {}
-    cateId = parentValue.id.split('').reverse().join('').match(/.{1,3}/g).map(x => x.split('').reverse().join('')).reverse()
+    cateId = strSplitRight(parentValue.id)
     parentCateId = cateId[0].length == 1 ? '0' + cateId[0] : cateId[0]
     cateParent.id = parentCateId
     cateParent.title = parentValue.name
@@ -42,13 +45,13 @@ function parseCate() {
     for (const [key, value] of Object.entries(sub)) {
       if (1) {
         for (o of value.filter_types) {
-          type = Object.keys(o)[0]
-          if (type == 's') type = 'B'
-          else if (type == 'u') type = 'R'
-          else if (type == 'k') type = 'S'
-          else if (type == 'h') type = 'T'
           cate = {}
-          cateId = value.id.split('').reverse().join('').match(/.{1,3}/g).map(x => x.split('').reverse().join('')).reverse()
+          type = Object.keys(o)[0]
+          if (type == 'k') { type = 'S'; cate.type = 'Cần bán' }
+          else if (type == 'h') { type = 'T'; cate.type = 'Cho thuê' }
+          else if (type == 's') { type = 'B'; cate.type = 'Cần mua' }
+          else if (type == 'u') { type = 'R'; cate.type = 'Cần thuê' }
+          cateId = strSplitRight(value.id)
           parentCateId = cateId[0].length == 1 ? '0' + cateId[0] : cateId[0]
           subCateId = cateId[1].substring(0, 2)
           cate.id = parentCateId + subCateId + type
@@ -79,13 +82,12 @@ cateParsed = parseCate()
 async function main() {
   let i = 1
   for (cate of cateParsed) {
-    // console.log(cate);  
+    // console.log(cate);
     console.log(i);
-    console.log(cate.id);
     addCate(cate).catch((error) => console.error(error))
     await sleep(1000);
     i++
-    if (i>1) break;
+    // if (i>10) break;
   }
 }
 

@@ -41,12 +41,24 @@ input PostInput {
   postedById: String
 }
 
+type Category {
+  id: String!
+  posts: [Post!]!
+  title: String!
+  slug: String!
+  path: String
+  parent: String
+  children: Json
+  type: String
+}
+
 input CategoryInput {
   id: String!
   title: String!
   slug: String!
   parent: String
   children: String
+  type: String
   path: String
 }
 
@@ -85,16 +97,6 @@ type Post {
   votes: [Vote!]!
   created: DateTime!
   updated: DateTime!
-}
-
-type Category {
-  id: String!
-  posts: [Post!]!
-  title: String!
-  slug: String!
-  path: String
-  parent: String
-  children: Json
 }
 
 type Vote {

@@ -4,16 +4,22 @@ const { UserInputError } = require('apollo-server');
 
 
 async function post(parent, { input }, { prisma, pubsub, userId }, _) {
-  const { categoryId, ...filteredInput } = input;
-  const newPost = await prisma.post.create({
-    data: {
-      ...filteredInput,
-      category : { connect: { id: categoryId } },
-      postedBy: { connect: { id: userId } }
-    }
-  });
-  pubsub.publish('NEW_POST', newPost);
-  return newPost;
+  try {
+    const { categoryId, ...filteredInput } = input;
+    const newPost = await prisma.post.create({
+      data: {
+        ...filteredInput,
+        category : { connect: { id: categoryId } },
+        postedBy: { connect: { id: userId } }
+      }
+    });
+    pubsub.publish('NEW_POST', newPost);
+    return newPost;
+  } catch (error) {
+    if (error.code == 'P2025') throw new Error()
+    console.log(error);
+    throw new Error('loi')
+  }
 }
 
 async function signup(parent, args, context, _) {
@@ -52,7 +58,7 @@ async function login(parent, args, { prisma }, _) {
 }
 
 async function category(parent, { input }, { prisma }, _) {
-  if (input.children && typeof(input.children) == String) input.children = JSON.parse(input.children)
+  if (input.children && typeof(input.children) == 'string') input.children = JSON.parse(input.children)
   console.log(input);
   const newCategory = await prisma.category.create({
     data: {
