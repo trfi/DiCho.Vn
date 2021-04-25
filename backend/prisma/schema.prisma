@@ -96,6 +96,7 @@ enum Gender {
 }
 
 enum Role {
+  USER
   ADMIN
   MODERATOR
 }

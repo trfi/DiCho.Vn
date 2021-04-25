@@ -3,21 +3,21 @@ const { Crypto } = require('../utils')
 const { UserInputError } = require('apollo-server');
 
 
-async function post(parent, { input }, { prisma, pubsub, userId }, _) {
+async function post(parent, { input }, { prisma, pubsub, user }, _) {
   try {
     const { categoryId, ...filteredInput } = input;
     const newPost = await prisma.post.create({
       data: {
         ...filteredInput,
         category : { connect: { id: categoryId } },
-        postedBy: { connect: { id: userId } }
+        postedBy: { connect: { id: user.id } }
       }
     });
     pubsub.publish('NEW_POST', newPost);
     return newPost;
   } catch (error) {
-    if (error.code == 'P2025') throw new Error()
     console.log(error);
+    if (error.code == 'P2025') throw new Error(error)
     throw new Error('loi')
   }
 }
@@ -28,7 +28,7 @@ async function signup(parent, args, context, _) {
     data: { ...args, password }
   });
 
-  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: 36000 });
+  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: 36000 });
 
   return {
     token,
@@ -36,7 +36,7 @@ async function signup(parent, args, context, _) {
   };
 }
 
-async function login(parent, args, { prisma }, _) {
+async function signin(parent, args, { prisma }, _) {
   const user = await prisma.user.findUnique({
     where: { phone: args.phone }
   });
@@ -48,8 +48,7 @@ async function login(parent, args, { prisma }, _) {
   if (!valid) {
     throw new Error('Invalid password');
   }
-
-  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: 36000 });
+  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: 36000 });
 
   return {
     token,
@@ -99,7 +98,7 @@ async function vote(parent, args, { prisma, userId, pubsub }, _) {
 module.exports = {
   post,
   signup,
-  login,
+  signin,
   category,
   vote
 };

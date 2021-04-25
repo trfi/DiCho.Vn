@@ -57,5 +57,6 @@ class Crypto {
 
 module.exports = {
   Crypto,
-  getUserId
+  getUserId,
+  getTokenPayload
 };
