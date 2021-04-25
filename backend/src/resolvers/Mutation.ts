@@ -1,5 +1,5 @@
+import { Crypto } from "../utils";
 const jwt = require('jsonwebtoken');
-const { Crypto } = require('../utils')
 const { UserInputError } = require('apollo-server');
 
 

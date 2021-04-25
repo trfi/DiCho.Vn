@@ -1,6 +1,7 @@
 require('dotenv').config()
-const { ApolloServer, PubSub, gql, SchemaDirectiveVisitor } = require("apollo-server");
-const { makeExecutableSchema, mapSchema, MapperKind } = require('@graphql-tools/schema');
+import { ApolloServer, PubSub, gql, SchemaDirectiveVisitor } from 'apollo-server'
+import { makeExecutableSchema } from '@graphql-tools/schema';
+import { mapSchema, getDirectives, MapperKind } from "@graphql-tools/utils";
 const { PrismaClient } = require('@prisma/client');
 const Query = require('./resolvers/Query');
 const Mutation = require('./resolvers/Mutation');
@@ -13,11 +14,9 @@ const path = require('path');
 const { getUserId, getTokenPayload } = require('./utils');
 const pubsub = new PubSub();
 
-console.log(MapperKind);
 
-function authDirective(directiveName, getUserFn) {
-  console.log('authDirective');
-  const typeDirectiveArgumentMaps = {};
+function authDirective(directiveName: string, getUserFn: (token: string) => { hasRole: (role: string) => boolean} ) {
+  const typeDirectiveArgumentMaps: Record<string, any> = {};
   return {
     authDirectiveTypeDefs: `directive @${directiveName}(
       requires: Role = ADMIN,
@@ -31,20 +30,16 @@ function authDirective(directiveName, getUserFn) {
     authDirectiveTransformer: (schema) => mapSchema(schema, {
       [MapperKind.TYPE]: (type) => {
         const typeDirectives = getDirectives(schema, type);
-        console.log(schema);
-        console.log(type);
-        console.log(typeDirectives);
         typeDirectiveArgumentMaps[type.name] = typeDirectives[directiveName];
         return undefined;
       },
       [MapperKind.OBJECT_FIELD]: (fieldConfig, _fieldName, typeName) => {
-        console.log(typeName);
         const fieldDirectives = getDirectives(schema, fieldConfig);
         const directiveArgumentMap = fieldDirectives[directiveName] ?? typeDirectiveArgumentMaps[typeName];
         if (directiveArgumentMap) {
           const { requires } = directiveArgumentMap;
           if (requires) {
-            const { resolve = defaultFieldResolver } = fieldConfig;
+            const { resolve } = fieldConfig;
             fieldConfig.resolve = function (source, args, context, info) {
               const user = getUserFn(context.headers.token);
               if (!user.hasRole(requires)) {
@@ -60,21 +55,10 @@ function authDirective(directiveName, getUserFn) {
   };
 };
 
-// function getUser(token) {
-//   const roles = ['UNKNOWN', 'USER', 'REVIEWER', 'ADMIN'];
-//   return {
-//     hasRole: (role) => {
-//       const tokenIndex = roles.indexOf(token);
-//       const roleIndex = roles.indexOf(role);
-//       return roleIndex >= 0 && tokenIndex >= roleIndex;
-//     },
-//   };
-// }
-
 const { authDirectiveTypeDefs, authDirectiveTransformer } = authDirective('auth', getUser);
 
 
-function getUser(token) {
+function getUser(token: string) {
   const roles = ['USER', 'MODERATOR', 'ADMIN'];
   return {
     hasRole: (role) => {
@@ -128,13 +112,14 @@ const server = new ApolloServer({
     };
   },
   subscriptions: {
-    onConnect: (connectionParams) => {
-      if (connectionParams.authToken) {
+    onConnect: (connectionParams: any) => {
+      console.log(connectionParams);
+      if (connectionParams.token) {
         return {
           prisma,
           userId: getUserId(
             null,
-            connectionParams.authToken
+            connectionParams.token
           )
         };
       } else {

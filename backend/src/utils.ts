@@ -1,15 +1,15 @@
-const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 const algorithm = 'aes-256-ctr';
 const iv = crypto.randomBytes(16);
 const JWT_SECRET = process.env.JWT_SECRET;
 
 
-function getTokenPayload(token) {
+export function getTokenPayload(token) {
   return jwt.verify(token, process.env.JWT_SECRET);
 };
 
-function getUserId(req, authToken) {
+export function getUserId(req, authToken) {
   if (req) {
     const authHeader = req.headers.token;
     if (authHeader) {
@@ -27,9 +27,9 @@ function getUserId(req, authToken) {
   throw new Error('Not authenticated');
 };
 
-class Crypto {
+export class Crypto {
   static encrypt(text) {
-    const cipher = crypto.createCipheriv(algorithm, process.env.JWT_SECRET, iv);
+    const cipher = crypto.createCipheriv(algorithm, JWT_SECRET, iv);
 
     const encrypted = cipher.update(text, "utf8", "hex");
 
@@ -44,7 +44,7 @@ class Crypto {
     
     if (!iv) throw new Error("IV not found");
 
-    const decipher = crypto.createDecipheriv(algorithm, process.env.JWT_SECRET, Buffer.from(iv, 'hex'));
+    const decipher = crypto.createDecipheriv(algorithm, JWT_SECRET, Buffer.from(iv, 'hex'));
 
     return decipher.update(encrypted, "hex", "utf8") + decipher.final("utf8");
   };
@@ -52,11 +52,4 @@ class Crypto {
   static compare(text, hashedPassword) {
     return this.decrypt(hashedPassword) == text;
   };
-};
-
-
-module.exports = {
-  Crypto,
-  getUserId,
-  getTokenPayload
 };
