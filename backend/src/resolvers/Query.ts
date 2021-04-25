@@ -1,4 +1,4 @@
-async function feed(parent, args, { prisma }, info) {
+export async function feed(parent, args, { prisma }, info) {
   const where = args.filter
     ? {
         OR: [
@@ -23,7 +23,3 @@ async function feed(parent, args, { prisma }, info) {
     count
   };
 }
-
-module.exports = {
-  feed
-};

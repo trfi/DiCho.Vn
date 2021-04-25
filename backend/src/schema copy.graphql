@@ -1,5 +1,3 @@
-# directive @auth(requires: Role = ADMIN) on OBJECT | FIELD_DEFINITION
-
 type Query {
   info: String!
   feed(
@@ -17,15 +15,14 @@ type Feed {
 }
 
 type Mutation {
-  post(input: PostInput): Post! @auth(requires: MODERATOR)
+  post(input: PostInput): Post!
   signup(
     phone: String!
     email: String
     password: String!
     name: String!
-    role: Role
   ): AuthPayload
-  signin(phone: String!, password: String!): AuthPayload
+  login(phone: String!, password: String!): AuthPayload
   category(input: CategoryInput): Category!
   vote(postId: ID!): Vote
 }
@@ -97,7 +94,7 @@ type Post {
   postDetail: Json!
   postedById: String!
   postedBy: User
-  votes: [Vote!]!
+  like: Int!
   created: DateTime!
   updated: DateTime!
 }
@@ -118,12 +115,6 @@ enum Sort {
   asc
   desc
 }
-
-# enum Role {
-#   USER
-#   ADMIN
-#   MODERATOR
-# }
 
 scalar DateTime
 scalar Json
