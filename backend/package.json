@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon --ext ts,graphql src/server.ts",
     "dev": "ts-node-dev --transpile-only src/server",
     "dev2": "nodemon -e ts,js,graphql,env src/index.js"
   },

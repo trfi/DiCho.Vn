@@ -36,11 +36,11 @@ export class Crypto {
     return [
         encrypted + cipher.final("hex"),
         Buffer.from(iv).toString("hex"),
-    ].join("-");
+    ].join(".");
   };
   
   static decrypt(hash) {
-    const [encrypted, iv] = hash.split("-");
+    const [encrypted, iv] = hash.split(".");
     
     if (!iv) throw new Error("IV not found");
 
@@ -53,3 +53,11 @@ export class Crypto {
     return this.decrypt(hashedPassword) == text;
   };
 };
+
+export function objectId () {  
+  function hex (value: number) {
+    return Math.floor(value).toString(16)
+  }
+  return hex(Date.now() / 1000) +
+    ' '.repeat(16).replace(/./g, () => hex(Math.random() * 16))
+}

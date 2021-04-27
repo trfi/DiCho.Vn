@@ -1,9 +1,9 @@
-export async function feed(parent, args, { prisma }, info) {
+export async function feed(_, args, { prisma }, info) {
   const where = args.filter
     ? {
         OR: [
-          { description: { contains: args.filter } },
-          { url: { contains: args.filter } }
+          { title: { contains: args.filter } },
+          { content: { contains: args.filter } }
         ]
       }
     : {};

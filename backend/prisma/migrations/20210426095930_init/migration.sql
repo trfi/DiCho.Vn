@@ -11,7 +11,7 @@ CREATE TYPE "Types" AS ENUM ('S', 'B', 'T', 'R');
 CREATE TYPE "Gender" AS ENUM ('M', 'F', 'O');
 
 -- CreateEnum
-CREATE TYPE "Role" AS ENUM ('ADMIN', 'MODERATOR');
+CREATE TYPE "Role" AS ENUM ('ADMIN', 'MODERATOR', 'USER');
 
 -- CreateTable
 CREATE TABLE "Vote" (
@@ -36,7 +36,7 @@ CREATE TABLE "User" (
     "gender" "Gender",
     "birthday" TIMESTAMP(3),
     "address" TEXT,
-    "role" "Role",
+    "role" "Role" DEFAULT E'USER',
     "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated" TIMESTAMP(3) NOT NULL,
 
@@ -55,8 +55,31 @@ CREATE TABLE "Post" (
     "area" INTEGER NOT NULL,
     "ward" INTEGER NOT NULL,
     "price" INTEGER NOT NULL,
-    "postDetail" JSONB,
+    "images" JSONB,
+    "content" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
     "postedById" TEXT NOT NULL,
+    "like" INTEGER,
+    "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated" TIMESTAMP(3) NOT NULL,
+
+    PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Liked" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+
+    PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Comment" (
+    "id" TEXT NOT NULL,
+    "content" TEXT NOT NULL,
+    "commentInPostId" TEXT NOT NULL,
+    "commentByUserId" TEXT NOT NULL,
     "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated" TIMESTAMP(3) NOT NULL,
 
@@ -69,6 +92,9 @@ CREATE TABLE "Category" (
     "title" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "path" TEXT,
+    "parent" TEXT,
+    "children" JSONB,
+    "type" TEXT,
     "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated" TIMESTAMP(3) NOT NULL,
 
@@ -95,3 +121,12 @@ ALTER TABLE "Post" ADD FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON
 
 -- AddForeignKey
 ALTER TABLE "Post" ADD FOREIGN KEY ("postedById") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Liked" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comment" ADD FOREIGN KEY ("commentInPostId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comment" ADD FOREIGN KEY ("commentByUserId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

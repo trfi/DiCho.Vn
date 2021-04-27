@@ -16,8 +16,12 @@ type Feed {
   count: Int!
 }
 
+input WereId {
+  id: String!
+}
+
 type Mutation {
-  post(input: PostInput): Post! @auth(requires: MODERATOR)
+  signin(phone: String!, password: String!): AuthPayload
   signup(
     phone: String!
     email: String
@@ -25,23 +29,30 @@ type Mutation {
     name: String!
     role: Role
   ): AuthPayload
-  signin(phone: String!, password: String!): AuthPayload
-  category(input: CategoryInput): Category!
+  addPost(input: PostInput): Post @auth(requires: USER)
+  updatePost(where: WereId, data: PostInput): Post @auth(requires: USER)
+  deletePost(where: WereId): Post @auth(requires: USER)
+  addCategory(input: CategoryInput): Category @auth(requires: ADMIN)
+  updateCategory(input: WereId, data: CategoryInput): Category @auth(requires: ADMIN)
+  deleteCategory(where: WereId): Category @auth(requires: ADMIN)
   vote(postId: ID!): Vote
 }
 
 input PostInput {
-  title: String!
-  thumbnail: String!
+  title: String
+  images: Json
+  thumbnail: String
   categoryId: String
+  type: Type
+  address: String
+  content: String
   broker: Boolean
-  params: Json!
-  region: Int!
-  area: Int!
-  ward: Int!
-  price: Int!
-  postDetail: Json!
-  postedById: String
+  params: Json
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+  like: Int
 }
 
 type Category {
@@ -80,20 +91,24 @@ type User {
   name: String!
   phone: String!
   email: String!
+  role: Role
   posts: [Post!]!
 }
 
 type Post {
   id: ID!
   title: String!
-  thumbnail: String!
+  thumbnail: String
   categoryId: String!
+  type: Type!
   broker: Boolean
   params: Json!
   region: Int!
   area: Int!
   ward: Int!
   price: Int!
+  content: String!
+  address: String!
   postDetail: Json!
   postedById: String!
   postedBy: User
@@ -119,11 +134,12 @@ enum Sort {
   desc
 }
 
-# enum Role {
-#   USER
-#   ADMIN
-#   MODERATOR
-# }
+enum Type {
+  S
+  T
+  B
+  R
+}
 
 scalar DateTime
 scalar Json

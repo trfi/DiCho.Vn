@@ -1,7 +1,6 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
 }
 
 generator client {
@@ -9,66 +8,90 @@ generator client {
 }
 
 model Vote {
-  id     String  @id @default(cuid())
-  post   Post @relation(fields: [postId], references: [id])
+  id     String @id @default(cuid())
+  post   Post   @relation(fields: [postId], references: [id])
   postId String
-  user   User @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
   userId String
 
   @@unique([postId, userId])
 }
 
 model User {
-  id String @id @default(cuid())
-  phone String  @unique
-  password String
-  phoneVerified Boolean?     @default("false")
-  email String?  @unique
+  id            String    @id @default(cuid())
+  phone         String    @unique
+  password      String
+  phoneVerified Boolean?  @default("false")
+  email         String?   @unique
   emailVerified Boolean?
-  name     String?
-  username String?
-  avatar   String?
-  gender   Gender?
-  birthday DateTime?
-  address  String?
-  role     Role?
-  posts    Post[]
-  votes    Vote[]
-  created DateTime @default(now())
-  updated DateTime @updatedAt
+  name          String?
+  username      String?
+  avatar        String?
+  gender        Gender?
+  birthday      DateTime?
+  address       String?
+  role          Role?     @default(USER)
+  posts         Post[]
+  votes         Vote[]
+  comment       Comment[]
+  liked         Liked[]
+  created       DateTime  @default(now())
+  updated       DateTime  @updatedAt
 }
 
 model Post {
-  id String @id @default(cuid())
-  title String
-  thumbnail String
-  category Category @relation(fields: [categoryId], references: [id])
+  id         String    @id @default(cuid())
+  title      String
+  thumbnail  String?
+  category   Category  @relation(fields: [categoryId], references: [id])
   categoryId String
-  broker Boolean    @default("false")
-  params Json?
-  region Int
-  area   Int
-  ward   Int
-  price  Int
-  postDetail Json?
-  postedBy User      @relation(fields: [postedById], references: id)
+  type       Type
+  broker     Boolean   @default("false")
+  params     Json?
+  region     Int
+  area       Int
+  ward       Int
+  price      Int
+  images     Json?
+  content    String
+  address    String
+  postedBy   User      @relation(fields: [postedById], references: id)
   postedById String
-  votes   Vote[]
-  created DateTime   @default(now())
-  updated DateTime    @updatedAt
+  like       Int?
+  votes      Vote[]
+  comment    Comment[]
+  created    DateTime  @default(now())
+  updated    DateTime  @updatedAt
+}
+
+model Liked {
+  id String @id
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Comment {
+  id              String   @id
+  content         String
+  commentInPost   Post     @relation(fields: [commentInPostId], references: id)
+  commentInPostId String
+  commentByUser   User     @relation(fields: [commentByUserId], references: id)
+  commentByUserId String
+  created         DateTime @default(now())
+  updated         DateTime @updatedAt
 }
 
 model Category {
-  id      String @id
-  posts  Post[]
-  title   String
-  slug    String
-  path    String?
-  parent  String?
+  id       String   @id
+  posts    Post[]
+  title    String
+  slug     String
+  path     String?
+  parent   String?
   children Json?
-  type    String?
-  created DateTime   @default(now())
-  updated DateTime    @updatedAt
+  type     String?
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt
 }
 
 enum PostDetail {
@@ -82,10 +105,10 @@ enum Params {
   rooms
 }
 
-enum Types {
+enum Type {
   S
-  B
   T
+  B
   R
 }
 
@@ -96,7 +119,7 @@ enum Gender {
 }
 
 enum Role {
-  USER
   ADMIN
   MODERATOR
+  USER
 }
