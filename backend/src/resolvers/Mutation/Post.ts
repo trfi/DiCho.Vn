@@ -1,5 +1,5 @@
 import { objectId } from "../../utils";
-
+import { ValidationError } from "apollo-server";
 
 export async function addPost(_, { input }, { prisma, pubsub, user }) {
   try {
@@ -16,7 +16,7 @@ export async function addPost(_, { input }, { prisma, pubsub, user }) {
     return newPost;
   } catch (error) {
     console.log(error);
-    if (error.code == 'P2025') throw new Error(error)
+    if (error.code == 'P2025') throw new ValidationError('Category invalid!')
     throw new Error(error)
   }
 }

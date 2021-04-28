@@ -1,6 +1,7 @@
 # directive @auth(requires: Role = ADMIN) on OBJECT | FIELD_DEFINITION
 
 type Query {
+  currentUser: User!
   info: String!
   feed(
     filter: String
@@ -8,6 +9,7 @@ type Query {
     take: Int
     orderBy: PostOrderByInput
   ): Feed!
+  commentByUser(userId: String!): [Comment!]!
 }
 
 type Feed {
@@ -21,8 +23,8 @@ input WereId {
 }
 
 type Mutation {
-  signin(phone: String!, password: String!): AuthPayload
-  signup(
+  signIn(phone: String!, password: String!): AuthPayload
+  signUp(
     phone: String!
     email: String
     password: String!
@@ -35,7 +37,9 @@ type Mutation {
   addCategory(input: CategoryInput): Category @auth(requires: ADMIN)
   updateCategory(input: WereId, data: CategoryInput): Category @auth(requires: ADMIN)
   deleteCategory(where: WereId): Category @auth(requires: ADMIN)
-  vote(postId: ID!): Vote
+  addComment(content: String!, postId: String): Comment @auth(requires: USER)
+  vote(postId: ID!): Vote @auth(requires: USER)
+  like(postId: ID!): Like @auth(requires: USER)
 }
 
 input PostInput {
@@ -53,6 +57,13 @@ input PostInput {
   ward: Int
   price: Int
   like: Int
+}
+
+type Like {
+  id: String!
+  belongToPost: Post
+  belongToPostId: String!
+  likes: Json!
 }
 
 type Category {
@@ -92,6 +103,7 @@ type User {
   phone: String!
   email: String!
   role: Role
+  comments: Json
   posts: [Post!]!
 }
 
@@ -121,6 +133,13 @@ type Vote {
   id: ID!
   post: Post!
   user: User!
+}
+
+type Comment {
+  id: ID!
+  post: Post!
+  user: User!
+  content: String!
 }
 
 input PostOrderByInput {

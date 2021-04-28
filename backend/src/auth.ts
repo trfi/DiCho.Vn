@@ -1,5 +1,4 @@
 import { mapSchema, getDirectives, MapperKind } from "@graphql-tools/utils";
-import { getUserId, getTokenPayload } from './utils';
 import { AuthenticationError } from "apollo-server";
 
 
@@ -9,10 +8,10 @@ function getUser(userRole: string) {
     hasRole: (role) => {
       const tokenIndex = roles.indexOf(userRole);
       const roleIndex = roles.indexOf(role);
-      console.log('role: ', role);
-      console.log('tokenIndex: ' + tokenIndex);
-      console.log('roleIndex: '+ roleIndex);
-      console.log(roleIndex >= 0 && tokenIndex >= roleIndex);
+      // console.log('role: ', role);
+      // console.log('tokenIndex: ' + tokenIndex);
+      // console.log('roleIndex: '+ roleIndex);
+      // console.log(roleIndex >= 0 && tokenIndex >= roleIndex);
       return roleIndex >= 0 && tokenIndex >= roleIndex;
     },
   };

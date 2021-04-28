@@ -1,9 +1,9 @@
-export async function vote(parent, args, { prisma, userId, pubsub }, _) {
+export async function vote(parent, args, { prisma, user, pubsub }, _) {
   const vote = await prisma.vote.findUnique({
     where: {
       postId_userId: {
         postId: args.postId,
-        userId: userId
+        userId: user.id
       }
     }
   });
@@ -16,7 +16,7 @@ export async function vote(parent, args, { prisma, userId, pubsub }, _) {
 
   const newVote = prisma.vote.create({
     data: {
-      user: { connect: { id: userId } },
+      user: { connect: { id: user.id } },
       post: { connect: { id: args.postId } }
     }
   });

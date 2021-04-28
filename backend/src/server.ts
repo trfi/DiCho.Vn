@@ -3,7 +3,7 @@ import { ApolloServer, PubSub, gql } from 'apollo-server'
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { PrismaClient } from '@prisma/client';
 import * as resolvers from './resolvers'
-import { getUserId, getTokenPayload } from './utils';
+import { getUser, getTokenPayload } from './utils';
 import { authDirective } from "./auth";
 const fs = require('fs')
 const pubsub = new PubSub();
@@ -42,7 +42,7 @@ const server = new ApolloServer({
       if (connectionParams.token) {
         return {
           prisma,
-          userId: getUserId(
+          userId: getUser(
             null,
             connectionParams.token
           )

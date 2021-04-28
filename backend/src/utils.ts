@@ -6,23 +6,19 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 
 export function getTokenPayload(token) {
-  return jwt.verify(token, process.env.JWT_SECRET);
+  return jwt.verify(token, JWT_SECRET);
 };
 
-export function getUserId(req, authToken) {
+export function getUser(req, authToken: string = null) {
   if (req) {
-    const authHeader = req.headers.token;
-    if (authHeader) {
-      const token = req.headers.token;
-      if (!token) {
-        throw new Error('No token found');
-      }
-      const { userId } = getTokenPayload(token);
-      return userId;
+    const token = req?.headers?.token;
+    if (!token) {
+      throw new Error('No token found');
     }
-  } else if (authToken) {
-    const { userId } = getTokenPayload(authToken);
-    return userId;
+    return getTokenPayload(token);
+  }
+  else if (authToken) {
+    return getTokenPayload(authToken);
   }
   throw new Error('Not authenticated');
 };

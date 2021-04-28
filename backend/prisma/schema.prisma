@@ -1,20 +1,10 @@
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
-}
-
-model Vote {
-  id     String @id @default(cuid())
-  post   Post   @relation(fields: [postId], references: [id])
-  postId String
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  @@unique([postId, userId])
 }
 
 model User {
@@ -33,53 +23,98 @@ model User {
   role          Role?     @default(USER)
   posts         Post[]
   votes         Vote[]
-  comment       Comment[]
+  comments      Comment[]
+  like          UserLike?
   liked         Liked[]
   created       DateTime  @default(now())
   updated       DateTime  @updatedAt
 }
 
 model Post {
-  id         String    @id @default(cuid())
-  title      String
-  thumbnail  String?
-  category   Category  @relation(fields: [categoryId], references: [id])
-  categoryId String
-  type       Type
-  broker     Boolean   @default("false")
-  params     Json?
-  region     Int
-  area       Int
-  ward       Int
-  price      Int
-  images     Json?
-  content    String
-  address    String
-  postedBy   User      @relation(fields: [postedById], references: id)
-  postedById String
-  like       Int?
-  votes      Vote[]
-  comment    Comment[]
-  created    DateTime  @default(now())
-  updated    DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  title        String
+  thumbnail    String?
+  category     Category  @relation(fields: [categoryId], references: [id])
+  categoryId   String
+  type         Type
+  broker       Boolean   @default("false")
+  params       Json?
+  region       Int
+  area         Int
+  ward         Int
+  price        Int
+  images       Json?
+  content      String
+  address      String
+  postedBy     User      @relation(fields: [postedById], references: [id])
+  postedById   String
+  likeCount    Int?
+  commentCount Int?
+  votes        Vote[]
+  comment      Comment[]
+  like         Like?
+  created      DateTime  @default(now())
+  updated      DateTime  @updatedAt
 }
 
 model Liked {
-  id String @id
+  id     String @id
   user   User   @relation(fields: [userId], references: [id])
   userId String
 }
 
+model Vote {
+  id     String @id @default(cuid())
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@unique([postId, userId])
+}
+
 model Comment {
+  id      String @id @default(cuid())
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
+  content String
+}
+
+model Like {
+  id             String @id
+  belongToPost   Post   @relation(fields: [belongToPostId], references: [id])
+  belongToPostId String @unique
+  likes          Json[]
+}
+
+model UserLike {
+  id              String   @id
+  commentByUser   User     @relation(fields: [commentByUserId], references: [id])
+  commentByUserId String   @unique
+  likes           String[]
+}
+
+model CommentDetail {
   id              String   @id
   content         String
-  commentInPost   Post     @relation(fields: [commentInPostId], references: id)
   commentInPostId String
-  commentByUser   User     @relation(fields: [commentByUserId], references: id)
   commentByUserId String
   created         DateTime @default(now())
   updated         DateTime @updatedAt
 }
+
+// model Comment {
+//   id              String   @id
+//   content         String
+//   commentInPost   Post     @relation(fields: [commentInPostId], references: id)
+//   commentInPostId String
+//   commentByUser   User     @relation(fields: [commentByUserId], references: id)
+//   commentByUserId String
+//   created         DateTime @default(now())
+//   updated         DateTime @updatedAt
+// }
 
 model Category {
   id       String   @id
