@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const algorithm = 'aes-256-ctr';
 const iv = crypto.randomBytes(16);
 const JWT_SECRET = process.env.JWT_SECRET;
+import { AuthenticationError } from "apollo-server";
 
 
 export function getTokenPayload(token) {

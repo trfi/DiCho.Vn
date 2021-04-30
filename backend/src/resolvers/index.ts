@@ -5,3 +5,4 @@ export * as Vote from './Vote'
 export * as User from "./User"
 export * as Post from "./Post"
 export * as Comment from "./Comment"
+export * as Like from "./Like"

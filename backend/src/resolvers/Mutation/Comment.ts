@@ -11,6 +11,19 @@ export async function addComment(_, { content, postId }, { prisma, user, pubsub 
     }
   });
   pubsub.publish('NEW_COMMENT', newComment);
+  return newComment;
+}
 
+export async function updateComment(_, { id }, { prisma, pubsub }) {
+  const newComment = prisma.comment.update({
+    where: { id }
+  });
+  return newComment;
+}
+
+export async function deleteComment(_, { id }, { prisma, pubsub }) {
+  const newComment = prisma.comment.delete({
+    where: { id }
+  });
   return newComment;
 }

@@ -21,17 +21,17 @@ export async function addPost(_, { input }, { prisma, pubsub, user }) {
   }
 }
 
-export async function updatePost(_, { where, data }, { prisma }) {
+export async function updatePost(_, { id, data }, { prisma }) {
   const updatePost = await prisma.post.update({
-    where,
+    where: { id },
     data,
   })
   return updatePost
 }
 
-export async function deletePost(_, { where, data }, { prisma }) {
+export async function deletePost(_, { id }, { prisma }) {
   const deletePost = await prisma.post.delete({
-    where
+    where: { id }
   })
   return deletePost
 }

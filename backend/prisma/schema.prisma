@@ -24,8 +24,7 @@ model User {
   posts         Post[]
   votes         Vote[]
   comments      Comment[]
-  like          UserLike?
-  liked         Liked[]
+  likes         Like[]
   created       DateTime  @default(now())
   updated       DateTime  @updatedAt
 }
@@ -52,15 +51,9 @@ model Post {
   commentCount Int?
   votes        Vote[]
   comment      Comment[]
-  like         Like?
+  like         Like[]
   created      DateTime  @default(now())
   updated      DateTime  @updatedAt
-}
-
-model Liked {
-  id     String @id
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
 }
 
 model Vote {
@@ -83,26 +76,13 @@ model Comment {
 }
 
 model Like {
-  id             String @id
-  belongToPost   Post   @relation(fields: [belongToPostId], references: [id])
-  belongToPostId String @unique
-  likes          Json[]
-}
+  id      String @id @default(cuid())
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
 
-model UserLike {
-  id              String   @id
-  commentByUser   User     @relation(fields: [commentByUserId], references: [id])
-  commentByUserId String   @unique
-  likes           String[]
-}
-
-model CommentDetail {
-  id              String   @id
-  content         String
-  commentInPostId String
-  commentByUserId String
-  created         DateTime @default(now())
-  updated         DateTime @updatedAt
+  @@unique([postId, userId])
 }
 
 // model Comment {

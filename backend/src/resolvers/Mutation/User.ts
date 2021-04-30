@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 import { UserInputError, ValidationError, AuthenticationError } from 'apollo-server';
 
 
-export async function signUp(_, args, context) {
+export async function signup(_, args, context) {
   const password = Crypto.encrypt(args.password);
   const user = await context.prisma.user.create({
     data: { ...args, id: objectId(), password }
@@ -17,7 +17,7 @@ export async function signUp(_, args, context) {
   };
 }
 
-export async function signIn(_, args, { prisma }) {
+export async function login(_, args, { prisma }) {
   const user = await prisma.user.findUnique({
     where: { phone: args.phone }
   });

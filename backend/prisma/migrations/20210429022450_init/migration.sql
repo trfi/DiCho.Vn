@@ -5,22 +5,13 @@ CREATE TYPE "PostDetail" AS ENUM ('images', 'content', 'address');
 CREATE TYPE "Params" AS ENUM ('acreage', 'rooms');
 
 -- CreateEnum
-CREATE TYPE "Types" AS ENUM ('S', 'B', 'T', 'R');
+CREATE TYPE "Type" AS ENUM ('S', 'T', 'B', 'R');
 
 -- CreateEnum
 CREATE TYPE "Gender" AS ENUM ('M', 'F', 'O');
 
 -- CreateEnum
 CREATE TYPE "Role" AS ENUM ('ADMIN', 'MODERATOR', 'USER');
-
--- CreateTable
-CREATE TABLE "Vote" (
-    "id" TEXT NOT NULL,
-    "postId" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
-
-    PRIMARY KEY ("id")
-);
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -47,8 +38,9 @@ CREATE TABLE "User" (
 CREATE TABLE "Post" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "thumbnail" TEXT NOT NULL,
+    "thumbnail" TEXT,
     "categoryId" TEXT NOT NULL,
+    "type" "Type" NOT NULL,
     "broker" BOOLEAN NOT NULL DEFAULT false,
     "params" JSONB,
     "region" INTEGER NOT NULL,
@@ -59,7 +51,8 @@ CREATE TABLE "Post" (
     "content" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "postedById" TEXT NOT NULL,
-    "like" INTEGER,
+    "likeCount" INTEGER,
+    "commentCount" INTEGER,
     "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated" TIMESTAMP(3) NOT NULL,
 
@@ -67,8 +60,9 @@ CREATE TABLE "Post" (
 );
 
 -- CreateTable
-CREATE TABLE "Liked" (
+CREATE TABLE "Vote" (
     "id" TEXT NOT NULL,
+    "postId" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
 
     PRIMARY KEY ("id")
@@ -77,11 +71,18 @@ CREATE TABLE "Liked" (
 -- CreateTable
 CREATE TABLE "Comment" (
     "id" TEXT NOT NULL,
+    "postId" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "content" TEXT NOT NULL,
-    "commentInPostId" TEXT NOT NULL,
-    "commentByUserId" TEXT NOT NULL,
-    "created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated" TIMESTAMP(3) NOT NULL,
+
+    PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Like" (
+    "id" TEXT NOT NULL,
+    "postId" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
 
     PRIMARY KEY ("id")
 );
@@ -102,19 +103,13 @@ CREATE TABLE "Category" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Vote.postId_userId_unique" ON "Vote"("postId", "userId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "User.phone_unique" ON "User"("phone");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User.email_unique" ON "User"("email");
 
--- AddForeignKey
-ALTER TABLE "Vote" ADD FOREIGN KEY ("postId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Vote" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+-- CreateIndex
+CREATE UNIQUE INDEX "Vote.postId_userId_unique" ON "Vote"("postId", "userId");
 
 -- AddForeignKey
 ALTER TABLE "Post" ADD FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -123,10 +118,19 @@ ALTER TABLE "Post" ADD FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON
 ALTER TABLE "Post" ADD FOREIGN KEY ("postedById") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Liked" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Vote" ADD FOREIGN KEY ("postId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Comment" ADD FOREIGN KEY ("commentInPostId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Vote" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Comment" ADD FOREIGN KEY ("commentByUserId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Comment" ADD FOREIGN KEY ("postId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comment" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Like" ADD FOREIGN KEY ("postId") REFERENCES "Post"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Like" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
