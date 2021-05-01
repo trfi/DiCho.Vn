@@ -9,7 +9,7 @@ export async function signup(_, args, context) {
     data: { ...args, id: objectId(), password }
   });
 
-  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: 36000 });
+  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '90d' });
 
   return {
     token,
@@ -29,7 +29,7 @@ export async function login(_, args, { prisma }) {
   if (!valid) {
     throw new AuthenticationError('Invalid password');
   }
-  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: 36000 });
+  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '90d' });
 
   return {
     token,

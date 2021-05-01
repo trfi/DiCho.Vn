@@ -1,3 +1,5 @@
+import { ForbiddenError } from "apollo-server";
+
 export async function feed(_, args, { prisma }, info) {
   const where = args.filter
     ? {
@@ -32,13 +34,6 @@ interface Find {
   skip?: number
 }
 
-interface Pagination {
-  nextCursor: string
-  previousCursor: string
-  action: string
-  nextPage: number
-}
-
 export async function post(_, { filter, orderBy, where, take = 5, pagination }, { prisma }) {
   const wherePost = filter
     ? {
@@ -58,7 +53,7 @@ export async function post(_, { filter, orderBy, where, take = 5, pagination }, 
 
   if (pagination) {
     const { nextCursor, previousCursor, action, nextPage = 1 } = pagination
-    if (nextPage > 3) throw new Error('X')
+    if (nextPage > 3) throw new ForbiddenError('Access denied')
     let cursor: string = (action == 'n') ? nextCursor : previousCursor
     find.skip = 1
     find.take = (action == 'n') ? take : (action == 'p') ? -take : take

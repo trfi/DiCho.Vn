@@ -1,6 +1,7 @@
 # directive @auth(requires: Role = ADMIN) on OBJECT | FIELD_DEFINITION
 
 type Query {
+  users: UserCount!
   currentUser: User!
   info: String!
   post(
@@ -31,6 +32,11 @@ type PostCount {
   posts: [Post!]!
 }
 
+type UserCount {
+  count: Int!
+  users: [User!]!
+}
+
 type Feed {
   id: ID!
   posts: [Post!]!
@@ -59,13 +65,38 @@ type Mutation {
   updateCategory(input: WereId!, data: CategoryInput!): Category @auth(requires: ADMIN)
   deleteCategory(where: WereId!): Category @auth(requires: ADMIN)
 
-  addComment(content: String!, postId: String): Comment @auth(requires: USER)
+  addComment(content: String!, postId: String!): CommentOutput @auth(requires: USER)
   updateComment(id: ID!): Comment @auth(requires: USER)
-  deleteComment(id: ID!): Comment @auth(requires: USER)
+  deleteComment(id: ID!, postId: String!): CommentOutput @auth(requires: USER)
+
+  follow(followerId: ID!): FollowOutput @auth(requires: USER)
+  unfollow(followerId: ID!): FollowOutput @auth(requires: USER)
 
   vote(postId: ID!): Vote @auth(requires: USER)
-  like(postId: ID!): Boolean @auth(requires: USER)
-  unlike(postId: ID): Boolean @auth(requires: USER)
+  like(postId: ID!): likeOutput @auth(requires: USER)
+  unlike(postId: ID): likeOutput @auth(requires: USER)
+}
+
+
+type Subscription {
+  newPost: Post
+  newVote: Vote
+  newComment(postId: ID!): CommentOutput
+}
+
+type likeOutput {
+  success: Boolean!
+  post: Post
+}
+
+type FollowOutput {
+  following: User
+  follower: User
+}
+
+type CommentOutput {
+  comment: Comment
+  post: Post
 }
 
 input PostInput {
@@ -106,11 +137,6 @@ input CategoryInput {
   path: String
 }
 
-type Subscription {
-  newPost: Post
-  newVote: Vote
-}
-
 type AuthPayload {
   token: String
   user: User
@@ -123,6 +149,10 @@ type User {
   email: String!
   role: Role
   comments: Json
+  followerCount: Int
+  followingCount: Int
+  followers: [Post!]!
+  following: [Post!]!
   posts: [Post!]!
 }
 
@@ -143,6 +173,8 @@ type Post {
   postDetail: Json!
   postedById: String!
   postedBy: User
+  likeCount: Int
+  commentCount: Int
   votes: [Vote!]!
   created: DateTime!
   updated: DateTime!
@@ -155,16 +187,23 @@ type Vote {
 }
 
 type Like {
-  id: ID!
-  post: Post!
-  user: User!
+  post: Post
+  user: User
+}
+
+type Follow {
+  user: User
+  userId: String
+  following: User 
+  followingId: String
+  created: DateTime
 }
 
 type Comment {
   id: ID!
-  post: Post!
-  user: User!
-  content: String!
+  post: Post
+  user: User
+  content: String
 }
 
 input PostOrderByInput {
