@@ -7,26 +7,38 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+  projectName = "DiCho"
+  projectDatabaseType = "PostgreSQL"
+}
+
 model User {
-  id            String    @id @default(cuid())
-  phone         String    @unique
-  password      String
-  phoneVerified Boolean?  @default("false")
-  email         String?   @unique
-  emailVerified Boolean?
-  name          String?
-  username      String?
-  avatar        String?
-  gender        Gender?
-  birthday      DateTime?
-  address       String?
-  role          Role?     @default(USER)
-  posts         Post[]
-  votes         Vote[]
-  comments      Comment[]
-  likes         Like[]
-  created       DateTime  @default(now())
-  updated       DateTime  @updatedAt
+  id             String    @id
+  phone          String    @unique
+  password       String
+  phoneVerified  Boolean?  @default("false")
+  email          String?   @unique
+  emailVerified  Boolean?
+  name           String?
+  username       String?
+  avatar         String?
+  gender         Gender?
+  birthday       DateTime?
+  address        String?
+  role           Role?     @default(USER)
+  posts          Post[]
+  votes          Vote[]
+  comments       Comment[]
+  likes          Like[]
+  followers      Follow[]  @relation("Following")
+  following      Follow[]  @relation("User")
+  followingCount Int       @default(0)
+  followerCount  Int       @default(0)
+  created        DateTime  @default(now())
+  updated        DateTime  @updatedAt
+
+  @@index([id])
 }
 
 model Post {
@@ -42,22 +54,24 @@ model Post {
   area         Int
   ward         Int
   price        Int
-  images       Json?
+  images       String[]
   content      String
-  address      String
+  address      String?
   postedBy     User      @relation(fields: [postedById], references: [id])
   postedById   String
-  likeCount    Int?
-  commentCount Int?
+  likeCount    Int       @default(0)
+  commentCount Int       @default(0)
   votes        Vote[]
-  comment      Comment[]
-  like         Like[]
+  comments      Comment[]
+  likes         Like[]
   created      DateTime  @default(now())
   updated      DateTime  @updatedAt
+
+  @@index([id, postedById, categoryId, type])
 }
 
 model Vote {
-  id     String @id @default(cuid())
+  id     String @id
   post   Post   @relation(fields: [postId], references: [id])
   postId String
   user   User   @relation(fields: [userId], references: [id])
@@ -67,22 +81,36 @@ model Vote {
 }
 
 model Comment {
-  id      String @id @default(cuid())
+  id      String @id
   post    Post   @relation(fields: [postId], references: [id])
   postId  String
   user    User   @relation(fields: [userId], references: [id])
   userId  String
   content String
+
+  @@index([postId, userId])
+}
+
+model Follow {
+  user        User     @relation("User", fields: [userId], references: [id])
+  userId      String
+  following   User     @relation("Following", fields: [followingId], references: [id])
+  followingId String
+  created     DateTime @default(now())
+
+  @@id([userId, followingId])
+  @@unique([userId, followingId])
 }
 
 model Like {
-  id      String @id @default(cuid())
-  post    Post   @relation(fields: [postId], references: [id])
+  post    Post     @relation(fields: [postId], references: [id])
   postId  String
-  user    User   @relation(fields: [userId], references: [id])
+  user    User     @relation(fields: [userId], references: [id])
   userId  String
+  created DateTime @default(now())
 
   @@unique([postId, userId])
+  @@index([postId, userId])
 }
 
 // model Comment {
@@ -104,7 +132,7 @@ model Category {
   path     String?
   parent   String?
   children Json?
-  type     String?
+  types     Type[]
   created  DateTime @default(now())
   updated  DateTime @updatedAt
 }

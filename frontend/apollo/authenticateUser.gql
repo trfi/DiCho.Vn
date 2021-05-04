@@ -1,0 +1,9 @@
+mutation authenticateUser($phone:String!, $password:String!){
+    login(phone: $phone, password: $password) {
+      token
+      user {
+        id
+        phone
+      }
+    }
+}

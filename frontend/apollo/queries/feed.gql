@@ -1,0 +1,26 @@
+query Feed {
+    posts(take: 10, orderBy: { id: desc }) {
+      count
+      posts {
+        id
+        title
+        thumbnail
+        postedBy {
+          id
+          name
+        }
+        price
+        likeCount
+        commentCount
+        userLiked
+        comments {
+          id
+          content
+          user {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
