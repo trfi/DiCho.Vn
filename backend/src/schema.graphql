@@ -4,7 +4,7 @@ type Query {
   users: UserCount!
   currentUser: User!
   info: String!
-  post(
+  posts(
     where: PostInput
     filter: String
     orderBy: PostOrderByInput
@@ -65,7 +65,7 @@ type Mutation {
   updateCategory(input: WereId!, data: CategoryInput!): Category @auth(requires: ADMIN)
   deleteCategory(where: WereId!): Category @auth(requires: ADMIN)
 
-  addComment(content: String!, postId: String!): CommentOutput @auth(requires: USER)
+  addComment(content: String!, postId: ID!): CommentOutput @auth(requires: USER)
   updateComment(id: ID!): Comment @auth(requires: USER)
   deleteComment(id: ID!, postId: String!): CommentOutput @auth(requires: USER)
 
@@ -101,7 +101,7 @@ type CommentOutput {
 
 input PostInput {
   title: String
-  images: Json
+  images: [String]
   thumbnail: String
   categoryId: String
   type: Type
@@ -124,7 +124,7 @@ type Category {
   path: String
   parent: String
   children: Json
-  type: String
+  types: [Type]
 }
 
 input CategoryInput {
@@ -133,7 +133,7 @@ input CategoryInput {
   slug: String!
   parent: String
   children: String
-  type: String
+  types: [Type]
   path: String
 }
 
@@ -174,7 +174,10 @@ type Post {
   postedById: String!
   postedBy: User
   likeCount: Int
+  like: [Like]
+  comments: [Comment]
   commentCount: Int
+  userLiked: Boolean
   votes: [Vote!]!
   created: DateTime!
   updated: DateTime!
@@ -207,6 +210,7 @@ type Comment {
 }
 
 input PostOrderByInput {
+  id: Sort
   title: Sort
   created: Sort
   updated: Sort

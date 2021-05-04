@@ -1,0 +1,677 @@
+<template>
+  <div>
+    <!-- This is the modal -->
+    <div id="post-modal" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body rounded uk-width-2-3">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+          <h2 class="uk-modal-title">Đăng bài</h2>
+        </div>
+        <div class="uk-modal-body rounded">
+          <!--Body-->
+          <div class="flex flex-col items-center m-8">
+            <div class="w-full bg-white rounded overflow-x-hidden flex snap-x">
+              <div
+                id="slide-1"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              >
+                <cate-parent
+                  :categories="categories"
+                  :post-draft.sync="postDraft"
+                ></cate-parent>
+              </div>
+              <div
+                id="slide-2"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              >
+                <cate-child
+                  :categories="categories"
+                  :post-draft.sync="postDraft"
+                ></cate-child>
+              </div>
+              <div
+                id="slide-3"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              >
+                <post-type
+                  :categories="categories"
+                  :post-draft.sync="postDraft"
+                ></post-type>
+              </div>
+              <div
+                id="slide-4"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              >
+                <post-address :post-draft.sync="postDraft"></post-address>
+              </div>
+              <div
+                id="slide-5"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              >
+                <post-info :post-draft.sync="postDraft"></post-info>
+              </div>
+              <div
+                id="slide-6"
+                class="snap-start w-full h-full flex items-center justify-center flex-shrink-0 relative"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
+                  class="h-full w-full object-cover absolute inset-0 z-10 opacity-25"
+                />
+                <h1 class="z-20 text-center">
+                  Any kind of content here, images too!
+                </h1>
+              </div>
+            </div>
+
+            <div class="flex mt-8">
+              <a
+                class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-1"
+                >1</a
+              >
+              <a
+                class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-2"
+                >2</a
+              >
+              <a
+                class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-3"
+                >3</a
+              >
+              <a
+                class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-4"
+                >4</a
+              >
+              <a
+                class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-5"
+                >5</a
+              >
+              <a
+                class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
+                href="#slide-6"
+                >6</a
+              >
+            </div>
+          </div>
+          <!-- End body content -->
+        </div>
+        <!--Footer-->
+        <div class="flex justify-end pt-2">
+          <button
+            class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
+          >
+            Đăng
+          </button>
+          <button
+            class="uk-modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+          >
+            Đóng
+          </button>
+        </div>
+        <!-- End footer -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import PostAddress from './CreatePost/PostAddress.vue'
+import CateChild from './CreatePost/CateChild.vue'
+import CateParent from './CreatePost/CateParent.vue'
+import PostType from './CreatePost/PostType.vue'
+import PostInfo from './CreatePost/PostInfo.vue'
+export default {
+  components: { CateParent, CateChild, PostType, PostAddress, PostInfo },
+  data() {
+    return {
+      categories: {
+        11: {
+          id: '11',
+          title: 'Mẹ và bé',
+          slug: 'mua-ban-do-dung-me-va-be',
+          children: '["1101"]',
+          subCategories: {
+            1101: {
+              id: '1101',
+              title: 'Mẹ và bé',
+              slug: 'mua-ban-do-dung-me-va-be',
+              parent: '11',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        12: {
+          id: '12',
+          title: 'Thú cưng',
+          slug: 'mua-ban-thu-cung',
+          children: '["1201","1202","1203","1204","1205","1206"]',
+          subCategories: {
+            1201: {
+              id: '1201',
+              title: 'Gà',
+              slug: 'mua-ban-ga',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+            1202: {
+              id: '1202',
+              title: 'Chó',
+              slug: 'mua-ban-cho',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+            1203: {
+              id: '1203',
+              title: 'Chim',
+              slug: 'mua-ban-chim',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+            1204: {
+              id: '1204',
+              title: 'Phụ kiện, Thức ăn, Dịch vụ',
+              slug: 'mua-ban-phu-kien-thuc-an-dich-vu',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+            1205: {
+              id: '1205',
+              title: 'Mèo',
+              slug: 'mua-ban-meo',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+            1206: {
+              id: '1206',
+              title: 'Thú cưng khác',
+              slug: 'mua-ban-thu-cung-khac',
+              parent: '12',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        13: {
+          id: '13',
+          title: 'Việc làm',
+          slug: 'viec-lam',
+          children: '["1301","1302"]',
+          subCategories: {
+            1301: {
+              id: '1301',
+              title: 'Danh sách việc làm',
+              slug: 'danh-sach-viec-lam',
+              parent: '13',
+              types: ['B'],
+            },
+            1302: {
+              id: '1302',
+              title: 'Danh sách người tìm việc',
+              slug: 'danh-sach-nguoi-tim-viec',
+              parent: '13',
+              types: ['B'],
+            },
+          },
+        },
+        14: {
+          id: '14',
+          title: 'Đồ gia dụng, nội thất, cây cảnh',
+          slug: 'mua-ban-do-gia-dung-noi-that-cay-canh',
+          children:
+            '["1401","1402","1403","1404","1405","1406","1407","1408","1409","1411"]',
+          subCategories: {
+            1401: {
+              id: '1401',
+              title: 'Bếp, lò, đồ điện nhà bếp',
+              slug: 'mua-ban-bep-lo-do-dien-nha-bep',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1402: {
+              id: '1402',
+              title: 'Dụng cụ nhà bếp',
+              slug: 'mua-ban-dung-cu-nha-bep',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1403: {
+              id: '1403',
+              title: 'Giường, chăn ga gối nệm',
+              slug: 'mua-ban-giuong-chan-ga-goi-nem',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1404: {
+              id: '1404',
+              title: 'Thiết bị vệ sinh, nhà tắm',
+              slug: 'mua-ban-thiet-bi-ve-sinh-nha-tam',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1405: {
+              id: '1405',
+              title: 'Quạt',
+              slug: 'mua-ban-quat',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1406: {
+              id: '1406',
+              title: 'Đèn',
+              slug: 'mua-ban-den',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1407: {
+              id: '1407',
+              title: 'Bàn ghế',
+              slug: 'mua-ban-ban-ghe',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1408: {
+              id: '1408',
+              title: 'Tủ, kệ gia đình',
+              slug: 'mua-ban-tu-ke-gia-dinh',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1409: {
+              id: '1409',
+              title: 'Cây cảnh, đồ trang trí',
+              slug: 'mua-ban-cay-canh-do-trang-tri',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+            1411: {
+              id: '1411',
+              title: 'Nội thất, đồ gia dụng khác',
+              slug: 'mua-ban-noi-that-do-gia-dung-khac',
+              parent: '14',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '01': {
+          id: '01',
+          title: 'Bất động sản - Mua bán',
+          slug: 'mua-ban-bat-dong-san',
+          children: '["0101","0102","0103","0104","0105"]',
+          subCategories: {
+            '0101': {
+              id: '0101',
+              title: 'Căn hộ/Chung cư',
+              slug: 'mua-ban-can-ho-chung-cu',
+              parent: '01',
+              types: ['B', 'R', 'S', 'T'],
+            },
+            '0102': {
+              id: '0102',
+              title: 'Nhà ở',
+              slug: 'mua-ban-nha-dat',
+              parent: '01',
+              types: ['B', 'R', 'S', 'T'],
+            },
+            '0103': {
+              id: '0103',
+              title: 'Văn phòng, Mặt bằng kinh doanh',
+              slug: 'sang-nhuong-van-phong-mat-bang-kinh-doanh',
+              parent: '01',
+              types: ['B', 'R', 'S', 'T'],
+            },
+            '0104': {
+              id: '0104',
+              title: 'Đất',
+              slug: 'mua-ban-dat',
+              parent: '01',
+              types: ['B', 'R', 'S', 'T'],
+            },
+            '0105': {
+              id: '0105',
+              title: 'Phòng trọ',
+              slug: 'thue-phong-tro',
+              parent: '01',
+              types: ['R', 'T'],
+            },
+          },
+        },
+        '02': {
+          id: '02',
+          title: 'Xe cộ',
+          slug: 'mua-ban-xe',
+          children: '["0201","0202","0203","0205","0206","0208","0209"]',
+          subCategories: {
+            '0201': {
+              id: '0201',
+              title: 'Ô tô',
+              slug: 'mua-ban-o-to',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0202': {
+              id: '0202',
+              title: 'Xe máy',
+              slug: 'mua-ban-xe-may',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0203': {
+              id: '0203',
+              title: 'Phụ tùng xe',
+              slug: 'mua-ban-phu-tung-xe',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0205': {
+              id: '0205',
+              title: 'Xe tải, xe ben',
+              slug: 'mua-ban-xe-tai-xe-ben',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0206': {
+              id: '0206',
+              title: 'Xe đạp',
+              slug: 'mua-ban-xe-dap',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0208': {
+              id: '0208',
+              title: 'Phương tiện khác',
+              slug: 'mua-ban-phuong-tien-khac',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+            '0209': {
+              id: '0209',
+              title: 'Xe điện',
+              slug: 'mua-ban-xe-dien',
+              parent: '02',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '03': {
+          id: '03',
+          title: 'Thời trang, Đồ dùng cá nhân',
+          slug: 'mua-ban-thoi-trang-do-dung-ca-nhan',
+          children: '["0303","0305","0306","0307","0308","0309"]',
+          subCategories: {
+            '0303': {
+              id: '0303',
+              title: 'Quần áo',
+              slug: 'mua-ban-quan-ao',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+            '0305': {
+              id: '0305',
+              title: 'Đồng hồ',
+              slug: 'mua-ban-dong-ho',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+            '0306': {
+              id: '0306',
+              title: 'Giày dép',
+              slug: 'mua-ban-giay-dep',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+            '0307': {
+              id: '0307',
+              title: 'Túi xách',
+              slug: 'mua-ban-tui-xach',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+            '0308': {
+              id: '0308',
+              title: 'Nước hoa',
+              slug: 'mua-ban-nuoc-hoa',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+            '0309': {
+              id: '0309',
+              title: 'Phụ kiện thời trang khác',
+              slug: 'mua-ban-phu-kien-thoi-trang-khac',
+              parent: '03',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '04': {
+          id: '04',
+          title: 'Giải trí, Thể thao, Sở thích',
+          slug: 'mua-ban-giai-tri-the-thao-so-thich',
+          children: '["0401","0402","0404","0405","0406","0407"]',
+          subCategories: {
+            '0401': {
+              id: '0401',
+              title: 'Đồ sưu tầm, đồ cổ',
+              slug: 'mua-ban-do-suu-tam-do-co',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+            '0402': {
+              id: '0402',
+              title: 'Đồ thể thao, Dã ngoại',
+              slug: 'mua-ban-do-the-thao-da-ngoai',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+            '0404': {
+              id: '0404',
+              title: 'Nhạc cụ',
+              slug: 'mua-ban-nhac-cu',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+            '0405': {
+              id: '0405',
+              title: 'Thiết bị chơi game',
+              slug: 'mua-ban-thiet-bi-choi-game',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+            '0406': {
+              id: '0406',
+              title: 'Sở thích khác',
+              slug: 'mua-ban-so-thich-khac',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+            '0407': {
+              id: '0407',
+              title: 'Sách',
+              slug: 'mua-ban-sach',
+              parent: '04',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '05': {
+          id: '05',
+          title: 'Đồ điện tử',
+          slug: 'mua-ban-do-dien-tu',
+          children:
+            '["0501","0502","0503","0504","0505","0506","0507","0508","0509"]',
+          subCategories: {
+            '0501': {
+              id: '0501',
+              title: 'Điện thoại',
+              slug: 'mua-ban-dien-thoai',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0502': {
+              id: '0502',
+              title: 'Tivi, Âm thanh',
+              slug: 'mua-ban-tivi-am-thanh',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0503': {
+              id: '0503',
+              title: 'Laptop',
+              slug: 'mua-ban-laptop',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0504': {
+              id: '0504',
+              title: 'Máy tính bảng',
+              slug: 'mua-ban-may-tinh-bang',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0505': {
+              id: '0505',
+              title: 'Máy ảnh, Máy quay',
+              slug: 'mua-ban-may-anh-may-quay',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0506': {
+              id: '0506',
+              title: 'Phụ kiện (Màn hình, Chuột...)',
+              slug: 'mua-ban-phu-kien',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0507': {
+              id: '0507',
+              title: 'Máy tính để bàn',
+              slug: 'mua-ban-may-tinh-de-ban',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0508': {
+              id: '0508',
+              title: 'Linh kiện (RAM, Card...)',
+              slug: 'mua-ban-linh-kien',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+            '0509': {
+              id: '0509',
+              title: 'Thiết bị đeo thông minh',
+              slug: 'mua-ban-thiet-bi-deo-thong-minh',
+              parent: '05',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '06': {
+          id: '06',
+          title: 'Dịch vụ, Du lịch',
+          slug: 'dich-vu-du-lich',
+          children: '["0602","0603"]',
+          subCategories: {
+            '0602': {
+              id: '0602',
+              title: 'Dịch vụ',
+              slug: 'dich-vu',
+              parent: '06',
+              types: ['B', 'S'],
+            },
+            '0603': {
+              id: '0603',
+              title: 'Du lịch',
+              slug: 'du-lich',
+              parent: '06',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '07': {
+          id: '07',
+          title: 'Đồ ăn, thực phẩm và các loại khác',
+          slug: 'mua-ban-do-an-thuc-pham-va-cac-loai-khac',
+          children: '["0701"]',
+          subCategories: {
+            '0701': {
+              id: '0701',
+              title: 'Đồ ăn, thực phẩm và các loại khác',
+              slug: 'mua-ban-do-an-thuc-pham',
+              parent: '07',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '08': {
+          id: '08',
+          title: 'Đồ dùng văn phòng, công nông nghiệp',
+          slug: 'mua-ban-thiet-bi-van-phong-cong-nong-nghiep',
+          children: '["0801","0803"]',
+          subCategories: {
+            '0801': {
+              id: '0801',
+              title: 'Đồ dùng văn phòng',
+              slug: 'mua-ban-do-dung-van-phong',
+              parent: '08',
+              types: ['B', 'S'],
+            },
+            '0803': {
+              id: '0803',
+              title: 'Đồ chuyên dụng, Giống nuôi trồng',
+              slug: 'mua-ban-do-chuyen-dung-giong-nuoi-trong',
+              parent: '08',
+              types: ['B', 'S'],
+            },
+          },
+        },
+        '09': {
+          id: '09',
+          title: 'Tủ lạnh, máy lạnh, máy giặt',
+          slug: 'mua-ban-tu-lanh-may-lanh-may-giat',
+          children: '["0903","0906","0907"]',
+          subCategories: {
+            '0903': {
+              id: '0903',
+              title: 'Tủ lạnh',
+              slug: 'mua-ban-tu-lanh',
+              parent: '09',
+              types: ['B', 'S'],
+            },
+            '0906': {
+              id: '0906',
+              title: 'Máy lạnh, điều hoà',
+              slug: 'mua-ban-may-lanh-dieu-hoa',
+              parent: '09',
+              types: ['B', 'S'],
+            },
+            '0907': {
+              id: '0907',
+              title: 'Máy giặt',
+              slug: 'mua-ban-may-giat',
+              parent: '09',
+              types: ['B', 'S'],
+            },
+          },
+        },
+      },
+      postDraft: {
+        cateParent: '01',
+        categoryId: '',
+        type: '',
+        title: '',
+        content: '',
+        price: 0,
+        broker: false,
+        images: [],
+        region: '',
+        area: '',
+        ward: '',
+      },
+    }
+  },
+}
+</script>
+
+<style></style>

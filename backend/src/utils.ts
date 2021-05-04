@@ -6,8 +6,11 @@ const JWT_SECRET = process.env.JWT_SECRET;
 import { AuthenticationError } from "apollo-server";
 
 
-export function getTokenPayload(token) {
-  return jwt.verify(token, JWT_SECRET);
+export function getTokenPayload(authHeader, req=null) {
+  const token = authHeader.replace('Bearer ', '')
+  const user = jwt.verify(token, JWT_SECRET)
+  console.log(user);
+  return user
 };
 
 export function getUser(req, authToken: string = null) {

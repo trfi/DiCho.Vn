@@ -5,6 +5,10 @@ import { PrismaClient } from '@prisma/client';
 import * as resolvers from './resolvers'
 import { getUser, getTokenPayload } from './utils';
 import { authDirective } from "./auth";
+// import express from "express";
+
+// const app = express();
+
 const fs = require('fs')
 const pubsub = new PubSub();
 
@@ -31,8 +35,8 @@ const server = new ApolloServer({
       prisma,
       pubsub,
       user:
-        req && req.headers.token
-          ? getTokenPayload(req.headers.token)
+        req && req.headers.authorization
+          ? getTokenPayload(req.headers.authorization, req)
           : null
     };
   },

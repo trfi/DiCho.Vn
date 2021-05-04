@@ -1,0 +1,165 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id String [pk]
+  phone String [unique, not null]
+  password String [not null]
+  phoneVerified Boolean [default: false]
+  email String [unique]
+  emailVerified Boolean
+  name String
+  username String
+  avatar String
+  gender Gender
+  birthday DateTime
+  address String
+  role Role [default: 'USER']
+  posts Post [not null]
+  votes Vote [not null]
+  comments Comment [not null]
+  likes Like [not null]
+  followers Follow [not null]
+  following Follow [not null]
+  followingCount Int [not null, default: 0]
+  followerCount Int [not null, default: 0]
+  created DateTime [default: `now()`, not null]
+  updated DateTime [not null]
+}
+
+Table Post {
+  id String [pk]
+  title String [not null]
+  thumbnail String
+  category Category [not null]
+  categoryId String [not null]
+  type Type [not null]
+  broker Boolean [not null, default: false]
+  params Json
+  region Int [not null]
+  area Int [not null]
+  ward Int [not null]
+  price Int [not null]
+  images String [not null]
+  content String [not null]
+  address String
+  postedBy User [not null]
+  postedById String [not null]
+  likeCount Int [not null, default: 0]
+  commentCount Int [not null, default: 0]
+  votes Vote [not null]
+  comments Comment [not null]
+  likes Like [not null]
+  created DateTime [default: `now()`, not null]
+  updated DateTime [not null]
+}
+
+Table Vote {
+  id String [pk]
+  post Post [not null]
+  postId String [not null]
+  user User [not null]
+  userId String [not null]
+
+  indexes {
+    (postId, userId) [unique]
+  }
+}
+
+Table Comment {
+  id String [pk]
+  post Post [not null]
+  postId String [not null]
+  user User [not null]
+  userId String [not null]
+  content String [not null]
+}
+
+Table Follow {
+  user User [not null]
+  userId String [not null]
+  following User [not null]
+  followingId String [not null]
+  created DateTime [default: `now()`, not null]
+
+  indexes {
+    (userId, followingId) [pk]
+    (userId, followingId) [unique]
+  }
+}
+
+Table Like {
+  post Post [not null]
+  postId String [not null]
+  user User [not null]
+  userId String [not null]
+  created DateTime [default: `now()`, not null]
+
+  indexes {
+    (postId, userId) [unique]
+  }
+}
+
+Table Category {
+  id String [pk]
+  posts Post [not null]
+  title String [not null]
+  slug String [not null]
+  path String
+  parent String
+  children Json
+  types Type [not null]
+  created DateTime [default: `now()`, not null]
+  updated DateTime [not null]
+}
+
+Enum PostDetail {
+  images
+  content
+  address
+}
+
+Enum Params {
+  acreage
+  rooms
+}
+
+Enum Type {
+  S
+  T
+  B
+  R
+}
+
+Enum Gender {
+  M
+  F
+  O
+}
+
+Enum Role {
+  ADMIN
+  MODERATOR
+  USER
+}
+
+Ref: Post.categoryId > Category.id
+
+Ref: Post.postedById > User.id
+
+Ref: Vote.postId > Post.id
+
+Ref: Vote.userId > User.id
+
+Ref: Comment.postId > Post.id
+
+Ref: Comment.userId > User.id
+
+Ref: Follow.userId > User.id
+
+Ref: Follow.followingId > User.id
+
+Ref: Like.postId > Post.id
+
+Ref: Like.userId > User.id

@@ -1,0 +1,306 @@
+<template>
+  <div class="max-w-2xl my-10">
+    <div class="w-full h-32 relative">
+      <div class="w-full rounded-md bg-gray-50 mb-4">
+        <div class="py-6">
+          <div class="w-full flex items-center px-5">
+            <a href="" class="relative rounded-3xl bg-gray-900">
+              <img
+                src="~/assets/images/user.png"
+                alt=""
+                class="w-10 h-10 object-cover rounded-3xl"
+              />
+            </a>
+            <div class="flex flex-grow justify-center items-center">
+              <button
+                class="inline-block w-full py-4 mx-4 rounded-sm bg-gray-200 text-sm hover:bg-gray-300"
+                uk-toggle="target: #post-modal"
+              >
+                Đăng bài
+              </button>
+            </div>
+            <div
+              class="rounded-3xl w-8 h-8 bg-gray-200 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
+            >
+              <span
+                class="iconify"
+                data-icon="bi:file-earmark-image"
+                data-inline="false"
+              ></span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-row-reverse items-center border-t border-gray-300 border-solid bg-gray-100 px-3"
+        ></div>
+      </div>
+
+      <!-- Start post -->
+      <div
+        v-for="(post, index) in posts.posts"
+        :key="post.id"
+        class="w-full rounded-md bg-white mb-7"
+      >
+        <div class="relative">
+          <div class="p-4 flex items-center justify-between">
+            <div class="flex">
+              <a href="" class="relative w-10 h-10 rounded-xl mr-2">
+                <img
+                  src="~/assets/images/content/tuoitre-main.png"
+                  alt=""
+                  class="w-full h-full object-cover rounded-3xl"
+                />
+              </a>
+              <div class="flex flex-col">
+                <a href="" class="text-sm text-black">{{
+                  post.postedBy.name
+                }}</a>
+                <div class="relative">
+                  <a href="" class="text-gray-500 text-xs hover:underline"
+                    ><span>18 phút trước</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="break-words text-left text-base pb-2 pl-4">
+            <div class="text-start text-sm">
+              {{ post.title }}
+              <span><a href="" class="text-blue-600">#NAOMI</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="relative"></div>
+        <div class="relative">
+          <a href="" class="">
+            <!-- <img
+              src="~/assets/images/content/1.jpg"
+              class="object-cover w-full h-full rounded-3xl"
+              style="min-height: 250px; height: 250px"
+              alt=""
+            /> -->
+            <cld-image
+              :public-id="post.thumbnail"
+              width="800"
+              crop="fill"
+              gravity="auto:subject"
+              fetch-format="auto"
+              quality="auto"
+              class="object-cover max-w-3xl w-full h-full rounded-3xl"
+              alt="An image example with Cloudinary"
+            />
+            <div class="absolute bottom-4 left-0 px-4 w-full flex items-center">
+              <!-- Tim -->
+              <div
+                :class="[
+                  post.userLiked
+                    ? 'bg-red-600 opacity-85'
+                    : 'bg-gray-700 opacity-85',
+                ]"
+                class="w-28 flex items-center px-2 py-1 rounded-2xl mr-2"
+                @click.prevent="like(post.id, post.userLiked, index)"
+              >
+                <span
+                  class="iconify text-white pl-2 absolute"
+                  data-icon="mdi:cards-heart"
+                  data-inline="false"
+                  data-width="27"
+                ></span>
+                <div>
+                  <span class="mx-auto pl-9 pr-5 text-white">{{
+                    post.likeCount
+                  }}</span>
+                </div>
+              </div>
+              <!-- Tim end -->
+              <!-- Comment -->
+              <div
+                class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
+                :uk-toggle="`target: #post-comment-${post.id}; animation: uk-animation-slide-bottom-medium`"
+              >
+                <span
+                  class="iconify text-white pl-2 absolute"
+                  data-icon="bx:bxs-comment-detail"
+                  data-inline="false"
+                  data-width="27"
+                ></span>
+                <div>
+                  <span class="mx-auto pl-9 pr-5 text-white">{{
+                    post.commentCount
+                  }}</span>
+                </div>
+              </div>
+              <!-- Comment End -->
+              <!-- Price -->
+              <div
+                class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
+              >
+                <span
+                  class="iconify text-white pl-2 absolute"
+                  data-icon="ri-money-dollar-circle-fill"
+                  data-inline="false"
+                  data-width="27"
+                ></span>
+                <div>
+                  <span class="mx-auto pl-9 pr-5 text-white">{{
+                    post.price
+                  }}</span>
+                </div>
+              </div>
+              <!-- Price End -->
+              <div class="w-full flex flex-row-reverse">
+                <span
+                  class="iconify text-white"
+                  data-icon="bx:bx-share"
+                  data-inline="false"
+                ></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Comment Post -->
+        <div :id="`post-comment-${post.id}`" class="py-3 px-4 space-y-3" hidden>
+          <div
+            v-if="Object.keys(posts.posts[index].comments).length !== 0"
+            class="border-t pt-4 dark:border-gray-600"
+          >
+            <div
+              v-for="comment in posts.posts[index].comments"
+              :key="comment.id"
+              class="flex mb-4"
+            >
+              <div class="w-10 h-10 rounded-full relative flex-shrink-0">
+                <img
+                  src="~/assets/images/avatars/avatar-1.jpg"
+                  alt=""
+                  class="absolute h-full rounded-full w-full"
+                />
+              </div>
+              <div
+                class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20 dark:bg-gray-800 dark:text-gray-100"
+              >
+                <p class="leading-6">
+                  {{ comment.content }}
+                  <i class="uil-grin-tongue-wink"> </i>
+                </p>
+                <div
+                  class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-100 bg-gray-100 rounded-full rounded-md mt-3 relative dark:bg-gray-800"
+          >
+            <input
+              type="text"
+              placeholder="Add your Comment.."
+              class="bg-transparent w-full px-5 py-6 max-h-10 shadow-none"
+              @keyup.enter="comment(post.id, $event.target, index)"
+            />
+            <div
+              class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2"
+            >
+              <a href="#"
+                ><span
+                  class="iconify"
+                  data-icon="bx:bxs-image-add"
+                  data-inline="false"
+                ></span
+              ></a>
+              <a href="#"
+                ><span
+                  class="iconify"
+                  data-icon="bx:bxs-video-plus"
+                  data-inline="false"
+                ></span
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- Comment End -->
+      </div>
+      <!-- Post end -->
+    </div>
+  </div>
+</template>
+
+<script>
+import feedQuery from '~/apollo/queries/feed'
+import like from '~/apollo/mutations/like'
+import unlike from '~/apollo/mutations/unlike'
+import comment from '~/apollo/mutations/comment'
+
+export default {
+  middleware: ['isAuth'],
+  data() {
+    return {
+      postDraft: {},
+      posts: [],
+    }
+  },
+  created() {
+    this.$eventBus.$on('addNewPost', (data) => {
+      console.log(data.addPost)
+      this.posts.posts.unshift(data.addPost)
+    })
+  },
+  apollo: {
+    posts: {
+      prefetch: true,
+      query: feedQuery,
+    },
+  },
+  methods: {
+    async like(postId, userLiked, index) {
+      const mutation = userLiked ? unlike : like
+      try {
+        const res = await this.$apollo
+          .mutate({
+            mutation,
+            variables: { postId },
+          })
+          .then(({ data }) => data)
+        console.log(res)
+        const likeCount = userLiked
+          ? res.unlike.post.likeCount
+          : res.like.post.likeCount
+        this.posts.posts[index].likeCount = likeCount
+        this.posts.posts[index].userLiked = !userLiked
+      } catch (e) {
+        console.error(e)
+        this.error = e
+      }
+    },
+    async comment(postId, element, index) {
+      try {
+        const content = element.value
+        const res = await this.$apollo
+          .mutate({
+            mutation: comment,
+            variables: { postId, content },
+          })
+          .then(({ data }) => data)
+        console.log(res)
+        this.posts.posts[index].comments.push(res.addComment.comment)
+        this.posts.posts[index].commentCount = res.addComment.post.commentCount
+        element.value = ''
+      } catch (e) {
+        console.error(e)
+        this.error = e
+      }
+    },
+    toggleModal() {
+      const body = document.querySelector('body')
+      const modal = document.querySelector('.modal')
+      modal.classList.toggle('opacity-0')
+      modal.classList.toggle('pointer-events-none')
+      body.classList.toggle('modal-active')
+    },
+  },
+}
+</script>
+
+<style></style>

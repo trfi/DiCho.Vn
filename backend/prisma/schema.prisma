@@ -7,6 +7,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+  projectName = "DiCho"
+  projectDatabaseType = "PostgreSQL"
+}
+
 model User {
   id             String    @id
   phone          String    @unique
@@ -48,16 +54,16 @@ model Post {
   area         Int
   ward         Int
   price        Int
-  images       Json?
+  images       String[]
   content      String
-  address      String
+  address      String?
   postedBy     User      @relation(fields: [postedById], references: [id])
   postedById   String
   likeCount    Int       @default(0)
   commentCount Int       @default(0)
   votes        Vote[]
-  comment      Comment[]
-  like         Like[]
+  comments      Comment[]
+  likes         Like[]
   created      DateTime  @default(now())
   updated      DateTime  @updatedAt
 
@@ -126,7 +132,7 @@ model Category {
   path     String?
   parent   String?
   children Json?
-  type     String?
+  types     Type[]
   created  DateTime @default(now())
   updated  DateTime @updatedAt
 }

@@ -5,7 +5,6 @@ export async function like(_, { postId }, { prisma, user, pubsub }) {
   try {
     const like = prisma.like.create({
       data: {
-        id: objectId(),
         user: { connect: { id: user.id } },
         post: {
           connect: { id: postId }

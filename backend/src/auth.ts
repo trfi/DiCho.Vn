@@ -45,7 +45,7 @@ export function authDirective(directiveName: string) {
             const { resolve } = fieldConfig;
             fieldConfig.resolve = function (source, args, context, info) {
               if (!context.user) throw new AuthenticationError('Not authorized');
-              const user = getUser(context.user.role);
+              const user = getUser(context.user.role)
               if (!user.hasRole(requires)) {
                 throw new AuthenticationError('Not authorized');
               }
