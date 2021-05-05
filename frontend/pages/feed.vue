@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-2xl my-10">
+  <div class="max-w-2xl mx-auto my-10 flex">
     <div class="w-full h-32 relative">
       <div class="w-full rounded-md bg-gray-50 mb-4">
         <div class="py-6">
@@ -64,15 +64,19 @@
             </div>
           </div>
           <div class="break-words text-left text-base pb-2 pl-4">
-            <div class="text-start text-sm">
+            <div class="text-start text-xl mb-2">
               {{ post.title }}
-              <span><a href="" class="text-blue-600">#NAOMI</a></span>
             </div>
           </div>
         </div>
         <div class="relative"></div>
         <div class="relative">
-          <a href="" class="">
+          <NuxtLink
+            :to="`${post.title
+              .toLowerCase()
+              .replace(/ /g, '-')
+              .replace(/[^\w-]+/g, '')}/${post.id}`"
+          >
             <!-- <img
               src="~/assets/images/content/1.jpg"
               class="object-cover w-full h-full rounded-3xl"
@@ -156,7 +160,7 @@
                 ></span>
               </div>
             </div>
-          </a>
+          </NuxtLink>
         </div>
 
         <!-- Comment Post -->

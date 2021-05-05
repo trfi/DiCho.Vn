@@ -34,6 +34,12 @@ export async function feed(_, args, { prisma }, info) {
   };
 }
 
+export async function post(_, { where }, { prisma }) {
+  return prisma.post.findUnique({
+    where
+  })
+}
+
 export async function posts(_, { filter, orderBy, where, take = 5, pagination }, { prisma }) {
   const wherePost = filter
     ? {

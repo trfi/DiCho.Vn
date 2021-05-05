@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <div class="flex justify-between">
-      <SideBar class="mr-52" />
+    <div class="flex justify-between items-center">
+      <SideBar />
       <Nuxt class="mt-24" />
-      <RightBar />
+      <!-- <RightBar /> -->
     </div>
+    <Footer />
   </div>
 </template>
 

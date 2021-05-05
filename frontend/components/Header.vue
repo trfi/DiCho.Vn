@@ -13,7 +13,7 @@
           <div class="w-full relative hidden lg:block">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Tìm kiếm"
               class="bg-gray-50 rounded-md text-base pl-4 py-2 text-gray-900 outline-none"
               style="width: 300px"
             />
@@ -43,7 +43,7 @@
                   alt=""
                 />
               </div>
-              <span class="text-sm mx-1">Phạm Quang Tâm</span>
+              <span class="text-sm mx-1">{{ nameUser }}</span>
             </a>
             <div class="w-2 mx-2 mb-1 text-gray-400 hidden md:block">|</div>
             <button
@@ -131,9 +131,9 @@
                       <img
                         class="h-24 w-24 rounded-full mx-auto"
                         src="https://randomuser.me/api/portraits/men/24.jpg"
-                        alt="Randy Robertson"
+                        alt="User Avatar"
                       />
-                      <p class="pt-2 text-lg font-semibold">Randy Robertson</p>
+                      <p class="pt-2 text-lg font-semibold">{{ nameUser }}</p>
                     </div>
 
                     <div class="">
@@ -141,28 +141,25 @@
                         <p
                           class="text-sm font-medium text-gray-800 leading-none"
                         >
-                          Product updates
+                          Tài khoản
                         </p>
                       </a>
                       <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
                         <p
                           class="text-sm font-medium text-gray-800 leading-none"
                         >
-                          Status updates
+                          Cài đặt
                         </p>
                       </a>
-                      <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
+                      <a
+                        href=""
+                        class="px-4 py-2 pb-4 hover:bg-gray-100 flex"
+                        @click.prevent="logout"
+                      >
                         <p
                           class="text-sm font-medium text-gray-800 leading-none"
                         >
-                          Support FAQ
-                        </p>
-                      </a>
-                      <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
-                        <p
-                          class="text-sm font-medium text-gray-800 leading-none"
-                        >
-                          Logout
+                          Đăng xuất
                         </p>
                       </a>
                     </div>
@@ -184,7 +181,25 @@ export default {
     return {
       notification: false,
       caret: false,
+      nameUser: '',
     }
+  },
+  mounted() {
+    this.nameUser = localStorage.getItem('userName')
+  },
+  // computed: {
+  //   nameUser() {
+  //     return localStorage.getItem('userName')
+  //   },
+  // },
+  methods: {
+    async logout() {
+      await this.$apolloHelpers.onLogout()
+      delete this.$root.$data.user
+      localStorage.removeItem('userId')
+      localStorage.removeItem('userName')
+      this.$router.push('/login')
+    },
   },
 }
 </script>

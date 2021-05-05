@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" class="mx-auto">
     <div class="main_content">
       <div class="container m-auto pt-5">
         <h1 class="font-semibold lg:mb-6 mb-3 text-2xl">Messages</h1>
