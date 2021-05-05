@@ -16,6 +16,11 @@ export function comments(parent, _, { prisma }) {
     .comments();
 }
 
+export function category(parent, _, { prisma }) {
+  return prisma.category
+    .findUnique({ where: { id: parent.id } })
+}
+
 export async function userLiked(parent, _, { prisma, user }) {
   try {
     const result = await prisma.like

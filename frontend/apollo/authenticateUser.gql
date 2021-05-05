@@ -4,6 +4,7 @@ mutation authenticateUser($phone:String!, $password:String!){
       user {
         id
         phone
+        name
       }
     }
 }

@@ -11,6 +11,7 @@ type Query {
     take: Int
     pagination: PaginationInput
   ): PostCount!
+  post(where: PostInput): Post
   feed(
     filter: String
     skip: Int
@@ -19,6 +20,7 @@ type Query {
   ): Feed!
   commentByUser(userId: String!): [Comment!]!
 }
+
 
 input PaginationInput {
   nextCursor: String
@@ -100,6 +102,7 @@ type CommentOutput {
 }
 
 input PostInput {
+  id: ID
   title: String
   images: [String]
   thumbnail: String
@@ -160,6 +163,7 @@ type Post {
   id: ID!
   title: String!
   thumbnail: String
+  category: Category,
   categoryId: String!
   type: Type!
   broker: Boolean
