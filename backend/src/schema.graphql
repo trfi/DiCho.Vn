@@ -12,13 +12,9 @@ type Query {
     pagination: PaginationInput
   ): PostCount!
   post(where: ID!): Post
-  feed(
-    filter: String
-    skip: Int
-    take: Int
-    orderBy: PostOrderByInput
-  ): Feed!
+  feed(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): Feed!
   commentByUser(userId: String!): [Comment!]!
+  messages(to: ID!): [MessageUser] @auth(requires: USER)
 }
 
 input PaginationInput {
@@ -63,7 +59,8 @@ type Mutation {
   deletePost(id: ID!): Post @auth(requires: USER)
 
   addCategory(input: CategoryInput!): Category @auth(requires: ADMIN)
-  updateCategory(input: WereId!, data: CategoryInput!): Category @auth(requires: ADMIN)
+  updateCategory(input: WereId!, data: CategoryInput!): Category
+    @auth(requires: ADMIN)
   deleteCategory(where: WereId!): Category @auth(requires: ADMIN)
 
   addComment(content: String!, postId: ID!): CommentOutput @auth(requires: USER)
@@ -76,8 +73,10 @@ type Mutation {
   vote(postId: ID!): Vote @auth(requires: USER)
   like(postId: ID!): likeOutput @auth(requires: USER)
   unlike(postId: ID): likeOutput @auth(requires: USER)
-}
 
+  sendMessage(to: ID!, content: String!): Message @auth(requires: USER)
+  deleteMessage(id: ID!): MessageUser @auth(requires: USER)
+}
 
 type Subscription {
   newPost: Post
@@ -157,8 +156,8 @@ type User {
   gender: Gender
   address: String
   birthday: String
-  likes: Json
-  comments: Json
+  likes: [Post]
+  comments: [Comment]
   followerCount: Int
   followingCount: Int
   followers: [Post]
@@ -167,31 +166,32 @@ type User {
 }
 
 type Post {
-  id: ID!
-  title: String!
+  id: ID
+  title: String
   thumbnail: String
-  category: Category,
-  categoryId: String!
-  type: Type!
+  category: Category
+  categoryId: String
+  type: Type
   broker: Boolean
-  params: Json!
-  region: Int!
-  area: Int!
-  ward: Int!
-  price: Int!
-  content: String!
-  address: String!
-  postDetail: Json!
-  postedById: String!
+  params: Json
+  region: Int
+  area: Int
+  ward: Int
+  price: Int
+  content: String
+  images: [String]
+  address: String
+  postDetail: Json
+  postedById: String
   postedBy: User
   likeCount: Int
   like: [Like]
   comments: [Comment]
   commentCount: Int
   userLiked: Boolean
-  votes: [Vote!]!
-  created: DateTime!
-  updated: DateTime!
+  votes: [Vote]
+  created: DateTime
+  updated: DateTime
 }
 
 type Vote {
@@ -208,7 +208,7 @@ type Like {
 type Follow {
   user: User
   userId: String
-  following: User 
+  following: User
   followingId: String
   created: DateTime
 }
@@ -218,6 +218,27 @@ type Comment {
   post: Post
   user: User
   content: String
+}
+
+type Message {
+  id: String
+  content: String
+  attachment: [String]
+  deletedUser: String
+  messageUser: MessageUser
+}
+
+type MessageUser {
+  message: Message
+  msgId: String
+  sender: User
+  senderId: String
+  receiver: User
+  receiverId: String
+  lastMsg: String
+  seen: Boolean
+  deletedUser: String
+  unseenNumber: Int
 }
 
 input PostOrderByInput {
@@ -237,6 +258,12 @@ enum Type {
   T
   B
   R
+}
+
+enum Gender {
+  M
+  F
+  O
 }
 
 enum PageAction {

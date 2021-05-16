@@ -1,15 +1,25 @@
-export function posts(parent, args, { prisma }) {
+export function posts(parent, _, { prisma }) {
   return prisma.user
     .findUnique({ where: { id: parent.id } })
-    .posts();
+    .posts()
 }
-export function followers(parent, args, { prisma }) {
+export function followers(parent, _, { prisma }) {
   return prisma.user
     .findUnique({ where: { id: parent.id } })
-    .users();
+    .users()
 }
-export function following(parent, args, { prisma }) {
+export function following(parent, _, { prisma }) {
   return prisma.user
     .findUnique({ where: { id: parent.id } })
-    .users();
+    .users()
+}
+export function likes(parent, _, { prisma }) {
+  return prisma.user
+    .findUnique({ where: { id: parent.id } })
+    .posts()
+}
+export function comments(parent, _, { prisma }) {
+  return prisma.user
+    .findUnique({ where: { id: parent.id } })
+    .comments()
 }
