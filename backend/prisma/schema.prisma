@@ -61,9 +61,10 @@ model Post {
   postedById   String
   likeCount    Int       @default(0)
   commentCount Int       @default(0)
+  status       PostStatus
   votes        Vote[]
-  comments      Comment[]
-  likes         Like[]
+  comments     Comment[]
+  likes        Like[]
   created      DateTime  @default(now())
   updated      DateTime  @updatedAt
 
@@ -113,17 +114,6 @@ model Like {
   @@index([postId, userId])
 }
 
-// model Comment {
-//   id              String   @id
-//   content         String
-//   commentInPost   Post     @relation(fields: [commentInPostId], references: id)
-//   commentInPostId String
-//   commentByUser   User     @relation(fields: [commentByUserId], references: id)
-//   commentByUserId String
-//   created         DateTime @default(now())
-//   updated         DateTime @updatedAt
-// }
-
 model Category {
   id       String   @id
   posts    Post[]
@@ -135,6 +125,18 @@ model Category {
   types     Type[]
   created  DateTime @default(now())
   updated  DateTime @updatedAt
+}
+
+model Message {
+  id       String   @id
+  text
+}
+
+enum PostStatus {
+  H // HIDE
+  P // PENDING
+  R // REJECT
+  A // APPROVED
 }
 
 enum PostDetail {
@@ -149,10 +151,10 @@ enum Params {
 }
 
 enum Type {
-  S
-  T
-  B
-  R
+  S // SELL
+  T // TO RENT
+  B // BUY
+  R // RENT
 }
 
 enum Gender {

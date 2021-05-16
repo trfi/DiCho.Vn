@@ -11,7 +11,7 @@ type Query {
     take: Int
     pagination: PaginationInput
   ): PostCount!
-  post(where: PostInput): Post
+  post(where: ID!): Post
   feed(
     filter: String
     skip: Int
@@ -20,7 +20,6 @@ type Query {
   ): Feed!
   commentByUser(userId: String!): [Comment!]!
 }
-
 
 input PaginationInput {
   nextCursor: String
@@ -146,17 +145,25 @@ type AuthPayload {
 }
 
 type User {
-  id: ID!
-  name: String!
-  phone: String!
-  email: String!
+  id: ID
+  name: String
+  username: String
+  phone: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
   role: Role
+  avatar: String
+  gender: Gender
+  address: String
+  birthday: String
+  likes: Json
   comments: Json
   followerCount: Int
   followingCount: Int
-  followers: [Post!]!
-  following: [Post!]!
-  posts: [Post!]!
+  followers: [Post]
+  following: [Post]
+  posts: [Post]
 }
 
 type Post {
