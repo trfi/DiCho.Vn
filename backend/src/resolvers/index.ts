@@ -8,3 +8,16 @@ export * as Comment from "./Comment"
 export * as Like from "./Like"
 export * as Message from "./Message"
 export * as Chat from "./Chat"
+
+// Union Resolver
+export const MessageResult = {
+  __resolveType: (obj, context, info) => {
+    if(obj.content){
+      return 'Message';
+    }
+    if(obj.senderId){
+      return 'Chat';
+    }
+    return null;
+  }
+}

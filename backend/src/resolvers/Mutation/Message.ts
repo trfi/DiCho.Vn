@@ -26,7 +26,7 @@ export async function sendMessage(_, { to, content }, { prisma, user, pubsub }) 
       }
     })
     const result = await prisma.$transaction([message, chat])
-    return result[0]
+    return result[1]
   } catch (e) {
     console.error(e);
   }

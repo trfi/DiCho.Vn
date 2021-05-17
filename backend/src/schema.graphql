@@ -4,6 +4,7 @@ type Query {
   users: UserCount!
   currentUser: User!
   info: String!
+  categories(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
   posts(
     where: PostInput
     filter: String
@@ -74,7 +75,7 @@ type Mutation {
   like(postId: ID!): likeOutput @auth(requires: USER)
   unlike(postId: ID): likeOutput @auth(requires: USER)
 
-  sendMessage(to: ID!, content: String!): Message @auth(requires: USER)
+  sendMessage(to: ID!, content: String!): MessageResult @auth(requires: USER)
   deleteMessage(id: ID!): MessageResult @auth(requires: USER)
 }
 
@@ -125,10 +126,10 @@ input PostInput {
 }
 
 type Category {
-  id: String!
-  posts: [Post!]!
-  title: String!
-  slug: String!
+  id: String
+  posts: [Post]
+  title: String
+  slug: String
   path: String
   parent: String
   children: Json
