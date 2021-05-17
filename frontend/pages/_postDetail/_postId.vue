@@ -6,7 +6,7 @@
           class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs"
         >
           <a href="">
-            <span class="mr-2">Chợ tốt </span>
+            <span class="mr-2">Đi chợ </span>
           </a>
           <span
             class="iconify text-xs"

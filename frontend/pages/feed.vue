@@ -248,7 +248,7 @@ export default {
   created() {
     this.$eventBus.$on('addNewPost', (data) => {
       console.log(data.addPost)
-      this.posts.posts.unshift(data.addPost)
+      // this.posts.posts.unshift(data.addPost)
     })
   },
   apollo: {

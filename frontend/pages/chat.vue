@@ -1,8 +1,8 @@
 <template>
-  <div id="wrapper" class="mx-auto">
+  <div id="wrapper" class="mx-auto max-w-3xl">
     <div class="main_content">
       <div class="container m-auto pt-5">
-        <h1 class="font-semibold lg:mb-6 mb-3 text-2xl">Messages</h1>
+        <h1 class="font-semibold lg:mb-6 mb-3 text-2xl">Nhắn tin</h1>
 
         <div
           class="lg:flex lg:shadow lg:bg-white lg:space-y-0 space-y-8 rounded-md lg:-mx-0 -mx-5 overflow-hidden lg:dark:bg-gray-800"
@@ -216,8 +216,7 @@
                     class="text-white py-2 px-3 rounded bg-blue-600 relative h-full lg:mr-5 mr-2 lg:ml-20"
                   >
                     <p class="leading-6">
-                      consectetuer adipiscing elit, sed diam nonummy nibh
-                      euismod laoreet dolore magna
+                      Chào bạn
                       <i class="uil-grin-tongue-wink"></i>
                     </p>
                     <div
@@ -244,7 +243,7 @@
                     class="text-gray-700 py-2 px-3 rounded bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20 dark:bg-gray-700 dark:text-white"
                   >
                     <p class="leading-6">
-                      In ut odio libero vulputate
+                      Hi
                       <urna class="i uil-heart"></urna>
                       <i class="uil-grin-tongue-wink"> </i>
                     </p>
@@ -267,7 +266,7 @@
                     class="text-white py-2 px-3 rounded bg-blue-600 relative h-full lg:mr-5 mr-2 lg:ml-20"
                   >
                     <p class="leading-6">
-                      Nam liber tempor cum soluta nobis eleifend option
+                      Bạn học trường nào
                       <i class="uil-grin-tongue-wink-alt"></i>
                     </p>
                     <div
@@ -293,8 +292,7 @@
                     class="text-white py-2 px-3 rounded bg-blue-600 relative h-full lg:mr-5 mr-2 lg:ml-20"
                   >
                     <p class="leading-6">
-                      consectetuer adipiscing elit, sed diam nonummy nibh
-                      euismod laoreet dolore magna.
+                      Mình học FPT Polytechnic chuyên ngành thiết kế web
                     </p>
                     <div
                       class="absolute w-3 h-3 top-3 -right-1 bg-blue-600 transform rotate-45"
