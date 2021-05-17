@@ -36,3 +36,18 @@ export async function login(_, args, { prisma }) {
     user
   };
 }
+
+export async function updateUser(_, { id, data }, { prisma }) {
+  const updateUser = await prisma.user.update({
+    where: { id },
+    data,
+  })
+  return updateUser
+}
+
+export async function deleteUser(_, { id }, { prisma }) {
+  const deleteUser = await prisma.user.delete({
+    where: { id }
+  })
+  return deleteUser
+}

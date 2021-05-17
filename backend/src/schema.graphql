@@ -12,7 +12,7 @@ type Query {
     take: Int
     pagination: PaginationInput
   ): PostCount!
-  post(where: ID!): Post
+  post(where: WereId!): Post!
   feed(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): Feed!
   commentByUser(userId: String!): [Comment!]!
   messages(to: ID!): [Chat] @auth(requires: USER)
@@ -42,7 +42,7 @@ type Feed {
 }
 
 input WereId {
-  id: String!
+  id: ID!
 }
 
 type Mutation {
@@ -54,6 +54,8 @@ type Mutation {
     name: String!
     role: Role
   ): AuthPayload
+  updateUser(id: ID!, data: UserInput): User
+  deleteUser(id: ID!): User
 
   addPost(input: PostInput!): Post @auth(requires: USER)
   updatePost(id: ID!, data: PostInput!): Post @auth(requires: USER)
@@ -173,6 +175,21 @@ type User {
   followers: [Post]
   following: [Post]
   posts: [Post]
+}
+
+input UserInput {
+  id: ID
+  name: String
+  username: String
+  phone: String
+  phoneVerified: Boolean
+  email: String
+  emailVerified: Boolean
+  role: Role
+  avatar: String
+  gender: Gender
+  address: String
+  birthday: String
 }
 
 type Post {
