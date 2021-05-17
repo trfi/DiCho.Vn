@@ -1,7 +1,7 @@
 export async function messages(_, { to }, { prisma, user }, info) {
   try {
     const users = [to, user.id]
-    const messages =  await prisma.messageUser.findMany({
+    const messages =  await prisma.chat.findMany({
       where: {
         senderId: { in: users },
         receiverId: { in: users },

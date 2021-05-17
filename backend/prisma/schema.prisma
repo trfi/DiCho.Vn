@@ -11,9 +11,9 @@ model User {
   id             String    @id
   phone          String    @unique
   password       String
-  phoneVerified  Boolean?  @default("false")
+  phoneVerified  Boolean   @default(false)
   email          String?   @unique
-  emailVerified  Boolean?
+  emailVerified  Boolean   @default(false)
   name           String?
   username       String?
   avatar         String?
@@ -29,11 +29,13 @@ model User {
   following      Follow[]  @relation("User")
   followingCount Int       @default(0)
   followerCount  Int       @default(0)
+  likeCount      Int       @default(0)
+  commentCount   Int       @default(0)
   created        DateTime  @default(now())
   updated        DateTime  @updatedAt
 
-  messagesSended   MessageUser[] @relation("Sender")
-  messagesReceived MessageUser[] @relation("Receiver")
+  messagesSended   Chat[] @relation("Sender")
+  messagesReceived Chat[] @relation("Receiver")
   @@index([id])
 }
 
@@ -127,13 +129,12 @@ model Message {
   id          String        @id
   content     String
   attachment  String[]
-  deletedUser String?
-  messageUser MessageUser[] @relation("Message")
+  chat Chat[] @relation("Message")
 }
 
-model MessageUser {
-  message      Message @relation("Message", fields: [msgId], references: [id])
-  msgId    String  @unique
+model Chat {
+  message      Message? @relation("Message", fields: [msgId], references: [id])
+  msgId        String  @unique
   sender       User    @relation("Sender", fields: [senderId], references: [id])
   senderId     String
   receiver     User    @relation("Receiver", fields: [receiverId], references: [id])

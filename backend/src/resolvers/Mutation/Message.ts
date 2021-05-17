@@ -12,7 +12,7 @@ export async function sendMessage(_, { to, content }, { prisma, user, pubsub }) 
         content
       }
     })
-    const messageUser = prisma.messageUser.create({
+    const chat = prisma.chat.create({
       data: {
         message: { 
           connect: { id: messageId } 
@@ -25,7 +25,8 @@ export async function sendMessage(_, { to, content }, { prisma, user, pubsub }) 
         }
       }
     })
-    return await prisma.$transaction([message, messageUser])[0]
+    const result = await prisma.$transaction([message, chat])
+    return result[0]
   } catch (e) {
     console.error(e);
   }
@@ -34,20 +35,29 @@ export async function sendMessage(_, { to, content }, { prisma, user, pubsub }) 
 export async function deleteMessage(_, { id }, { prisma, user, pubsub }) {
   try {
     const where = { msgId: id }
-    const isDeleted = await prisma.messageUser.findUnique({
+    const isDeleted = await prisma.chat.findUnique({
       where,
       select: { senderId: true, receiverId: true, deletedUser: true }
     })
     const { senderId, receiverId, deletedUser } = isDeleted
-    if (deletedUser == senderId || deletedUser == receiverId)
     console.log(isDeleted);
-    const message = await prisma.messageUser.update({
-      where,
-      data: {
-        deletedUser: user.id
-      }
-    })
-    return message
+    if ((senderId === user.id && deletedUser === receiverId) 
+    || (receiverId === user.id && deletedUser === senderId)) {
+      const deletedMessage = await prisma.message.delete({
+        where: { id }
+      })
+      console.log(deletedMessage)
+      return deletedMessage
+    }
+    else {
+      const message = await prisma.chat.update({
+        where,
+        data: {
+          deletedUser: user.id
+        }
+      })
+      return message
+    }
   } catch (e) {
     console.error(e)
   }

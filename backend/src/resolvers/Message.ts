@@ -1,4 +1,4 @@
-export function messageUser(parent, _, { prisma }) {
-  return prisma.messageUser
+export function chat(parent, _, { prisma }) {
+  return prisma.chat
   .findUnique({ where: { msgId: parent.id } })
 }

@@ -60,9 +60,10 @@ Add additional notes about how to deploy this on a live system. -->
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
+- [PostgeSQL](https://www.postgresql.org/) - Database
 - [Prisma](https://prisma.io/) - Server Framework
 - [VueJs](https://vuejs.org/) - Web Framework
+- [GraphQL](https://graphql.org/) - Query language for API
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a>

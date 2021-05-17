@@ -14,7 +14,7 @@ type Query {
   post(where: ID!): Post
   feed(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): Feed!
   commentByUser(userId: String!): [Comment!]!
-  messages(to: ID!): [MessageUser] @auth(requires: USER)
+  messages(to: ID!): [Chat] @auth(requires: USER)
 }
 
 input PaginationInput {
@@ -75,7 +75,7 @@ type Mutation {
   unlike(postId: ID): likeOutput @auth(requires: USER)
 
   sendMessage(to: ID!, content: String!): Message @auth(requires: USER)
-  deleteMessage(id: ID!): MessageUser @auth(requires: USER)
+  deleteMessage(id: ID!): MessageResult @auth(requires: USER)
 }
 
 type Subscription {
@@ -87,6 +87,13 @@ type Subscription {
 type likeOutput {
   success: Boolean!
   post: Post
+}
+
+union MessageResult = Message | Chat
+
+type MessageOutput {
+  message: Message
+  chat: Chat
 }
 
 type FollowOutput {
@@ -158,6 +165,8 @@ type User {
   birthday: String
   likes: [Post]
   comments: [Comment]
+  likeCount: Int
+  commentCount: Int
   followerCount: Int
   followingCount: Int
   followers: [Post]
@@ -225,10 +234,10 @@ type Message {
   content: String
   attachment: [String]
   deletedUser: String
-  messageUser: MessageUser
+  chat: Chat
 }
 
-type MessageUser {
+type Chat {
   message: Message
   msgId: String
   sender: User
