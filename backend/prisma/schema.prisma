@@ -7,12 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator dbml {
-  provider = "prisma-dbml-generator"
-  projectName = "DiCho"
-  projectDatabaseType = "PostgreSQL"
-}
-
 model User {
   id             String    @id
   phone          String    @unique
@@ -38,17 +32,19 @@ model User {
   created        DateTime  @default(now())
   updated        DateTime  @updatedAt
 
+  messagesSended   MessageUser[] @relation("Sender")
+  messagesReceived MessageUser[] @relation("Receiver")
   @@index([id])
 }
 
 model Post {
-  id           String    @id @default(cuid())
+  id           String     @id @default(cuid())
   title        String
   thumbnail    String?
-  category     Category  @relation(fields: [categoryId], references: [id])
+  category     Category   @relation(fields: [categoryId], references: [id])
   categoryId   String
   type         Type
-  broker       Boolean   @default("false")
+  broker       Boolean    @default("false")
   params       Json?
   region       Int
   area         Int
@@ -57,16 +53,16 @@ model Post {
   images       String[]
   content      String
   address      String?
-  postedBy     User      @relation(fields: [postedById], references: [id])
+  postedBy     User       @relation(fields: [postedById], references: [id])
   postedById   String
-  likeCount    Int       @default(0)
-  commentCount Int       @default(0)
-  status       PostStatus
+  likeCount    Int        @default(0)
+  commentCount Int        @default(0)
+  status       PostStatus @default(P)
   votes        Vote[]
   comments     Comment[]
   likes        Like[]
-  created      DateTime  @default(now())
-  updated      DateTime  @updatedAt
+  created      DateTime   @default(now())
+  updated      DateTime   @updatedAt
 
   @@index([id, postedById, categoryId, type])
 }
@@ -122,14 +118,30 @@ model Category {
   path     String?
   parent   String?
   children Json?
-  types     Type[]
+  types    Type[]
   created  DateTime @default(now())
   updated  DateTime @updatedAt
 }
 
 model Message {
-  id       String   @id
-  text
+  id          String        @id
+  content     String
+  attachment  String[]
+  deletedUser String?
+  messageUser MessageUser[] @relation("Message")
+}
+
+model MessageUser {
+  message      Message @relation("Message", fields: [msgId], references: [id])
+  msgId    String  @unique
+  sender       User    @relation("Sender", fields: [senderId], references: [id])
+  senderId     String
+  receiver     User    @relation("Receiver", fields: [receiverId], references: [id])
+  receiverId   String
+  lastMsg      String?
+  seen         Boolean @default(false)
+  deletedUser  String  @default("")
+  unseenNumber Int     @default(0)
 }
 
 enum PostStatus {
