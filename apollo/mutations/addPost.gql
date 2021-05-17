@@ -1,0 +1,45 @@
+mutation addPost(
+  $title: String!
+  $images: [String]!
+  $categoryId: String
+  $type: Type
+  $region: Int
+  $area: Int
+  $ward: Int
+  $price: Int
+  $content: String
+) {
+  addPost(
+    input: {
+      title: $title
+      images: $images
+      categoryId: $categoryId
+      type: $type
+      region: $region
+      area: $area
+      ward: $ward
+      price: $price
+      content: $content
+    }
+  ) {
+    id
+    title
+    thumbnail
+    postedBy {
+      id
+      name
+    }
+    price
+    likeCount
+    commentCount
+    userLiked
+    comments {
+      id
+      content
+      user {
+        id
+        name
+      }
+    }
+  }
+}

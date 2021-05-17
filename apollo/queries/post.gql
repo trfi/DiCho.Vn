@@ -1,0 +1,17 @@
+query post($id: ID!) {
+  post(where: { id: $id}) {
+    id
+    title
+    thumbnail
+    postedBy {
+      id
+      name
+      phone
+    }
+    price
+    content
+    category {
+      title
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query User {
+  users {
+    users {
+      id
+      name
+      username
+      phone
+      email
+      role
+      likes {
+        id
+      }
+      comments {
+        id
+      }
+      followerCount
+      followingCount
+    }
+  }
+}
