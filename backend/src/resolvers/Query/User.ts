@@ -7,26 +7,30 @@ export async function currentUser(_, args, { prisma, user }) {
 }
 
 export async function users(_, args, { prisma, user }) {
-  const where = args.filter
-    ? {
-        OR: [
-          { title: { contains: args.filter } },
-          { content: { contains: args.filter } }
-        ]
-      }
-    : {};
+  try {
+    const where = args.filter
+      ? {
+          OR: [
+            { title: { contains: args.filter } },
+            { content: { contains: args.filter } }
+          ]
+        }
+      : {};
 
-  const users = await prisma.user.findMany({
-    where,
-    skip: args.skip,
-    take: args.take,
-    orderBy: args.orderBy
-  });
+    const users = await prisma.user.findMany({
+      where,
+      skip: args.skip,
+      take: args.take,
+      orderBy: args.orderBy
+    });
 
-  const count = await prisma.user.count({ where });
+    const count = await prisma.user.count({ where });
 
-  return {
-    count,
-    users
+    return {
+      count,
+      users
+    }
+  } catch (e) {
+    console.error(e);
   }
 }
