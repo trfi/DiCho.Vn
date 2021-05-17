@@ -6,9 +6,9 @@ Table User {
   id String [pk]
   phone String [unique, not null]
   password String [not null]
-  phoneVerified Boolean [default: false]
+  phoneVerified Boolean [not null, default: false]
   email String [unique]
-  emailVerified Boolean
+  emailVerified Boolean [not null, default: false]
   name String
   username String
   avatar String
@@ -24,8 +24,12 @@ Table User {
   following Follow [not null]
   followingCount Int [not null, default: 0]
   followerCount Int [not null, default: 0]
+  likeCount Int [not null, default: 0]
+  commentCount Int [not null, default: 0]
   created DateTime [default: `now()`, not null]
   updated DateTime [not null]
+  messagesSended Chat [not null]
+  messagesReceived Chat [not null]
 }
 
 Table Post {
@@ -48,6 +52,7 @@ Table Post {
   postedById String [not null]
   likeCount Int [not null, default: 0]
   commentCount Int [not null, default: 0]
+  status PostStatus [not null, default: 'P']
   votes Vote [not null]
   comments Comment [not null]
   likes Like [not null]
@@ -114,6 +119,33 @@ Table Category {
   updated DateTime [not null]
 }
 
+Table Message {
+  id String [pk]
+  content String [not null]
+  attachment String [not null]
+  chat Chat [not null]
+}
+
+Table Chat {
+  message Message
+  msgId String [unique, not null]
+  sender User [not null]
+  senderId String [not null]
+  receiver User [not null]
+  receiverId String [not null]
+  lastMsg String
+  seen Boolean [not null, default: false]
+  deletedUser String [not null, default: '']
+  unseenNumber Int [not null, default: 0]
+}
+
+Enum PostStatus {
+  H
+  P
+  R
+  A
+}
+
 Enum PostDetail {
   images
   content
@@ -163,3 +195,9 @@ Ref: Follow.followingId > User.id
 Ref: Like.postId > Post.id
 
 Ref: Like.userId > User.id
+
+Ref: Chat.msgId > Message.id
+
+Ref: Chat.senderId > User.id
+
+Ref: Chat.receiverId > User.id

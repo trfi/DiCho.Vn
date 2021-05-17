@@ -7,6 +7,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+  projectName = "DiCho"
+  projectDatabaseType = "PostgreSQL"
+}
+
 model User {
   id             String    @id
   phone          String    @unique

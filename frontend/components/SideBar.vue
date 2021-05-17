@@ -34,7 +34,9 @@
             class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
           >
             <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Tin nhắn</span>
+              <NuxtLink to="/messages">
+                <span class="text-base font-sans font-medium">Tin nhắn</span>
+              </NuxtLink>
             </div>
             <div
               class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
