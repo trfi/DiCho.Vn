@@ -14,7 +14,7 @@
             <div class="flex flex-grow justify-center items-center">
               <button
                 class="inline-block w-full py-4 mx-4 rounded-sm bg-gray-200 text-sm hover:bg-gray-300"
-                uk-toggle="target: #post-modal"
+                @click="toggleModal"
               >
                 Đăng bài
               </button>
@@ -195,17 +195,15 @@
             </div>
           </div>
 
-          <div
-            class="bg-gray-100 bg-gray-100 rounded-full rounded-md mt-3 relative dark:bg-gray-800"
-          >
+          <div class="bg-gray-100 rounded-full mt-3 relative dark:bg-gray-800">
             <input
               type="text"
               placeholder="Add your Comment.."
               class="bg-transparent w-full px-5 py-6 max-h-10 shadow-none"
-              @keyup.enter="comment(post.id, $event.target, index)"
+              @keyup.enter="addComment(post.id, $event.target, index)"
             />
             <div
-              class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2"
+              class="absolute bottom-0 flex h-full items-center right-0 text-xl space-x-2"
             >
               <a href="#"
                 ><span
@@ -235,7 +233,7 @@
 import feedQuery from '~/apollo/queries/feed'
 import like from '~/apollo/mutations/like'
 import unlike from '~/apollo/mutations/unlike'
-import comment from '~/apollo/mutations/comment'
+import commentMutaion from '~/apollo/mutations/comment'
 
 export default {
   middleware: ['isAuth'],
@@ -278,12 +276,12 @@ export default {
         this.error = e
       }
     },
-    async comment(postId, element, index) {
+    async addComment(postId, element, index) {
       try {
         const content = element.value
         const res = await this.$apollo
           .mutate({
-            mutation: comment,
+            mutation: commentMutaion,
             variables: { postId, content },
           })
           .then(({ data }) => data)

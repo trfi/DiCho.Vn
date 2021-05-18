@@ -10,22 +10,14 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/uikit.min.css' },
-    ],
-    script: [{ type: 'module', src: 'uikit.min.js', ssr: false }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@assets/css/style.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/icon-design.js',
-    '~/plugins/eventbus.js',
-    { src: '~/plugins/uikit.js', ssr: false },
-  ],
+  plugins: ['~/plugins/icon-design.js', '~/plugins/eventbus.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

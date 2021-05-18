@@ -171,7 +171,7 @@
         </div>
       </div>
     </div>
-    <ModalPost2 />
+    <ModalPost />
   </header>
 </template>
 
