@@ -255,6 +255,7 @@ type Comment {
   post: Post
   user: User
   content: String
+  created: DateTime
 }
 
 type Message {
