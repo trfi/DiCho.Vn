@@ -16,6 +16,7 @@ type Query {
   feed(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): Feed!
   commentByUser(userId: String!): [Comment!]!
   messages(to: ID!): [Chat] @auth(requires: USER)
+  inboxs: [InboxResult]
 }
 
 input PaginationInput {
@@ -28,6 +29,15 @@ input PaginationInput {
 type PostCount {
   count: Int!
   posts: [Post!]!
+}
+
+type InboxResult {
+  message: Message
+  senderId: ID
+  sender: User
+  receiverId: ID
+  receiver: User
+  lastMsg: String
 }
 
 type UserCount {

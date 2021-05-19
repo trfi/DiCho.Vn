@@ -236,6 +236,7 @@ import unlike from '~/apollo/mutations/unlike'
 import commentMutaion from '~/apollo/mutations/comment'
 
 export default {
+  layout: 'client',
   middleware: ['isAuth'],
   data() {
     return {

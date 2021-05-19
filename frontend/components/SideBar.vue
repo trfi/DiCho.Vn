@@ -2,72 +2,69 @@
   <div>
     <!-- Sidebar starts -->
     <div
-      style="min-height: 700px"
-      class="w-64 fixed top-16 bg-white shadow h-screen flex-col justify-between hidden lg:flex pb-12"
+      class="w-full bg-white shadow border-r h-screen flex-col justify-between hidden lg:flex pb-12"
     >
-      <div class="px-8">
-        <ul class="mt-12">
-          <li
-            class="flex w-full justify-between text-pink-700 cursor-pointer items-center mb-6"
+      <ul class="w-full px-8 mt-12">
+        <li
+          class="flex w-full justify-between text-pink-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <nuxt-link to="/feed" class="brand">
+              <span class="text-base font-sans font-medium">Bảng tin</span>
+            </nuxt-link>
+          </div>
+        </li>
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <span class="text-base font-sans font-medium">Thông báo</span>
+          </div>
+        </li>
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <span class="text-base font-sans font-medium">Khám phá</span>
+          </div>
+        </li>
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <NuxtLink to="/messages">
+              <span class="text-base font-sans font-medium">Tin nhắn</span>
+            </NuxtLink>
+          </div>
+          <div
+            class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
           >
-            <div class="flex items-center">
-              <nuxt-link to="/feed" class="brand">
-                <span class="text-base font-sans font-medium">Bảng tin</span>
-              </nuxt-link>
-            </div>
-          </li>
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Thông báo</span>
-            </div>
-          </li>
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Khám phá</span>
-            </div>
-          </li>
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <NuxtLink to="/messages">
-                <span class="text-base font-sans font-medium">Tin nhắn</span>
-              </NuxtLink>
-            </div>
-            <div
-              class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
-            >
-              3
-            </div>
-          </li>
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Trang cá nhân</span>
-            </div>
-          </li>
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Cài đặt</span>
-            </div>
-          </li>
-          <hr class="my-2" />
-          <li
-            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
-          >
-            <div class="flex items-center">
-              <span class="text-base font-sans font-medium">Đăng xuất</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+            3
+          </div>
+        </li>
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <span class="text-base font-sans font-medium">Trang cá nhân</span>
+          </div>
+        </li>
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <span class="text-base font-sans font-medium">Cài đặt</span>
+          </div>
+        </li>
+        <hr class="my-2" />
+        <li
+          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+        >
+          <div class="flex items-center">
+            <span class="text-base font-sans font-medium">Đăng xuất</span>
+          </div>
+        </li>
+      </ul>
     </div>
     <div
       id="mobile-nav"

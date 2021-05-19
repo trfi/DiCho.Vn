@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full h-full">
     <div class="bg-gray-100 border-b border-gray-300 border-solid">
       <div class="mx-auto">
         <div>
@@ -13,7 +13,7 @@
     </div>
     <div>
       <div class="mx-auto w-full">
-        <form class="p-8">
+        <form class="px-8 mt-6 pb-2">
           <div class="mb-6">
             <div v-if="userClick">
               <h4 class="text-black text-lg pb-2" style="font-weight: 700">

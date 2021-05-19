@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-mutating-props */
 <template>
-  <div class="min-h-screen w-full p-0 sm:p-12">
-    <div class="mx-auto w-full px-6 py-12 sm:rounded-3xl">
+  <div class="w-full h-auto px-12">
+    <div class="mx-auto w-full px-6 sm:rounded-3xl">
       <h1 class="text-2xl font-bold mb-8">Thông tin chi tiết</h1>
       <form id="form" novalidate>
         <div class="relative z-0 w-full mb-5">

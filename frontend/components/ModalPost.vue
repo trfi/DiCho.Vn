@@ -29,7 +29,7 @@
       </div>
 
       <!-- Add margin if you want to see some of the overlay behind the modal-->
-      <div class="modal-content flex flex-col py-4 text-left px-6">
+      <div class="modal-content h-full flex flex-col py-4 text-left px-6">
         <!--Title-->
         <div class="flex justify-between items-center pb-3">
           <p class="text-2xl font-bold">Đăng bài</p>
@@ -49,13 +49,13 @@
         </div>
 
         <!--Body-->
-        <div class="flex flex-col h-screen items-center m-8">
-          <div
-            class="w-full bg-white rounded h-3/5 overflow-y-auto overflow-x-hidden flex snap-x"
-          >
+        <div
+          class="flex flex-col h-full items-stretch overflow-y-auto mt-5 mx-8"
+        >
+          <div class="w-full bg-white rounded overflow-x-hidden flex snap-x">
             <div
               id="slide-1"
-              class="snap-start mt-6 w-full h-full flex items-center justify-center flex-shrink-0"
+              class="snap-start w-full h-full flex items-start justify-center flex-shrink-0"
             >
               <cate-parent
                 :categories="categories"
@@ -64,7 +64,7 @@
             </div>
             <div
               id="slide-2"
-              class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              class="snap-start w-full h-full flex items-start justify-center flex-shrink-0"
             >
               <cate-child
                 :categories="categories"
@@ -73,7 +73,7 @@
             </div>
             <div
               id="slide-3"
-              class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              class="snap-start w-full h-full flex items-start justify-center flex-shrink-0"
             >
               <post-type
                 :categories="categories"
@@ -82,31 +82,19 @@
             </div>
             <div
               id="slide-4"
-              class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              class="snap-start w-full h-full flex items-start justify-center flex-shrink-0"
             >
               <post-address :post-draft.sync="postDraft"></post-address>
             </div>
             <div
               id="slide-5"
-              class="snap-start w-full h-full flex items-center justify-center flex-shrink-0"
+              class="snap-start w-full h-auto flex items-start justify-center flex-shrink-0"
             >
               <post-info :post-draft.sync="postDraft"></post-info>
             </div>
-            <div
-              id="slide-6"
-              class="snap-start w-full h-full flex items-center justify-center flex-shrink-0 relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
-                class="h-full w-full object-cover absolute inset-0 z-10 opacity-25"
-              />
-              <h1 class="z-20 text-center">
-                Any kind of content here, images too!
-              </h1>
-            </div>
           </div>
 
-          <div class="flex mt-8">
+          <div class="flex justify-center">
             <a
               class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
               href="#slide-1"
@@ -132,24 +120,19 @@
               href="#slide-5"
               >5</a
             >
-            <a
-              class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
-              href="#slide-6"
-              >6</a
-            >
           </div>
         </div>
         <!-- End body content -->
 
         <!--Footer-->
-        <div class="flex justify-end pt-2">
+        <div class="flex justify-end">
           <button
-            class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
+            class="px-4 bg-transparent py-2 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 mr-2"
           >
             Đăng
           </button>
           <button
-            class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
+            class="modal-close px-4 bg-indigo-500 rounded-lg text-white hover:bg-indigo-400"
             @click="toggleModal"
           >
             Đóng

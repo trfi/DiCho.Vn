@@ -2,7 +2,11 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        '9/10': '90%',
+      },
+    },
     opacity: {
       0: '0',
       25: '.25',

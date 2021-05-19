@@ -1,20 +1,18 @@
 <template>
-  <header
-    class="fixed z-50 top-0 right-0 left-0 border-b bg-white border-gray-200"
-  >
+  <div class="border-b w-full bg-white shadow-lg border-gray-200">
     <div class="max-w-screen-2xl w-full px-10 mx-auto">
       <div class="flex items-center justify-between h-16">
         <!-- left -->
         <div class="flex items-center">
-          <a href="#" class="flex w-44 items-center">
-            <img src="~/assets/images/logo.png" class="object-contain" alt="" />
-          </a>
+          <nuxt-link to="/">
+            <img src="~/assets/images/logo.png" class="w-44" alt="" />
+          </nuxt-link>
           <div class="w-14"></div>
           <div class="w-full relative hidden lg:block">
             <input
               type="text"
               placeholder="Tìm kiếm"
-              class="bg-gray-50 rounded-md text-base pl-4 py-2 text-gray-900 outline-none"
+              class="bg-gray-100 rounded-md text-base pl-4 py-2 text-gray-900 outline-none"
               style="width: 300px"
             />
             <button
@@ -172,7 +170,7 @@
       </div>
     </div>
     <ModalPost />
-  </header>
+  </div>
 </template>
 
 <script>
