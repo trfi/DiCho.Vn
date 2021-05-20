@@ -1,5 +1,5 @@
 <template>
-  <div class="py-8 px-8 md:w-3/4 w-full lg:mr-28">
+  <div class="xl:mx-10 w-full h-full mb-10">
     <div class="w-full flex items-center justify-between pt-4">
       <ol class="text-left whitespace-nowrap flex">
         <li
@@ -199,7 +199,8 @@
           </div>
         </div>
       </div>
-      <div class="pl-3 w-1/3 relative">
+      <!-- O ben -->
+      <div class="flex flex-col ml-8 pl-3 w-1/3 relative">
         <div class="">
           <a
             class="flex hover:no-underline py-2 border-t border-b border-solid border-gray-400"
@@ -273,3 +274,9 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  layout: 'client-sidebar',
+}
+</script>

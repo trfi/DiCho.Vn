@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-8 px-8 md:w-3/4 w-full">
+  <div class="w-full h-full mx-auto xl:w-3/4">
     <div class="w-full flex items-center">
       <div
         class="flex items-center p-1.5 border border-gray-900 border-solid rounded-md mr-2"
@@ -76,7 +76,7 @@
         <span>Xem tất cả</span>
       </a>
     </div>
-    <div class="py-8 relatvie p-0">
+    <div class="py-8 flex flex-col p-0">
       <div class="category-shadow py-4 border-solid border-b border-gray-400">
         <div class="hover:no-underline">
           <div class="flex flex-row items-center justify-start">
@@ -236,9 +236,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="flex items-center justify-center py-3 flex-wrap">
+      <div class="flex items-center justify-center pt-6 flex-wrap">
         <a
           href=""
           class="rounded-md bg-blue border border-solid border-gray-800 p-1.5 inline mr-1.5"
@@ -337,7 +335,9 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  layout: 'client-sidebar',
+}
 </script>
 
 <style scoped>

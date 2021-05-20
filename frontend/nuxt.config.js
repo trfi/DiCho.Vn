@@ -58,4 +58,11 @@ export default {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
   },
+  privateRuntimeConfig: {},
+  publicRuntimeConfig: {
+    S3AccessKey: process.env.S3_ACCESS_KEY_ID || 'accessKey test',
+    S3SecretKey: process.env.S3_SECRET_ACCESS_KEY,
+    S3BucketName: process.env.S3_BUCKET_NAME,
+    AWSUrl: process.env.AWS_URL,
+  },
 }
