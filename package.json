@@ -22,7 +22,10 @@
     "core-js": "^3.9.1",
     "graphql-tag": "^2.12.4",
     "nuxt": "^2.15.3",
-    "uikit": "^3.6.20"
+    "nuxt-buefy": "^0.4.7",
+    "uikit": "^3.6.20",
+    "vue-pagination-2": "^3.0.9",
+    "vuejs-paginate": "^2.1.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

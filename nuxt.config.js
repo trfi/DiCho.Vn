@@ -46,6 +46,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/apollo',
     '@nuxtjs/cloudinary',
+    'nuxt-buefy',
   ],
 
   cloudinary: {

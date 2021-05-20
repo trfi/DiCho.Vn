@@ -1,8 +1,9 @@
 query categories {
   categories {
+    id
     title
     slug
-    path
     children
+    types
   }
 }

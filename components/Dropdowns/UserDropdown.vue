@@ -39,6 +39,7 @@
       <a
         href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700 hover:text-purple-500 hover:scale-110"
+        @click="editUser()"
       >
         <span
           class="iconify"
@@ -53,10 +54,15 @@
 import { createPopper } from '@popperjs/core'
 
 export default {
+  components: {},
+
   data() {
     return {
       dropdownPopoverShow: false,
     }
+  },
+  mounted() {
+    console.log(this.user)
   },
   methods: {
     toggleDropdown(event) {

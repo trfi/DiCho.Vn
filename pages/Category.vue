@@ -9,6 +9,11 @@
 import CardCategory from '@/components/Cards/CardCategory.vue'
 
 export default {
+  //  apollo: {
+  //     Categorys: {
+
+  //     }
+  //  },
   components: {
     CardCategory,
   },

@@ -28,7 +28,27 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Hình ảnh/ Tên
+              Thứ tự
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              Hình ảnh
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+              :class="[
+                color === 'light'
+                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
+              ]"
+            >
+              Tên
             </th>
             <th
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -122,23 +142,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users.users" :key="user.id">
+          <tr v-for="(user, index) in users.users" :key="user.id">
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{ index + 1 }}
+            </td>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
               <img
-                :src="bootstrap"
+                :src="user.avatar"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
               />
-              <span
-                class="ml-3 font-bold"
-                :class="[
-                  color === 'light' ? 'text-blueGray-600' : 'text-white',
-                ]"
-              >
-                {{ user.name }}
-              </span>
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{ user.name }}
             </td>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
@@ -183,19 +205,41 @@
               {{ user.followingCount }}
             </td>
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
-              <User-Dropdown />
+              <div class="w-32 h-16 flex items-center justify-between">
+                <button class="text-gray-300">
+                  <span
+                    class="iconify text-3xl"
+                    data-icon="carbon:add"
+                    data-inline="false"
+                  ></span>
+                </button>
+                <button class="text-gray-300" @click="editUser(user)">
+                  <span
+                    class="iconify text-2xl"
+                    data-icon="clarity:edit-line"
+                    data-inline="false"
+                  ></span>
+                </button>
+                <button class="text-gray-300" @click="deleteUser(user, index)">
+                  <span
+                    class="iconify text-2xl"
+                    data-icon="feather:trash-2"
+                    data-inline="false"
+                  ></span>
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <User-Modal></User-Modal>
+    <Del-User :users="users"></Del-User>
   </div>
 </template>
 <script>
-import UserDropdown from '@/components/Dropdowns/UserDropdown.vue'
-
 import bootstrap from '@/assets/img/bootstrap.jpg'
 import angular from '@/assets/img/angular.jpg'
 import sketch from '@/assets/img/sketch.jpg'
@@ -217,7 +261,8 @@ export default {
     },
   },
   components: {
-    UserDropdown,
+    UserModal: () => import('@/components/Modals/UserModal'),
+    DelUser: () => import('@/components/Modals/DelUser'),
   },
   props: {
     color: {
@@ -236,16 +281,24 @@ export default {
       react,
       vue,
       team1,
+      modal: false,
       team2,
       team3,
       team4,
+      dropdown: false,
     }
   },
-  mounted() {
-    console.log(this.users)
-    // this.users.forEach((element) => {
-    //   console.log(element)
-    // })
+  mounted() {},
+  methods: {
+    clickCallback(pageNum) {
+      console.log(pageNum)
+    },
+    editUser(user) {
+      this.$eventBus.$emit('click', this.modal, user)
+    },
+    deleteUser(user, index) {
+      this.$eventBus.$emit('delUser', this.modal, user, index)
+    },
   },
 }
 </script>

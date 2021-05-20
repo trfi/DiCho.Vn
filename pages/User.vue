@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import CardUser from '~/components/Cards/CardUser.vue'
+import CardUser from '@/components/Cards/CardUser.vue'
 
 export default {
   //  apollo: {

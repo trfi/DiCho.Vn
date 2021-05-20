@@ -37,47 +37,47 @@
 </template>
 <script>
 export default {
-  name: "card-stats",
+  name: 'CardStats',
   props: {
     statSubtitle: {
       type: String,
-      default: "Traffic",
+      default: 'Traffic',
     },
     statTitle: {
       type: String,
-      default: "350,897",
+      default: '350,897',
     },
     statArrow: {
-      default: "up",
-      validator: function (value) {
+      default: 'up',
+      validator(value) {
         // The value must match one of these strings
-        return ["up", "down"].indexOf(value) !== -1;
+        return ['up', 'down'].includes(value)
       },
     },
     statPercent: {
       type: String,
-      default: "3.48",
+      default: '3.48',
     },
     // can be any of the text color utilities
     // from tailwindcss
     statPercentColor: {
       type: String,
-      default: "text-emerald-500",
+      default: 'text-emerald-500',
     },
     statDescripiron: {
       type: String,
-      default: "Since last month",
+      default: 'Since last month',
     },
     statIconName: {
       type: String,
-      default: "far fa-chart-bar",
+      default: 'far fa-chart-bar',
     },
     // can be any of the background color utilities
     // from tailwindcss
     statIconColor: {
       type: String,
-      default: "bg-red-500",
+      default: 'bg-red-500',
     },
   },
-};
+}
 </script>

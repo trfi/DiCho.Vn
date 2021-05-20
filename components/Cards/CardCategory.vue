@@ -28,7 +28,7 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Hình ảnh/ Tên
+              Thứ tự
             </th>
             <th
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -38,7 +38,7 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Tên người dùng
+              Tiêu đề
             </th>
             <th
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -48,7 +48,7 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Số điện thoại
+              Slug
             </th>
             <th
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -58,7 +58,7 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Email
+              Danh mục con
             </th>
             <th
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -68,47 +68,7 @@
                   : 'bg-emerald-800 text-emerald-300 border-emerald-700',
               ]"
             >
-              Vai trò
-            </th>
-            <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              :class="[
-                color === 'light'
-                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-              ]"
-            >
-              Lượt thích
-            </th>
-            <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              :class="[
-                color === 'light'
-                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-              ]"
-            >
-              Bình luận
-            </th>
-            <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              :class="[
-                color === 'light'
-                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-              ]"
-            >
-              Người theo dõi
-            </th>
-            <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              :class="[
-                color === 'light'
-                  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
-                  : 'bg-emerald-800 text-emerald-300 border-emerald-700',
-              ]"
-            >
-              Đang theo dõi
+              Loại danh mục
             </th>
 
             <th
@@ -122,80 +82,42 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr v-for="user in users.users" :key="user.id">
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
-            >
-              <img
-                :src="bootstrap"
-                class="h-12 w-12 bg-white rounded-full border"
-                alt="..."
-              />
-              <span
-                class="ml-3 font-bold"
-                :class="[
-                  color === 'light' ? 'text-blueGray-600' : 'text-white',
-                ]"
-              >
-                {{ user.name }}
-              </span>
-            </td>
+          <tr v-for="(category, index) in categories" :key="category.id">
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
-              {{ user.username }}
+              {{ index + 1 }}
             </td>
+            <Show-Cate :category="category"></Show-Cate>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
-              {{ user.phone }}
+              {{ category.slug }}
             </td>
+
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
-              {{ user.email }}
+              <select id="select" class="text-gray-900">
+                <option
+                  v-for="(cate, i) in category.types"
+                  :key="cate[i]"
+                  class="text-gray-900"
+                  :value="cate"
+                >
+                  {{ cate }}
+                </option>
+              </select>
             </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-            >
-              {{ user.role }}
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-            >
-              {{ user.likes.length }}
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-            >
-              {{ user.comments.length }}
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-            >
-              <i class="fas fa-circle text-orange-500 mr-2"></i>
-              {{ user.followerCount }}
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-            >
-              <i class="fas fa-circle text-orange-500 mr-2"></i>
-              {{ user.followingCount }}
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
-            >
-              <Table-Dropdown />
-            </td>
-          </tr> -->
+          </tr>
         </tbody>
       </table>
     </div>
+    <User-Modal></User-Modal>
+    <Del-User></Del-User>
   </div>
 </template>
 <script>
-// import CategoryDropdown from '@/components/Dropdowns/CategoryDropdown.vue'
-
 import bootstrap from '@/assets/img/bootstrap.jpg'
 import angular from '@/assets/img/angular.jpg'
 import sketch from '@/assets/img/sketch.jpg'
@@ -207,7 +129,7 @@ import team2 from '@/assets/img/team-2-800x800.jpg'
 import team3 from '@/assets/img/team-3-800x800.jpg'
 import team4 from '@/assets/img/team-4-470x470.png'
 
-import queryCategories from '@/apollo/queries/category'
+import queryCategories from '@/apollo/queries/categories'
 
 export default {
   apollo: {
@@ -217,7 +139,9 @@ export default {
     },
   },
   components: {
-    // CategoryDropdown,
+    UserModal: () => import('@/components/Modals/UserModal'),
+    DelUser: () => import('@/components/Modals/DelUser'),
+    ShowCate: () => import('@/components/ShowCate'),
   },
   props: {
     color: {
@@ -236,13 +160,30 @@ export default {
       react,
       vue,
       team1,
+      modal: false,
       team2,
       team3,
       team4,
+      dropdown: false,
+      show: false,
     }
   },
-  mounted() {
-    console.log(this.category)
+
+  methods: {
+    clickCallback(pageNum) {
+      console.log(pageNum)
+    },
+    editUser(user) {
+      this.$eventBus.$emit('click', this.modal, user)
+    },
+    deleteUser(user, index) {
+      this.$eventBus.$emit('delUser', this.modal, user, index)
+    },
+    showIndex(cate) {
+      console.log(cate)
+      console.log(this.show)
+      this.$eventBus.$emit('showCate', cate, this.show)
+    },
   },
 }
 </script>
