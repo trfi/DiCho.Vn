@@ -1,12 +1,7 @@
 <template>
-  <div class="mx-auto">
-    <div class="px-5 py-8 border border-black">
-      <S3FileUpload
-        :obj="obj"
-        label="label"
-        field-name="fieldName"
-        directory="pi"
-      />
+  <div class="mx-auto w-full">
+    <div class="px-5 py-8 border w-full border-black">
+      <UploadDropzone />
     </div>
     <div class="px-5 py-8 border border-black">
       <div>

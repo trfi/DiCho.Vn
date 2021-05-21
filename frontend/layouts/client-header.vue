@@ -9,7 +9,7 @@
           class="flex w-full h-full bg-white overflow-x-hidden overflow-y-hidden mb-14"
         >
           <div class="flex h-full w-full mx-auto px-6 py-8">
-            <Nuxt />
+            <client-only><Nuxt /></client-only>
           </div>
         </main>
       </div>
