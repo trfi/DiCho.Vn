@@ -8,6 +8,7 @@ export * as Comment from "./Comment"
 export * as Like from "./Like"
 export * as Message from "./Message"
 export * as Chat from "./Chat"
+export * as Category from "./Category"
 
 // Union Resolver
 export const MessageResult = {

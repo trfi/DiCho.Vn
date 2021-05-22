@@ -126,7 +126,7 @@ input PostInput {
   title: String
   images: [String]
   thumbnail: String
-  categoryId: String
+  categoryId: StartsWith
   type: Type
   address: String
   content: String
@@ -137,10 +137,10 @@ input PostInput {
   ward: Int
   price: Int
   like: Int
-  cateIdStartsWith: StartsWith
 }
 
 input StartsWith {
+  equals: ID
   startsWith: String
 }
 
