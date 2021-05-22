@@ -18,23 +18,28 @@ export async function signup(_, args, context) {
 }
 
 export async function login(_, args, { prisma }) {
-  const user = await prisma.user.findUnique({
-    where: { phone: args.phone }
-  });
-  if (!user) {
-    throw new ValidationError('No such user found');
+  try {
+    const user = await prisma.user.findUnique({
+      where: { phone: args.phone }
+    });
+    if (!user) {
+      return new ValidationError('No such user found');
+    }
+  
+    const valid = Crypto.compare(args.password, user.password);
+    if (!valid) {
+      return new AuthenticationError('Invalid password');
+    }
+    const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '90d' });
+  
+    return {
+      token,
+      user
+    }
+  } catch (e) {
+    console.error(e)
+    return new Error(e)
   }
-
-  const valid = Crypto.compare(args.password, user.password);
-  if (!valid) {
-    throw new AuthenticationError('Invalid password');
-  }
-  const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '90d' });
-
-  return {
-    token,
-    user
-  };
 }
 
 export async function updateUser(_, { id, data }, { prisma }) {

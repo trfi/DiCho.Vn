@@ -11,7 +11,7 @@ type Query {
     orderBy: PostOrderByInput
     take: Int
     pagination: PaginationInput
-  ): PostCount!
+  ): [Post]!
   post(where: WereId!): Post!
   feed(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): Feed!
   commentByUser(userId: String!): [Comment!]!

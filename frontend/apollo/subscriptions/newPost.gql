@@ -1,0 +1,23 @@
+subscription newPost {
+  newPost {
+    id
+    title
+    thumbnail
+    postedBy {
+      id
+      name
+    }
+    price
+    likeCount
+    commentCount
+    userLiked
+    comments {
+      id
+      content
+      user {
+        id
+        name
+      }
+    }
+  }
+}

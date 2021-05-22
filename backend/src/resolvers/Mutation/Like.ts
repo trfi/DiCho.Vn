@@ -10,7 +10,7 @@ export async function like(_, { postId }, { prisma, user, pubsub }) {
           connect: { id: postId }
         }
       }
-    });
+    })
     const increLike = prisma.post.update({
       where: { id: postId },
       data: {

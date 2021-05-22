@@ -126,13 +126,13 @@
 
         <!--Footer-->
         <div class="flex justify-end">
-          <button
+          <!-- <button
             class="px-4 bg-transparent py-2 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 mr-2"
           >
             Đăng
-          </button>
+          </button> -->
           <button
-            class="modal-close px-4 bg-indigo-500 rounded-lg text-white hover:bg-indigo-400"
+            class="modal-close px-4 py-2 bg-indigo-500 rounded-lg text-white hover:bg-indigo-400"
             @click="toggleModal"
           >
             Đóng

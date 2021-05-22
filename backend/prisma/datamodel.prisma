@@ -1,0 +1,67 @@
+type User {
+    id: ID! @id
+    phone: String! @unique
+    password: String!
+    phoneVerified: Boolean @default(value: false)
+    email: String @unique
+    emailVerified: Boolean
+    name: String
+    username: String
+    avatar: String
+    gender: Gender
+    birthday: DateTime
+    address: String
+    role: Role
+    posts: [Post!]! @relation(name: "PostsByUser", link: INLINE, onDelete: SET_NULL)
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
+}
+type Post {
+    id: ID! @id
+    title: String!
+    thumbnail: String!
+    category: Category! @relation(name: "PostsByCategory")
+    broker: Boolean! @default(value: false)
+    params: Params!
+    region: Int!
+    area: Int!
+    ward: Int!
+    price: Int!
+    postDetail: PostDetail!
+    poster: User! @relation(name: "PostsByUser", onDelete: SET_NULL)
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
+}
+type PostDetail @embedded {
+    images: [String!]
+    content: String!
+    address: String!
+}
+type Params @embedded {
+    acreage: Int
+    rooms: Int
+}
+type Category {
+    id: ID! @id
+    cateId: Post! @relation(name: "PostsByCategory", link: INLINE)
+    title: String!
+    slug: String!
+    path: String
+    created: DateTime! @createdAt
+    updated: DateTime! @updatedAt
+}
+enum Types {
+    B
+    S
+    R
+    L
+}
+enum Gender {
+    M
+    F
+    O
+}
+enum Role {
+    ADMIN
+    MODERATOR
+}

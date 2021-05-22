@@ -238,27 +238,29 @@ export default {
     this.isAuthenticated = !!this.$apolloHelpers.getToken()
   },
   methods: {
-    async login() {
+    login() {
       this.submitting = true
       const credentials = this.credentials
-      try {
-        const res = await this.$apollo
-          .mutate({
-            mutation: authenticateUserGql,
-            variables: credentials,
-          })
-          .then(({ data }) => data && data.login)
-        await this.$apolloHelpers.onLogin(res.token, undefined, { expires: 7 })
-        this.$root.$data.user = res.user
-        localStorage.setItem('userId', res.user.id)
-        localStorage.setItem('userName', res.user.name)
-        this.successfulData = res
-        this.isAuthenticated = true
-        this.$router.push('/feed')
-      } catch (e) {
-        console.error(e)
-        this.error = e
-      }
+      this.$apollo
+        .mutate({
+          mutation: authenticateUserGql,
+          variables: credentials,
+        })
+        .then(async ({ data }) => {
+          const res = data && data.login
+          if (res?.token) {
+            await this.$apolloHelpers.onLogin(res.token, undefined, {
+              expires: 7,
+            })
+            this.$root.$data.user = res.user
+            localStorage.setItem('userId', res.user.id)
+            localStorage.setItem('userName', res.user.name)
+            this.successfulData = res
+            this.isAuthenticated = true
+            this.$router.push('/feed')
+          }
+        })
+        .catch((err) => alert(err))
     },
     async onLogout() {
       await this.$apolloHelpers.onLogout()

@@ -1,0 +1,43 @@
+scalar DateTime
+
+type User {
+    id: ID!
+    phone: String!
+    email: String
+    name: String
+    username: String
+    avatar: String
+    gender: Gender
+    birthday: DateTime
+    address: String
+    role: Role
+}
+type Token {
+    token: String!
+}
+type Query {
+    signIn(phone: String!, password: String!): Token!
+    getUser(id: ID!): User!
+    me: User!
+}
+input UserCreateInput {
+    phone: String!
+    password: String!
+    email: String
+    name: String
+    gender: Gender
+}
+type Mutation {
+    signUp(phone: String!, password: String!, email: String, name: String, 
+    username: String, gender: Gender, birthday: DateTime): Token
+}
+enum Gender {
+    M
+    F
+    O
+}
+enum Role {
+    ADMIN
+    MODERATOR
+    USER
+}

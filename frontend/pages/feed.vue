@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-2xl mx-auto my-10 flex">
-    <div class="w-full h-32 relative">
+  <div class="max-w-2xl w-full mx-auto flex">
+    <div class="w-full">
       <div class="w-full rounded-md bg-gray-50 mb-4">
         <div class="py-6">
           <div class="w-full flex items-center px-5">
@@ -37,7 +37,7 @@
 
       <!-- Start post -->
       <div
-        v-for="(post, index) in posts.posts"
+        v-for="(post, index) in posts"
         :key="post.id"
         class="w-full rounded-md bg-white mb-7"
       >
@@ -77,100 +77,92 @@
               .replace(/ /g, '-')
               .replace(/[^\w-]+/g, '')}/${post.id}`"
           >
-            <!-- <img
-              src="~/assets/images/content/1.jpg"
+            <img
+              :src="`https://dicho.s3-ap-southeast-1.amazonaws.com/pi/${post.thumbnail}.jpg`"
               class="object-cover w-full h-full rounded-3xl"
-              style="min-height: 250px; height: 250px"
+              style="min-height: 250px; height: 320px"
               alt=""
-            /> -->
-            <cld-image
-              :public-id="post.thumbnail"
-              width="800"
-              crop="fill"
-              gravity="auto:subject"
-              fetch-format="auto"
-              quality="auto"
-              class="object-cover max-w-3xl w-full h-full rounded-3xl"
-              alt="An image example with Cloudinary"
             />
-            <div class="absolute bottom-4 left-0 px-4 w-full flex items-center">
-              <!-- Tim -->
-              <div
-                :class="[
-                  post.userLiked
-                    ? 'bg-red-600 opacity-85'
-                    : 'bg-gray-700 opacity-85',
-                ]"
-                class="w-28 flex items-center px-2 py-1 rounded-2xl mr-2"
-                @click.prevent="like(post.id, post.userLiked, index)"
-              >
-                <span
-                  class="iconify text-white pl-2 absolute"
-                  data-icon="mdi:cards-heart"
-                  data-inline="false"
-                  data-width="27"
-                ></span>
-                <div>
-                  <span class="mx-auto pl-9 pr-5 text-white">{{
-                    post.likeCount
-                  }}</span>
-                </div>
-              </div>
-              <!-- Tim end -->
-              <!-- Comment -->
-              <div
-                class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
-                :uk-toggle="`target: #post-comment-${post.id}; animation: uk-animation-slide-bottom-medium`"
-              >
-                <span
-                  class="iconify text-white pl-2 absolute"
-                  data-icon="bx:bxs-comment-detail"
-                  data-inline="false"
-                  data-width="27"
-                ></span>
-                <div>
-                  <span class="mx-auto pl-9 pr-5 text-white">{{
-                    post.commentCount
-                  }}</span>
-                </div>
-              </div>
-              <!-- Comment End -->
-              <!-- Price -->
-              <div
-                class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
-              >
-                <span
-                  class="iconify text-white pl-2 absolute"
-                  data-icon="ri-money-dollar-circle-fill"
-                  data-inline="false"
-                  data-width="27"
-                ></span>
-                <div>
-                  <span class="mx-auto pl-9 pr-5 text-white">{{
-                    post.price
-                  }}</span>
-                </div>
-              </div>
-              <!-- Price End -->
-              <div class="w-full flex flex-row-reverse">
-                <span
-                  class="iconify text-white"
-                  data-icon="bx:bx-share"
-                  data-inline="false"
-                ></span>
+          </NuxtLink>
+          <div
+            class="absolute bottom-4 left-0 px-4 w-full flex items-center cursor-pointer"
+          >
+            <!-- Tim -->
+            <div
+              :class="[
+                post.userLiked
+                  ? 'bg-red-600 opacity-85'
+                  : 'bg-gray-700 opacity-85',
+              ]"
+              class="w-28 flex items-center px-2 py-1 rounded-2xl mr-2"
+              @click.prevent="like(post.id, post.userLiked, index)"
+            >
+              <span
+                class="iconify text-white pl-2 absolute"
+                data-icon="mdi:cards-heart"
+                data-inline="false"
+                data-width="27"
+              ></span>
+              <div>
+                <span class="mx-auto pl-9 pr-5 text-white">{{
+                  post.likeCount
+                }}</span>
               </div>
             </div>
-          </NuxtLink>
+            <!-- Tim end -->
+            <!-- Comment -->
+            <div
+              class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2 cursor-pointer"
+              :uk-toggle="`target: #post-comment-${post.id}; animation: uk-animation-slide-bottom-medium`"
+            >
+              <span
+                class="iconify text-white pl-2 absolute"
+                data-icon="bx:bxs-comment-detail"
+                data-inline="false"
+                data-width="27"
+              ></span>
+              <div>
+                <span class="mx-auto pl-9 pr-5 text-white">{{
+                  post.commentCount
+                }}</span>
+              </div>
+            </div>
+            <!-- Comment End -->
+            <!-- Price -->
+            <div
+              class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
+            >
+              <span
+                class="iconify text-white pl-2 absolute"
+                data-icon="ri-money-dollar-circle-fill"
+                data-inline="false"
+                data-width="27"
+              ></span>
+              <div>
+                <span class="mx-auto pl-9 pr-5 text-white">{{
+                  post.price
+                }}</span>
+              </div>
+            </div>
+            <!-- Price End -->
+            <div class="w-full flex flex-row-reverse">
+              <span
+                class="iconify text-white"
+                data-icon="bx:bx-share"
+                data-inline="false"
+              ></span>
+            </div>
+          </div>
         </div>
 
         <!-- Comment Post -->
         <div :id="`post-comment-${post.id}`" class="py-3 px-4 space-y-3" hidden>
           <div
-            v-if="Object.keys(posts.posts[index].comments).length !== 0"
+            v-if="Object.keys(posts[index].comments).length !== 0"
             class="border-t pt-4 dark:border-gray-600"
           >
             <div
-              v-for="comment in posts.posts[index].comments"
+              v-for="comment in posts[index].comments"
               :key="comment.id"
               class="flex mb-4"
             >
@@ -199,7 +191,7 @@
             <input
               type="text"
               placeholder="Add your Comment.."
-              class="bg-transparent w-full px-5 py-6 max-h-10 shadow-none"
+              class="bg-transparent w-full px-5 py-6 max-h-10 shadow-none focus:outline-none"
               @keyup.enter="addComment(post.id, $event.target, index)"
             />
             <div
@@ -234,6 +226,7 @@ import feedQuery from '~/apollo/queries/feed'
 import like from '~/apollo/mutations/like'
 import unlike from '~/apollo/mutations/unlike'
 import commentMutaion from '~/apollo/mutations/comment'
+import newPostSubcribe from '~/apollo/subscriptions/newPost'
 
 export default {
   layout: 'client',
@@ -246,14 +239,32 @@ export default {
   },
   created() {
     this.$eventBus.$on('addNewPost', (data) => {
+      console.log(data)
       console.log(data.addPost)
-      // this.posts.posts.unshift(data.addPost)
+      console.log(this.posts)
+      this.posts.unshift(data.addPost)
     })
   },
   apollo: {
     posts: {
       prefetch: true,
       query: feedQuery,
+      update: (data) => data.posts.posts,
+      subscribeToMore: {
+        document: newPostSubcribe,
+        // Mutate the previous result
+        updateQuery: (previousResult, { subscriptionData }) => {
+          // Here, return the new result from the previous with the new data
+          console.log(previousResult)
+          console.log(subscriptionData)
+          return {
+            posts: [
+              ...previousResult.posts.posts,
+              subscriptionData.data.newPost,
+            ],
+          }
+        },
+      },
     },
   },
   methods: {
@@ -270,8 +281,8 @@ export default {
         const likeCount = userLiked
           ? res.unlike.post.likeCount
           : res.like.post.likeCount
-        this.posts.posts[index].likeCount = likeCount
-        this.posts.posts[index].userLiked = !userLiked
+        this.posts[index].likeCount = likeCount
+        this.posts[index].userLiked = !userLiked
       } catch (e) {
         console.error(e)
         this.error = e
@@ -287,8 +298,8 @@ export default {
           })
           .then(({ data }) => data)
         console.log(res)
-        this.posts.posts[index].comments.push(res.addComment.comment)
-        this.posts.posts[index].commentCount = res.addComment.post.commentCount
+        this.posts[index].comments.push(res.addComment.comment)
+        this.posts[index].commentCount = res.addComment.post.commentCount
         element.value = ''
       } catch (e) {
         console.error(e)

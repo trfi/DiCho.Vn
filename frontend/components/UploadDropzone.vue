@@ -3,8 +3,8 @@
     <!-- https://dicho.s3.ap-southeast-1.amazonaws.com/pi/60a781790f9076b22214a69a.jpeg -->
     <!-- Not displayed, just for Dropzone's `dictDefaultMessage` option -->
     <div id="dropzone-message" style="display: none">
-      <span class="dropzone-title">Drop files here or click to select</span>
-      <span class="dropzone-info">You can upload multiple files at once</span>
+      <span class="dropzone-title">Chọn tệp tin hoặc kéo thả vào đây</span>
+      <span class="dropzone-info">Bạn có thể tải lên nhiều ảnh cùng lúc</span>
     </div>
   </form>
 </template>
@@ -12,13 +12,57 @@
 <script>
 import Dropzone from 'dropzone'
 import '../node_modules/dropzone/dist/dropzone.css'
-import lambda from '../lambda'
+import { getSignedURL, slug } from '../lambda'
 
 Dropzone.autoDiscover = false
 
 export default {
   name: 'UploadDropzone',
+  model: {
+    prop: 'uploadResult',
+    event: 'uploadResultChange',
+  },
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    folder: {
+      type: String,
+      default: '',
+    },
+    fileType: {
+      type: String,
+      default: 'image',
+    },
+    uploadResult: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      fileType_: this.fileType,
+    }
+  },
+  computed: {
+    uploadResult_: {
+      get() {
+        return this.uploadResult
+      },
+      set(value) {
+        this.$emit('uploadResultChange', value)
+      },
+    },
+  },
   mounted() {
+    let fileNameIncre = 0
+    function genFileName(title) {
+      fileNameIncre += 1
+      return `${slug(title)}-${Math.floor(Date.now() / 1000).toString(
+        16
+      )}-${fileNameIncre}`
+    }
     const vm = this
     const options = {
       // The URL will be changed for each new file being processing
@@ -52,13 +96,16 @@ export default {
 
       // Here we request a signed upload URL when a file being accepted
       accept(file, done) {
-        const fileExtension = file.type.split('/')[1]
-        const dirName = 'pi'
-        file.path = `${dirName}/${lambda.objectId()}.${fileExtension}`
-        lambda
-          .getSignedURL(file)
+        let fileExtension
+        if (vm.fileType_ === 'image') {
+          fileExtension = 'jpg'
+        } else fileExtension = file.type.split('/')[1]
+
+        file.fileName = genFileName(vm.title)
+        file.path = `${vm.folder}/${file.fileName}.${fileExtension}`
+        console.log(file.path)
+        getSignedURL(file)
           .then((url) => {
-            console.log(url)
             file.uploadURL = url
             done()
             // Manually process each file
@@ -76,6 +123,10 @@ export default {
     // Set signed upload URL for each file
     vm.dropzone.on('processing', (file) => {
       vm.dropzone.options.url = file.uploadURL
+    })
+    vm.dropzone.on('success', (file) => {
+      console.log('success', file.fileName)
+      this.uploadResult_.push(file.fileName)
     })
   },
 }

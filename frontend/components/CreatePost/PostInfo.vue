@@ -95,12 +95,19 @@
 
         <div class="relative z-0 w-full mb-5">
           <h1 class="text-lg mb-3">Hình ảnh</h1>
-          <UploadImage
+          <!-- <UploadImage
             :upload-success.sync="uploadSuccess"
             :images.sync="images"
             folder="pi"
-          />
-          <p v-if="uploadSuccess">Tải ảnh thành công</p>
+          /> -->
+          <client-only>
+            <UploadDropzone
+              :upload-result.sync="uploadResult"
+              folder="pi"
+              :title="title"
+            />
+          </client-only>
+          <!-- <p v-if="uploadSuccess">Tải ảnh thành công</p> -->
         </div>
 
         <button
@@ -126,7 +133,10 @@ export default {
     event: 'update',
   },
   props: {
-    postDraft: Object,
+    postDraft: {
+      type: Object,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -135,7 +145,7 @@ export default {
       content: '',
       price: 0,
       broker: false,
-      images: [],
+      uploadResult: [],
       uploadSuccess: false,
       postDraftLocal: this.postDraft,
     }
@@ -153,7 +163,7 @@ export default {
         content: this.content,
         price: Number(this.price),
         broker: this.broker,
-        images: this.images,
+        images: this.uploadResult,
       }
       console.log(data)
       this.postDraftLocal = data
@@ -177,21 +187,25 @@ export default {
         el.classList.toggle('text-red-600')
       })
     },
+    toggleModal() {
+      const body = document.querySelector('body')
+      const modal = document.querySelector('.modal')
+      modal.classList.toggle('opacity-0')
+      modal.classList.toggle('pointer-events-none')
+      body.classList.toggle('modal-active')
+    },
     async addPost(data) {
       try {
-        const res = await this.$apollo
+        const result = await this.$apollo
           .mutate({
             mutation: addPost,
             variables: data,
           })
           .then(({ data }) => data)
-        console.log(res)
-        this.$uikit.notification({
-          message: 'Đăng thành công',
-          status: 'success',
-        })
-        this.$uikit.modal('#post-modal').hide()
-        this.$eventBus.$emit('addNewPost', res)
+        console.log(result)
+        alert('Đăng Thành công')
+        this.$eventBus.$emit('addNewPost', result)
+        this.toggleModal()
       } catch (e) {
         console.error(e)
         this.error = e

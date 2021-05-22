@@ -164,7 +164,7 @@ export default {
       )
         .then((res) => res.json())
         .catch((err) => console.log(err))
-      this.wards = result.wards
+      this.wards = result?.wards || 0
     },
     pickWard(event) {
       this.ward = event.target.selectedOptions[0].attributes.ward_id.value

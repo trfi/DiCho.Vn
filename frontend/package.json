@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "frontend",
   "version": "1.0.0",
   "private": true,
@@ -17,6 +18,8 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/cloudinary": "*",
     "@soda/get-current-script": "^1.0.2",
+    "apollo-link-ws": "^1.0.20",
+    "apollo-utilities": "^1.3.4",
     "core-js": "^3.9.1",
     "dropzone": "^5.9.2",
     "graphql-tag": "^2.12.4",
@@ -40,4 +43,15 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.3"
   }
+=======
+  "name": "dicho-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+>>>>>>> c7931a6ceb9c2370d17803fa4358e69b00ead9dd
 }

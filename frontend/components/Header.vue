@@ -169,7 +169,7 @@
         </div>
       </div>
     </div>
-    <ModalPost />
+    <client-only><ModalPost /></client-only>
   </div>
 </template>
 
