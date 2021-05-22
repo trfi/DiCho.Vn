@@ -11,7 +11,14 @@
           </div>
         </nav>
         <main
-          class="flex flex-col w-full h-full bg-white overflow-x-hidden overflow-y-auto mb-14"
+          class="
+            flex flex-col
+            w-full
+            h-full
+            bg-white
+            overflow-x-hidden overflow-y-auto
+            mb-14
+          "
         >
           <div class="flex w-full mb-6 mx-auto px-6 py-8">
             <client-only><Nuxt /></client-only>
@@ -20,7 +27,14 @@
         <nav class="flex w-72 flex-col h-full bg-white">
           <div class="w-full h-full flex mx-auto px-3 my-3">
             <div
-              class="w-full flex items-center justify-center text-gray-900 text-xl border-4 border-gray-900 border-dashed"
+              class="
+                w-full
+                flex
+                items-center
+                justify-center
+                text-gray-900 text-xl
+                border-4 border-gray-900 border-dashed
+              "
             >
               Rightbar
             </div>

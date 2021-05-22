@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "frontend",
   "version": "1.0.0",
   "private": true,
@@ -32,26 +31,15 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^4.0.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.22.0",
+    "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.7.0",
+    "eslint-plugin-tailwind": "^0.2.1",
     "postcss": "^8.2.8",
     "prettier": "^2.2.1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.3"
   }
-=======
-  "name": "dicho-frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
->>>>>>> c7931a6ceb9c2370d17803fa4358e69b00ead9dd
 }

@@ -2,9 +2,7 @@
   <div class="xl:mx-10 w-full h-full mb-10">
     <div class="w-full flex items-center justify-between pt-4">
       <ol class="text-left whitespace-nowrap flex">
-        <li
-          class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs"
-        >
+        <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">
           <a href="">
             <span class="mr-2">Chợ tốt </span>
           </a>
@@ -14,9 +12,7 @@
             data-inline="false"
           ></span>
         </li>
-        <li
-          class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs"
-        >
+        <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">
           <a href="">
             <span class="mr-2">Toàn quốc </span>
           </a>
@@ -45,7 +41,15 @@
               >6.000.000 - 9.000.000 đ/tháng
             </span>
             <div
-              class="flex items-center px-2 py-1 border border-red-600 border-solid rounded-2xl text-red-600"
+              class="
+                flex
+                items-center
+                px-2
+                py-1
+                border border-red-600 border-solid
+                rounded-2xl
+                text-red-600
+              "
             >
               <button class="mr-1.5 text-base">Lưu tin</button>
               <span
@@ -56,15 +60,12 @@
             </div>
           </div>
           <div class="block">
-            <p
-              class="whitespace-pre-line pt-3 text-justify text-gray-900 text-base"
-            >
-              Hiện tại bên a cần bổ sung gấp nhân viên phụ bán hàng, khách cần
-              gì lấy đó Thời gian: 7h45-~17h được nghĩ trưa 2h 1 tháng nghỉ 4
-              ngày Thu nhập tháng đầu 6tr Các mặt hàng tiêu dùng hàng ngày như :
-              - Nam:dầu gội đầu sữa tắm sữa rửa mặt, cafe kem đánh răng , xịt
-              khử mùi, xịt thơm miệng. - Nữ : dung dịch vệ sinh phụ nữ kem dưỡng
-              ẩm son môi...
+            <p class="whitespace-pre-line pt-3 text-justify text-gray-900 text-base">
+              Hiện tại bên a cần bổ sung gấp nhân viên phụ bán hàng, khách cần gì lấy đó
+              Thời gian: 7h45-~17h được nghĩ trưa 2h 1 tháng nghỉ 4 ngày Thu nhập tháng
+              đầu 6tr Các mặt hàng tiêu dùng hàng ngày như : - Nam:dầu gội đầu sữa tắm sữa
+              rửa mặt, cafe kem đánh răng , xịt khử mùi, xịt thơm miệng. - Nữ : dung dịch
+              vệ sinh phụ nữ kem dưỡng ẩm son môi...
             </p>
           </div>
           <div class="block mt-2">
@@ -75,9 +76,7 @@
                 data-inline="false"
               ></span>
               Số điện thoại:
-              <span class="text-black ml-1" style="font-weight: 600">
-                07888499999</span
-              >
+              <span class="text-black ml-1" style="font-weight: 600"> 07888499999</span>
             </div>
           </div>
         </div>
@@ -183,9 +182,7 @@
         </div>
         <div class="block mt-4">
           <div class="p-2 border-b border-solid border-gray-400">
-            <h3 class="text-base text-gray-700" style="font-weight: 600">
-              Nơi làm việc
-            </h3>
+            <h3 class="text-base text-gray-700" style="font-weight: 600">Nơi làm việc</h3>
           </div>
           <div class="flex items-center mt-2">
             <span
@@ -193,9 +190,7 @@
               data-icon="bx:bx-map"
               data-inline="false"
             ></span>
-            <span class="text-base">
-              Phường Hòa Khê, Quận Thanh Khê, Đà Nẵng</span
-            >
+            <span class="text-base"> Phường Hòa Khê, Quận Thanh Khê, Đà Nẵng</span>
           </div>
         </div>
       </div>
@@ -203,22 +198,37 @@
       <div class="flex flex-col ml-8 pl-3 w-1/3 relative">
         <div class="">
           <a
-            class="flex hover:no-underline py-2 border-t border-b border-solid border-gray-400"
+            class="
+              flex
+              hover:no-underline
+              py-2
+              border-t border-b border-solid border-gray-400
+            "
           >
             <div class="w-12 h-12">
               <img
                 src="https://cdn.chotot.com/uac2/4545832"
                 alt=""
-                class="object-cover w-full rounded-3xl block border-2 border-gray-400 border-solid"
+                class="
+                  object-cover
+                  w-full
+                  rounded-3xl
+                  block
+                  border-2 border-gray-400 border-solid
+                "
               />
             </div>
             <div class="pl-2 w-full">
               <div class="flex items-center justify-between">
-                <span class="text-sm text-black" style="font-weight: 600"
-                  >Mr Tuấn</span
-                >
+                <span class="text-sm text-black" style="font-weight: 600">Mr Tuấn</span>
                 <button
-                  class="py-1 px-2 border border-solid border-yellow-400 rounded-xl text-xs text-yellow-400"
+                  class="
+                    py-1
+                    px-2
+                    border border-solid border-yellow-400
+                    rounded-xl
+                    text-xs text-yellow-400
+                  "
                 >
                   Xem trang
                 </button>
@@ -230,25 +240,33 @@
           </a>
           <div>
             <div class="my-4 text-center">
-              <span class="text-black" style="font-weight: 600"
-                >0877759870</span
-              >
+              <span class="text-black" style="font-weight: 600">0877759870</span>
             </div>
             <div
-              class="my-4 p-2 border-solid border border-gray-400 rounded-md hover:bg-gray-200"
+              class="
+                my-4
+                p-2
+                border-solid border border-gray-400
+                rounded-md
+                hover:bg-gray-200
+              "
             >
               <a
                 href
-                class="flex items-center justify-between text-green-700 hover:no-underline"
+                class="
+                  flex
+                  items-center
+                  justify-between
+                  text-green-700
+                  hover:no-underline
+                "
               >
                 <span
                   class="iconify text-2xl"
                   data-icon="icomoon-free:profile"
                   data-inline="false"
                 ></span>
-                <span class="capitalize" style="font-weight: 600"
-                  >NỘP HỒ SƠ</span
-                >
+                <span class="capitalize" style="font-weight: 600">NỘP HỒ SƠ</span>
               </a>
             </div>
             <div
@@ -256,7 +274,13 @@
             >
               <a
                 href
-                class="flex items-center justify-between text-green-700 hover:no-underline"
+                class="
+                  flex
+                  items-center
+                  justify-between
+                  text-green-700
+                  hover:no-underline
+                "
               >
                 <span
                   class="iconify text-2xl"

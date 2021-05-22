@@ -27,7 +27,7 @@ input PaginationInput {
 }
 
 type PostCount {
-  count: Int!
+  count: Int
   posts: [Post!]!
 }
 

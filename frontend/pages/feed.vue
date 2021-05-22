@@ -13,14 +13,33 @@
             </a>
             <div class="flex flex-grow justify-center items-center">
               <button
-                class="inline-block w-full py-4 mx-4 rounded-sm bg-gray-200 text-sm hover:bg-gray-300"
+                class="
+                  inline-block
+                  w-full
+                  py-4
+                  mx-4
+                  rounded-sm
+                  bg-gray-200
+                  text-sm
+                  hover:bg-gray-300
+                "
                 @click="toggleModal"
               >
                 Đăng bài
               </button>
             </div>
             <div
-              class="rounded-3xl w-8 h-8 bg-gray-200 flex items-center justify-center hover:bg-gray-300 cursor-pointer"
+              class="
+                rounded-3xl
+                w-8
+                h-8
+                bg-gray-200
+                flex
+                items-center
+                justify-center
+                hover:bg-gray-300
+                cursor-pointer
+              "
             >
               <span
                 class="iconify"
@@ -31,7 +50,13 @@
           </div>
         </div>
         <div
-          class="flex flex-row-reverse items-center border-t border-gray-300 border-solid bg-gray-100 px-3"
+          class="
+            flex flex-row-reverse
+            items-center
+            border-t border-gray-300 border-solid
+            bg-gray-100
+            px-3
+          "
         ></div>
       </div>
 
@@ -52,9 +77,7 @@
                 />
               </a>
               <div class="flex flex-col">
-                <a href="" class="text-sm text-black">{{
-                  post.postedBy.name
-                }}</a>
+                <a href="" class="text-sm text-black">{{ post.postedBy.name }}</a>
                 <div class="relative">
                   <a href="" class="text-gray-500 text-xs hover:underline"
                     ><span>18 phút trước</span></a
@@ -90,9 +113,7 @@
             <!-- Tim -->
             <div
               :class="[
-                post.userLiked
-                  ? 'bg-red-600 opacity-85'
-                  : 'bg-gray-700 opacity-85',
+                post.userLiked ? 'bg-red-600 opacity-85' : 'bg-gray-700 opacity-85',
               ]"
               class="w-28 flex items-center px-2 py-1 rounded-2xl mr-2"
               @click.prevent="like(post.id, post.userLiked, index)"
@@ -104,15 +125,24 @@
                 data-width="27"
               ></span>
               <div>
-                <span class="mx-auto pl-9 pr-5 text-white">{{
-                  post.likeCount
-                }}</span>
+                <span class="mx-auto pl-9 pr-5 text-white">{{ post.likeCount }}</span>
               </div>
             </div>
             <!-- Tim end -->
             <!-- Comment -->
             <div
-              class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2 cursor-pointer"
+              class="
+                w-28
+                flex
+                items-center
+                px-2
+                py-1
+                bg-gray-700
+                opacity-85
+                rounded-2xl
+                mr-2
+                cursor-pointer
+              "
               :uk-toggle="`target: #post-comment-${post.id}; animation: uk-animation-slide-bottom-medium`"
             >
               <span
@@ -122,15 +152,23 @@
                 data-width="27"
               ></span>
               <div>
-                <span class="mx-auto pl-9 pr-5 text-white">{{
-                  post.commentCount
-                }}</span>
+                <span class="mx-auto pl-9 pr-5 text-white">{{ post.commentCount }}</span>
               </div>
             </div>
             <!-- Comment End -->
             <!-- Price -->
             <div
-              class="w-28 flex items-center px-2 py-1 bg-gray-700 opacity-85 rounded-2xl mr-2"
+              class="
+                w-28
+                flex
+                items-center
+                px-2
+                py-1
+                bg-gray-700
+                opacity-85
+                rounded-2xl
+                mr-2
+              "
             >
               <span
                 class="iconify text-white pl-2 absolute"
@@ -139,9 +177,7 @@
                 data-width="27"
               ></span>
               <div>
-                <span class="mx-auto pl-9 pr-5 text-white">{{
-                  post.price
-                }}</span>
+                <span class="mx-auto pl-9 pr-5 text-white">{{ post.price }}</span>
               </div>
             </div>
             <!-- Price End -->
@@ -174,14 +210,37 @@
                 />
               </div>
               <div
-                class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20 dark:bg-gray-800 dark:text-gray-100"
+                class="
+                  text-gray-700
+                  py-2
+                  px-3
+                  rounded-md
+                  bg-gray-100
+                  h-full
+                  relative
+                  lg:ml-5
+                  ml-2
+                  lg:mr-20
+                  dark:bg-gray-800
+                  dark:text-gray-100
+                "
               >
                 <p class="leading-6">
                   {{ comment.content }}
                   <i class="uil-grin-tongue-wink"> </i>
                 </p>
                 <div
-                  class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"
+                  class="
+                    absolute
+                    w-3
+                    h-3
+                    top-3
+                    -left-1
+                    bg-gray-100
+                    transform
+                    rotate-45
+                    dark:bg-gray-800
+                  "
                 ></div>
               </div>
             </div>
@@ -191,7 +250,15 @@
             <input
               type="text"
               placeholder="Add your Comment.."
-              class="bg-transparent w-full px-5 py-6 max-h-10 shadow-none focus:outline-none"
+              class="
+                bg-transparent
+                w-full
+                px-5
+                py-6
+                max-h-10
+                shadow-none
+                focus:outline-none
+              "
               @keyup.enter="addComment(post.id, $event.target, index)"
             />
             <div
@@ -242,14 +309,14 @@ export default {
       console.log(data)
       console.log(data.addPost)
       console.log(this.posts)
-      this.posts.unshift(data.addPost)
+      // this.posts.unshift(data.addPost)
     })
   },
   apollo: {
     posts: {
       prefetch: true,
       query: feedQuery,
-      update: (data) => data.posts.posts,
+      update: (data) => data.posts,
       subscribeToMore: {
         document: newPostSubcribe,
         // Mutate the previous result
@@ -258,10 +325,7 @@ export default {
           console.log(previousResult)
           console.log(subscriptionData)
           return {
-            posts: [
-              ...previousResult.posts.posts,
-              subscriptionData.data.newPost,
-            ],
+            posts: [subscriptionData.data.newPost, ...previousResult.posts],
           }
         },
       },
@@ -278,9 +342,7 @@ export default {
           })
           .then(({ data }) => data)
         console.log(res)
-        const likeCount = userLiked
-          ? res.unlike.post.likeCount
-          : res.like.post.likeCount
+        const likeCount = userLiked ? res.unlike.post.likeCount : res.like.post.likeCount
         this.posts[index].likeCount = likeCount
         this.posts[index].userLiked = !userLiked
       } catch (e) {

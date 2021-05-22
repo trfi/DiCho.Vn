@@ -88,8 +88,5 @@ export async function posts(_, { filter, orderBy, where, take = 5, pagination },
   console.log(find);
 
   const posts = await prisma.post.findMany(find);
-  return {
-    count: Math.abs(take),
-    posts
-  };
+  return posts
 }

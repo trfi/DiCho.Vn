@@ -1,24 +1,25 @@
 export function postedBy(parent, _, { prisma }) {
   return prisma.post
     .findUnique({ where: { id: parent.id } })
-    .postedBy();
+    .postedBy()
 }
 
 export function votes(parent, _, { prisma }) {
   return prisma.post
     .findUnique({ where: { id: parent.id } })
-    .votes();
+    .votes()
 }
 
 export function comments(parent, _, { prisma }) {
   return prisma.post
     .findUnique({ where: { id: parent.id } })
-    .comments();
+    .comments()
 }
 
 export function category(parent, _, { prisma }) {
-  return prisma.category
+  return prisma.post
     .findUnique({ where: { id: parent.id } })
+    .category()
 }
 
 export async function userLiked(parent, _, { prisma, user }) {

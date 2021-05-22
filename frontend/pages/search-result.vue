@@ -1,78 +1,7 @@
 <template>
   <div class="w-full h-full mx-auto xl:w-3/4">
-    <div class="w-full flex items-center">
-      <div
-        class="
-          flex
-          items-center
-          p-1.5
-          border border-gray-900 border-solid
-          rounded-md
-          mr-2
-        "
-      >
-        <span class="iconify" data-icon="clarity:filter-line" data-inline="false"></span>
-        <span class="ml-1">Lọc</span>
-      </div>
-      <div
-        class="
-          flex
-          items-center
-          p-1.5
-          border border-gray-900 border-solid
-          rounded-md
-          mr-2
-        "
-      >
-        <span
-          class="iconify"
-          data-icon="clarity:map-marker-line"
-          data-inline="false"
-        ></span>
-        <span class="mx-1">Toàn quốc</span>
-        <span
-          class="iconify text-xs"
-          data-icon="bx:bxs-down-arrow"
-          data-inline="false"
-        ></span>
-      </div>
-      <div class="flex items-center p-1.5 border border-gray-900 border-solid rounded-md">
-        <span class="mx-1">Việc làm</span>
-        <span
-          class="iconify text-xs"
-          data-icon="bx:bxs-down-arrow"
-          data-inline="false"
-        ></span>
-      </div>
-    </div>
     <div class="w-full flex items-center justify-between pt-4">
-      <ol class="text-left whitespace-nowrap flex">
-        <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">
-          <a href="">
-            <span class="mr-2">Chợ tốt </span>
-          </a>
-          <span
-            class="iconify text-xs"
-            data-icon="si-glyph:two-arrow-right"
-            data-inline="false"
-          ></span>
-        </li>
-        <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">
-          <a href="">
-            <span class="mr-2">Toàn quốc </span>
-          </a>
-          <span
-            class="iconify text-xs"
-            data-icon="si-glyph:two-arrow-right"
-            data-inline="false"
-          ></span>
-        </li>
-        <li class="inline-flex items-center md:text-base text-xs">
-          <a href="">
-            <span>Việc làm </span>
-          </a>
-        </li>
-      </ol>
+      <p class="text-left text-lg">Kết quả tìm kiếm cho: <b>Nha quan 3</b></p>
       <a
         href=""
         class="
@@ -89,15 +18,17 @@
     <div class="py-8 flex flex-col p-0">
       <div class="category-shadow py-4 border-solid border-b border-gray-400">
         <div class="hover:no-underline">
-          <div class="flex flex-row items-center justify-start">
-            <a href class="relative w-64 h-36">
-              <img
-                src="https://bayleaf.s3.amazonaws.com/property-images%2F1603189908093_IMG_0595.HEIC"
-                alt=""
-                class="w-full h-full object-cover rounded-md"
-              />
-            </a>
-            <div class="p-4 relative">
+          <div class="flex flex-row items-center justify-between">
+            <div class="w-96 h-36 flex mx-5">
+              <a href="">
+                <img
+                  src="https://bayleaf.s3.amazonaws.com/property-images%2F1603189908093_IMG_0595.HEIC"
+                  alt=""
+                  class="w-full h-full object-cover rounded-md"
+                />
+              </a>
+            </div>
+            <div class="flex flex-col p-4 w-full">
               <a href="" class="hover:no-underline">
                 <h3 class="md:text-xl text-black">
                   Phòng cho thuê Dương Quảng Hàm, Quận Gò Vấp,25m2 Gần Emart
@@ -171,7 +102,7 @@
                     <span>Tp Hồ Chí Minh</span>
                   </div>
                 </div>
-                <div>
+                <div class="mr-10">
                   <button>
                     <span
                       class="iconify text-red-400"

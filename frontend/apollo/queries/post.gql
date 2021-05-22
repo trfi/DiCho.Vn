@@ -10,6 +10,8 @@ query post($id: ID!) {
     }
     price
     content
+    images
+    userLiked
     category {
       title
     }
