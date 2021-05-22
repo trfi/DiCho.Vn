@@ -8,6 +8,17 @@ interface Find {
   skip?: number
 }
 
+export async function category(_, { id }, { prisma }) {
+  try {
+    return prisma.category.findUnique({
+      where: { id }
+    })
+  } catch (error) {
+    console.log(error)
+    return new Error(error)
+  }
+}
+
 export async function categories(_, { filter, orderBy, where, take, pagination }, { prisma }) {
   try {
     const whereCategory = filter

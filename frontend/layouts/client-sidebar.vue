@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen bg-green-300">
+  <div class="flex h-screen">
     <div class="flex-1 flex flex-col overflow-hidden">
       <header class="flex justify-between items-center bg-blue-300">
         <Header />
@@ -10,16 +10,7 @@
             <SideBar class="w-full" />
           </div>
         </nav>
-        <main
-          class="
-            flex flex-col
-            w-full
-            h-full
-            bg-white
-            overflow-x-hidden overflow-y-auto
-            mb-14
-          "
-        >
+        <main class="flex w-full h-full bg-white overflow-x-hidden overflow-y-auto mb-14">
           <div class="flex w-full mb-6 mx-auto px-6 py-8">
             <client-only><Nuxt /></client-only>
           </div>

@@ -1,0 +1,18 @@
+query user($where: UserInput!) {
+  user(where: $where) {
+    name
+    followerCount
+    followingCount
+    posts {
+      id
+      title
+      price
+      category {
+        title
+      }
+      regionName
+      thumbnail
+      userLiked
+    }
+  }
+}

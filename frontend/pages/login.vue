@@ -44,13 +44,21 @@
     >
       <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
       <div class="w-full px-24 z-10">
-        <h1 class="text-5xl font-bold text-left text-gray-400 tracking-wide">
-          Đi Chợ
-        </h1>
+        <h1 class="text-5xl font-bold text-left text-gray-400 tracking-wide">Đi Chợ</h1>
         <p class="text-3xl my-4 text-gray-500">Mạng xã hội mua bán hàng đầu</p>
       </div>
       <div
-        class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4"
+        class="
+          bottom-0
+          absolute
+          p-4
+          text-center
+          right-0
+          left-0
+          flex
+          justify-center
+          space-x-4
+        "
       >
         <span>
           <svg
@@ -94,11 +102,28 @@
       </div>
     </div>
     <div
-      class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0"
+      class="
+        lg:w-1/2
+        w-full
+        flex
+        items-center
+        justify-center
+        text-center
+        md:px-16
+        px-0
+        z-0
+      "
       style="background-color: #161616"
     >
       <div
-        class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center"
+        class="
+          absolute
+          lg:hidden
+          z-10
+          inset-0
+          bg-gray-500 bg-no-repeat bg-cover
+          items-center
+        "
         style="
           background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);
         "
@@ -107,23 +132,49 @@
       </div>
       <div class="w-full py-6 z-20">
         <div class="my-6 items-center inline-flex">
-          <img
-            src="~/assets/images/logo.png"
-            class="object-contain w-36"
-            alt=""
-          />
+          <img src="~/assets/images/logo.png" class="object-contain w-36" alt="" />
         </div>
         <div class="py-6 space-x-2">
           <span
-            class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white"
+            class="
+              w-10
+              h-10
+              items-center
+              justify-center
+              inline-flex
+              rounded-full
+              font-bold
+              text-lg
+              border-2 border-white
+            "
             >f</span
           >
           <span
-            class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white"
+            class="
+              w-10
+              h-10
+              items-center
+              justify-center
+              inline-flex
+              rounded-full
+              font-bold
+              text-lg
+              border-2 border-white
+            "
             >G+</span
           >
           <span
-            class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white"
+            class="
+              w-10
+              h-10
+              items-center
+              justify-center
+              inline-flex
+              rounded-full
+              font-bold
+              text-lg
+              border-2 border-white
+            "
             >in</span
           >
         </div>
@@ -149,14 +200,22 @@
               placeholder="Password"
             />
           </div>
-          <div
-            class="text-right text-gray-400 hover:underline hover:text-gray-100"
-          >
+          <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
             <a href="#">Quên mật khẩu?</a>
           </div>
           <div class="px-4 pb-2 pt-4">
             <button
-              class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+              class="
+                uppercase
+                block
+                w-full
+                p-4
+                text-lg
+                rounded-full
+                bg-indigo-500
+                hover:bg-indigo-600
+                focus:outline-none
+              "
               @click.prevent="login"
             >
               đăng nhập
@@ -164,7 +223,17 @@
           </div>
 
           <div
-            class="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden"
+            class="
+              p-4
+              text-center
+              right-0
+              left-0
+              flex
+              justify-center
+              space-x-4
+              mt-16
+              lg:hidden
+            "
           >
             <a href="#">
               <svg

@@ -15,7 +15,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '/uikit-core.min.css' },
     ],
-    script: [{ type: 'module', src: 'uikit.min.js', ssr: false }],
+    script: [{ type: 'module', src: '/uikit.min.js', ssr: false }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

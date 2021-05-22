@@ -1,0 +1,16 @@
+query searchPost($keyword: String!) {
+  posts(
+    filter: $keyword
+    take: 10
+  ) {
+    id
+    title
+    price
+    category {
+      title
+    }
+    regionName
+    thumbnail
+    userLiked
+  }
+}

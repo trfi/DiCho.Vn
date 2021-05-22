@@ -1,10 +1,12 @@
 # directive @auth(requires: Role = ADMIN) on OBJECT | FIELD_DEFINITION
 
 type Query {
+  user(where: UserInput!): User!
   users: UserCount!
   currentUser: User!
   info: String!
-  categories(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
+  category(id: ID!): Category!
+  categories(filter: String, where: ID, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
   posts(
     where: PostInput
     filter: String
@@ -64,7 +66,7 @@ type Mutation {
     name: String!
     role: Role
   ): AuthPayload
-  updateUser(id: ID!, data: UserInput): User
+  updateUser(id: ID!, data: UserInputUpdate): User
   deleteUser(id: ID!): User
 
   addPost(input: PostInput!): Post @auth(requires: USER)
@@ -135,6 +137,11 @@ input PostInput {
   ward: Int
   price: Int
   like: Int
+  cateIdStartsWith: StartsWith
+}
+
+input StartsWith {
+  startsWith: String
 }
 
 type Category {
@@ -189,6 +196,12 @@ type User {
 
 input UserInput {
   id: ID
+  phone: String
+  username: String
+}
+
+input UserInputUpdate {
+  id: ID
   name: String
   username: String
   phone: String
@@ -212,6 +225,7 @@ type Post {
   broker: Boolean
   params: Json
   region: Int
+  regionName: String
   area: Int
   ward: Int
   price: Int

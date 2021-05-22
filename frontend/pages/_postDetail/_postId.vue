@@ -1,6 +1,6 @@
 <template>
   <div v-if="post" class="xl:mx-10 w-full h-full mb-10">
-    <div class="w-full flex items-center justify-between pt-4">
+    <div class="w-full flex items-center justify-between">
       <ol class="text-left whitespace-nowrap flex">
         <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">
           <a href="">
@@ -66,12 +66,27 @@
               @click.prevent="like(post.id, post.userLiked)"
             >
               <p class="mr-1.5 text-base">Yêu thích</p>
-              <span
-                :class="post.userLiked ? 'text-white' : 'text-red-600'"
-                class="iconify"
-                data-icon="akar-icons:heart"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                width="1em"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
                 data-inline="false"
-              ></span>
+              >
+                <g fill="none">
+                  <path
+                    d="M7 3C4.239 3 2 5.216 2 7.95c0 2.207.875 7.445 9.488 12.74a.985.985 0 0 0 1.024 0C21.125 15.395 22 10.157 22 7.95C22 5.216 19.761 3 17 3s-5 3-5 3s-2.239-3-5-3z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g>
+              </svg>
             </div>
           </div>
           <div class="block">
@@ -93,119 +108,124 @@
             </div>
           </div>
         </div>
-        <div class="w-full flex items-center mt-4">
-          <div class="w-2/4 flex items-center mr-2">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="emojione-monotone:money-bag"
-              data-inline="false"
-            ></span>
-            <span class="text-sm">Hình thức trả lương: </span>
-            <span class="ml-1 text-sm">Theo tháng </span>
+        <!-- Thong tin chi tiet -->
+        <!-- <div>
+          <div class="w-full flex items-center mt-4">
+            <div class="w-2/4 flex items-center mr-2">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="emojione-monotone:money-bag"
+                data-inline="false"
+              ></span>
+              <span class="text-sm">Hình thức trả lương: </span>
+              <span class="ml-1 text-sm">Theo tháng </span>
+            </div>
+            <div class="w-2/4 flex items-center">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="vs:clock"
+                data-inline="false"
+              ></span>
+              <span class="text-sm"> Loại công việc: </span>
+              <span class="ml-1 text-sm">Toàn thời gian </span>
+            </div>
           </div>
-          <div class="w-2/4 flex items-center">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="vs:clock"
-              data-inline="false"
-            ></span>
-            <span class="text-sm"> Loại công việc: </span>
-            <span class="ml-1 text-sm">Toàn thời gian </span>
+          <div class="w-full flex items-center mt-4">
+            <div class="w-2/4 flex items-center mr-2">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="bytesize:work"
+                data-inline="false"
+              ></span>
+              <span class="text-sm">Ngành nghề: </span>
+              <span class="ml-1 text-sm">Nhân viên kinh doanh </span>
+            </div>
+            <div class="w-2/4 flex items-center">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="ph:anchor-simple-thin"
+                data-inline="false"
+              ></span>
+              <span class="text-sm"> Kinhn ghiệm: </span>
+              <span class="ml-1 text-sm">Không yêu cầu </span>
+            </div>
           </div>
-        </div>
-        <div class="w-full flex items-center mt-4">
-          <div class="w-2/4 flex items-center mr-2">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="bytesize:work"
-              data-inline="false"
-            ></span>
-            <span class="text-sm">Ngành nghề: </span>
-            <span class="ml-1 text-sm">Nhân viên kinh doanh </span>
+          <div class="w-full flex items-center mt-4">
+            <div class="w-2/4 flex items-center mr-2">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="ion:transgender-outline"
+                data-inline="false"
+              ></span>
+              <span class="text-sm">Giới tính: </span>
+              <span class="ml-1 text-sm">Không yêu cầu </span>
+            </div>
+            <div class="w-2/4 flex items-center">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="fluent:star-28-regular"
+                data-inline="false"
+              ></span>
+              <span class="text-sm"> Các quyền lời khác: </span>
+              <span class="ml-1 text-sm">Thưởng thêm </span>
+            </div>
           </div>
-          <div class="w-2/4 flex items-center">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="ph:anchor-simple-thin"
-              data-inline="false"
-            ></span>
-            <span class="text-sm"> Kinhn ghiệm: </span>
-            <span class="ml-1 text-sm">Không yêu cầu </span>
+          <div class="w-full flex items-center mt-4">
+            <div class="w-2/4 flex items-center mr-2">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="cli:education"
+                data-inline="false"
+              ></span>
+              <span class="text-sm">Học vấn tối thiểu: </span>
+              <span class="ml-1 text-sm">Không yêu cầu </span>
+            </div>
+            <div class="w-2/4 flex items-center">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="carbon:certificate-check"
+                data-inline="false"
+              ></span>
+              <span class="text-sm"> Chứng chỉ/ kỹ năng: </span>
+              <span class="ml-1 text-sm">Thưởng thêm </span>
+            </div>
           </div>
-        </div>
-        <div class="w-full flex items-center mt-4">
-          <div class="w-2/4 flex items-center mr-2">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="ion:transgender-outline"
-              data-inline="false"
-            ></span>
-            <span class="text-sm">Giới tính: </span>
-            <span class="ml-1 text-sm">Không yêu cầu </span>
+          <div class="w-full flex items-center mt-4">
+            <div class="w-2/4 flex items-center mr-2">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="ic:sharp-first-page"
+                data-inline="false"
+              ></span>
+              <span class="text-sm">Tuổi tối thiểu: </span>
+              <span class="ml-1 text-sm">18 </span>
+            </div>
+            <div class="w-2/4 flex items-center">
+              <span
+                class="iconify mr-2 text-3xl"
+                data-icon="ic:sharp-last-page"
+                data-inline="false"
+              ></span>
+              <span class="text-sm"> Tuổi tối đa: </span>
+              <span class="ml-1 text-sm">40 </span>
+            </div>
           </div>
-          <div class="w-2/4 flex items-center">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="fluent:star-28-regular"
-              data-inline="false"
-            ></span>
-            <span class="text-sm"> Các quyền lời khác: </span>
-            <span class="ml-1 text-sm">Thưởng thêm </span>
+          <div class="block mt-4">
+            <div class="p-2 border-b border-solid border-gray-400">
+              <h3 class="text-base text-gray-700" style="font-weight: 600">
+                Nơi làm việc
+              </h3>
+            </div>
+            <div class="flex items-center mt-2">
+              <span
+                class="iconify mr-2 text-xl"
+                data-icon="bx:bx-map"
+                data-inline="false"
+              ></span>
+              <span class="text-base"> Phường Hòa Khê, Quận Thanh Khê, Đà Nẵng</span>
+            </div>
           </div>
-        </div>
-        <div class="w-full flex items-center mt-4">
-          <div class="w-2/4 flex items-center mr-2">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="cli:education"
-              data-inline="false"
-            ></span>
-            <span class="text-sm">Học vấn tối thiểu: </span>
-            <span class="ml-1 text-sm">Không yêu cầu </span>
-          </div>
-          <div class="w-2/4 flex items-center">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="carbon:certificate-check"
-              data-inline="false"
-            ></span>
-            <span class="text-sm"> Chứng chỉ/ kỹ năng: </span>
-            <span class="ml-1 text-sm">Thưởng thêm </span>
-          </div>
-        </div>
-        <div class="w-full flex items-center mt-4">
-          <div class="w-2/4 flex items-center mr-2">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="ic:sharp-first-page"
-              data-inline="false"
-            ></span>
-            <span class="text-sm">Tuổi tối thiểu: </span>
-            <span class="ml-1 text-sm">18 </span>
-          </div>
-          <div class="w-2/4 flex items-center">
-            <span
-              class="iconify mr-2 text-3xl"
-              data-icon="ic:sharp-last-page"
-              data-inline="false"
-            ></span>
-            <span class="text-sm"> Tuổi tối đa: </span>
-            <span class="ml-1 text-sm">40 </span>
-          </div>
-        </div>
-        <div class="block mt-4">
-          <div class="p-2 border-b border-solid border-gray-400">
-            <h3 class="text-base text-gray-700" style="font-weight: 600">Nơi làm việc</h3>
-          </div>
-          <div class="flex items-center mt-2">
-            <span
-              class="iconify mr-2 text-xl"
-              data-icon="bx:bx-map"
-              data-inline="false"
-            ></span>
-            <span class="text-base"> Phường Hòa Khê, Quận Thanh Khê, Đà Nẵng</span>
-          </div>
-        </div>
+        </div> -->
       </div>
       <!-- O ben -->
       <div class="flex flex-col ml-8 pl-3 w-1/3 relative">

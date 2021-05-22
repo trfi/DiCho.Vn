@@ -1,4 +1,5 @@
 import { ForbiddenError } from "apollo-server";
+import { slug } from '../../utils';
 
 interface Find {
   where: object
@@ -50,8 +51,8 @@ export async function posts(_, { filter, orderBy, where, take = 5, pagination },
     ? {
         ...where,
         OR: [
-          { title: { contains: filter } },
-          { content: { contains: filter } }
+          { title: { contains: filter, mode: "insensitive" } },
+          { content: { contains: filter, mode: "insensitive" } }
         ]
       }
     : { ...where };

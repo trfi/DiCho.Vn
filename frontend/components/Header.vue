@@ -5,34 +5,24 @@
         <!-- left -->
         <div class="flex items-center">
           <nuxt-link to="/">
-            <img src="~/assets/images/logo.png" class="w-44" alt="" />
+            <img src="~/assets/images/logo.png" class="w-24" alt="" />
           </nuxt-link>
-          <div class="w-14"></div>
-          <div class="w-full relative hidden lg:block">
-            <input
-              type="text"
-              placeholder="Tìm kiếm"
-              class="bg-gray-100 rounded-md text-base pl-4 py-2 text-gray-900 outline-none"
-              style="width: 300px"
-            />
-            <button
-              type="submit"
-              class="absolute right-0 -top-2 mt-3 mr-2 w-8 h-8"
-            >
-              <span
-                class="iconify"
-                data-icon="akar-icons:search"
-                data-inline="false"
-              ></span>
-            </button>
-          </div>
+          <!-- Input tìm kiếm -->
+          <SearchBar />
         </div>
         <!-- right -->
         <div class="flex items-center relative">
           <div class="flex items-center">
             <a
               href="#"
-              class="hidden whitespace-nowrap md:flex items-center hover:rounded-lg hover:bg-gray-100"
+              class="
+                hidden
+                whitespace-nowrap
+                md:flex
+                items-center
+                hover:rounded-lg
+                hover:bg-gray-100
+              "
             >
               <div class="flex w-10 p-1 items-center justify-center">
                 <img
@@ -45,8 +35,20 @@
             </a>
             <div class="w-2 mx-2 mb-1 text-gray-400 hidden md:block">|</div>
             <button
-              href="#"
-              class="whitespace-nowrap text-sm py-1.5 px-8 md:py-2 md:px-12 rounded-lg text-white bg-blue-500 hover:bg-blue-400 inline-block"
+              class="
+                whitespace-nowrap
+                text-sm
+                py-1.5
+                px-8
+                md:py-2
+                md:px-12
+                rounded-lg
+                text-white
+                bg-blue-500
+                hover:bg-blue-400
+                inline-block
+              "
+              @click="toggleModal"
             >
               Đăng bài
             </button>
@@ -54,7 +56,20 @@
           </div>
           <div class="flex">
             <div
-              class="flex w-8 h-8 md:w-10 md:h-10 mr-2 bg-gray-100 rounded-3xl items-center justify-center cursor-pointer hover:bg-gray-200"
+              class="
+                flex
+                w-8
+                h-8
+                md:w-10
+                md:h-10
+                mr-2
+                bg-gray-100
+                rounded-3xl
+                items-center
+                justify-center
+                cursor-pointer
+                hover:bg-gray-200
+              "
             >
               <div class="text-xl md:text-2xl">
                 <span
@@ -66,29 +81,52 @@
             </div>
 
             <div
-              class="relative flex w-8 h-8 md:w-10 md:h-10 mr-2 bg-gray-100 rounded-3xl items-center justify-center cursor-pointer hover:bg-gray-200"
+              class="
+                relative
+                flex
+                w-8
+                h-8
+                md:w-10
+                md:h-10
+                mr-2
+                bg-gray-100
+                rounded-3xl
+                items-center
+                justify-center
+                cursor-pointer
+                hover:bg-gray-200
+              "
             >
-              <div
-                class="text-xl md:text-2xl"
-                @click="notification = !notification"
-              >
-                <span
-                  class="iconify"
-                  data-icon="mdi:bell"
-                  data-inline="false"
-                ></span>
+              <div class="text-xl md:text-2xl" @click="notification = !notification">
+                <span class="iconify" data-icon="mdi:bell" data-inline="false"></span>
               </div>
-              <div
-                v-if="notification"
-                class="absolute top-12 -right-5 bg-white w-96"
-              >
+              <div v-if="notification" class="absolute top-12 -right-5 bg-white w-96">
                 <div class="bg-indigo-900 text-center py-4 lg:px-4 rounded-sm">
                   <div
-                    class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                    class="
+                      p-2
+                      bg-indigo-800
+                      items-center
+                      text-indigo-100
+                      leading-none
+                      lg:rounded-full
+                      flex
+                      lg:inline-flex
+                    "
                     role="alert"
                   >
                     <span
-                      class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3"
+                      class="
+                        flex
+                        rounded-full
+                        bg-indigo-500
+                        uppercase
+                        px-2
+                        py-1
+                        text-xs
+                        font-bold
+                        mr-3
+                      "
                       >New</span
                     >
                     <span class="font-semibold mr-2 text-left flex-auto"
@@ -109,7 +147,20 @@
             </div>
 
             <div
-              class="relative flex w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-3xl items-center justify-center cursor-pointer hover:bg-gray-200"
+              class="
+                relative
+                flex
+                w-8
+                h-8
+                md:w-10
+                md:h-10
+                bg-gray-100
+                rounded-3xl
+                items-center
+                justify-center
+                cursor-pointer
+                hover:bg-gray-200
+              "
             >
               <div class="text-xl" @click="caret = !caret">
                 <span
@@ -118,10 +169,7 @@
                   data-inline="false"
                 ></span>
               </div>
-              <div
-                v-if="caret"
-                class="absolute top-10 rounded-sm right-0 w-64 bg-white"
-              >
+              <div v-if="caret" class="absolute top-10 rounded-sm right-0 w-64 bg-white">
                 <!-- This is an example component -->
                 <div class="my-0">
                   <div class="bg-white rounded overflow-hidden shadow-lg">
@@ -136,16 +184,12 @@
 
                     <div class="">
                       <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
-                        <p
-                          class="text-sm font-medium text-gray-800 leading-none"
-                        >
+                        <p class="text-sm font-medium text-gray-800 leading-none">
                           Tài khoản
                         </p>
                       </a>
                       <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
-                        <p
-                          class="text-sm font-medium text-gray-800 leading-none"
-                        >
+                        <p class="text-sm font-medium text-gray-800 leading-none">
                           Cài đặt
                         </p>
                       </a>
@@ -154,9 +198,7 @@
                         class="px-4 py-2 pb-4 hover:bg-gray-100 flex"
                         @click.prevent="logout"
                       >
-                        <p
-                          class="text-sm font-medium text-gray-800 leading-none"
-                        >
+                        <p class="text-sm font-medium text-gray-800 leading-none">
                           Đăng xuất
                         </p>
                       </a>
@@ -197,6 +239,13 @@ export default {
       localStorage.removeItem('userId')
       localStorage.removeItem('userName')
       this.$router.push('/login')
+    },
+    toggleModal() {
+      const body = document.querySelector('body')
+      const modal = document.querySelector('.modal')
+      modal.classList.toggle('opacity-0')
+      modal.classList.toggle('pointer-events-none')
+      body.classList.toggle('modal-active')
     },
   },
 }

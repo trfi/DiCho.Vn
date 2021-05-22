@@ -6,6 +6,12 @@ export async function currentUser(_, args, { prisma, user }) {
   });
 }
 
+export async function user(_, { where }, { prisma }) {
+  return prisma.user.findUnique({
+    where
+  });
+}
+
 export async function users(_, args, { prisma, user }) {
   try {
     const where = args.filter

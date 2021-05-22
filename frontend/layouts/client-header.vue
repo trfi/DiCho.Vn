@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen bg-green-300">
+  <div class="flex h-screen">
     <div class="flex-1 flex flex-col overflow-hidden">
       <header class="flex justify-between items-center bg-blue-300">
         <Header />

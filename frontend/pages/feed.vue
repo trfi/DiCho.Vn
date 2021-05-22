@@ -225,6 +225,9 @@
                   dark:text-gray-100
                 "
               >
+                <p class="text-sm text-gray-500">
+                  {{ comment.user && comment.user.name }}
+                </p>
                 <p class="leading-6">
                   {{ comment.content }}
                   <i class="uil-grin-tongue-wink"> </i>
@@ -262,19 +265,12 @@
               @keyup.enter="addComment(post.id, $event.target, index)"
             />
             <div
-              class="absolute bottom-0 flex h-full items-center right-0 text-xl space-x-2"
+              class="absolute bottom-0 flex h-full items-center right-4 text-xl space-x-2"
             >
               <a href="#"
                 ><span
                   class="iconify"
                   data-icon="bx:bxs-image-add"
-                  data-inline="false"
-                ></span
-              ></a>
-              <a href="#"
-                ><span
-                  class="iconify"
-                  data-icon="bx:bxs-video-plus"
                   data-inline="false"
                 ></span
               ></a>
