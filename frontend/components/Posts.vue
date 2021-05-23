@@ -46,7 +46,7 @@
                     <span class="ml-2">Công ty</span>
                   </div> -->
                 <div class="ml-2">
-                  <span>4 Phút trước</span>
+                  <timeago :since="post.created"></timeago>
                 </div>
                 <div class="ml-2">
                   <span>{{ post.regionName }}</span>
@@ -73,8 +73,8 @@
 export default {
   props: {
     posts: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
 }

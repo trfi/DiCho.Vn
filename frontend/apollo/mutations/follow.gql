@@ -1,0 +1,14 @@
+mutation follow {
+  follow(followerId: "60a129853b44265330880ebe") {
+  	follower {
+      id
+      phone
+      followingCount
+    }
+    following {
+      id
+      phone
+      followerCount
+    }
+  }
+}

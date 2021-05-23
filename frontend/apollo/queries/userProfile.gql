@@ -1,8 +1,10 @@
 query user($where: UserInput!) {
-  user(where: $where) {
+  user(where: $where, getFollowed: true) {
+    id
     name
     followerCount
     followingCount
+    address
     posts {
       id
       title
@@ -13,6 +15,8 @@ query user($where: UserInput!) {
       regionName
       thumbnail
       userLiked
+      created
     }
+    isFollowed
   }
 }

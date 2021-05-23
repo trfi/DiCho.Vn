@@ -22,7 +22,8 @@
     "core-js": "^3.9.1",
     "dropzone": "^5.9.2",
     "graphql-tag": "^2.12.4",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "vue-timeago": "github:egoist/vue-timeago#3"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

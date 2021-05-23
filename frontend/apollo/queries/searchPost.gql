@@ -12,5 +12,6 @@ query searchPost($keyword: String!) {
     regionName
     thumbnail
     userLiked
+    created
   }
 }

@@ -12,7 +12,7 @@
 <script>
 import Dropzone from 'dropzone'
 import '../node_modules/dropzone/dist/dropzone.css'
-import { getSignedURL, slug } from '../lambda'
+import { objectId, getSignedURL, slug } from '../lambda'
 
 Dropzone.autoDiscover = false
 
@@ -25,7 +25,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: '',
+      default: objectId,
     },
     folder: {
       type: String,
@@ -103,7 +103,6 @@ export default {
 
         file.fileName = genFileName(vm.title)
         file.path = `${vm.folder}/${file.fileName}.${fileExtension}`
-        console.log(file.path)
         getSignedURL(file)
           .then((url) => {
             file.uploadURL = url
@@ -125,7 +124,7 @@ export default {
       vm.dropzone.options.url = file.uploadURL
     })
     vm.dropzone.on('success', (file) => {
-      console.log('success', file.fileName)
+      console.log('Success:', file.fileName)
       this.uploadResult_.push(file.fileName)
     })
   },

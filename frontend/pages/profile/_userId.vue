@@ -1,7 +1,18 @@
 <template>
   <div class="mx-auto">
     <!-- profile-cover-->
-    <div class="flex max-w-6xl lg:flex-row flex-col items-center lg:py-8 lg:space-x-8">
+    <div
+      class="
+        flex
+        max-w-6xl
+        lg:flex-row
+        justify-between
+        flex-col
+        items-center
+        lg:py-8
+        lg:space-x-8
+      "
+    >
       <div>
         <div
           class="
@@ -56,37 +67,76 @@
         </div>
       </div>
 
-      <div class="lg:w/8/12 flex-1 flex flex-col lg:items-start items-center">
+      <div class="lg:w/8/12 flex-1 flex flex-col lg:items-end items-center">
         <h2 class="font-semibold lg:text-2xl text-lg mb-2">{{ user.name }}</h2>
         <p class="lg:text-left mb-2 text-center dark:text-gray-100">
-          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming
-          id quod mazim placerat facer possim assum
+          <b>Địa chỉ: </b>{{ user.address }}
         </p>
 
-        <div class="flex font-semibold mb-3 space-x-2 dark:text-gray-10">
-          <a href="#">Travailing</a> , <a href="#">Sports</a> , <a href="#">Movies</a>
-        </div>
+        <div
+          class="
+            capitalize
+            flex flex-row
+            justify-center
+            items-center
+            font-semibold
+            space-x-3
+            text-center text-sm
+            my-2
+          "
+        >
+          <div v-if="currentUser == user.id">
+            <a
+              href="#"
+              class="
+                bg-pink-500
+                shadow-sm
+                p-2
+                pink-500
+                px-6
+                rounded-md
+                text-white
+                hover:text-white
+                hover:bg-pink-600
+              "
+            >
+              Chỉnh sửa trang cá nhân</a
+            >
+          </div>
+          <div v-else>
+            <a
+              :class="[user.isFollowed ? 'bg-blue-400' : 'bg-gray-300 text-gray-700']"
+              class="
+                text-white
+                shadow-sm
+                p-2
+                px-6
+                rounded-md
+                dark:bg-gray-700
+                hover:no-underline
+              "
+              @click="follow(user.id)"
+            >
+              {{ user.isFollowed ? 'Đang theo dõi' : 'Theo dõi' }}</a
+            >
+            <a
+              href="#"
+              class="
+                bg-pink-500
+                shadow-sm
+                p-2
+                pink-500
+                px-6
+                rounded-md
+                text-white
+                hover:text-white
+                hover:bg-pink-600
+              "
+            >
+              Gửi tin nhắn</a
+            >
+          </div>
 
-        <div class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
-          <a href="#" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">
-            Theo dõi</a
-          >
-          <a
-            href="#"
-            class="
-              bg-pink-500
-              shadow-sm
-              p-2
-              pink-500
-              px-6
-              rounded-md
-              text-white
-              hover:text-white
-              hover:bg-pink-600
-            "
-          >
-            Gửi tin nhắn</a
-          >
           <div>
             <a
               href="#"
@@ -140,7 +190,7 @@
                       dark:hover:bg-gray-700
                     "
                   >
-                    <i class="uil-user-minus mr-2"></i>Unfriend
+                    <i class="uil-user-minus mr-2"></i>Theo dõi
                   </a>
                 </li>
                 <li>
@@ -157,24 +207,7 @@
                       dark:hover:bg-gray-700
                     "
                   >
-                    <i class="uil-eye-slash mr-2"></i>Hide Your Story
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="
-                      flex
-                      items-center
-                      px-3
-                      py-2
-                      hover:bg-gray-200
-                      hover:text-gray-800
-                      rounded-md
-                      dark:hover:bg-gray-700
-                    "
-                  >
-                    <i class="uil-share-alt mr-2"></i> Share This Profile
+                    <i class="uil-eye-slash mr-2"></i>Báo cáo
                   </a>
                 </li>
                 <li>
@@ -195,7 +228,7 @@
                       dark:hover:bg-red-600
                     "
                   >
-                    <i class="uil-stop-circle mr-2"></i> Block
+                    <i class="uil-stop-circle mr-2"></i> Chặn
                   </a>
                 </li>
               </ul>
@@ -206,15 +239,16 @@
         <div
           class="
             divide-gray-300 divide-transparent divide-x
-            grid grid-cols-3
             lg:text-left lg:text-lg
             mt-3
             text-center
-            w-full
+            flex flex-row
+            items-end
+            justify-end
             dark:text-gray-100
           "
         >
-          <div class="lg:pl-4 flex lg:flex-row flex-col">
+          <div class="lg:px-4 flex lg:flex-row flex-col">
             {{ user.followerCount }} <strong class="lg:pl-2">người theo dõi</strong>
           </div>
           <div class="lg:pl-4 flex lg:flex-row flex-col">
@@ -222,25 +256,32 @@
           </div>
         </div>
       </div>
-
-      <div class="w-20"></div>
     </div>
     <div class="py-8 max-w-5xl flex flex-col p-0">
-      <Post v-if="user.posts && user.posts.length > 0" :posts.sync="user.posts" />
+      <h1 class="font-bold text-2xl ml-5 mb-5">Bài viết</h1>
+      <Posts v-if="user.posts && user.posts.length > 0" :posts.sync="user.posts" />
     </div>
   </div>
 </template>
 
 <script>
 import userProfile from '~/apollo/queries/userProfile'
+import followMutation from '~/apollo/mutations/follow'
+import unfollowMutation from '~/apollo/mutations/unfollow'
 
 export default {
   name: 'DetailPost',
   layout: 'client-sidebar',
   data() {
     return {
+      notification: false,
+      caret: false,
+      currentUser: '',
       user: {},
     }
+  },
+  created() {
+    this.currentUser = localStorage.getItem('userId')
   },
   apollo: {
     user: {
@@ -249,6 +290,34 @@ export default {
       variables() {
         return { where: { id: this.$route.params.userId } }
       },
+    },
+  },
+  methods: {
+    async follow(userId) {
+      let mutation, followerCount, isFollowed
+      if (this.user.isFollowed) {
+        isFollowed = false
+        mutation = unfollowMutation
+        followerCount = this.user.followerCount - 1
+      } else {
+        isFollowed = true
+        mutation = followMutation
+        followerCount = this.user.followerCount + 1
+      }
+      try {
+        const res = await this.$apollo
+          .mutate({
+            mutation,
+            variables: { userId },
+          })
+          .then(({ data }) => data)
+        console.log(res)
+        this.user.followerCount = followerCount
+        this.user.isFollowed = isFollowed
+      } catch (e) {
+        console.error(e)
+        this.error = e
+      }
     },
   },
 }

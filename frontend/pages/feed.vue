@@ -69,19 +69,26 @@
         <div class="relative">
           <div class="p-4 flex items-center justify-between">
             <div class="flex">
-              <a href="" class="relative w-10 h-10 rounded-xl mr-2">
+              <NuxtLink
+                :to="`/profile/${post.postedBy.id}`"
+                class="relative w-10 h-10 rounded-xl mr-2"
+              >
                 <img
                   src="~/assets/images/content/tuoitre-main.png"
                   alt=""
                   class="w-full h-full object-cover rounded-3xl"
                 />
-              </a>
+              </NuxtLink>
               <div class="flex flex-col">
-                <a href="" class="text-sm text-black">{{ post.postedBy.name }}</a>
+                <NuxtLink
+                  :to="`/profile/${post.postedBy.id}`"
+                  class="text-sm text-black"
+                  >{{ post.postedBy.name }}</NuxtLink
+                >
                 <div class="relative">
                   <a href="" class="text-gray-500 text-xs hover:underline"
-                    ><span>18 phút trước</span></a
-                  >
+                    ><timeago :since="post.created" :auto-update="60"></timeago
+                  ></a>
                 </div>
               </div>
             </div>
@@ -292,7 +299,7 @@ import commentMutaion from '~/apollo/mutations/comment'
 import newPostSubcribe from '~/apollo/subscriptions/newPost'
 
 export default {
-  layout: 'client',
+  layout: 'client-sidebar',
   middleware: ['isAuth'],
   data() {
     return {

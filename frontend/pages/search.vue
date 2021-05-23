@@ -18,7 +18,7 @@
       </a>
     </div>
     <div class="py-8 max-w-5xl flex flex-col p-0">
-      <Post :posts.sync="posts" />
+      <Posts :posts.sync="posts" />
       <!-- Phan trang -->
       <div class="items-center justify-center pt-6 flex-wrap hidden">
         <a

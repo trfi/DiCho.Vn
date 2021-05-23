@@ -13,8 +13,8 @@
         <!-- right -->
         <div class="flex items-center relative">
           <div class="flex items-center">
-            <a
-              href="#"
+            <NuxtLink
+              :to="`/profile/${idUser}`"
               class="
                 hidden
                 whitespace-nowrap
@@ -32,7 +32,7 @@
                 />
               </div>
               <span class="text-sm mx-1">{{ nameUser }}</span>
-            </a>
+            </NuxtLink>
             <div class="w-2 mx-2 mb-1 text-gray-400 hidden md:block">|</div>
             <button
               class="
@@ -222,10 +222,12 @@ export default {
       notification: false,
       caret: false,
       nameUser: '',
+      idUser: '',
     }
   },
   mounted() {
     this.nameUser = localStorage.getItem('userName')
+    this.idUser = localStorage.getItem('userId')
   },
   // computed: {
   //   nameUser() {
