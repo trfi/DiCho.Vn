@@ -6,10 +6,21 @@ export async function currentUser(_, args, { prisma, user }) {
   });
 }
 
-export async function user(_, { where }, { prisma }) {
-  return prisma.user.findUnique({
+export async function user(parent, { where, getFollowed }, { prisma, user }) {
+  const userResult = await prisma.user.findUnique({
     where
-  });
+  })
+  if (getFollowed && where.id && user.id !== where.id) {
+    const result = await prisma.follow
+    .findUnique({ where: {
+      userId_followingId: {
+        userId: user.id,
+        followingId: where.id
+      }
+    } })
+    userResult.isFollowed = Boolean(result)
+  }
+  return userResult
 }
 
 export async function users(_, args, { prisma, user }) {

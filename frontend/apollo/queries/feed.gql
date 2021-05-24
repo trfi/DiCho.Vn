@@ -1,11 +1,12 @@
 query Feed {
-  posts(take: 10, orderBy: { id: desc }) {
+  posts(take: 10, where: { status: A }, orderBy: { id: desc }) {
     id
     title
     thumbnail
     postedBy {
       id
       name
+      avatar
     }
     price
     likeCount

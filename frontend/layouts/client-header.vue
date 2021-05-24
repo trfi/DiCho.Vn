@@ -1,14 +1,19 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex h-full min-h-screen">
     <div class="flex-1 flex flex-col overflow-hidden">
-      <header class="flex justify-between items-center bg-blue-300">
-        <Header />
-      </header>
+      <Header />
       <div class="flex h-full">
         <main
-          class="flex w-full h-full bg-white overflow-x-hidden overflow-y-hidden mb-14"
+          class="
+            mt-16
+            flex flex-col
+            w-full
+            h-full
+            bg-white
+            overflow-x-hidden overflow-y-auto
+          "
         >
-          <div class="flex h-full w-full mx-auto px-6 py-8">
+          <div class="flex w-full h-full mb-6 mx-auto px-6 py-8">
             <client-only><Nuxt /></client-only>
           </div>
         </main>

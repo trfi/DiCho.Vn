@@ -1,14 +1,14 @@
 # directive @auth(requires: Role = ADMIN) on OBJECT | FIELD_DEFINITION
 
 type Query {
-  user(where: UserInput!): User!
+  user(where: UserInput!, getFollowed: Boolean): User!
   users: UserCount!
   currentUser: User!
   info: String!
   category(id: ID!): Category!
   categories(filter: String, where: ID, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
   posts(
-    where: PostInput
+    where: PostInputQuery
     filter: String
     orderBy: PostOrderByInput
     take: Int
@@ -69,8 +69,8 @@ type Mutation {
   updateUser(id: ID!, data: UserInputUpdate): User
   deleteUser(id: ID!): User
 
-  addPost(input: PostInput!): Post @auth(requires: USER)
-  updatePost(id: ID!, data: PostInput!): Post @auth(requires: USER)
+  addPost(input: PostInputAdd!): Post @auth(requires: USER)
+  updatePost(id: ID!, data: PostInputAdd!): Post @auth(requires: USER)
   deletePost(id: ID!): Post @auth(requires: USER)
 
   addCategory(input: CategoryInput!): Category @auth(requires: ADMIN)
@@ -121,7 +121,7 @@ type CommentOutput {
   post: Post
 }
 
-input PostInput {
+input PostInputQuery {
   id: ID
   title: String
   images: [String]
@@ -135,6 +135,26 @@ input PostInput {
   region: Int
   area: Int
   ward: Int
+  status: PostStatus
+  price: Int
+  like: Int
+}
+
+input PostInputAdd {
+  id: ID
+  title: String
+  images: [String]
+  thumbnail: String
+  categoryId: String
+  type: Type
+  address: String
+  content: String
+  broker: Boolean
+  params: Json
+  region: Int
+  area: Int
+  ward: Int
+  status: PostStatus
   price: Int
   like: Int
 }
@@ -192,6 +212,7 @@ type User {
   followers: [Post]
   following: [Post]
   posts: [Post]
+  isFollowed: Boolean
 }
 
 input UserInput {
@@ -236,6 +257,7 @@ type Post {
   postedById: String
   postedBy: User
   likeCount: Int
+  status: PostStatus
   like: [Like]
   comments: [Comment]
   commentCount: Int
@@ -316,6 +338,13 @@ enum Gender {
   M
   F
   O
+}
+
+enum PostStatus {
+  H
+  P
+  R
+  A
 }
 
 enum PageAction {

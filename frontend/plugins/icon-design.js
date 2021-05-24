@@ -9,4 +9,4 @@ Vue.use(VueTimeago, {
     'vi-VN': require('./vi-VN.json'),
   },
 })
-Vue.use(Iconify, VueTimeago)
+Vue.use(Iconify)

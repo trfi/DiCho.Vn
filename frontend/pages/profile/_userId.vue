@@ -31,7 +31,7 @@
           "
         >
           <img
-            src="~/assets/images/avatars/avatar-7.jpg"
+            :src="user.avatar"
             class="
               bg-gray-200
               border-4 border-white

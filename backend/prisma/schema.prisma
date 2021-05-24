@@ -8,8 +8,8 @@ generator client {
 }
 
 generator dbml {
-  provider = "prisma-dbml-generator"
-  projectName = "DiCho"
+  provider            = "prisma-dbml-generator"
+  projectName         = "DiCho"
   projectDatabaseType = "PostgreSQL"
 }
 
@@ -119,36 +119,37 @@ model Like {
 }
 
 model Category {
-  id       String   @id
-  posts    Post[]
-  title    String
-  slug     String
-  path     String?
-  parent   String?
-  children Json?
-  types    Type[]
-  created  DateTime @default(now())
-  updated  DateTime @updatedAt
+  id        String   @id
+  posts     Post[]
+  title     String
+  thumbnail String
+  slug      String
+  path      String?
+  parent    String?
+  children  Json?
+  types     Type[]
+  created   DateTime @default(now())
+  updated   DateTime @updatedAt
 }
 
 model Message {
-  id          String        @id
-  content     String
-  attachment  String[]
-  chat Chat[] @relation("Message")
+  id         String   @id
+  content    String
+  attachment String[]
+  chat       Chat[]   @relation("Message")
 }
 
 model Chat {
   message      Message? @relation("Message", fields: [msgId], references: [id])
-  msgId        String  @unique
-  sender       User    @relation("Sender", fields: [senderId], references: [id])
+  msgId        String   @unique
+  sender       User     @relation("Sender", fields: [senderId], references: [id])
   senderId     String
-  receiver     User    @relation("Receiver", fields: [receiverId], references: [id])
+  receiver     User     @relation("Receiver", fields: [receiverId], references: [id])
   receiverId   String
   lastMsg      String?
-  seen         Boolean @default(false)
-  deletedUser  String  @default("")
-  unseenNumber Int     @default(0)
+  seen         Boolean  @default(false)
+  deletedUser  String   @default("")
+  unseenNumber Int      @default(0)
 }
 
 enum PostStatus {

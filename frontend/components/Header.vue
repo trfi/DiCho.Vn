@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b w-full bg-white shadow-lg border-gray-200">
+  <header class="fixed z-50 border-b w-full bg-white border-gray-200">
     <div class="max-w-screen-2xl w-full px-10 mx-auto">
       <div class="flex items-center justify-between h-16">
         <!-- left -->
@@ -212,7 +212,7 @@
       </div>
     </div>
     <client-only><ModalPost /></client-only>
-  </div>
+  </header>
 </template>
 
 <script>

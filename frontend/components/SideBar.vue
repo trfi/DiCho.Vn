@@ -1,12 +1,31 @@
 <template>
-  <div>
+  <nav>
     <!-- Sidebar starts -->
     <div
-      class="w-full bg-white shadow border-r h-screen flex-col justify-between hidden lg:flex pb-12"
+      class="
+        w-full
+        bg-white
+        shadow
+        border-r
+        h-screen
+        flex-col
+        justify-between
+        hidden
+        lg:flex
+        pb-12
+      "
     >
       <ul class="w-full px-8 mt-12">
         <li
-          class="flex w-full justify-between text-pink-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-pink-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <nuxt-link to="/feed" class="brand">
@@ -15,21 +34,48 @@
           </div>
         </li>
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <span class="text-base font-sans font-medium">Thông báo</span>
           </div>
         </li>
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <span class="text-base font-sans font-medium">Khám phá</span>
           </div>
         </li>
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <NuxtLink to="/messages">
@@ -37,20 +83,52 @@
             </NuxtLink>
           </div>
           <div
-            class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
+            class="
+              py-1
+              px-3
+              bg-indigo-700
+              rounded
+              text-white
+              flex
+              items-center
+              justify-center
+              text-xs
+            "
           >
             3
           </div>
         </li>
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
-            <span class="text-base font-sans font-medium">Trang cá nhân</span>
+            <NuxtLink :to="`/profile/${idUser}`"
+              ><span class="text-base font-sans font-medium"
+                >Trang cá nhân</span
+              ></NuxtLink
+            >
           </div>
         </li>
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <span class="text-base font-sans font-medium">Cài đặt</span>
@@ -58,7 +136,16 @@
         </li>
         <hr class="my-2" />
         <li
-          class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+          class="
+            flex
+            w-full
+            justify-between
+            text-gray-600
+            hover:text-indigo-700
+            cursor-pointer
+            items-center
+            mb-6
+          "
         >
           <div class="flex items-center">
             <span class="text-base font-sans font-medium">Đăng xuất</span>
@@ -75,7 +162,22 @@
         onclick="sidebarHandler(false)"
       ></div>
       <div
-        class="w-64 md:w-96 absolute z-40 bg-white shadow h-full flex-col justify-between lg:hidden pb-4 transition duration-150 ease-in-out"
+        class="
+          w-64
+          md:w-96
+          absolute
+          z-40
+          bg-white
+          shadow
+          h-full
+          flex-col
+          justify-between
+          lg:hidden
+          pb-4
+          transition
+          duration-150
+          ease-in-out
+        "
       >
         <div class="flex flex-col justify-between h-full">
           <div>
@@ -119,7 +221,15 @@
             <div class="px-8">
               <ul class="mt-12">
                 <li
-                  class="flex w-full justify-between text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
                     <span
@@ -129,27 +239,63 @@
                     >
                   </div>
                   <div
-                    class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
+                    class="
+                      py-1
+                      px-3
+                      bg-indigo-700
+                      rounded
+                      text-white
+                      flex
+                      items-center
+                      justify-center
+                      text-xs
+                    "
                   >
                     5
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
-                    <span class="xl:text-base md:text-2xl text-base ml-2"
-                      >Products</span
-                    >
+                    <span class="xl:text-base md:text-2xl text-base ml-2">Products</span>
                   </div>
                   <div
-                    class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
+                    class="
+                      py-1
+                      px-3
+                      bg-indigo-700
+                      rounded
+                      text-white
+                      flex
+                      items-center
+                      justify-center
+                      text-xs
+                    "
                   >
                     8
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
                     <span class="xl:text-base md:text-2xl text-base ml-2"
@@ -158,7 +304,16 @@
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
                     <span class="xl:text-base md:text-2xl text-base ml-2"
@@ -167,35 +322,65 @@
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
-                    <span class="xl:text-base md:text-2xl text-base ml-2"
-                      >Invoices</span
-                    >
+                    <span class="xl:text-base md:text-2xl text-base ml-2">Invoices</span>
                   </div>
                   <div
-                    class="py-1 px-3 bg-indigo-700 rounded text-white flex items-center justify-center text-xs"
+                    class="
+                      py-1
+                      px-3
+                      bg-indigo-700
+                      rounded
+                      text-white
+                      flex
+                      items-center
+                      justify-center
+                      text-xs
+                    "
                   >
                     25
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                    mb-6
+                  "
                 >
                   <div class="flex items-center">
-                    <span class="xl:text-base md:text-2xl text-base ml-2"
-                      >Inventory</span
-                    >
+                    <span class="xl:text-base md:text-2xl text-base ml-2">Inventory</span>
                   </div>
                 </li>
                 <li
-                  class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center"
+                  class="
+                    flex
+                    w-full
+                    justify-between
+                    text-gray-600
+                    hover:text-indigo-700
+                    cursor-pointer
+                    items-center
+                  "
                 >
                   <div class="flex items-center">
-                    <span class="xl:text-base md:text-2xl text-base ml-2"
-                      >Settings</span
-                    >
+                    <span class="xl:text-base md:text-2xl text-base ml-2">Settings</span>
                   </div>
                 </li>
               </ul>
@@ -223,7 +408,16 @@
                   </svg>
                 </div>
                 <input
-                  class="bg-gray-100 focus:outline-none rounded w-full text-sm text-gray-500 bg-gray-100 pl-10 py-2"
+                  class="
+                    bg-gray-100
+                    focus:outline-none
+                    rounded
+                    w-full
+                    text-sm text-gray-500
+                    bg-gray-100
+                    pl-10
+                    py-2
+                  "
                   type="text"
                   placeholder="Search"
                 />
@@ -293,11 +487,20 @@
     </div>
     <!--Mobile responsive sidebar-->
     <!-- Sidebar ends -->
-  </div>
+  </nav>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      idUser: '',
+    }
+  },
+  mounted() {
+    this.idUser = localStorage.getItem('userId')
+  },
+}
 </script>
 
 <style scoped></style>

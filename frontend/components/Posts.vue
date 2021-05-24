@@ -22,13 +22,7 @@
             </NuxtLink>
           </div>
           <div class="flex flex-col p-4 w-full">
-            <NuxtLink
-              class="hover:no-underline"
-              :to="`${post.title
-                .toLowerCase()
-                .replace(/ /g, '-')
-                .replace(/[^\w-]+/g, '')}/${post.id}`"
-            >
+            <NuxtLink class="hover:no-underline" :to="`post/${post.id}`">
               <h3 class="md:text-xl text-black hover:text-gray-600">
                 {{ post.title }}
               </h3>

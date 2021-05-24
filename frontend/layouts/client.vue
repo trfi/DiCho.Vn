@@ -1,46 +1,28 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex h-full">
     <div class="flex-1 flex flex-col overflow-hidden">
-      <header class="flex justify-between items-center">
-        <Header />
-      </header>
+      <Header />
       <div class="flex h-full">
-        <nav class="flex w-96 h-full bg-pink-500">
-          <div class="w-full flex mx-auto">
-            <SideBar class="w-full" />
-          </div>
+        <nav class="flex w-72 h-full fixed bg-pink-500">
+          <SideBar class="w-full mt-16" />
         </nav>
         <main
           class="
+            mt-16
+            mr-24
             flex flex-col
             w-full
             h-full
             bg-white
             overflow-x-hidden overflow-y-auto
-            mb-14
           "
         >
           <div class="flex w-full mb-6 mx-auto px-6 py-8">
             <client-only><Nuxt /></client-only>
           </div>
         </main>
-        <nav class="flex w-72 flex-col h-full bg-white">
-          <div class="w-full h-full flex mx-auto px-3 my-3">
-            <div
-              class="
-                w-full
-                flex
-                items-center
-                justify-center
-                text-gray-900 text-xl
-                border-4 border-gray-900 border-dashed
-              "
-            >
-              Rightbar
-            </div>
-          </div>
-        </nav>
       </div>
+      <RightBar />
     </div>
   </div>
 </template>

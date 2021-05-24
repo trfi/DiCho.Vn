@@ -5,6 +5,7 @@ query user($where: UserInput!) {
     followerCount
     followingCount
     address
+    avatar
     posts {
       id
       title

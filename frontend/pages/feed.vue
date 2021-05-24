@@ -74,7 +74,7 @@
                 class="relative w-10 h-10 rounded-xl mr-2"
               >
                 <img
-                  src="~/assets/images/content/tuoitre-main.png"
+                  :src="post.postedBy.avatar"
                   alt=""
                   class="w-full h-full object-cover rounded-3xl"
                 />
@@ -101,12 +101,7 @@
         </div>
         <div class="relative"></div>
         <div class="relative">
-          <NuxtLink
-            :to="`${post.title
-              .toLowerCase()
-              .replace(/ /g, '-')
-              .replace(/[^\w-]+/g, '')}/${post.id}`"
-          >
+          <NuxtLink :to="`/post/${post.id}`">
             <img
               :src="`https://dicho.s3-ap-southeast-1.amazonaws.com/pi/${post.thumbnail}.jpg`"
               class="object-cover w-full h-full rounded-3xl"
@@ -299,7 +294,7 @@ import commentMutaion from '~/apollo/mutations/comment'
 import newPostSubcribe from '~/apollo/subscriptions/newPost'
 
 export default {
-  layout: 'client-sidebar',
+  layout: 'client',
   middleware: ['isAuth'],
   data() {
     return {

@@ -1,0 +1,8 @@
+mutation approvePost($id: ID!, $status: PostStatus) {
+  updatePost(
+    id: $id,
+    data: { status: $status }
+  ) {
+    id
+  }
+}

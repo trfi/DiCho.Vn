@@ -200,8 +200,9 @@
               placeholder="Password"
             />
           </div>
-          <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-            <a href="#">Quên mật khẩu?</a>
+          <div class="text-right text-gray-400 hover:no-underline">
+            Chưa có tài khoản?
+            <NuxtLink class="font-bold text-gray-200" to="/signup">Đăng ký</NuxtLink>
           </div>
           <div class="px-4 pb-2 pt-4">
             <button

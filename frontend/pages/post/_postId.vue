@@ -1,5 +1,5 @@
 <template>
-  <div v-if="post" class="xl:mx-10 w-full h-full mb-10">
+  <div v-if="post" class="xl:mx-10 max-w-7xl w-full h-full mb-10">
     <div class="w-full flex items-center justify-between">
       <ol class="text-left whitespace-nowrap flex">
         <li class="mr-2 inline-flex items-center text-blue-400 md:text-base text-xs">

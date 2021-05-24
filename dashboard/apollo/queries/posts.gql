@@ -1,0 +1,26 @@
+query Posts($status: PostStatus) {
+    posts(take: 10, where: { status: $status }, orderBy: { id: desc }) {
+      id
+      title
+      thumbnail
+      postedBy {
+        id
+        name
+      }
+      price
+      likeCount
+      commentCount
+      created
+      broker
+      region
+      status
+      comments {
+        id
+        content
+        user {
+          id
+          name
+        }
+      }
+    }
+  }
