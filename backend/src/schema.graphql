@@ -6,7 +6,7 @@ type Query {
   currentUser: User!
   info: String!
   category(id: ID!): Category!
-  categories(filter: String, where: ID, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
+  categories(filter: String, where: ID, skip: Int, take: Int, orderBy: PostOrderByInput, getParent: Boolean): [Category!]!
   posts(
     where: PostInputQuery
     filter: String

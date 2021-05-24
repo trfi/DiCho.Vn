@@ -224,7 +224,7 @@ export default {
   layout: 'client-sidebar',
   data() {
     return {
-      posts: {},
+      posts: [],
     }
   },
   apollo: {

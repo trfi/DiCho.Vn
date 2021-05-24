@@ -122,7 +122,6 @@ model Category {
   id        String   @id
   posts     Post[]
   title     String
-  thumbnail String
   slug      String
   path      String?
   parent    String?

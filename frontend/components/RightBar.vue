@@ -4,14 +4,16 @@
       <div
         class="
           w-full
-          flex
-          items-center
+          flex flex-col
+          items-start
           justify-center
           text-gray-900 text-xl
-          border-4 border-gray-900 border-dashed
+          shadow
+          border-gray-900
         "
       >
-        Rightbar
+        <CardRightbar />
+        <CardRightbar />
       </div>
     </div>
   </nav>

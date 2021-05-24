@@ -8,12 +8,7 @@
       <div class="hover:no-underline">
         <div class="flex flex-row items-center justify-between">
           <div class="w-96 h-36 flex mx-5">
-            <NuxtLink
-              :to="`${post.title
-                .toLowerCase()
-                .replace(/ /g, '-')
-                .replace(/[^\w-]+/g, '')}/${post.id}`"
-            >
+            <NuxtLink :to="`/post/${post.id}`">
               <img
                 :src="`https://dicho.s3-ap-southeast-1.amazonaws.com/pi/${post.thumbnail}.jpg`"
                 alt=""

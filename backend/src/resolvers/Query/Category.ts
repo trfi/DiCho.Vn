@@ -19,7 +19,8 @@ export async function category(_, { id }, { prisma }) {
   }
 }
 
-export async function categories(_, { filter, orderBy, where, take, pagination }, { prisma }) {
+export async function categories(_, { filter, orderBy, where, take, pagination, getParent }, { prisma }) {
+  where = getParent ? { ...where, parent: { equals: null } } : {}
   try {
     const whereCategory = filter
       ? {
@@ -63,7 +64,6 @@ export async function categories(_, { filter, orderBy, where, take, pagination }
     console.log(find);
 
     const categories = await prisma.category.findMany(find)
-    console.log(categories)
     return categories
   } catch (e) {
     console.error(e);

@@ -295,7 +295,6 @@ import newPostSubcribe from '~/apollo/subscriptions/newPost'
 
 export default {
   layout: 'client',
-  middleware: ['isAuth'],
   data() {
     return {
       postDraft: {},
