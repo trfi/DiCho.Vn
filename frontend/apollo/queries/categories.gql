@@ -1,0 +1,11 @@
+query categories {
+  categories(take: 14) {
+    id
+    title
+    slug
+    path
+    children
+    types
+  }
+  
+}

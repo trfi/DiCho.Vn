@@ -10,7 +10,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/uikit-core.min.css' },
+    ],
+    script: [{ type: 'module', src: 'uikit.min.js', ssr: false }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

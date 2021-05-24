@@ -334,15 +334,11 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   layout: 'client-sidebar',
 }
 </script>
 
-<style scoped>
-.category-shadow:hover {
-  box-shadow: 0 1px 20px 0 rgb(0 0 0 / 30%);
-  z-index: 1;
-}
-</style>
+<style></style>

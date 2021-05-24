@@ -1,0 +1,14 @@
+query category($id: ID!) {
+  category(id: $id) {
+    posts {
+      thumbnail
+      title
+      price
+      regionName
+      created
+      category {
+        title
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+query posts {
+    posts(take: 10, orderBy: { id: asc }) {
+        id
+        title
+        thumbnail
+        price
+    }
+}

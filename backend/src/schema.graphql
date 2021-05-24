@@ -4,6 +4,7 @@ type Query {
   users: UserCount!
   currentUser: User!
   info: String!
+  category(id: ID!): Category!
   categories(filter: String, skip: Int, take: Int, orderBy: PostOrderByInput): [Category!]!
   posts(
     where: PostInput
