@@ -41,7 +41,9 @@
       <div class="col-span-3 row-span-1">
         <header class="flex items-center justify-between leading-tight p-2 md:p-4">
           <h1 class="text-lg">
-            <a class="no-underline hover:underline text-black" href="#"> Title </a>
+            <a class="no-underline hover:underline text-black" href="#">
+              Bán tủ lạnh Samsung 8Lit - cũ 1.4tr
+            </a>
           </h1>
           <p class="text-grey-darker text-sm">9 min ago</p>
         </header>

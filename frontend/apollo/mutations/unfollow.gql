@@ -1,5 +1,5 @@
-mutation unfollow {
-  unfollow(followerId: "60a129853b44265330880ebe") {
+mutation unfollow($id: ID!) {
+  unfollow(id: $id) {
   	follower {
       id
       phone

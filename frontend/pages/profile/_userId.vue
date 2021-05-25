@@ -1,17 +1,8 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto w-full max-w-5xl">
     <!-- profile-cover-->
     <div
-      class="
-        flex
-        max-w-6xl
-        lg:flex-row
-        justify-between
-        flex-col
-        items-center
-        lg:py-8
-        lg:space-x-8
-      "
+      class="flex lg:flex-row justify-between flex-col items-center lg:py-8 lg:space-x-8"
     >
       <div>
         <div
@@ -257,7 +248,7 @@
         </div>
       </div>
     </div>
-    <div class="py-8 max-w-5xl flex flex-col p-0">
+    <div class="py-8 w-full flex flex-col p-0">
       <h1 class="font-bold text-2xl ml-5 mb-5">Bài viết</h1>
       <Posts v-if="user.posts && user.posts.length > 0" :posts.sync="user.posts" />
     </div>
@@ -308,7 +299,7 @@ export default {
         const res = await this.$apollo
           .mutate({
             mutation,
-            variables: { userId },
+            variables: { id: userId },
           })
           .then(({ data }) => data)
         console.log(res)

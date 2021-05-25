@@ -82,8 +82,8 @@ type Mutation {
   updateComment(id: ID!): Comment @auth(requires: USER)
   deleteComment(id: ID!, postId: String!): CommentOutput @auth(requires: USER)
 
-  follow(followerId: ID!): FollowOutput @auth(requires: USER)
-  unfollow(followerId: ID!): FollowOutput @auth(requires: USER)
+  follow(id: ID!): FollowOutput @auth(requires: USER)
+  unfollow(id: ID!): FollowOutput @auth(requires: USER)
 
   vote(postId: ID!): Vote @auth(requires: USER)
   like(postId: ID!): likeOutput @auth(requires: USER)

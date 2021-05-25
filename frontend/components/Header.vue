@@ -12,7 +12,7 @@
         </div>
         <!-- right -->
         <div class="flex items-center relative">
-          <div class="flex items-center">
+          <div v-if="idUser" class="flex items-center">
             <NuxtLink
               :to="`/profile/${idUser}`"
               class="
@@ -53,6 +53,9 @@
               Đăng bài
             </button>
             <div class="w-1 mx-1 md:w-2 md:mx-2 mb-1 text-gray-400">|</div>
+          </div>
+          <div v-else class="mr-5 bg-blue-400 px-4 py-2 rounded-md text-white">
+            <NuxtLink to="/login"> Đăng nhập </NuxtLink>
           </div>
           <div class="flex">
             <div

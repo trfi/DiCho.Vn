@@ -89,7 +89,6 @@ Table Follow {
   created DateTime [default: `now()`, not null]
 
   indexes {
-    (userId, followingId) [pk]
     (userId, followingId) [unique]
   }
 }
@@ -112,6 +111,7 @@ Table Category {
   title String [not null]
   slug String [not null]
   path String
+  thumbnail String
   parent String
   children Json
   types Type [not null]

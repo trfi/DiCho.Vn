@@ -103,7 +103,7 @@ model Follow {
   followingId String
   created     DateTime @default(now())
 
-  @@id([userId, followingId])
+  @@index([userId, followingId])
   @@unique([userId, followingId])
 }
 
@@ -124,6 +124,7 @@ model Category {
   title     String
   slug      String
   path      String?
+  thumbnail String?
   parent    String?
   children  Json?
   types     Type[]

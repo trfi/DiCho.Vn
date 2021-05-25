@@ -1,0 +1,74 @@
+[
+  {
+    "msgId": "60a131cc2206c706f54ba8cd",
+    "senderId": "60a129853b44265330880ebe",
+    "receiverId": "60a1296af601509a40766998",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a131a8218c1a23f4b5cc3d",
+    "senderId": "60a1296af601509a40766998",
+    "receiverId": "60a129853b44265330880ebe",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a13183e59904964c524fd1",
+    "senderId": "60a1296af601509a40766998",
+    "receiverId": "60a129853b44265330880ebe",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a131d61bdb16a1143375bf",
+    "senderId": "60a129853b44265330880ebe",
+    "receiverId": "60a1296af601509a40766998",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a22d789412a0bbf481b47c",
+    "senderId": "60a129853b44265330880ebe",
+    "receiverId": "60a1296af601509a40766998",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a4e60500549ddfb030e910",
+    "senderId": "60a1296af601509a40766998",
+    "receiverId": "60a4d97274248e5b5b0eef81",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a4eaa294e33b7feb02cda3",
+    "senderId": "60a1296af601509a40766998",
+    "receiverId": "60a129853b44265330880ebe",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  },
+  {
+    "msgId": "60a4ec3183debcb60828d021",
+    "senderId": "60a4d97274248e5b5b0eef81",
+    "receiverId": "60a1296af601509a40766998",
+    "lastMsg": null,
+    "seen": false,
+    "deletedUser": "",
+    "unseenNumber": 0
+  }
+]

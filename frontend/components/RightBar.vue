@@ -12,6 +12,7 @@
           border-gray-900
         "
       >
+        <h1 class="text-2xl ml-3 mb-3">Bài viết nổi bật</h1>
         <CardRightbar />
         <CardRightbar />
       </div>

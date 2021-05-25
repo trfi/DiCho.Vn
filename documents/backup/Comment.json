@@ -1,0 +1,20 @@
+[
+  {
+    "id": "60ab52e77a392eaab5df88a4",
+    "postId": "60ab4551da27bec195d4caf9",
+    "userId": "60a1296af601509a40766998",
+    "content": "Tôi muốn mua"
+  },
+  {
+    "id": "60ab54124c303b841e05503d",
+    "postId": "60ab5366a94bf87be60b8e1f",
+    "userId": "60a1296af601509a40766998",
+    "content": "Tôi muốn thuê"
+  },
+  {
+    "id": "60ab55cecbb4e88f52b1ec3e",
+    "postId": "60ab5563ccc6f1a30ef590d9",
+    "userId": "60a1296af601509a40766998",
+    "content": "Hay"
+  }
+]

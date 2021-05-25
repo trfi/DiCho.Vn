@@ -2,7 +2,7 @@ import { objectId } from "../../utils";
 import { ApolloError } from "apollo-server";
 
 
-export async function follow(_, { followerId }, { prisma, user, pubsub }) {
+export async function follow(_, { id }, { prisma, user, pubsub }) {
   try {
     const follow = prisma.follow.create({
       data: {
@@ -10,7 +10,7 @@ export async function follow(_, { followerId }, { prisma, user, pubsub }) {
           connect: { id: user.id } 
         },
         following: {
-          connect: { id: followerId }
+          connect: { id: id }
         }
       }
     })
@@ -23,7 +23,7 @@ export async function follow(_, { followerId }, { prisma, user, pubsub }) {
       }
     })
     const increFollower = prisma.user.update({
-      where: { id: followerId },
+      where: { id: id },
       data: {
         followerCount: {
           increment: 1,
@@ -39,13 +39,13 @@ export async function follow(_, { followerId }, { prisma, user, pubsub }) {
   }
 }
 
-export async function unfollow(_, { followerId }, { prisma, user, pubsub }) {
+export async function unfollow(_, { id }, { prisma, user, pubsub }) {
   try {
     const follow = prisma.follow.delete({
       where: {
         userId_followingId: {
           userId: user.id,
-          followingId: followerId
+          followingId: id
         }
       }
     })
@@ -58,7 +58,7 @@ export async function unfollow(_, { followerId }, { prisma, user, pubsub }) {
       }
     })
     const decreFollower = prisma.user.update({
-      where: { id: followerId },
+      where: { id: id },
       data: {
         followerCount: {
           decrement: 1,

@@ -324,9 +324,11 @@
                   data-icon="ph:chats-bold"
                   data-inline="false"
                 ></span>
-                <span class="capitalize" style="font-weight: 600"
-                  >CHAT VỚI NGƯỜI ĐĂNG</span
-                >
+                <NuxtLink to="/messages">
+                  <span class="capitalize" style="font-weight: 600"
+                    >CHAT VỚI NGƯỜI ĐĂNG</span
+                  >
+                </NuxtLink>
               </a>
             </div>
           </div>

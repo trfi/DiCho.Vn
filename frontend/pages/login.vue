@@ -306,6 +306,7 @@ export default {
   },
   mounted() {
     this.isAuthenticated = !!this.$apolloHelpers.getToken()
+    if (this.isAuthenticated) this.$router.push('/feed')
   },
   methods: {
     login() {
